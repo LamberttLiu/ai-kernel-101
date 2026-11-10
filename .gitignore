@@ -1,0 +1,46 @@
+# Local workspace state and personal materials
+/.obsidian/
+/.openai/
+/.agents/
+/.vscode/
+/.local/
+/AGENTS.md
+/AGENT.md
+/00-写作入口.md
+
+# Private writing inbox; keep the Obsidian path locally
+/planning/inbox/
+
+# Existing independently managed website and its export
+/sites/
+
+# Reproducible platform exports
+/publishing/exports/
+
+# Build products and environment caches
+**/build/
+**/cmake-build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/node_modules/
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.a
+*.lib
+
+# Large raw experiment output; retain record.md and curated metrics
+/lab/**/raw/
+/lab/**/profiler/
+
+# Machine-specific files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.tmp
