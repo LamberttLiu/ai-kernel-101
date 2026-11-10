@@ -1,0 +1,10 @@
+{
+  "mode": "CPU only",
+  "numpy": "2.3.5",
+  "fp16_input_encoding": "exact match for all 6144 elements",
+  "output_max_abs": 1.6653345369377348e-16,
+  "prefix_max_abs": 1.4210854715202004e-14,
+  "criterion": "all elements: abs <= 1e-11 + 1e-11*abs(reference)",
+  "passed": true,
+  "npu": "not built or run"
+}

@@ -1,0 +1,23 @@
+Change Dir: '<REPO>/.local/flash-attention-fixed/build-cpu'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j2
+/usr/bin/cmake -S<REPO>/src/flash_attention_fixed -B<REPO>/.local/flash-attention-fixed/build-cpu --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start <REPO>/.local/flash-attention-fixed/build-cpu/CMakeFiles <REPO>/.local/flash-attention-fixed/build-cpu//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+/usr/bin/gmake  -f CMakeFiles/fa_fixed.dir/build.make CMakeFiles/fa_fixed.dir/depend
+gmake[2]: Entering directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+cd <REPO>/.local/flash-attention-fixed/build-cpu && /usr/bin/cmake -E cmake_depends "Unix Makefiles" <REPO>/src/flash_attention_fixed <REPO>/src/flash_attention_fixed <REPO>/.local/flash-attention-fixed/build-cpu <REPO>/.local/flash-attention-fixed/build-cpu <REPO>/.local/flash-attention-fixed/build-cpu/CMakeFiles/fa_fixed.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+/usr/bin/gmake  -f CMakeFiles/fa_fixed.dir/build.make CMakeFiles/fa_fixed.dir/build
+gmake[2]: Entering directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+[ 50%] Building CXX object CMakeFiles/fa_fixed.dir/main.cpp.o
+/usr/bin/c++ -DFA_REFERENCE_ONLY=1  -O3 -DNDEBUG -std=gnu++17 -MD -MT CMakeFiles/fa_fixed.dir/main.cpp.o -MF CMakeFiles/fa_fixed.dir/main.cpp.o.d -o CMakeFiles/fa_fixed.dir/main.cpp.o -c <REPO>/src/flash_attention_fixed/main.cpp
+[100%] Linking CXX executable fa_fixed
+/usr/bin/cmake -E cmake_link_script CMakeFiles/fa_fixed.dir/link.txt --verbose=1
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/fa_fixed.dir/main.cpp.o -o fa_fixed 
+gmake[2]: Leaving directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+[100%] Built target fa_fixed
+gmake[1]: Leaving directory '<REPO>/.local/flash-attention-fixed/build-cpu'
+/usr/bin/cmake -E cmake_progress_start <REPO>/.local/flash-attention-fixed/build-cpu/CMakeFiles 0
+

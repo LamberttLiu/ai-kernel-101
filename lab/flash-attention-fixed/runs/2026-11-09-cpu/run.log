@@ -1,0 +1,2 @@
+B=1 H=1 N=64 D=32 BR=32 BC=32 non-causal; CPU FP64 checks: PASS
+REFERENCE_ONLY: no NPU execution, no NPU correctness/performance claim

@@ -1,0 +1,8 @@
+Output directory already exists
+.local/flash-attention-fixed/cpu01/k.bin: OK
+.local/flash-attention-fixed/cpu01/metrics.csv: OK
+.local/flash-attention-fixed/cpu01/q.bin: OK
+.local/flash-attention-fixed/cpu01/reference-output-fp64.bin: OK
+.local/flash-attention-fixed/cpu01/reference-states-fp64.bin: OK
+.local/flash-attention-fixed/cpu01/status.txt: OK
+.local/flash-attention-fixed/cpu01/v.bin: OK
