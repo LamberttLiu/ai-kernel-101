@@ -76,7 +76,8 @@ ai-kernel-101/
 │   ├── ARTICLE_TEMPLATE.md         # 写作与审稿提示
 │   ├── drafts/                     # 写作中的正文
 │   ├── articles/                   # 定稿正文
-│   └── assets/                     # 视觉与来源规范；images 存配图
+│   ├── figures/                    # Matplotlib 工作流；src 源码，gen 同名 PNG/SVG
+│   └── assets/                     # 视觉与来源规范；images 保留历史图与附件
 ├── src/                            # 完整实现、CMake 与代码说明
 │   ├── hello_world/
 │   └── vector_add/                 # 基础、传输、队列与尾块样例
