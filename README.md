@@ -99,6 +99,3 @@ ai-kernel-101/
 
 组织规则和本次路径变更见 [工作区管理说明](planning/workspace-management.md)。
 
-多端写作继续使用项目根目录这个 Obsidian 库，文稿保留唯一来源。入口、新笔记、附件与同步范围约定见 [Obsidian 写作说明](planning/obsidian-writing.md)。
-
-知乎、微信公众号和小红书从同一正文适配，不长期维护三套文章。真实发布链接与勘误记录在 publishing；没有确认记录的内容不标记为已发布。私人运营数据、账号信息和商业策略只留本地。
