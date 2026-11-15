@@ -1,0 +1,209 @@
+{
+  "renderer": "157.0.4341.46",
+  "node": "v24.22.1",
+  "sharp": {
+    "aom": "3.15.1",
+    "archive": "3.8.9",
+    "cairo": "1.18.6",
+    "cgif": "0.5.4",
+    "exif": "0.6.26",
+    "expat": "2.8.5",
+    "ffi": "3.8.0",
+    "fontconfig": "2.18.3",
+    "freetype": "2.14.3",
+    "fribidi": "1.0.17",
+    "glib": "2.90.0",
+    "harfbuzz": "14.5.0",
+    "heif": "1.23.5",
+    "highway": "1.4.0",
+    "imagequant": "2.4.1",
+    "lcms": "2.19.1",
+    "mozjpeg": "0826579",
+    "pango": "1.58.2",
+    "pixman": "0.46.4",
+    "png": "1.6.58",
+    "proxy-libintl": "0.5",
+    "rsvg": "2.63.2",
+    "tiff": "4.7.2",
+    "uhdr": "2.0.2",
+    "vips": "8.18.7",
+    "webp": "1.6.0",
+    "xml2": "2.15.4",
+    "zlib-ng": "2.3.3",
+    "sharp": "0.35.5"
+  },
+  "fonts": {
+    "Inter": {
+      "versions": [
+        "Version 4.001;git-66647c0bb"
+      ],
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    "Inter Italic": {
+      "versions": [
+        "Version 4.001;git-66647c0bb"
+      ],
+      "sha256": "acd98e64795781b2058f07b18475e0ecee2a0fe2b42a49e2f9e37d0d6bf66ce6"
+    },
+    "Microsoft YaHei": {
+      "versions": [
+        "Version 6.31"
+      ],
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f"
+    }
+  },
+  "contrastOnGraphite": {
+    "brand.red": 3.55,
+    "brand.cyan": 8.82,
+    "neutral.600": 3.77,
+    "neutral.300": 11.44,
+    "neutral.050": 16.14
+  },
+  "variants": {
+    "C": {
+      "file": "ai-kernel-101_github-hero_brand-c_1600x600",
+      "sourceCheck": {
+        "duplicateIds": [],
+        "brand": "AI Kernel 101",
+        "positioning": "从 Hello World 到 Flash Attention",
+        "keywords": "Ascend C · First Principles · Performance",
+        "slogan": "UNDERSTAND THE COMPUTE. ENGINEER THE PERFORMANCE.",
+        "header": "OPEN SOURCE · KERNEL ENGINEERING",
+        "author": "@LamberttLiu"
+      },
+      "pixelCheck": {
+        "count": 36,
+        "whiteSquares": true,
+        "gridAligned": true,
+        "watermarkItalic": true,
+        "watermarkFill": "#C9D1DA",
+        "watermarkOpacity": "0.65",
+        "flowCount": 2,
+        "circularSources": 2,
+        "noVisibleConceptNote": true
+      },
+      "colors": [
+        "#15191F",
+        "#35C9D8",
+        "#D62839",
+        "#F3F5F7",
+        "#697586",
+        "#C9D1DA"
+      ],
+      "bounds": [
+        {
+          "id": "brand-name",
+          "text": "AI Kernel 101",
+          "x": 64,
+          "y": 128,
+          "width": 697.40625,
+          "height": 145,
+          "font": "Inter"
+        },
+        {
+          "id": "positioning",
+          "text": "从 Hello World 到 Flash Attention",
+          "x": 64,
+          "y": 338,
+          "width": 538.3125,
+          "height": 45,
+          "font": "\"Microsoft YaHei\""
+        },
+        {
+          "id": "keywords",
+          "text": "Ascend C · First Principles · Performance",
+          "x": 64,
+          "y": 405,
+          "width": 473.375,
+          "height": 31,
+          "font": "Inter"
+        },
+        {
+          "id": "slogan",
+          "text": "UNDERSTAND THE COMPUTE. ENGINEER THE PERFORMANCE.",
+          "x": 64,
+          "y": 525,
+          "width": 596.703125,
+          "height": 24,
+          "font": "Inter"
+        },
+        {
+          "id": "header",
+          "text": "OPEN SOURCE · KERNEL ENGINEERING",
+          "x": 64,
+          "y": 69,
+          "width": 374.216796875,
+          "height": 24,
+          "font": "Inter"
+        },
+        {
+          "id": "author",
+          "text": "@LamberttLiu",
+          "x": 1405.78125,
+          "y": 549,
+          "width": 130.668701171875,
+          "height": 24,
+          "font": "Inter"
+        }
+      ],
+      "platformFonts": {
+        "brand-name": [
+          {
+            "familyName": "Inter",
+            "postScriptName": "Inter-28pt-Bold",
+            "isCustomFont": true,
+            "glyphCount": 13
+          }
+        ],
+        "positioning": [
+          {
+            "familyName": "Microsoft YaHei",
+            "postScriptName": "MicrosoftYaHei",
+            "isCustomFont": false,
+            "glyphCount": 31
+          }
+        ],
+        "keywords": [
+          {
+            "familyName": "Inter",
+            "postScriptName": "Inter-28pt",
+            "isCustomFont": true,
+            "glyphCount": 41
+          }
+        ],
+        "slogan": [
+          {
+            "familyName": "Inter",
+            "postScriptName": "Inter-20pt",
+            "isCustomFont": true,
+            "glyphCount": 49
+          }
+        ],
+        "header": [
+          {
+            "familyName": "Inter",
+            "postScriptName": "Inter-20pt-SemiBold",
+            "isCustomFont": true,
+            "glyphCount": 32
+          }
+        ],
+        "author": [
+          {
+            "familyName": "Inter",
+            "postScriptName": "InterItalic-20pt-Italic",
+            "isCustomFont": true,
+            "glyphCount": 12
+          }
+        ]
+      },
+      "png": {
+        "width": 1600,
+        "height": 600,
+        "space": "srgb",
+        "hasProfile": true
+      },
+      "svgSha256": "836f23b789848c8286dcac192c227cb859ae8e24642323b6e7107c109935662f",
+      "pngSha256": "89a6b8a46af93ce06531f5064832aaf4d58e081edb0503af40b05c078199c4cb"
+    }
+  }
+}

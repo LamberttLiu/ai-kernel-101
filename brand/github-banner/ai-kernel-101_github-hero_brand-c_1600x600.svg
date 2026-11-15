@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title description">
+<title id="title">AI Kernel 101 — 方案 C · 像素矩阵</title>
+<desc id="description">OPEN SOURCE · KERNEL ENGINEERING。从 Hello World 到 Flash Attention。Ascend C · First Principles · Performance。UNDERSTAND THE COMPUTE. ENGINEER THE PERFORMANCE.。@LamberttLiu。无描边的 Mist 白色 101 与底层矩阵共用 32 px 方格。青色流线从第一框顶部连接第二框顶部，再从第二框底部连接第三框底部，每段以圆点起始、实心锐角三角箭头结束。中央红色分块表示活跃计算。图形是品牌概念，不代表具体算法、设备或测量结果。</desc>
+<g id="background">
+<rect x="0" y="0" width="1600" height="600" fill="#15191F" />
+</g>
+<g id="compute">
+<rect x="992" y="80" width="160" height="416" fill="#35C9D8" id="matrix-box-1" data-cell-size="32"/><rect x="1184" y="80" width="160" height="416" fill="#D62839" id="matrix-box-2" data-cell-size="32"/><rect x="1376" y="80" width="160" height="416" fill="#35C9D8" id="matrix-box-3" data-cell-size="32"/>
+</g>
+<g id="pixel-numerals">
+<g id="pixel-digit-1">
+<rect x="1056" y="176" width="32" height="32" fill="#F3F5F7" /><rect x="1024" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="240" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="272" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="304" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="336" width="32" height="32" fill="#F3F5F7" /><rect x="1024" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1056" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1088" y="368" width="32" height="32" fill="#F3F5F7" />
+</g><g id="pixel-digit-2">
+<rect x="1216" y="176" width="32" height="32" fill="#F3F5F7" /><rect x="1248" y="176" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="176" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="240" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="240" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="272" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="272" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="304" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="304" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="336" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="336" width="32" height="32" fill="#F3F5F7" /><rect x="1216" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1248" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1280" y="368" width="32" height="32" fill="#F3F5F7" />
+</g><g id="pixel-digit-3">
+<rect x="1440" y="176" width="32" height="32" fill="#F3F5F7" /><rect x="1408" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="208" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="240" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="272" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="304" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="336" width="32" height="32" fill="#F3F5F7" /><rect x="1408" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1440" y="368" width="32" height="32" fill="#F3F5F7" /><rect x="1472" y="368" width="32" height="32" fill="#F3F5F7" />
+</g>
+</g>
+<g id="grid">
+<path d="M 1024 80 V 496 M 1056 80 V 496 M 1088 80 V 496 M 1120 80 V 496 M 992 112 H 1152 M 992 144 H 1152 M 992 176 H 1152 M 992 208 H 1152 M 992 240 H 1152 M 992 272 H 1152 M 992 304 H 1152 M 992 336 H 1152 M 992 368 H 1152 M 992 400 H 1152 M 992 432 H 1152 M 992 464 H 1152 " fill="none" stroke="#697586" stroke-width="1" opacity="0.3"/><path d="M 1216 80 V 496 M 1248 80 V 496 M 1280 80 V 496 M 1312 80 V 496 M 1184 112 H 1344 M 1184 144 H 1344 M 1184 176 H 1344 M 1184 208 H 1344 M 1184 240 H 1344 M 1184 272 H 1344 M 1184 304 H 1344 M 1184 336 H 1344 M 1184 368 H 1344 M 1184 400 H 1344 M 1184 432 H 1344 M 1184 464 H 1344 " fill="none" stroke="#697586" stroke-width="1" opacity="0.3"/><path d="M 1408 80 V 496 M 1440 80 V 496 M 1472 80 V 496 M 1504 80 V 496 M 1376 112 H 1536 M 1376 144 H 1536 M 1376 176 H 1536 M 1376 208 H 1536 M 1376 240 H 1536 M 1376 272 H 1536 M 1376 304 H 1536 M 1376 336 H 1536 M 1376 368 H 1536 M 1376 400 H 1536 M 1376 432 H 1536 M 1376 464 H 1536 " fill="none" stroke="#697586" stroke-width="1" opacity="0.3"/>
+</g>
+<g id="data-flow">
+<g id="flow-box-1-to-2">
+<path d="M 1072 72 V 56 H 1264 V 68" fill="none" stroke="#35C9D8" stroke-width="3" /><circle cx="1072" cy="72" r="4" fill="#35C9D8"/><path d="M 1258 68 L 1270 68 L 1264 80 Z" fill="#35C9D8"/>
+</g><g id="flow-box-2-to-3">
+<path d="M 1264 504 V 520 H 1456 V 508" fill="none" stroke="#35C9D8" stroke-width="3" /><circle cx="1264" cy="504" r="4" fill="#35C9D8"/><path d="M 1450 508 L 1462 508 L 1456 496 Z" fill="#35C9D8"/>
+</g>
+</g>
+<g id="brand">
+<text id="brand-name" x="64" y="244" font-family="Inter" font-size="120" font-weight="700" font-style="normal" opacity="1" fill="#F3F5F7">AI Kernel 101</text>
+</g>
+<g id="content">
+<text id="positioning" x="64" y="374" font-family="Microsoft YaHei" font-size="34" font-weight="400" font-style="normal" opacity="1" fill="#C9D1DA">从 Hello World 到 Flash Attention</text><text id="keywords" x="64" y="430" font-family="Inter" font-size="26" font-weight="400" font-style="normal" opacity="1" fill="#C9D1DA">Ascend C · First Principles · Performance</text>
+</g>
+<g id="auxiliary">
+<text id="slogan" x="64" y="544" font-family="Inter" font-size="20" font-weight="400" font-style="normal" opacity="1" fill="#C9D1DA">UNDERSTAND THE COMPUTE. ENGINEER THE PERFORMANCE.</text><text id="header" x="64" y="88" font-family="Inter" font-size="20" font-weight="600" font-style="normal" opacity="1" fill="#C9D1DA">OPEN SOURCE · KERNEL ENGINEERING</text><text id="author" text-anchor="end" x="1536" y="568" font-family="Inter" font-size="20" font-weight="400" font-style="italic" opacity="0.65" fill="#C9D1DA">@LamberttLiu</text>
+</g>
+</svg>
