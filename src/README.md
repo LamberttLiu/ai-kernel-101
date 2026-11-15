@@ -12,7 +12,7 @@
 | 不均匀分核 | [03_uneven_split](vector_add/03_uneven_split/README.md) |
 | 任意长度尾块 | [04_arbitrary_length](vector_add/04_arbitrary_length/README.md) |
 
-源文件、构建文件和样例 README 与导入时的原本地工作副本逐文件核对 SHA-256；本次未改写这 18 个文件，也未重新运行样例。历史验证记录见 [lab](../lab/verification-2026-11-05.md)。
+导入时，源文件、构建文件和样例 README 曾与原本地工作副本逐文件核对 SHA-256；当时未改写这 18 个文件，也未重新运行样例。后续 Hello World 的源码修改及 CPU／SIM／NPU 功能实测另见[本轮记录](../lab/hello-world/README.md)。
 
 后续继续按算子与版本组织，例如 `softmax/`、`matmul/`、`attention/`，有实际实现时再创建对应目录。现有代码路径保留，不随文章篇次调整。
 

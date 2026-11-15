@@ -1,4 +1,4 @@
-![AI Kernel 101：从 Hello World 到 Flash Attention，Ascend C · First Principles · Performance](docs/assets/images/ai-kernel-101_github-hero_brand-c_1600x600_v1.1.2.png)
+![AI Kernel 101：从 Hello World 到 Flash Attention，Ascend C · First Principles · Performance](docs/assets/brand/github-banner/ai-kernel-101_github-hero_brand-c_1600x600.png)
 
 # AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 
@@ -22,18 +22,18 @@
 
 # 专栏目录
 
-| 篇次 | 对外标题                                           | 当前材料                                                                                     |
-| ---- | -------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| 01   | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？         | [草稿](docs/drafts/hello-world.md)                                                            |
+| 篇次 | 对外标题                                           | 当前材料                                                                                                            |
+| ---- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| 01   | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？         | [草稿](docs/drafts/hello-world.md)                                                                                   |
 | 02   | 同样是计算，NPU 为什么要区分 Vector 和 Cube？      | [草稿](docs/drafts/hardware-dataflow.md)；[提纲](<planning/outlines/02-从算子看昇腾 NPU：计算、存储与数据流-提纲.md>) |
-| 03   | 只做一次加法，为什么还要搬来搬去？                 | [草稿](docs/drafts/vector-add.md)                                                             |
-| 04   | 数据放不下怎么办？从一个 Kernel 理解 Tiling        | [尾块素材草稿，尚需补核内分块](docs/drafts/vector-add-tail.md)                                |
-| 05 | Double Buffer 一定更快吗？用实验拆解计算流水 | [提纲](<planning/outlines/05-计算流水与双缓冲-提纲.md>)；实现与实验待完成 |
-| 06 | Softmax 为什么难并行？从 Reduction 讲起 | [提纲](<planning/outlines/06-归约与稳定Softmax-提纲.md>)；实现与实验待完成 |
-| 07 | 矩阵乘为什么快？理解 Cube 的数据复用 | [提纲](<planning/outlines/07-矩阵乘与数据复用-提纲.md>)；实现与实验待完成 |
-| 08   | Flash Attention 为什么不需要保存注意力矩阵？       | [论证提纲](<planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>) |
-| 09   | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | 已规划，待可行性验证                                                                         |
-| 10   | Flash Attention 到底快在哪里？一次完整的性能分析   | 已规划，待实现与测量                                                                         |
+| 03   | 只做一次加法，为什么还要搬来搬去？                 | [草稿](docs/drafts/vector-add.md)                                                                                    |
+| 04   | 数据放不下怎么办？从一个 Kernel 理解 Tiling        | [尾块素材草稿，尚需补核内分块](docs/drafts/vector-add-tail.md)                                                       |
+| 05   | Double Buffer 一定更快吗？用实验拆解计算流水       | [提纲](planning/outlines/05-计算流水与双缓冲-提纲.md)；实现与实验待完成                                              |
+| 06   | Softmax 为什么难并行？从 Reduction 讲起            | [提纲](planning/outlines/06-归约与稳定Softmax-提纲.md)；实现与实验待完成                                             |
+| 07   | 矩阵乘为什么快？理解 Cube 的数据复用               | [提纲](planning/outlines/07-矩阵乘与数据复用-提纲.md)；实现与实验待完成                                              |
+| 08   | Flash Attention 为什么不需要保存注意力矩阵？       | [论证提纲](<planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)                        |
+| 09   | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | 已规划，待可行性验证                                                                                                |
+| 10   | Flash Attention 到底快在哪里？一次完整的性能分析   | 已规划，待实现与测量                                                                                                |
 
 01 中“没有 NPU”首先指没有本地设备；08 指不保存完整的分数／概率中间矩阵，并不表示总计算量或搬运量变为线性。完整状态见 [文章目录](docs/README.md)，技术依赖和标题映射见 [系列计划](planning/series-plan.md)。
 
@@ -59,7 +59,7 @@
 
 现有练习以 CANN 9.1.0、`dav-2201` 为原记录基线。内核采用 .cpp 文件，并在对应 CMake 中显式指定 `LANGUAGE ASC`；仍需 CANN 的 ASC 编译工具链。传输测速样例使用 C++ 与 ACL，运行需要实际设备环境。
 
-历史 CPU 验证范围与复现入口见 [2026-11-05 验证记录](lab/verification-2026-11-05.md)。原始日志未随记录归档；本轮规范重构没有重新执行 CPU、SIM 或 NPU 验证。推导、模型、CPU 功能、仿真、真机正确性和真机性能分别标注，不能互相替代。
+Hello World 的 CPU／SIM／NPU 本轮功能验证、必要输出和复现入口见[配套实验记录](lab/hello-world/README.md)，源码与接口版本见[来源核对](lab/hello-world/README.md#源码与资料范围)。本轮不测性能；其他算子的历史验证状态保持不变。推导、模型、CPU 功能、仿真、真机正确性和真机性能分别标注，不能互相替代。
 
 样例来源为 [CANN Samples](https://gitcode.com/cann/cann-samples/)，上游许可入口为 [CANN Samples LICENSE](https://gitcode.com/cann/cann-samples/blob/master/LICENSE)。现有文件中的声明原样保留；来源、提交与适用许可仍有待逐项核对，见 [源码说明](src/README.md)。暂不为新增文稿或整个仓库统一选择许可证。
 
@@ -78,15 +78,17 @@ ai-kernel-101/
 │   ├── ARTICLE_TEMPLATE.md         # 写作与审稿提示
 │   ├── drafts/                     # 写作中的正文
 │   ├── articles/                   # 定稿正文
-│   ├── figures/                    # Matplotlib 工作流；src 源码，gen 同名 PNG/SVG
-│   └── assets/                     # 视觉与来源规范；images 保留历史图与附件
+│   └── assets/                     # 图片归档、视觉与来源规范
+│       ├── figures/                # 文档插图；src 源码，gen 同名 PNG/SVG
+│       ├── screenshot/             # 环境、设备与运行结果截图
+│       └── brand/                  # 品牌标识、横幅与生成材料，文档直接引用
 ├── src/                            # 完整实现、CMake 与代码说明
 │   ├── hello_world/
 │   └── vector_add/                 # 基础、传输、队列与尾块样例
 ├── lab/                            # 实验方法、复现步骤、数据与分析
 │   ├── README.md                   # 实验索引与组织约定
 │   ├── TEMPLATE.md                 # 单次实验记录模板
-│   └── verification-2026-11-05.md  # 历史 CPU 验证记录
+│   └── hello-world/               # 三种模式功能验证、来源核对与日志
 ├── publishing/                     # 知乎、公众号、小红书适配与发布记录
 ├── AGENTS.md                       # 本地写作协作约定，不纳入 Git
 ├── CONTRIBUTING.md                 # 内容维护流程
@@ -101,4 +103,3 @@ ai-kernel-101/
 - `sites/` 是已有独立网站项目，保留原位，默认不随本系列仓库提交。编辑器配置与个人笔记同样默认排除。
 
 组织规则和本次路径变更见 [工作区管理说明](planning/workspace-management.md)。
-

@@ -255,8 +255,8 @@ ai-kernel-101_wechat-wide_softmax_900x383_v1.0.0.png
 建议仓库结构：
 
 ```text
-brand/
-  VI.md                    # 本规范
+docs/assets/brand/
+  VI-Specification.md      # 本规范
   tokens/colors.json       # 色值的机器可读单一来源
   fonts/README.md          # 字体来源、版本、许可与安装说明
   src/                     # 可编辑 SVG 母版

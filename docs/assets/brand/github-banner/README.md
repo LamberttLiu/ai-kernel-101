@@ -2,7 +2,7 @@
 
 ![AI Kernel 101 最终品牌横幅](ai-kernel-101_github-hero_brand-c_1600x600.png)
 
-依据 [VI 规范](../VI-Specification-v1.0.md)，画布保持 1600 × 600。设计版本仍为 v1.1.2；当前目录为 `brand/github-banner`，SVG / PNG 文件名不附版本号。
+依据 [VI 规范](../VI-Specification.md)，画布保持 1600 × 600。设计版本仍为 v1.1.2；当前目录为 `docs/assets/brand/github-banner`，SVG / PNG 文件名不附版本号。
 
 v1.1.2 仅将水印向下移动 24 px（原渲染文字包围盒的一个字高），基线从 y=544 移至 y=568；其余文字、颜色和图形不变。水印底部仍在画布内，距底边约 27 px；这是作者明确指定的位置，不再使用原默认 48 px 底部安全边距。
 
@@ -36,7 +36,7 @@ Inter 来源于 [Google Fonts Inter](https://github.com/google/fonts/tree/main/o
 node build.cjs
 ```
 
-Codex 捆绑环境可将 `NODE_PATH` 指向其 `dependencies/node/node_modules`，无需重复安装。导出时将随附 Inter 字体加载到临时内存页面；色值来自 `../tokens/colors.json`。从项目根目录也可直接运行 `node brand/github-banner/build.cjs`，输入输出路径始终以脚本所在目录为准。
+Codex 捆绑环境可将 `NODE_PATH` 指向其 `dependencies/node/node_modules`，无需重复安装。导出时将随附 Inter 字体加载到临时内存页面；色值来自 `../tokens/colors.json`。从项目根目录也可直接运行 `node docs/assets/brand/github-banner/build.cjs`，输入输出路径始终以脚本所在目录为准。
 
 ## 检查记录 · 2026-11-15
 
@@ -44,4 +44,4 @@ Codex 捆绑环境可将 `NODE_PATH` 指向其 `dependencies/node/node_modules`�
 
 按作者本轮要求移除数字描边后，Mist 与 Cyan 的直接对比度约为 1.83:1，低于原 VI 承载含义图形的 3:1 条款；本版如实保留这一由明确设计指令产生的差异，不声明 VI 所有条款均通过。数字仍通过大尺寸与完整像素轮廓识别，原尺寸和缩略图已人工检查。水印使用浅灰透明度叠加，不新增 HEX Token。
 
-项目首页引用 [公开 PNG 副本](../../docs/assets/images/ai-kernel-101_github-hero_brand-c_1600x600_v1.1.2.png)，与本目录的最终 PNG 内容一致；该副本是 README 的依赖，继续保留，生成脚本不会自动覆盖它。最终设计、VI 规范、字体及许可证、生成脚本和依赖说明均纳入 Git 版本管理。
+项目首页直接引用本目录的[最终 PNG](ai-kernel-101_github-hero_brand-c_1600x600.png)，不另存公开副本。生成脚本更新本文件后，文档引用同步生效。最终设计、VI 规范、字体及许可证、生成脚本和依赖说明均纳入 Git 版本管理。

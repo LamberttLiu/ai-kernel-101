@@ -6,7 +6,7 @@
 
 | 篇次 | 对外标题                                           | 稳定主题／材料                                                                                               | 当前状态                                                        |
 | ---- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
-| 01   | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？         | [hello-world](drafts/hello-world.md)                                                                          | 早期草稿；保留 CPU/SIM/NPU 历史叙述，待证据与资料核对           |
+| 01   | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？         | [hello-world](drafts/hello-world.md)                                                                          | 发布正文已回填 2026-11-15 CPU/SIM/NPU 功能实测；云端环境按容器可见范围记录；配图待补，未发布           |
 | 02   | 同样是计算，NPU 为什么要区分 Vector 和 Cube？ | [hardware-dataflow 草稿](drafts/hardware-dataflow.md)；[原提纲](<../planning/outlines/02-从算子看昇腾 NPU：计算、存储与数据流-提纲.md>) | 初稿已形成；架构资料固定版本、技术与语言审核待完成；未新增实验 |
 | 03   | 只做一次加法，为什么还要搬来搬去？                 | [vector-add](drafts/vector-add.md)                                                                            | 早期草稿；含静态 Tensor 与 TPipe/TQue 对照，保留基础版历史验证与五次耗时；队列版真机对照待补          |
 | 04   | 数据放不下怎么办？从一个 Kernel 理解 Tiling        | [vector-add-tail](drafts/vector-add-tail.md)                                                                  | 草稿已补覆盖与容量模型；保留尾块素材，核内多轮实现与 NPU 验证待完成 |
@@ -27,16 +27,17 @@ docs/
 ├── ARTICLE_TEMPLATE.md    # 内部写作与审稿提示，不是固定章节模板
 ├── drafts/                # 当前写作的权威正文
 ├── articles/              # 实际定稿，由 drafts 移入
-├── figures/               # Matplotlib 工作流；src 源码，gen 同名 PNG/SVG
 └── assets/
     ├── README.md          # 视觉规范、图表与素材来源
-    └── images/            # 历史配图与非代码生成附件
+    ├── figures/           # 文档插图；src 源码，gen 同名 PNG/SVG
+    ├── screenshot/        # 环境、设备与运行结果截图
+    └── brand/             # 品牌标识、横幅与生成材料
 ```
 
 定稿时移动同一份正文，不另复制平台原稿。修改对外标题优先改标题元数据、别名和目录，保留现有稳定文件名；必要移动时同步修复链接。旧篇次已按本表修正，章节内的“一、二”等章节编号不等于篇次。
 
 正文只保留论证必需的代码；完整实现与构建配置在 src，具体实验方法与结果在 lab。图片和引用采用标准 Markdown 相对链接，带空格路径用尖括号包裹。公开文件不链接到仅本地存在的 inbox、账号配置或原始数据。
 
-新增代码配图按[Matplotlib 绘图工作流](figures/README.md)生成，正文引用 `figures/gen` 中的 PNG；既有图片保留原路径。
+新增代码配图按[Matplotlib 绘图工作流](assets/figures/README.md)生成，正文引用 `assets/figures/gen` 中的 PNG，插图按出现顺序从 `fig1` 编号。截图归入 `assets/screenshot`，品牌图片直接引用 `assets/brand` 中的文件。
 
 审核修改文章的时候，将后续待完成的整理归纳在文章前 frontmatter 的 to_do_list 字段内，正文中使用占位符。

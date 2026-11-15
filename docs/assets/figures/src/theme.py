@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import re
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".local" / "matplotlib"))
 
 import matplotlib

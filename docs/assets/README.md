@@ -2,13 +2,30 @@
 
 以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。
 
-本页统一图表语义、视觉约定与素材来源。已有五张 PNG 保持原样；新增 Matplotlib 配图遵循[绘图工作流](../figures/README.md)，不改变历史截图与实验数据。
+本页统一图片归档、图表语义、视觉约定与素材来源。图片统一归档到 `docs/assets`，按用途分为三个子目录；迁移只调整路径与图号，保留图片内容与实验数据。
+
+# 图片归档
+
+```text
+docs/assets/
+├── README.md          # 归档、视觉与来源约定
+├── figures/           # 文档插图；含绘图代码、生成图与外部参考插图
+│   ├── src/           # 绘图源代码
+│   ├── gen/           # 同名 PNG、SVG
+│   └── PipeBarrier.png
+├── screenshot/        # 环境页面、设备信息与运行结果截图
+└── brand/             # 品牌标识、横幅、视觉规范与生成材料
+```
+
+文档插图遵循[绘图工作流](figures/README.md)，按正文出现顺序从 `fig1` 编号；源文件、PNG、SVG 与文中图号保持一致。截图保留原始文件名。粘贴附件默认进入 `screenshot`，属于插图或品牌素材的再归入对应目录。
+
+品牌图片直接引用 `brand` 中的文件，不在截图或插图目录保存副本。例如，项目首页直接引用 `docs/assets/brand/github-banner/ai-kernel-101_github-hero_brand-c_1600x600.png`；品牌规范见 [VI 规范](brand/VI-Specification.md)。
 
 # 可复现与标识
 
 理论模型、实测结果、概念示意分别在图题或注释中明写；尚待测量的曲线不伪装为实测。图表标注篇次／主题、变量与单位、输入和模式、统计量及必要边界，术语与正文一致。
 
-插图以直观图形为主，使用纯色块、细线与统一间距，解释段落留在正文，不做文字卡片式版面。标题中英两行：中文在上 24 px，英文在下 18 px。中文标题使用华文中宋，中文正文与标注使用微软雅黑，所有英文与数字使用 Cascadia Code。所有标注中文在上、英文在下，两行字号相等；框内中英文作为一个整体垂直居中。上下页眉页脚各居中放置浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印。实际字体版本与授权记录见[绘图工作流](../figures/README.md)。导出前检查中文、上下标、公式、字号和灰度可辨性，避免用颜色作为唯一语义。
+插图以直观图形为主，使用纯色块、细线与统一间距，解释段落留在正文，不做文字卡片式版面。标题中英两行：中文在上 24 px，英文在下 18 px。中文标题使用华文中宋，中文正文与标注使用微软雅黑，所有英文与数字使用 Cascadia Code。所有标注中文在上、英文在下，两行字号相等；框内中英文作为一个整体垂直居中。上下页眉页脚各居中放置浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印。实际字体版本与授权记录见[绘图工作流](figures/README.md)。导出前检查中文、上下标、公式、字号和灰度可辨性，避免用颜色作为唯一语义。
 
 | 角色 | 建议视觉约定 |
 | --- | --- |
@@ -23,7 +40,7 @@
 
 # 源文件与输出
 
-优先用可复现代码生成 SVG、PNG 和曲线。新增文稿配图代码暂存 `docs/figures/src`，PNG 和 SVG 同名输出到 `docs/figures/gen`，正文以相对路径引用 PNG。`docs/assets/images` 保留历史图片和非代码生成附件，不复制新图。实验受控数据与原始记录仍放对应 lab 主题，绘图不改变实验数据。源代码、PNG 与 SVG 一并版本管理。
+优先用可复现代码生成 SVG、PNG 和曲线。文稿配图代码存放在 `docs/assets/figures/src`，PNG 和 SVG 同名输出到 `docs/assets/figures/gen`，正文以相对路径引用 PNG。外部参考插图归入 `figures`，历史截图归入 `screenshot`，品牌素材及其生成材料归入 `brand`。实验受控数据与原始记录仍放对应 lab 主题，绘图不改变实验数据。源代码、PNG 与 SVG 一并版本管理。
 
 默认画布为 1080×600，白底、非透明，PNG 与 SVG 共用布局；平台适配时再单独调整。以下是内部导出参考，不是平台上传限制：GitHub／长文可使用可缩放 SVG 或清晰 PNG；知乎和公众号检查手机缩放；小红书可另做1080×1440的分页图卡，拆开密集推导。实际输出以平台预览可读性为准，不能为了精简删去关键单位、证据与限制。
 
@@ -31,11 +48,11 @@
 
 | 文件 | 当前用途／可见内容 | 来源与公开检查 |
 | --- | --- | --- |
-| Ascend-C-Twin-Debug.png | CPU、仿真、真机调试路径示意 | 第一篇关联官方孪生调试文章；确切来源、版本、使用许可与可编辑源待登记 |
-| PipeBarrier.png | PIPE_V 内 Add/Abs 同步示意 | 第三篇关联接口资料；不据此证明所有 PIPE_ALL／跨流水语义；来源版本与许可待核对 |
-| CANNLab-npu-smi-info.png | 历史设备信息截图 | 只见泛称设备与工具信息，具体 SoC／驱动关联待核实；保留原始采集背景 |
-| CANNLab-website.png | 历史平台环境页面 | 包含配额与环境界面，公开裁剪范围待作者确认；不作为固定配额或产品承诺 |
-| vector-add-npu-run.png | 历史 Add 输出截图 | 可见 test pass；原始日志、源码提交与运行环境关联待补，不是性能证据 |
+| Ascend-C-Twin-Debug.png（当前工作区已删除，未归档） | CPU、仿真、真机调试路径示意 | 第一篇关联官方孪生调试文章；确切来源、版本、使用许可与可编辑源待登记 |
+| [PipeBarrier.png](screenshot/PipeBarrier.png) | PIPE_V 内 Add/Abs 同步示意 | 第三篇关联接口资料；不据此证明所有 PIPE_ALL／跨流水语义；来源版本与许可待核对 |
+| [CANNLab-npu-smi-info.png](screenshot/CANNLab-npu-smi-info.png) | 历史设备信息截图 | 只见泛称设备与工具信息，具体 SoC／驱动关联待核实；保留原始采集背景 |
+| [CANNLab-website.png](screenshot/CANNLab-website.png) | 历史平台环境页面 | 包含配额与环境界面，公开裁剪范围待作者确认；不作为固定配额或产品承诺 |
+| [vector-add-npu-run.png](screenshot/vector-add-npu-run.png) | 历史 Add 输出截图 | 可见 test pass；原始日志、源码提交与运行环境关联待补，不是性能证据 |
 
 以上均是素材现状，不是许可已确认或结果已重新验证的声明。不自行选许可证，也不擅自删除旧图。待作者核对后，可保存公开裁剪副本；原件保留在合适的本地位置，裁剪不得改变实验事实。
 

@@ -6,9 +6,7 @@ writing_status: 草稿
 publication_status: 未确认
 start_time: 开始时间
 description: 概要
-to_do_list: |-
-  1. 简要介绍
-  2. 实验样例
+to_do_list: 1. 简要介绍 2. 实验样例
 ---
 
 以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。

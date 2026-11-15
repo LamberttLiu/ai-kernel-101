@@ -12,7 +12,10 @@ ai-kernel-101/
 ├── docs/                     # 文章
 │   ├── drafts/               # 草稿
 │   ├── articles/             # 定稿，由草稿移动而来
-│   └── assets/images/        # 文稿配图的统一存放位置
+│   └── assets/               # 图片归档根目录
+│       ├── figures/          # 文档插图与绘图材料
+│       ├── screenshot/       # 环境、设备与运行结果截图
+│       └── brand/            # 品牌标识、横幅与生成材料
 ├── planning/                 # 内部策划，可随项目管理
 │   ├── series-plan.md        # 系列计划
 │   ├── outlines/             # 提纲与论证
@@ -27,7 +30,7 @@ ai-kernel-101/
     └── maintenance/          # 维护记录与配置备份
 ```
 
-lab 内按主题组织，每个主题的 README 说明复现方法，runs 归档每次实际运行；不再把方法与结果分到两个顶层目录。详细组织见 [lab 说明](../lab/README.md)。
+lab 内按主题组织，每个主题的 README 说明复现方法，实验报告在主题目录单独维护；不再把方法与结果分到两个顶层目录。主题入口见 [lab 目录](../lab/README.md)，根 README 只提供概要信息。
 
 # 本次迁移
 
@@ -69,7 +72,7 @@ sites/kernel-lab 包含独立的 Git 目录与网站文件，sites 中另有压�
 
 从原本地代码仓库的最新工作副本导入六组样例：Hello World，以及 Vector Add 的 basic、Host/Device transfer、TPipe/TQue、uneven split、arbitrary length。共 18 个实现、构建与说明文件逐一核对 SHA-256，包含原仓库未提交的 .asc→.cpp 改名；原本地目录及其未提交修改保持不动。
 
-工作区接续 GitHub 原 main 历史，保留源码路径。旧文章路径用短入口页链接到唯一正文；所有文稿配图统一存放在 docs/assets/images，正文与 Obsidian 新附件都使用这一位置，不再维护重复图片目录。
+工作区接续 GitHub 原 main 历史，保留源码路径。旧文章路径用短入口页链接到唯一正文；图片统一归档在 docs/assets 下，插图、截图、品牌素材分别使用 figures、screenshot、brand；Obsidian 新附件默认进入 screenshot。品牌图片由文档直接引用 brand 中的文件，不维护重复副本。
 
 原 README 的样例导航、来源与许可、历史 CPU 验证信息分别合入根 README、src 索引与 lab 历史记录。账号设置、个人笔记、已有独立网站项目及生成物继续遵循忽略规则；它们保留在本地，没有进入本次项目提交。
 
@@ -80,3 +83,9 @@ sites/kernel-lab 包含独立的 Git 目录与网站文件，sites 中另有压�
 仅新增文章提示、配图规范、发布与复盘模板三份文件；公开介绍、系列计划、审核、实验和平台规则在现有文件上更新。三篇草稿只调整定位前言、标题元数据与导航，02／08提纲保留推理主体，08—10技术范围不重新设计。源码、CMake、历史记录及五张图片均不改变。
 
 许可证暂不选择，来源与公开素材缺项在 src 和 assets 说明中登记。普通草稿可公开；私人笔记、账号及敏感运营资料只留本地。此轮未授权提交或推送远程，阶段完成状态不等于 GitHub 或社交平台已经更新。
+
+# 图片分类归档补充
+
+图片按用途统一归入 `docs/assets/figures`、`docs/assets/screenshot`、`docs/assets/brand`。原 `docs/figures` 的绘图代码与生成图整体归入 figures；原根目录 brand 的规范、横幅、字体与生成材料整体归入 brand。历史素材中的 PipeBarrier.png 属于插图，其余环境与运行页面归入 screenshot；前文首次迁移表中的图片路径仅记录当时位置，以本节为当前约定。
+
+第 01 篇三张插图按正文顺序编号为 fig1、fig2、fig3，源文件、PNG、SVG 和文档引用同步更新。首页直接引用品牌目录横幅，移除内容相同的旧副本。原始 PNG、SVG 内容经 SHA-256 比对保持一致；本轮不重新执行技术实验，不改变实验结论，不提交或推送远程。

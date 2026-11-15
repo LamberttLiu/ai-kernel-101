@@ -21,7 +21,7 @@ set -o pipefail
   .local/flash-attention-fixed/npu-01 2>&1 | tee .local/flash-attention-fixed/npu-01-console.log
 ```
 
-只有在已存在的驱动库未进入动态库搜索路径时，才为当前进程补充实际驱动目录的 lib64/common、lib64/driver；不要替换系统库。首次失败保留日志并使用新输出目录重试。完整环境元数据按 [lab 记录](../../lab/flash-attention-fixed/README.md)登记。
+只有在已存在的驱动库未进入动态库搜索路径时，才为当前进程补充实际驱动目录的 lib64/common、lib64/driver；不要替换系统库。首次失败保留日志并使用新输出目录重试。完整环境元数据随各次实验报告单独登记。
 
 仅运行 CPU 参考，不依赖 CANN：
 
@@ -75,4 +75,4 @@ NPU 模式每次输出先填 NaN 哨兵，运行 20 次，逐次检查全部前�
 
 相较上游，本例把在线 u 留在 UB，使用逐行 Reduce/Exp 展开而非直接移植 SoftmaxFlashV2，不实现 SameAB/TSCM 缓存、异步流水、通用 Tiling、mask 或尾块。不会因参考上游就继承其测试结果。
 
-本轮 CPU 参考模式已构建运行；NPU 分支未构建、未运行，SIM 未运行，性能未测。实际记录见 [lab](../../lab/flash-attention-fixed/README.md)。
+已有 CPU 参考模式构建运行的记录；对应实验材料不随本仓库保留。NPU 分支未构建、未运行，SIM 未运行，性能未测，后续验证需单独整理报告。

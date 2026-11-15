@@ -8,6 +8,12 @@
 
 Host 侧先调用 `aclInit(nullptr)` 初始化 Runtime，再设置 Device、创建 Stream 并启动核函数；运行结束后销毁 Stream、重置 Device，最后调用 `aclFinalize()`。这两个 Runtime 接口与内核使用 C 风格还是 C++ 风格 API 无关。
 
+Host 逐项检查上述 ACL 调用的返回码，打印 `[HOST][OK]` 或 `[HOST][ERROR]` 及阶段名称。失败时停止后续任务，并尝试释放此前已取得的资源；任务执行或清理失败均返回退出码 1，全部成功返回 0。`<<<>>>` 启动语句本身没有可直接检查的 ACL 返回值，程序在随后检查 `aclrtSynchronizeStream` 的返回状态，并由实验脚本核对 8 个 Block 的打印。
+
+CPU 调试中的部分 ACL 接口由调测库打桩实现，成功返回不代表调用了物理 NPU。Stream 的销毁依据创建调用是否成功，兼容 CPU 调测库成功返回空句柄的情况。
+
+2026-11-15 的 CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](../../lab/hello-world/README.md)。
+
 ## 本样例支持的产品
 
 - Ascend 950PR/Ascend 950DT

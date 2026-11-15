@@ -14,7 +14,7 @@
 | 创意、随笔与临时想法 | planning/inbox | 统一收存；默认不进入 Git，新的普通笔记仍进入这里 |
 | 文章正文 | docs/drafts、docs/articles | 直接阅读和修改原稿 |
 | 系列计划与提纲 | planning | 调整结构、补充问题和论证 |
-| 图片 | docs/assets/images | 阅读配图，粘贴图片时统一收存 |
+| 图片 | docs/assets 下的 figures、screenshot、brand | 按插图、截图、品牌素材分类；品牌图片直接引用 brand |
 | 源码与大型原始输出 | src、lab 等 | 主要在桌面处理；不作为手机写作的必要前提 |
 
 给主要文稿与提纲设置了中文 aliases，保留稳定文件路径。别名属于 Obsidian 的标准属性，用于按中文名称引用文件；正文继续采用普通 Markdown 相对链接。[官方：Aliases](https://obsidian.md/help/aliases)
@@ -24,7 +24,7 @@
 桌面当前库的 .obsidian/app.json 配置为：
 
 - 新笔记默认放入 planning/inbox。
-- 新附件默认放入 docs/assets/images。
+- 新附件默认放入 docs/assets/screenshot；文档插图归入 docs/assets/figures，品牌素材归入 docs/assets/brand，文档直接引用品牌目录中的图片。
 - 使用 Markdown 链接和相对路径。
 - 在 Obsidian 内移动或重命名文件时，允许自动更新内部链接。
 

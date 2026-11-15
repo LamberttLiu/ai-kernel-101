@@ -7,7 +7,7 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stems", nargs="*", help="Figure stems, e.g. 01-fig1-host-kernel")
+    parser.add_argument("stems", nargs="*", help="Figure stems, e.g. 01-fig2-host-kernel")
     args = parser.parse_args()
     source = Path(__file__).resolve().parent / "src"
     available = {p.stem: p for p in sorted(source.glob("[0-9][0-9]-fig*.py"))}

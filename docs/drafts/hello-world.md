@@ -8,13 +8,11 @@ start_time: 2026-11-01
 description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入 Kernel，以及 CPU 调试、SIM 仿真和 NPU 真机各自能够检验什么。
 ---
 
-> 草稿状态：本次修订沿用历史运行叙述。标有“待补证据”“待核对”或“插图占位”的位置，需要补齐后再做发布审核。
-
 # 写在最前面
 
 作为一名从事 AI 高性能计算的工程师，我日常主要面向昇腾 NPU 做算子开发和性能优化。在 Ascend C 和 CUDA 的学习与实践中，我时常遇到几个问题。**一个张量（Tensor）的计算公式，怎样变成设备上执行的程序？为什么计算本身只有几行，实现却需要安排搬运、存储和同步？程序跑对之后，又该怎样判断性能受什么限制？**
 
-作为开发者，一般都是从查阅文档和运行示例开始学习一门新特定领域语言（DSL）。实际使用时可能会出现以下场景：相关说明有时分散在不同章节，API 接口能力跟软件版本、设备强耦合；知道一个 API 怎样调用之后，当换了输入规模、数据类型或数据布局，不知道原先的判断是否还成立。
+作为开发者，一般都是从查阅文档和运行示例开始学习一门新的领域特定语言（Domain-Specific Language，DSL）。实际使用时可能会出现以下场景：相关说明有时分散在不同章节，API 接口能力跟软件版本、设备强耦合；知道一个 API 怎样调用之后，当换了输入规模、数据类型或数据布局，不知道原先的判断是否还成立。
 
 《AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践》正是基于此诞生，这一系列将**以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。** 这里的第一性原理，是从数学语义、数据依赖、硬件资源、存储层级、访存量与性能约束出发，解释实现为什么这样选择，再用实验检验判断。本系列保留开发者学习过程中的踩坑和失败，把它们整理成一系列 AI Kernel 的工程案例。
 
@@ -38,23 +36,28 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 第一篇先从没有输入张量的 Hello World 开始，让执行路径尽可能简单，观察代码怎样从 Host 的一次调用进入 Kernel，再回到 Host。
 
-本篇实验记录了同一份 Hello World 样例的三种运行方式：本地 WSL 中的 CPU 调试、SIM 仿真，以及 CANNLab 云端的 NPU运行。三种模式均记录了完成打印并正常结束的结果。
+本篇围绕同一份 Hello World 样例，分别考察本地 WSL 中的 CPU 调试、SIM 仿真，以及 CANNLab 云端的 NPU 运行。WSL（Windows Subsystem for Linux）提供 Windows 上的 Linux 环境，本篇用它运行本地开发与调测工具。我们关注的是：同一段核函数由谁执行，以及看到打印之后，究竟能确认什么。
 
+> [!NOTE]
 > 需要注意的是，**标题中的“没有 NPU”指本地电脑没有这块设备**。本地 CPU 调试和 SIM 仿真承担开发与调测，云端设备承担真机执行检查。
 
 三种模式的差异，在于 Kernel 由什么执行，表中最后一列限定了本篇的检查范围。
 
-| 模式       | Kernel 怎样执行                        | 主要用途                         | 本篇 Hello World 检查范围            |
+| 模式       | Kernel 怎样执行                        | 主要用途                         | 本例的检查目标            |
 | -------- | ---------------------------------- | ---------------------------- | ------------------------------ |
-| CPU 调试模式 | 编译为 CPU 域程序，链接 CPU 调测库，在主机 CPU 上执行 | 检查程序逻辑、中间数据与数值结果，可配合 gdb 调试  | CPU 调测路径能够启动，Block 0—7 的打印完整出现 |
-| SIM 仿真模式 | 设备侧程序通过目标 NPU 的仿真模型执行              | 检查目标执行路径，辅助分析模型支持的指令、同步与流水行为 | 仿真程序能够执行打印，并正常结束               |
+| CPU 调试模式 | 编译为 CPU 域程序，链接 CPU 调测库，在主机 CPU 上执行 | 检查程序逻辑、中间数据与数值结果，可配合 gdb 调试  | 检查 CPU 调测路径能否启动，Block 0—7 的打印是否完整 |
+| SIM 仿真模式 | 设备侧程序通过目标 NPU 的仿真模型执行              | 检查目标执行路径，辅助分析模型支持的指令、同步与流水行为 | 检查仿真程序能否执行打印并正常结束               |
 | NPU 真机模式 | 设备侧程序在物理 NPU 上执行                   | 核验真实设备上的功能、数值结果，并测量实际性能      | 在对应设备环境中执行 Kernel，检查打印及运行状态    |
 
-对于后续分析性能时，需要区分仿真器运行所花的耗时和真实设备测得的耗时。SIM 可以提供仿真模拟条件下的性能观察，最终性能结论需要真机测量支持。三种模式的输出细节在后面会详细列出。
+后续分析性能时，还需要区分仿真器运行所花的时间和真实设备测得的时间。SIM 可以提供模型支持的性能观察，目标设备上的性能结论需要真机测量支持。
 
 # 最小的 Kernel
 
-在真机运行语境下，Host 是运行控制程序的主机 CPU 一侧，Device 是执行 Kernel 的 NPU 一侧。核函数（Kernel）是设备执行的入口，一次启动可以让多个逻辑任务执行同一段代码。本例中的任务用 Block 编号区分。
+在真机运行语境下，Host 是运行控制程序的主机 CPU 一侧，Device 是执行 Kernel 的 NPU 一侧。核函数（Kernel）是设备执行的入口，一次启动可以让多个逻辑任务执行同一段代码。本例中的任务用 Block 编号区分。本文使用的源码见个人实验仓库中的 [`hello_world.cpp`](../../src/hello_world/hello_world.cpp)。
+
+![图 1：CPU 与昇腾 NPU 之间的数据流：主机内存和设备内存经 PCIe 双向传输数据，主机控制程序提交 Kernel；设备侧以 8 个各含 Vector、Cube 计算单元的耦合 AI Core 为例。](../assets/figures/gen/01-fig1-cpu-npu-dataflow.png)
+
+图中以 8 个 AI Core 示意昇腾的耦合架构，每核内的 Vector、Cube 是计算单元；分离架构的组织方式不同，不能把该图当作当前实验设备的芯片布局。这里的 8 是示意数量，与本例启动的 8 个逻辑 Block 没有一一对应关系。数据箭头表示一般算子的内存传输路径，Hello World 本身没有输入输出张量搬运。耦合与分离的区别见[官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)。
 
 Host 先初始化运行时（runtime）、选择设备并创建流（Stream）。Stream 用于组织异步任务的执行顺序，Host 将 Kernel 提交进去，再在需要完成结果的位置等待。对这个样例，任务内容就是打印。
 
@@ -71,180 +74,129 @@ __global__ __vector__ void hello_world()
 hello_world<<<8, 0, stream>>>();
 ```
 
-`__global__` 标记核函数入口，`__vector__` 声明这个样例采用 Vector Core 路径执行。`GetBlockIdx()` 和 `GetBlockNum()` 分别取得当前逻辑任务的编号与本次任务总数。这里的 8 是启动配置，不能据此推断整台设备的物理核数。语言修饰符与启动配置的说明可详见[Ascend C SIMD 关键字文档](https://asc.gitcode.com/guide/programming_guide/language_extension/simd_builtin_keywords.html)。
+`__global__` 标记核函数入口，`__vector__` 声明这个样例 Kernel 在 Vector Core 上执行。`GetBlockIdx()` 和 `GetBlockNum()` 分别取得当前逻辑任务的编号与本次任务总数。这里的 8 是启动配置，不能据此推断整台设备的物理核数。语言修饰符与启动配置的说明可详见[Ascend C SIMD 关键字文档](https://asc.gitcode.com/guide/programming_guide/language_extension/simd_builtin_keywords.html)。
 
-后面的复现日志中，Block 0 至 7 均有输出。检查时应关注这组编号是否完整出现，打印先后只记录观察到的输出顺序。这个样例没有任务间的数据交换，单凭打印顺序无法推导设备调度或并行效率。
+这次启动对应 Block 0 至 7，阅读输出时应关注这组编号是否完整出现。这个样例没有任务间的数据交换，也没有规定打印的先后关系，单凭打印顺序无法推导设备调度或并行效率。
 
 沿着源码往下看，Kernel 提交之后紧接着调用 `aclrtSynchronizeStream(stream)`，随后才销毁 Stream、重置设备并结束运行时。同步调用让 Host 等待该 Stream 中已提交的任务完成，否则仅凭 Host 执行过启动语句，还无法确认设备任务已经结束。[官方 Runtime 文档](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/others/acldevg/runtime_doc_dev_0014.html) 给出了相关的显式同步的语义。
 
-![图 1：从Host 到 Device 的异步执行路径，展示异步提交、8 个逻辑 Block 与 Stream 完成等待；非实测时间线。](../figures/gen/01-fig1-host-kernel.png)
+CANN 是昇腾的软件工具体系，提供编译、运行和调测支持。Host 通过其中的 ACL 接口完成初始化、设备选择和 Stream 管理等操作。样例会检查这些调用返回的状态码，日志中的 `ret=0` 表示对应调用报告成功。例如，`aclrtSynchronizeStream: ret=0` 表示等待该 Stream 完成的调用成功返回。后面还会看到 `process_exit=0`，它是整个程序的退出状态，需要结合这些调用状态与 Kernel 的完整打印一起判断运行结果。
 
-> **待补充**
-> 当前样例源码没有逐项检查 ACL 调用返回码，并在 `main` 末尾直接返回 0。因此，进程退出码、完整打印和运行时错误信息要一起检查。后续补测还需记录初始化、设备选择、任务提交与同步各阶段的实际状态。
+![图 2：从Host 到 Device 的异步执行路径，展示异步提交、8 个逻辑 Block 与 Stream 完成等待；非实测时间线。](../assets/figures/gen/01-fig2-host-kernel.png)
 
-本文使用的源码见个人实验仓库中的 [`hello_world.cpp`](../../src/hello_world/hello_world.cpp)。样例来源见 [CANN Samples 固定提交](https://gitcode.com/cann/cann-samples/blob/3a85e824537feaef646bd89eb4d0e799cc2886b5/Samples/0_Introduction/01_simd_cpp_api/00_quickstart/hello_world/hello_world.asc)。
+源码虽然使用 `.cpp` 扩展名，构建配置仍通过 `LANGUAGE ASC` 指定 Ascend C 编译流程。同一文件包含 Host 控制和 Kernel 定义，工具链需要处理两侧代码，以及中间的启动调用。
 
-源码虽然使用 `.cpp` 扩展名，构建配置仍通过 `LANGUAGE ASC` 指定 Ascend C 编译流程。同一文件包含 Host 控制和 Kernel 定义，工具链需要处理两侧代码，以及中间的启动调用。扩展名和源码排在同一文件里，都不足以判断程序实际在哪一侧执行。
+# 同一份 Kernel，怎样在没有 NPU 的电脑上执行？
 
-# 环境区分
+前面沿着 Host 提交、Kernel 执行、Host 等待的顺序看完了代码。但这条执行路径里还有一个问题：本地没有 Device，核函数究竟由谁执行？
 
-## 本地 WSL：开发、CPU 调试和 SIM 仿真
+本次实验的本地环境是 WSL2 中的 Ubuntu 24.04，主机 CPU 架构为 `x86_64`，安装了 CANN Toolkit 9.1.0 和 910B ops 9.1.0，没有昇腾 NPU，也没有 NPU 驱动。
 
-本机是 WSL2 中的 Ubuntu 24.04（`x86_64`），安装了 CANN Toolkit 9.1.0 和 910B ops 9.1.0；没有昇腾 NPU，也没有 NPU 驱动。这里可以编写、编译 Ascend C 程序，并分别尝试 **CPU 调试** 和 **SIM 仿真** 模式。
+## CPU 调试：先让核函数的逻辑可以被检查
 
-CPU 调试模式让 Kernel 在主机 CPU 的调测环境中执行。后面有了数值计算，可以利用这条路径检查逻辑、观察中间数据，逐步定位问题。本例先检查最基础的入口与打印是否能执行。
+在 CPU 调试模式下，Kernel 会被编译为 CPU 域程序，配合 CPU 调测库在主机上执行。这样，即使代码中使用了 Ascend C 的核函数与接口，也可以先在本地检查程序逻辑，借助调试器观察中间状态。[官方 CPU 调试说明](https://asc.gitcode.com/guide/programming_guide/debug_and_tuning/functional_debug/cpu_twin_debug.html)介绍了这种执行方式。
 
-SIM 仿真模式使用目标 NPU 的架构仿真器，适合进一步观察目标执行路径及工具支持的搬运、指令或流水行为。具体可观察内容取决于目标和工具版本。官方孪生调试文章介绍了两条调测路径的用途，文中的环境配置和接口应另按本系列使用的版本核对。[Ascend C 孪生调试](https://www.hiascend.com/zh/developer/techArticles/20231215-2)
+对 Hello World 来说，需要检查的逻辑很少：核函数有没有被调用，取得的 Block 编号是否覆盖 0 至 7，打印有没有完成。与普通 C++ 程序一样，这一步先把问题缩小到代码本身，让核函数里的逻辑可以被观察和调试。
 
-![图 2：三种编译运行的模式区别——CPU/SIM/NPU。按模式分别构建算子库，CPU 域与 NPU 域的调试范围用虚线框分组。](../figures/gen/01-fig2-run-paths.png)
-
-图中的 `.so` 表示按模式分别构建的算子库形态；本篇 Hello World 的 CMake 实际定义的是可执行程序 `demo`。SIM 侧的性能观察受仿真模型限制，真实设备耗时仍需在 NPU 上实测。
-
-两种模式需要各自的构建与运行目录。源码相同，构建产物却对应不同运行路径，切换模式时如果沿用旧缓存或旧二进制，就难以解释当前输出来自哪里。后文用 `build-cpu`、`build-sim` 区分它们，也分别保存运行结果。
-
-Hello World 的代码很少，也没有向量数据和流水依赖，因此两种模式都打印成功。但是，并不能充分展示它们在数值调试和执行行为分析上的差别。后续向量加、分块与流水实验会逐步加入这些观察。当前 CPU／SIM 结果只支持各自路径上的基础功能判断，真实设备的性能仍要在 NPU 上测量。
-
-## CANNLab：验证真实设备行为
-
-此前记录的真机环境为 CANNLab A3（910C、`aarch64`），云端预装 CANN 9.1.0。这里的 `aarch64` 描述云端主机的 CPU 架构，NPU 产品、运行时 SoC 名称和编译目标还要分别记录。下面是当时的设备信息截图，具体关联待补核。
-
-![](../assets/images/CANNLab-npu-smi-info.png)
-
-> **【待核对／插图占位 01-图3｜设备与软件版本记录】**
-> 核对现有截图所属运行批次，补充同次实验的运行时 SoC、产品／板卡信息、驱动、固件、CANN、编译器版本及编译目标。截图裁剪需保留支撑这些字段的内容。字段暂缺时写“未知”，不要用 A3、910C 或 `dav-2201` 互相反推。
-
-CANNLab 可通过 WebIDE 或者 VSCode 的方式使用。连接方式和配额规则可能调整，本次编辑未重新核对现行规则，请以 [CANNLab 用户手册](https://gitcode.com/cann/infrastructure/blob/main/docs/CANNLab/CANNLab%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.md)为准。
-
-![](../assets/images/CANNLab-website.png)
-
-> **【待核对插图 01-图4｜云端实验入口】**
-> 现有平台截图待核对公开裁剪范围与界面时效。如需保留，图注只说明它是当时使用的入口，并在发布前检查账号信息与配额内容。平台当前使用规则另行核对。
-
-真机运行需要把设备环境、实际执行、输出与退出状态对应起来。即使 CPU 调试和 SIM 仿真都正常，NPU 一侧的运行时、驱动和目标匹配仍需要单独检查。云端与本地记录的待补字段列在下表，便于后续核验。
-
-| 环境                  | 历史记录                                             | 需要补核的信息                            |
-| ------------------- | ------------------------------------------------ | ---------------------------------- |
-| 本地 WSL，CPU/SIM 分开记录 | Ubuntu 24.04、x86_64、CANN 9.1.0、910B ops、dav-2201 | 工具链完整版本、每种模式的构建与运行日志、对应源码版本        |
-| CANNLab，NPU         | A3（910C）、aarch64、CANN 9.1.0、dav-2201             | 具体 SoC 与产品对应、驱动／固件、编译器、源码版本与同次运行证据 |
-
-# 复现过程
-
-下面是此前使用的复现命令，安装记录放在附录。阅读时先关注两个参数，`CMAKE_ASC_RUN_MODE` 选择运行路径，`CMAKE_ASC_ARCHITECTURES` 选择编译目标。二者分别回答“用哪种方式运行”和“为哪个架构生成代码”。实验目录及环境变量路径需按实际机器调整。
-
-复现还需要记录源码版本。同一仓库持续更新后，只记下仓库地址无法定位原实验使用的代码。尚未补齐的运行日志和版本信息分别标在各模式之后，后续补测应另建新记录。
-
-下面的命令假设本地 CANN 已安装。仓库位于 `~/github-codes/ai-kernel-101`，首次获取时从 GitHub 克隆：
-
-```bash
-repo="$HOME/github-codes/ai-kernel-101"
-mkdir -p "$HOME/github-codes"
-if [ ! -d "$repo/.git" ]; then
-  git clone https://github.com/LamberttLiu/ai-kernel-101 "$repo"
-fi
-
-source "$HOME/Ascend/cann/set_env.sh"
-sample="$repo/src/hello_world"
-work="/tmp/ai-kernel-101-910/hello-world"
-```
-
-## CPU 调试
-
-```bash
-cmake -S "$sample" -B "$work/build-cpu" \
-  -DCMAKE_ASC_RUN_MODE=cpu -DCMAKE_ASC_ARCHITECTURES=dav-2201
-cmake --build "$work/build-cpu" -j 4
-mkdir -p "$work/run-cpu"
-(cd "$work/run-cpu" && timeout 30s "$work/build-cpu/demo")
-echo "exit=$?"
-```
-
-`cmake -S` 指向样例，`-B` 指向构建目录；配置成功后还要编译并执行 `demo`。原记录中编译末尾为 `[100%] Built target demo`，Block 0 至 7 各打印一次，8 个调试 Core 均报告成功，退出码为 0。以下仅摘录开头、结尾几行：
+在上述 WSL 环境按 CPU 模式编译当前样例，8 个 Block 各打印一次。下面保留全部 Kernel 打印，以及同步和退出状态；其余 Host 与调测库消息见[CPU 实验报告](../../lab/hello-world/wsl-report.md)。
 
 ```text
 [Block (1/8)]: Hello World!!!
-...
 [Block (0/8)]: Hello World!!!
-[SUCCESS][CORE_0][pid 178277] exit success!
-...
-[SUCCESS][CORE_7][pid 178284] exit success!
+[Block (3/8)]: Hello World!!!
+[Block (7/8)]: Hello World!!!
+[Block (2/8)]: Hello World!!!
+[Block (5/8)]: Hello World!!!
+[Block (4/8)]: Hello World!!!
+[Block (6/8)]: Hello World!!!
+[HOST][OK] aclrtSynchronizeStream: ret=0
+process_exit=0
 ```
 
-CPU 调试中仍然会出现 Block、Core 等与 Kernel 执行有关的标记，要结合构建模式和调测环境理解它们。判断依据包括 `cpu` 构建选项、实际启动的二进制及调测日志，打印格式本身无法证明使用了 NPU。
+完整打印和正常退出说明，本例的入口与打印在 CPU 调测路径上可以执行。这里的设备选择、Stream 管理等接口采用打桩（Stub）实现：CPU 调测库提供不实际操作 NPU 的替代实现，让同一份 Host 代码可以在本地继续执行。因此，这些调用返回成功，不代表访问了物理 NPU。
 
-> **【待补证据 01-01｜CPU 调试记录】**
-> 已有 [2026-11-05 CPU 历史摘要](../../lab/verification-2026-11-05.md)记载 Hello World 编译成功、8 个 Block 打印和退出码 0，原始日志未随仓库归档，精确源码版本待补。后续补齐 configure／build／run 日志和源码标识，并核对它们与上方历史节选是否属于同一批运行。若重新执行，单独记为新结果。
+即使 CPU 调测输出中出现了 `Block`、`CORE` 等标记，核函数依然运行在主机 CPU 上。这些标记用于描述 Kernel 的逻辑任务；判断执行者，需要结合构建模式和运行环境。
 
-## SIM 仿真
+以后把打印换成向量加，这条路径就能承担更多工作：输入是否正确、索引有没有越界、计算结果是否符合参考值，都可以先在 CPU 调测环境中检查。Hello World 则只检查最基础的核函数入口与打印，尚未涉及这些数值问题。
 
-复用前面定义的 `sample` 和 `work`，但使用单独的构建与运行目录：
+## SIM 仿真：换成目标架构的执行路径
 
-```bash
-cmake -S "$sample" -B "$work/build-sim" \
-  -DCMAKE_ASC_RUN_MODE=sim -DCMAKE_ASC_ARCHITECTURES=dav-2201
-cmake --build "$work/build-sim" -j 4
-mkdir -p "$work/run-sim"
-(cd "$work/run-sim" && timeout 60s "$work/build-sim/demo")
-echo "exit=$?"
-```
+CPU 调试方便检查逻辑，但后面要解释搬运、同步和流水时，还需要考察程序在目标架构下的执行行为。SIM 仿真使用目标 NPU 的仿真模型执行设备侧程序，能够观察什么、支持哪些行为，取决于模型和工具版本。[Ascend C 孪生调试文章](https://www.hiascend.com/zh/developer/techArticles/20231215-2)介绍了 CPU 调试与仿真的分工。
 
-原记录中同样完成编译，8 个 Block 都有输出，仿真模型正常停止，退出码为 0。日志节选：
+从 CPU 切到 SIM，变化发生在构建与执行环节：同一份源码需要按仿真模式重新构建，再交给模型执行。为不同模式保留独立构建目录，就能避免旧产物混入，让每次输出都对应明确的执行路径。具体选项与命令见[配套实验页](../../lab/hello-world/README.md)。
+
+![图 3：同一份源码按 CPU、SIM、NPU 模式分别构建可执行程序 demo。SIM 在主机 CPU 上运行仿真模型，无需本地物理 NPU；模型中的功能与性能观察，与真实设备功能验证和性能测量分别标注。](../assets/figures/gen/01-fig3-run-paths.png)
+
+使用 CANN 9.1.0 的 `dav_2201` 仿真模型重新构建并执行样例，得到下面的 Kernel 打印与模型结束消息。这里省略模型初始化和 Host 消息，保留八个 Block 的完整正文：
 
 ```text
-[AIV Block 0/8] ... [AIV Block 7/8] [Block (0/8)]: Hello World!!!
+[Block (0/8)]: Hello World!!!
 [Block (1/8)]: Hello World!!!
-...
+[Block (2/8)]: Hello World!!!
+[Block (3/8)]: Hello World!!!
+[Block (4/8)]: Hello World!!!
+[Block (5/8)]: Hello World!!!
+[Block (6/8)]: Hello World!!!
 [Block (7/8)]: Hello World!!!
 [INFO] Model stopped successfully.
-exit=0
+process_exit=0
 ```
 
-已有记录将 `[AIV Block ...]` 记为运行时前缀，`[Block (...)]` 与 Kernel 中的格式字符串对应。前缀的确切来源需结合完整日志核对。这里先检查 8 个逻辑 Block 的打印和仿真正常结束，模型报告的时间保留为仿真观察，真机耗时需要另测。
+模型正常停止，八个 Block 的打印也完整出现，符合本例的仿真验证预期。实际输出还带有 `[AIV Block ...]` 前缀，它由工具链的 printf 调测实现补充，后面的 `[Block (...)]` 才来自本例的格式字符串。前缀与正文在仿真输出中可以分批出现，完整上下文见[SIM 实验报告](../../lab/hello-world/wsl-report.md)。
 
-另一次本地尝试中，当时没有 `/dev/davinci0`，使用 `-DCMAKE_ASC_RUN_MODE=npu` 生成构建产物后，运行时没有观察到 Kernel 打印。缺少同次 ACL 返回码和完整错误日志，目前只能保留这一现象，失败发生在哪一步仍待补查。前面所述样例直接返回 0 的写法，也使单看进程退出状态难以定位问题。
+对于这个例子，两条路径都执行了同一段打印逻辑：每个 Block 打印一次自己的编号。它们得到了相近的文字，却由不同的执行者完成任务。只有加入数值计算、搬运依赖和流水，才有更多行为可以比较。仿真本身运行了多久，也不能直接当作 NPU 执行 Kernel 的耗时。
 
-> **【待补证据 01-02｜SIM 成功与本地 NPU 尝试】**
-> 分别补齐 SIM 的构建日志、仿真启动命令、完整输出、退出状态，以及本地 NPU 尝试的错误输出和初始化／设备选择／同步返回状态。核对模拟目标和工具版本。当前没有可据此补写的耗时或故障原因，先保留上述历史节选与待查现象。
+# 从本地打印，到真机打印
 
-## 在 CANNLab 跑 NPU
+即使 CPU 调试与 SIM 仿真都通过，仍然需要让实际设备接过任务。在真机模式下，Host 必须通过运行时访问 NPU，将 Kernel 提交到设备并等待它完成。这条路径依赖真实设备及配套的驱动、运行时环境，仅仅生成面向 NPU 的程序，还不能完成执行。
 
-登录 CANNLab 云端环境后，可参考以下命令复现实验。已有记录记载使用了同一份样例源码和构建配置，具体对应提交与文件校验信息仍待归档。云端 CPU 架构与本地不同，构建产物需在对应环境中生成。
+本地没有这套设备条件，可以把真机验证放到云端。本篇使用 CANNLab 提供的云端容器：将源码放入容器，在对应工具链与目标配置下重新构建，再由 Host 程序提交给 NPU。本地环境是 `x86_64`，云端容器可见的 CPU 架构为 `aarch64`，因此需要在相应环境中编译，不能把本地二进制直接当作云端可执行程序。
 
-```bash
-repo=/mnt/workspace/ai-kernel-101
-if [ ! -d "$repo/.git" ]; then
-  git clone https://github.com/LamberttLiu/ai-kernel-101 "$repo"
-fi
+本次真机验证的环境如下。容器可见的 CPU 架构、设备工具显示名、Runtime SoC 与编译目标分别记录，因为它们描述的对象不同。云平台不提供宿主机和固件信息，表中只列出容器内可以查询的内容。
 
-source /home/developer/Ascend/ascend-toolkit/set_env.sh
-cmake -S "$repo/src/hello_world" \
-  -B /mnt/workspace/hello-world-npu-910/build \
-  -DCMAKE_ASC_RUN_MODE=npu \
-  -DCMAKE_ASC_ARCHITECTURES=dav-2201 \
-  -DCMAKE_PREFIX_PATH="$ASCEND_HOME_PATH"
-cmake --build /mnt/workspace/hello-world-npu-910/build --parallel 4
-timeout 30s /mnt/workspace/hello-world-npu-910/build/demo
-echo "exit=$?"
-```
+| 项目 | 本次环境 |
+| --- | --- |
+| 容器环境 | 用户态系统 Ubuntu 20.04.5 LTS，可见 CPU 架构 aarch64 |
+| NPU 标识 | 设备工具显示 `Ascend910`，板卡查询的 NPU Name 为 `9362` |
+| Runtime SoC | `aclrtGetSocName()` 返回 `Ascend910_9362` |
+| 容器可见驱动信息 | 25.5.5 |
+| 宿主机与固件 | 平台未开放查询；固件字段返回 `NA` |
+| CANN Toolkit / ops | 9.1.0 / 9.1.0 |
+| 编译器 | clang 15.0.5，目标 aarch64 |
+| 编译目标与模式 | `dav-2201`，`npu` |
 
-此前 CANNLab A3 环境的记录中，Block 0 至 7 各输出一次，进程退出码为 0，节选如下。
+真机运行仍然检查同一件事：8 个逻辑 Block 是否都执行到了打印位置，任务是否完成。区别在于，这次核函数由物理 NPU 执行。把输出与实际设备、构建模式和运行程序对应起来，这组打印才有明确的含义。
+
+将同一份源码在云端按 NPU 模式重新构建，得到下面的运行输出。这里保留同步返回状态、全部 Block 打印与退出状态；其他 ACL 结果和环境查询见[真机实验报告](../../lab/hello-world/npu-report.md)。
 
 ```text
-[AIV Block 0/8] [Block (0/8)]: Hello World!!!
-...
+[HOST][OK] aclrtSynchronizeStream: ret=0
+[AIV Block 6/8] [Block (6/8)]: Hello World!!!
 [AIV Block 7/8] [Block (7/8)]: Hello World!!!
-exit=0
+[AIV Block 0/8] [Block (0/8)]: Hello World!!!
+[AIV Block 1/8] [Block (1/8)]: Hello World!!!
+[AIV Block 2/8] [Block (2/8)]: Hello World!!!
+[AIV Block 3/8] [Block (3/8)]: Hello World!!!
+[AIV Block 4/8] [Block (4/8)]: Hello World!!!
+[AIV Block 5/8] [Block (5/8)]: Hello World!!!
+process_exit=0
 ```
 
-这段输出来自此前的 NPU 运行记录。要让读者复核“确实在目标设备上执行”，还需要同次运行的设备信息、构建选项、二进制标识和运行时状态。CPU、SIM 与 NPU 可能出现相近的打印文本，因此结果要与产生它的环境一起保存。
+同步调用成功返回，八个 Block 各打印一次，进程退出码为 0，符合本例的真机功能预期。
 
-> **【待补证据 01-03｜NPU 真机运行】**
-> 补齐设备、SoC、驱动／固件、CANN、编译器、编译目标、源码提交／文件校验、构建与运行日志，记录实际二进制路径及 ACL 调用、Stream 同步状态。检查 Block 0—7 是否完整出现，并核对进程退出状态。现有节选按历史叙述保留，暂缺字段明确写“待补”或“未知”。
+注意，日志中同步成功的消息出现在 Kernel 打印之前。同步调用等待的是 Stream 中的设备任务完成，而非终端文字显示完毕；终端上看到的先后只是主机端调测信息的输出顺序，不能直接当作设备执行时刻。这里用同步成功返回检查任务完成，再核对八个 Block 的打印是否完整，不据打印顺序还原设备调度或推断并行效率。
+
+判断完成时，还要留意 Host 程序如何处理错误。本例逐项检查 ACL 返回码，在任务执行或资源清理失败时返回退出码 1，全部成功才返回 0。`<<<>>>` 启动语句本身没有可直接检查的 ACL 返回值，执行结果由后面的 Stream 同步和完整打印共同检查。在无 NPU 的 WSL 上按真机模式执行时，程序在 `aclInit` 处报告错误并以 1 退出，也验证了这次初始化失败不会被正常退出掩盖。
+
+这个习惯在后面处理张量时同样适用：Host 走到了程序末尾，设备端的工作是否完成，仍要有对应的检查。
+
+到这里，Hello World 所承担的检查范围也清楚了：它让我们沿着不同运行路径找到 Kernel 的入口，并观察任务是否执行到打印位置。至于计算结果是否正确、数据传输是否符合预期、NPU 的算力有没有被充分使用，这个没有输入张量的例子还无法回答。下一步需要让 Kernel 真正读入数据、完成计算，再把结果交回 Host。
 
 # 总结
 
-回到开头的问题，没有本地昇腾 NPU，仍然可以从开发环境和最小 Kernel 开始。CPU 调试承担本地逻辑调测，SIM 提供目标架构的仿真执行路径，真机再检验程序在实际设备上的行为。本篇已有三条路径的基础打印记录，尚待补齐的日志、版本和环境字段也已标在相应位置。
+回到开头的问题，没有本地昇腾 NPU，仍然可以从开发环境和最小 Kernel 开始：**CPU 调试承担本地逻辑调测，SIM 提供目标架构的仿真执行路径，真机再检验程序在实际设备上的行为**。区分这三条路径，就能明确每一步在检查什么，也能知道哪些问题必须留到实际设备上回答。
 
-Hello World 的工作到打印就结束了。现在把任务换成向量加 $z_i=x_i+y_i$，Host 需要准备输入，Kernel 需要读取两个数并写回结果，运行后还要与参考值比较。数学表达只有一行，实现已经开始涉及数据放在哪里、交给谁计算，以及何时可以使用结果。
+Hello World 的工作到打印就结束了。现在把任务换成向量加：$z_i=x_i+y_i$，Host 需要准备输入，Kernel 需要读取两个数并写回结果，运行后还要与参考值比较。数学表达只有一行，实现会涉及数据放在哪里、交给谁计算，以及何时可以使用结果。
 
 这时如果直接打开向量加源码，会先遇到局部存储、搬运和同步调用。要解释这些代码，需要把视线从“程序怎样提交到设备”移到“数据怎样送到计算单元”。再把加法换成矩阵乘，输入复用和硬件分工又会改变。同样简短的公式，为什么需要不同的数据组织？
 
@@ -252,34 +204,6 @@ Hello World 的工作到打印就结束了。现在把任务换成向量加 $z_i
 
 后续实验将继续标注 CPU、SIM 或 NPU 模式，并说明对应的源码、输入和测量口径。数值是否正确、性能如何变化，会在具备相应计算与测量的篇章中逐项回答。
 
-# 附录：本次 WSL 的 CANN 9.1.0 安装记录
+# 附录：源码与复现
 
-本机使用 Ubuntu 24.04（`x86_64`）、普通用户安装的 CANN Toolkit 9.1.0 与 910B ops 9.1.0，没有安装 NPU 驱动。安装包来自 [昇腾 CANN 9.1.0 下载页](https://www.hiascend.com/cann/download?versionId=796&ids=d803%2Ch0502%2Ch0601%2Ch0702&currentTab=0)。下面为环境安装的关键命令，其他前提见 [CANN 9.1.X 安装说明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/softwareinst/instg/instg_0054.html)。
-
-```bash
-sudo apt-get update
-sudo apt-get install -y gcc g++ make cmake git curl python3 python3-pip gdb
-
-mkdir -p "$HOME/Ascend/install-cache"
-cd "$HOME/Ascend/install-cache"
-curl -fL -C - -o Ascend-cann-toolkit_9.1.0_linux-x86_64.run \
-  'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%209.1.0/Ascend-cann-toolkit_9.1.0_linux-x86_64.run'
-curl -fL -C - -o Ascend-cann-910b-ops_9.1.0_linux-x86_64.run \
-  'https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/CANN/CANN%209.1.0/Ascend-cann-910b-ops_9.1.0_linux-x86_64.run'
-
-bash ./Ascend-cann-toolkit_9.1.0_linux-x86_64.run --check
-bash ./Ascend-cann-910b-ops_9.1.0_linux-x86_64.run --check
-bash ./Ascend-cann-toolkit_9.1.0_linux-x86_64.run --install
-bash ./Ascend-cann-910b-ops_9.1.0_linux-x86_64.run --install
-
-source "$HOME/Ascend/cann/set_env.sh"
-grep '^version=' "$HOME/Ascend/cann/x86_64-linux/ascend_toolkit_install.info"
-grep '^version=' "$HOME/Ascend/cann/x86_64-linux/ascend_ops_install.info"
-```
-
-此前安装记录中，两个安装包的 `--check` 均返回 `SHA256 checksums are OK`，安装器报告 `install success`，安装时按提示阅读并接受许可协议。两份安装信息的 `version` 均为 `9.1.0`，`ccec` 也能显示版本。云端记录为预装 CANN 9.1.0 环境。实际镜像、安装位置和工具版本应在复现时重新核对。
-
-> **【待补证据 01-04｜安装与资料版本】**
-> 补存本地安装信息、完整编译器版本及安装检查记录，并核对上游样例固定提交与当前源码的对应关系。下载地址、安装说明和在线文档的适用版本需在发布前复查，本段命令保留为历史安装流程。
-
-CANNLab 的算力资源和使用额度以平台当前规则为准。如果需要更多的算力资源，也可以参考 [极智算](https://www.jygpu.com/markets)与[共绩算力](https://suanli.cn/product/server/)等平台。本文未在这些平台上进行实验，具体机型、价格和软件环境请以平台实际信息为准。
+完整实现与构建配置见 [Hello World 源码](../../src/hello_world/README.md)，安装说明、三种模式的构建运行命令与实验材料见[配套实验页](../../lab/hello-world/README.md)。复现时使用与目标环境匹配的路径和编译选项，并记录源码版本。
