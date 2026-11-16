@@ -12,7 +12,7 @@ Host 逐项检查上述 ACL 调用的返回码，打印 `[HOST][OK]` 或 `[HOST]
 
 CPU 调试中的部分 ACL 接口由调测库打桩实现，成功返回不代表调用了物理 NPU。Stream 的销毁依据创建调用是否成功，兼容 CPU 调测库成功返回空句柄的情况。
 
-2026-11-15 的 CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](../../lab/hello-world/README.md)。
+CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](../../lab/hello-world/README.md)。
 
 ## 本样例支持的产品
 
@@ -33,8 +33,8 @@ CPU 调试中的部分 ACL 接口由调测库打桩实现，成功返回不代�
 
 在本样例根目录下执行如下步骤，编译并执行样例。
 
-### 配置环境变量  
-  
+### 配置环境变量
+
 ```bash
 source ${install_path}/cann/set_env.sh
 ```
@@ -48,13 +48,14 @@ source ${install_path}/cann/set_env.sh
 ```bash
 mkdir -p build && cd build;
 # 编译工程（默认npu模式）
-cmake -DCMAKE_ASC_ARCHITECTURES=dav-2201 ..; make -j;                     
+cmake -DCMAKE_ASC_ARCHITECTURES=dav-2201 ..; make -j;                   
 ./demo
 ```
 
 使用 CPU调试 或 NPU仿真 模式时，添加 `-DCMAKE_ASC_RUN_MODE=cpu` 或 `-DCMAKE_ASC_RUN_MODE=sim` 参数即可。
 
 示例如下：
+
 ```bash
 # cpu调试模式
 cmake -DCMAKE_ASC_RUN_MODE=cpu -DCMAKE_ASC_ARCHITECTURES=dav-2201 ..;make -j;
@@ -69,12 +70,12 @@ cmake -DCMAKE_ASC_RUN_MODE=sim -DCMAKE_ASC_ARCHITECTURES=dav-2201 ..;make -j;
 
 ### 编译选项说明
 
-| 选项 | 可选值 | 说明 |
-|------|--------|------|
-| `CMAKE_ASC_RUN_MODE` | `npu`（默认）、`cpu`、`sim` | 运行模式：NPU 运行、CPU调试、NPU仿真 |
+| 选项                        | 可选值                             | 说明                                                                                                                                                       |
+| --------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CMAKE_ASC_RUN_MODE`      | `npu`（默认）、`cpu`、`sim`  | 运行模式：NPU 运行、CPU调试、NPU仿真                                                                                                                       |
 | `CMAKE_ASC_ARCHITECTURES` | `dav-2201`（默认）、`dav-3510` | NPU 架构：dav-2201 对应 Atlas A2 训练系列产品/Atlas A2 推理系列产品和 Atlas A3 训练系列产品/Atlas A3 推理系列产品，dav-3510 对应 Ascend 950PR/Ascend 950DT |
 
-### 执行结果 
+### 执行结果
 
 执行结果如下，说明执行成功。
 

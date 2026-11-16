@@ -1,12 +1,12 @@
 /* !
  * \file hello_world.cpp
- * \brief 快速入门示例，演示最基本的Ascend C内核启动和printf输出
+ * \brief 快速入门示例，演示最基本的 Ascend C 内核启动和 printf 输出
  */
 
+#include <cstdio>
 #include "utils/debug/asc_printf.h"
 #include "kernel_operator.h"
 #include "acl/acl.h"
-#include <cstdio>
 
 __global__ __vector__ void hello_world()
 {

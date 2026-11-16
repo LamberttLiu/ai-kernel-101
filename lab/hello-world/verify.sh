@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-# Usage: bash lab/hello-world/verify.sh cpu|sim|npu [source-directory]
+
+# 执行方式：
+# bash lab/hello-world/verify.sh cpu|sim|npu [source-directory]
+# 例如：
+# bash lab/hello-world/verify.sh cpu
+# bash lab/hello-world/verify.sh sim
+# bash lab/hello-world/verify.sh npu /path/to/sample
+
 # Resolve the requested run mode and sample source.
 set -eo pipefail
 mode=${1:?Specify cpu, sim, or npu}
