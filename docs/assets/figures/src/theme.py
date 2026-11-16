@@ -1,4 +1,4 @@
-"""Shared Matplotlib layout, palette and bilingual typography; coordinates in px."""
+"""Shared theme: original layout units, uniformly scaled to 1920x1080 output."""
 from pathlib import Path
 import os
 import re
@@ -13,7 +13,15 @@ from matplotlib import font_manager
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 from matplotlib.textpath import TextPath
 
-WIDTH, HEIGHT, DPI = 1080, 600, 100
+WIDTH, HEIGHT = 1920, 1080
+LAYOUT_WIDTH, LAYOUT_HEIGHT, DPI = 1080, 600, 100
+# Keep all existing coordinates and point sizes, scaling geometry and typography
+# together through the figure DPI. Center the original aspect ratio without stretch.
+SCALE = min(WIDTH / LAYOUT_WIDTH, HEIGHT / LAYOUT_HEIGHT)
+OUTPUT_DPI = DPI * SCALE
+VIEW_WIDTH, VIEW_HEIGHT = WIDTH / SCALE, HEIGHT / SCALE
+PAD_X = (VIEW_WIDTH - LAYOUT_WIDTH) / 2
+PAD_Y = (VIEW_HEIGHT - LAYOUT_HEIGHT) / 2
 TITLE_SIZE, TITLE_EN_SIZE = 24, 18
 WATERMARK = "AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu"
 WATERMARK_COLOR = "#CFD3D7"
@@ -56,14 +64,16 @@ def setup_font():
 
 def canvas(title_zh, title_en):
     fonts = setup_font()
-    fig = plt.figure(figsize=(WIDTH / DPI, HEIGHT / DPI), dpi=DPI)
-    ax = fig.add_axes((0, 0, 1, 1), xlim=(0, WIDTH), ylim=(HEIGHT, 0))
+    fig = plt.figure(figsize=(VIEW_WIDTH / DPI, VIEW_HEIGHT / DPI), dpi=OUTPUT_DPI)
+    ax = fig.add_axes((0, 0, 1, 1),
+                      xlim=(-PAD_X, LAYOUT_WIDTH + PAD_X),
+                      ylim=(LAYOUT_HEIGHT + PAD_Y, -PAD_Y))
     ax.set_axis_off()
     ax._figure_fonts = fonts
-    text(ax, WIDTH / 2, 43, title_zh, TITLE_SIZE, ha="center", role="title")
-    text(ax, WIDTH / 2, 78, title_en, TITLE_EN_SIZE, GRAY, ha="center")
-    for y in (10, HEIGHT - 24):
-        text(ax, WIDTH / 2, y, WATERMARK, 10, WATERMARK_COLOR, ha="center")
+    text(ax, LAYOUT_WIDTH / 2, 43, title_zh, TITLE_SIZE, ha="center", role="title")
+    text(ax, LAYOUT_WIDTH / 2, 78, title_en, TITLE_EN_SIZE, GRAY, ha="center")
+    for y in (10, LAYOUT_HEIGHT - 24):
+        text(ax, LAYOUT_WIDTH / 2, y, WATERMARK, 10, WATERMARK_COLOR, ha="center")
     return fig, ax
 
 
@@ -130,9 +140,15 @@ def save(fig, script):
         path = output / f"{stem}.{extension}"
         metadata = {"Software": "AI Kernel 101 / Matplotlib"} if extension == "png" else {
             "Creator": "AI Kernel 101 / Matplotlib", "Date": None}
-        fig.savefig(path, dpi=DPI, metadata=metadata)
+        fig.savefig(path, dpi=OUTPUT_DPI, metadata=metadata)
         if extension == "svg":
-            path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines())
+            svg = path.read_text(encoding="utf-8")
+            # Declare the same publication dimensions as PNG, retaining the vector viewBox.
+            root = re.search(r"<svg\b[^>]*>", svg).group(0)
+            header = re.sub(r'\b(width|height)="[^"]+"',
+                            lambda m: f'{m[1]}="{WIDTH if m[1] == "width" else HEIGHT}px"', root)
+            svg = svg.replace(root, header, 1)
+            path.write_text("\n".join(line.rstrip() for line in svg.splitlines())
                             + "\n", encoding="utf-8")
         print(path)
     plt.close(fig)

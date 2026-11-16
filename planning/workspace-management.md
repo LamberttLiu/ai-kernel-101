@@ -36,7 +36,7 @@ lab 内按主题组织，每个主题的 README 说明复现方法，实验报�
 
 | 原路径 | 新路径 |
 | --- | --- |
-| 根目录 Hello World 草稿 | docs/drafts/hello-world.md |
+| 根目录 Hello World 草稿 | docs/articles/hello-world.md |
 | 根目录 Vector Add 草稿 | docs/drafts/vector-add.md |
 | 根目录尾块与对齐草稿 | docs/drafts/vector-add-tail.md |
 | 系列写作框架与计划.md | [series-plan.md](series-plan.md) |

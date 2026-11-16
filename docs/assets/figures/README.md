@@ -1,10 +1,12 @@
 # Matplotlib 绘图工作流
 
-新配图以白色为背景，红色和天蓝色为主题色，其他元素使用黑白灰。默认导出 **1080×600 PNG** 和同一布局的 SVG。优先用干净的纯色块、细线与统一间距塑造图形。概念图、模型预测、实测结果必须在图中区分，不能用示意布局暗示实测时序或物理资源数量。
+新配图以白色为背景，红色和天蓝色为主题色，其他元素使用黑白灰。默认导出 **1920×1080 PNG** 和声明相同像素尺寸的 SVG，直接覆盖现有 `gen` 文件。图形与文字从矢量绘图代码重新渲染。优先用干净的纯色块、细线与统一间距塑造图形。概念图、模型预测、实测结果必须在图中区分，不能用示意布局暗示实测时序或物理资源数量。
 
 插图以直观图形为主体：保留标题，用任务条、轨道、箭头、同步线或对象图形表达关系，文字只标识必要对象和动作。不采用分栏文字卡片、重复副标题或长段解释；能力范围与完整技术说明留在正文。异步图参照作者提供的 `cuda_streams.png` 的轨道表达方式，按当前样例重新绘制。
 
-统一排版：标题两行，中文在上、英文在下，字号分别为 **24 px、18 px**。中文标题使用华文中宋，中文正文与标注使用微软雅黑；所有英文及数字使用 Cascadia Code。所有标注中文在上、英文在下，两行使用相同的标称字号。框内双语文字作为整体垂直居中，按实际字形边界计算，不靠手调首行位置。页眉、页脚均居中添加浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印，颜色 `#CFD3D7`，字号 10 px。以上字号均按 100 DPI 画布的像素计，在代码中转换为 Matplotlib 的 pt。
+统一排版：标题两行，中文在上、英文在下。保留原 1080×600 设计坐标，标题设计字号为 **24、18**，在 1920×1080 输出中分别约为 **42.67 px、32 px**。中文标题使用华文中宋，中文正文与标注使用微软雅黑；所有英文及数字使用 Cascadia Code。所有标注中文在上、英文在下，两行使用相同的标称字号。框内双语文字作为整体垂直居中，按实际字形边界计算，不靠手调首行位置。页眉、页脚均居中添加浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印，颜色 `#CFD3D7`，设计字号 10，输出约 17.78 px。
+
+统一缩放由 `src/theme.py` 控制：`WIDTH/HEIGHT` 为输出像素尺寸，`LAYOUT_WIDTH/LAYOUT_HEIGHT` 保留 1080×600 设计坐标，`DPI=100` 用于设计字号及线宽转换，`OUTPUT_DPI=DPI*SCALE` 用于渲染。`SCALE=min(1920/1080,1080/600)=16/9`，图形、文字、线宽、箭头和水印一起等比例放大。原比例与 16:9 略有差别，上下各增加约 6.67 px 白边，不拉伸或裁切内容。SVG 保留矢量 viewBox，并将根元素宽高声明为 `1920px`、`1080px`。
 
 ## 文件与生成
 
@@ -56,7 +58,7 @@ uv pip install --python .local/figures-venv/Scripts/python.exe -r docs/assets/fi
 
 新增单图使用 `篇次-fig序号-英文主题.py` 命名，复用 `canvas(title_zh, title_en)`、`bilingual(ax, x, y, zh, en, size)`、`bilingual_in_box(ax, x, y, w, h, zh, en, size)`、`box`、`arrow`、`save`。`canvas` 统一生成双语标题和上下水印，`bilingual` 保证标注的中英顺序及字号相等，`bilingual_in_box` 按两行字形的实际高度与行间距在框内整体居中；图形细节用 Matplotlib 图元绘制。批量入口会发现 `src/??-fig*.py`；辅助模块不生成图片。每次修改后重新生成 PNG／SVG，逐张检查字号、中文、遮挡、箭头、留白和正文含义，再检查 Markdown 相对链接。脚本只自动检查文字是否超出画布，不能替代视觉与技术审核。
 
-图 3 的可执行程序 `demo` 框使用红色 `#C00000` 边框、2 px 线宽，内部填充近白浅灰 `#FAFAFA`，标注使用深色。图 3 的全部流程箭头及分支连接线统一为近黑深灰 `#20262C`。Matplotlib 线宽参数以 pt 计，2 px 按 `2 * 72 / DPI` 转换。
+图 3 的可执行程序 `demo` 框使用红色 `#C00000` 边框、设计线宽 2（输出约 3.56 px），内部填充近白浅灰 `#FAFAFA`，标注使用深色。图 3 的全部流程箭头及分支连接线统一为近黑深灰 `#20262C`。Matplotlib 线宽参数以 pt 计，设计线宽 2 按 `2 * 72 / DPI` 转换，再随输出 DPI 等比例放大。
 
 字体固定按文字角色选择：
 
@@ -77,7 +79,7 @@ SVG 文字导出为路径，避免阅读端字体缺失；字体文件只留本�
 | 图与源码 | 依据／修改内容 | 证据边界与引用 |
 | --- | --- | --- |
 | [01-fig1-cpu-npu-dataflow.py](src/01-fig1-cpu-npu-dataflow.py) | CPU／主机内存经 PCIe 连接 NPU／设备内存；按作者指定示意 8 个 AI Core，每核展示 Vector／Cube 计算单元；以虚线区分任务提交 | 采用耦合架构抽象，省略 Scalar、片上存储、DMA 与实际片上互连；不表示 A2／A3 分离架构、真实核数、Block 映射或实测芯片布局。数据箭头表示一般算子流程，Hello World 本身没有张量搬运 |
-| [01-fig2-host-kernel.py](src/01-fig2-host-kernel.py) | [hello_world.cpp](../../../src/hello_world/hello_world.cpp) 与[01 草稿](../../drafts/hello-world.md)；Host／NPU Stream 双轨道、提交箭头、纯色任务条和同步等待区 | 真机语境的执行依赖示意；样例提交后立即同步，不虚构其间有 CPU 计算；条长不表示时长，单条 Kernel 不表示 Block 串行执行或物理核映射 |
+| [01-fig2-host-kernel.py](src/01-fig2-host-kernel.py) | [hello_world.cpp](../../../src/hello_world/hello_world.cpp) 与[01 正文](../../articles/hello-world.md)；Host／NPU Stream 双轨道、提交箭头、纯色任务条和同步等待区 | 真机语境的执行依赖示意；样例提交后立即同步，不虚构其间有 CPU 计算；条长不表示时长，单条 Kernel 不表示 Block 串行执行或物理核映射 |
 | [01-fig3-run-paths.py](src/01-fig3-run-paths.py) | 以 [CMakeLists.txt](../../../src/hello_world/CMakeLists.txt) 中的可执行程序 `demo` 为产物；CPU／SIM／NPU 分别使用虚线框；明确 SIM 在主机 CPU 上运行仿真模型，无需本地物理 NPU | 同名 `demo` 分别构建，不表示三种模式共用同一二进制；CPU 为功能调试，SIM 为“目标模型中的功能与性能观察”，NPU 为“真实设备功能验证与性能测量”。仿真耗时不等于真机耗时，图形不对应具体板卡布局 |
 
 依据为本工作区 2026-11-14 的源码与草稿；草稿存在未提交编辑，不把日期当作固定源码版本。外部资料链接沿用正文，不新增未经核对的硬件或软件版本声明。三图均由第 01 篇引用，生成命令如上。

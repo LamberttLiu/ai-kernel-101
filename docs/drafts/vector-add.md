@@ -13,7 +13,7 @@ aliases:
 
 # 一、算子背景
 
-在 [第01篇](hello-world.md)中，Kernel 只实现了打印这一基本功能，验证了 Ascend C 的启动与执行路径。[第02篇](hardware-dataflow.md)先梳理计算资源与数据流。本篇是第03篇，从这里开始真正处理数据，选择向量加法这一简单的 Element-wise 运算作为例子。
+在 [第01篇](../articles/hello-world.md)中，Kernel 只实现了打印这一基本功能，验证了 Ascend C 的启动与执行路径。[第02篇](hardware-dataflow.md)先梳理计算资源与数据流。本篇是第03篇，从这里开始真正处理数据，选择向量加法这一简单的 Element-wise 运算作为例子。
 
 向量加的数学公式如下：
 $$C_i = A_i + B_i, \quad i = 0, 1, \ldots, N-1$$

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6pt" height="432pt" viewBox="0 0 777.6 432" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1920px" height="1080px" viewBox="0 0 777.6 437.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -20,8 +20,8 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 432
-L 777.6 432
+   <path d="M 0 437.4
+L 777.6 437.4
 L 777.6 0
 L 0 0
 z
@@ -29,118 +29,118 @@ z
   </g>
   <g id="axes_1">
    <g id="line2d_1">
-    <path d="M 125.28 175.68
-L 727.2 175.68
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke: #d7dde2; stroke-width: 0.85; stroke-linecap: square"/>
+    <path d="M 125.28 178.38
+L 727.2 178.38
+" clip-path="url(#p3117525052)" style="fill: none; stroke: #d7dde2; stroke-width: 0.85; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
-    <path d="M 125.28 283.68
-L 727.2 283.68
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke: #d7dde2; stroke-width: 0.85; stroke-linecap: square"/>
+    <path d="M 125.28 286.38
+L 727.2 286.38
+" clip-path="url(#p3117525052)" style="fill: none; stroke: #d7dde2; stroke-width: 0.85; stroke-linecap: square"/>
    </g>
    <g id="patch_2">
-    <path d="M 131.04 153.36
-L 224.64 153.36
-Q 227.52 153.36 227.52 156.24
-L 227.52 195.12
-Q 227.52 198 224.64 198
-L 131.04 198
-Q 128.16 198 128.16 195.12
-L 128.16 156.24
-Q 128.16 153.36 131.04 153.36
+    <path d="M 131.04 156.06
+L 224.64 156.06
+Q 227.52 156.06 227.52 158.94
+L 227.52 197.82
+Q 227.52 200.7 224.64 200.7
+L 131.04 200.7
+Q 128.16 200.7 128.16 197.82
+L 128.16 158.94
+Q 128.16 156.06 131.04 156.06
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #3c4650"/>
+" clip-path="url(#p3117525052)" style="fill: #3c4650"/>
    </g>
    <g id="patch_3">
-    <path d="M 246.96 153.36
-L 269.28 153.36
-Q 272.16 153.36 272.16 156.24
-L 272.16 195.12
-Q 272.16 198 269.28 198
-L 246.96 198
-Q 244.08 198 244.08 195.12
-L 244.08 156.24
-Q 244.08 153.36 246.96 153.36
+    <path d="M 246.96 156.06
+L 269.28 156.06
+Q 272.16 156.06 272.16 158.94
+L 272.16 197.82
+Q 272.16 200.7 269.28 200.7
+L 246.96 200.7
+Q 244.08 200.7 244.08 197.82
+L 244.08 158.94
+Q 244.08 156.06 246.96 156.06
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #00b0f0"/>
+" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
    </g>
    <g id="patch_4">
-    <path d="M 265.68 203.04
-Q 288.72 229.32 310.94925 254.675238
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 309.816192 250.349018
-L 310.94925 254.675238
-L 306.808439 252.985952
+    <path d="M 265.68 205.74
+Q 288.72 232.02 310.94925 257.375238
+" clip-path="url(#p3117525052)" style="fill: none; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 309.816192 253.049018
+L 310.94925 257.375238
+L 306.808439 255.685952
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #c00000; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p3117525052)" style="fill: #c00000; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="patch_5">
-    <path d="M 293.04 153.36
-L 587.52 153.36
-Q 590.4 153.36 590.4 156.24
-L 590.4 195.12
-Q 590.4 198 587.52 198
-L 293.04 198
-Q 290.16 198 290.16 195.12
-L 290.16 156.24
-Q 290.16 153.36 293.04 153.36
+    <path d="M 293.04 156.06
+L 587.52 156.06
+Q 590.4 156.06 590.4 158.94
+L 590.4 197.82
+Q 590.4 200.7 587.52 200.7
+L 293.04 200.7
+Q 290.16 200.7 290.16 197.82
+L 290.16 158.94
+Q 290.16 156.06 293.04 156.06
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #c00000"/>
+" clip-path="url(#p3117525052)" style="fill: #c00000"/>
    </g>
    <g id="patch_6">
-    <path d="M 614.16 153.36
-L 722.16 153.36
-Q 725.04 153.36 725.04 156.24
-L 725.04 195.12
-Q 725.04 198 722.16 198
-L 614.16 198
-Q 611.28 198 611.28 195.12
-L 611.28 156.24
-Q 611.28 153.36 614.16 153.36
+    <path d="M 614.16 156.06
+L 722.16 156.06
+Q 725.04 156.06 725.04 158.94
+L 725.04 197.82
+Q 725.04 200.7 722.16 200.7
+L 614.16 200.7
+Q 611.28 200.7 611.28 197.82
+L 611.28 158.94
+Q 611.28 156.06 614.16 156.06
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #3c4650"/>
+" clip-path="url(#p3117525052)" style="fill: #3c4650"/>
    </g>
    <g id="patch_7">
-    <path d="M 318.24 261.36
-L 587.52 261.36
-Q 590.4 261.36 590.4 264.24
-L 590.4 303.12
-Q 590.4 306 587.52 306
-L 318.24 306
-Q 315.36 306 315.36 303.12
-L 315.36 264.24
-Q 315.36 261.36 318.24 261.36
+    <path d="M 318.24 264.06
+L 587.52 264.06
+Q 590.4 264.06 590.4 266.94
+L 590.4 305.82
+Q 590.4 308.7 587.52 308.7
+L 318.24 308.7
+Q 315.36 308.7 315.36 305.82
+L 315.36 266.94
+Q 315.36 264.06 318.24 264.06
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #00b0f0"/>
+" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
    </g>
    <g id="patch_8">
-    <path d="M 590.4 257.04
-Q 590.4 230.04 590.4 204.269837
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 588.4 208.269837
-L 590.4 204.269837
-L 592.4 208.269837
+    <path d="M 590.4 259.74
+Q 590.4 232.74 590.4 206.969837
+" clip-path="url(#p3117525052)" style="fill: none; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 588.4 210.969837
+L 590.4 206.969837
+L 592.4 210.969837
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #c00000; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p3117525052)" style="fill: #c00000; stroke: #c00000; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="patch_9">
-    <path d="M 125.28 360.72
-Q 425.88 360.72 725.250163 360.72
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 721.250163 358.72
-L 725.250163 360.72
-L 721.250163 362.72
+    <path d="M 125.28 363.42
+Q 425.88 363.42 725.250163 363.42
+" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 721.250163 361.42
+L 725.250163 363.42
+L 721.250163 365.42
 z
-" clip-path="url(#p09aaaa90e8)" style="fill: #59636d; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p3117525052)" style="fill: #59636d; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="line2d_3">
-    <path d="M 590.4 131.76
-L 590.4 314.64
-" clip-path="url(#p09aaaa90e8)" style="fill: none; stroke-dasharray: 3.6,3.6; stroke-dashoffset: 0; stroke: #c00000; stroke-width: 0.9"/>
+    <path d="M 590.4 134.46
+L 590.4 317.34
+" clip-path="url(#p3117525052)" style="fill: none; stroke-dasharray: 3.6,3.6; stroke-dashoffset: 0; stroke: #c00000; stroke-width: 0.9"/>
    </g>
    <g id="text_1">
     <!-- 从 Host 到 Device 的异步执行路径 -->
-    <g style="fill: #20262c" transform="translate(240.165 50.746106) scale(0.1728 -0.1728)">
+    <g style="fill: #20262c" transform="translate(240.165 53.446106) scale(0.1728 -0.1728)">
      <defs>
       <path id="STZhongsong-2ab4" d="M 4230 2918
 Q 4096 1606 3865 972
@@ -1151,7 +1151,7 @@ z
    </g>
    <g id="text_2">
     <!-- Asynchronous Execution from Host to Device -->
-    <g style="fill: #59636d" transform="translate(229.33125 70.382967) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(229.33125 73.082967) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-1" d="M 141 0
 L 1422 4438
@@ -1394,7 +1394,7 @@ z
    </g>
    <g id="text_3">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(230.596875 15.762023) scale(0.072 -0.072)">
+    <g style="fill: #cfd3d7" transform="translate(230.596875 18.462023) scale(0.072 -0.072)">
      <defs>
       <path id="CascadiaCode-Regular-4e" d="M 525 0
 L 525 594
@@ -1752,7 +1752,7 @@ z
    </g>
    <g id="text_4">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(230.596875 423.282023) scale(0.072 -0.072)">
+    <g style="fill: #cfd3d7" transform="translate(230.596875 425.982023) scale(0.072 -0.072)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -1832,7 +1832,7 @@ z
    </g>
    <g id="text_5">
     <!-- 主机 -->
-    <g style="fill: #20262c" transform="translate(66.24 176.724042) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(66.24 179.424042) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-41f" d="M 150 9
 L 2931 9
@@ -1913,7 +1913,7 @@ z
    </g>
    <g id="text_6">
     <!-- Host -->
-    <g style="fill: #20262c" transform="translate(64.0125 193.908867) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(64.0125 196.608867) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-49"/>
      <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(117.1875 0)"/>
@@ -1922,7 +1922,7 @@ z
    </g>
    <g id="text_7">
     <!-- 设备流 -->
-    <g style="fill: #20262c" transform="translate(59.76 284.806055) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(59.76 287.506055) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-a97" d="M 2231 2116
 L 2231 2547
@@ -2115,7 +2115,7 @@ z
    </g>
    <g id="text_8">
     <!-- NPU Stream -->
-    <g style="fill: #20262c" transform="translate(41.23125 301.971642) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(41.23125 304.671642) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-70" d="M 2450 0
 L 1175 3375
@@ -2208,7 +2208,7 @@ z
    </g>
    <g id="text_9">
     <!-- 初始化 -->
-    <g style="fill: #ffffff" transform="translate(159.48 172.866431) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(159.48 175.566431) scale(0.1224 -0.1224)">
      <defs>
       <path id="MicrosoftYaHei-4ec" d="M 2513 4778
 L 5988 4778
@@ -2354,7 +2354,7 @@ z
    </g>
    <g id="text_10">
     <!-- Initialize -->
-    <g style="fill: #ffffff" transform="translate(141.980625 188.610694) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(141.980625 191.310694) scale(0.1224 -0.1224)">
      <defs>
       <path id="CascadiaCode-Regular-1b8" d="M 513 0
 L 513 588
@@ -2384,7 +2384,7 @@ z
    </g>
    <g id="text_11">
     <!-- 提交 -->
-    <g style="fill: #20262c" transform="translate(247.32 125.936191) scale(0.108 -0.108)">
+    <g style="fill: #20262c" transform="translate(247.32 128.636191) scale(0.108 -0.108)">
      <defs>
       <path id="MicrosoftYaHei-755" d="M 2569 5041
 L 5688 5041
@@ -2503,7 +2503,7 @@ z
    </g>
    <g id="text_12">
     <!-- Launch -->
-    <g style="fill: #20262c" transform="translate(239.135625 141.16166) scale(0.108 -0.108)">
+    <g style="fill: #20262c" transform="translate(239.135625 143.86166) scale(0.108 -0.108)">
      <use xlink:href="#CascadiaCode-Regular-65"/>
      <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(117.1875 0)"/>
@@ -2514,7 +2514,7 @@ z
    </g>
    <g id="text_13">
     <!-- 同步等待 -->
-    <g style="fill: #ffffff" transform="translate(415.8 171.432056) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(415.8 174.132056) scale(0.1224 -0.1224)">
      <defs>
       <path id="MicrosoftYaHei-563" d="M 1013 -772
 L 531 -772
@@ -2731,7 +2731,7 @@ z
    </g>
    <g id="text_14">
     <!-- Synchronize -->
-    <g style="fill: #ffffff" transform="translate(400.834688 187.285331) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(400.834688 189.985331) scale(0.1224 -0.1224)">
      <use xlink:href="#CascadiaCode-Regular-9d"/>
      <use xlink:href="#CascadiaCode-Regular-1af" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-155" transform="translate(117.1875 0)"/>
@@ -2747,7 +2747,7 @@ z
    </g>
    <g id="text_15">
     <!-- 清理资源 -->
-    <g style="fill: #ffffff" transform="translate(643.68 171.610875) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(643.68 174.310875) scale(0.1224 -0.1224)">
      <defs>
       <path id="MicrosoftYaHei-88e" d="M 2638 -791
 L 2163 -791
@@ -3030,7 +3030,7 @@ z
    </g>
    <g id="text_16">
     <!-- Clean up -->
-    <g style="fill: #ffffff" transform="translate(639.4725 187.29585) scale(0.1224 -0.1224)">
+    <g style="fill: #ffffff" transform="translate(639.4725 189.99585) scale(0.1224 -0.1224)">
      <defs>
       <path id="CascadiaCode-Regular-17b" d="M 525 -1438
 L 525 3313
@@ -3070,7 +3070,7 @@ z
    </g>
    <g id="text_17">
     <!-- 核函数执行 -->
-    <g style="fill: #ffffff" transform="translate(418.68 279.803756) scale(0.1368 -0.1368)">
+    <g style="fill: #ffffff" transform="translate(418.68 282.503756) scale(0.1368 -0.1368)">
      <defs>
       <path id="MicrosoftYaHei-7fe" d="M 2063 759
 Q 3306 1403 4150 2284
@@ -3371,7 +3371,7 @@ z
    </g>
    <g id="text_18">
     <!-- hello_world() -->
-    <g style="fill: #ffffff" transform="translate(400.778438 297.649519) scale(0.1368 -0.1368)">
+    <g style="fill: #ffffff" transform="translate(400.778438 300.349519) scale(0.1368 -0.1368)">
      <defs>
       <path id="CascadiaCode-Regular-76c" d="M 313 -581
 L 313 0
@@ -3451,7 +3451,7 @@ z
    </g>
    <g id="text_19">
     <!-- 逻辑任务 0–7 -->
-    <g style="fill: #59636d" transform="translate(420.9075 329.55172) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(420.9075 332.25172) scale(0.1008 -0.1008)">
      <defs>
       <path id="MicrosoftYaHei-b2e" d="M 3050 1728
 Q 3622 1375 4053 1072
@@ -3714,7 +3714,7 @@ z
    </g>
    <g id="text_20">
     <!-- Blocks 0–7 -->
-    <g style="fill: #59636d" transform="translate(423.34875 344.054883) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(423.34875 346.754883) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-1d" d="M 500 0
 L 500 4438
@@ -3783,7 +3783,7 @@ z
    </g>
    <g id="text_21">
     <!-- 任务完成 -->
-    <g style="fill: #c00000" transform="translate(570.24 107.07172) scale(0.1008 -0.1008)">
+    <g style="fill: #c00000" transform="translate(570.24 109.77172) scale(0.1008 -0.1008)">
      <defs>
       <path id="MicrosoftYaHei-60f" d="M 275 1959
 L 6150 1959
@@ -3884,7 +3884,7 @@ z
    </g>
    <g id="text_22">
     <!-- Complete -->
-    <g style="fill: #c00000" transform="translate(566.775 120.49207) scale(0.1008 -0.1008)">
+    <g style="fill: #c00000" transform="translate(566.775 123.19207) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-154" transform="translate(117.1875 0)"/>
@@ -3897,7 +3897,7 @@ z
    </g>
    <g id="text_23">
     <!-- 时间 -->
-    <g style="fill: #59636d" transform="translate(702 380.541087) scale(0.0936 -0.0936)">
+    <g style="fill: #59636d" transform="translate(702 383.241087) scale(0.0936 -0.0936)">
      <defs>
       <path id="MicrosoftYaHei-79e" d="M 344 4728
 L 2500 4728
@@ -3998,7 +3998,7 @@ z
    </g>
    <g id="text_24">
     <!-- Time -->
-    <g style="fill: #59636d" transform="translate(700.39125 394.362949) scale(0.0936 -0.0936)">
+    <g style="fill: #59636d" transform="translate(700.39125 397.062949) scale(0.0936 -0.0936)">
      <defs>
       <path id="CascadiaCode-Regular-a6" d="M 1550 0
 L 1550 3844
@@ -4020,7 +4020,7 @@ z
    </g>
    <g id="text_25">
     <!-- 执行关系示意，非实测时间线 -->
-    <g style="fill: #59636d" transform="translate(332.64 392.641003) scale(0.0864 -0.0864)">
+    <g style="fill: #59636d" transform="translate(332.64 395.341003) scale(0.0864 -0.0864)">
      <defs>
       <path id="MicrosoftYaHei-4bc" d="M 131 -397
 Q 2372 400 2803 1897
@@ -4448,7 +4448,7 @@ z
    </g>
    <g id="text_26">
     <!-- Schematic only · not measured timing -->
-    <g style="fill: #59636d" transform="translate(297.675 404.761978) scale(0.0864 -0.0864)">
+    <g style="fill: #59636d" transform="translate(297.675 407.461978) scale(0.0864 -0.0864)">
      <defs>
       <path id="CascadiaCode-Regular-74f" d="M 1875 1756
 Q 1684 1756 1548 1892
@@ -4534,8 +4534,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p09aaaa90e8">
-   <rect x="0" y="0" width="777.6" height="432"/>
+  <clipPath id="p3117525052">
+   <rect x="0" y="0" width="777.6" height="437.4"/>
   </clipPath>
  </defs>
 </svg>

@@ -12,7 +12,7 @@ evidence_scope: 官方架构说明、源码静态分析与理论估算；本篇�
 
 # 打印之后，计算在哪里发生？
 
-[上一篇](hello-world.md)把 Hello World 送到了设备上：Host 发起任务，Device 执行 Kernel，最后等到程序结束。这条链路跑通之后，很容易顺着往下想：接下来把打印换成加法，是不是就开始做真正的算子了？
+[上一篇](../articles/hello-world.md)把 Hello World 送到了设备上：Host 发起任务，Device 执行 Kernel，最后等到程序结束。这条链路跑通之后，很容易顺着往下想：接下来把打印换成加法，是不是就开始做真正的算子了？
 
 数学上确实只多了一行：
 
