@@ -36,18 +36,18 @@
 
 # 专栏目录
 
-| 篇次 | 对外标题                                           | 当前材料                                                                                                            | 撰写阶段 |
-| ---- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --- |
-| 01   | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？         | [正文](docs/articles/hello-world.md)                                                                                   | 已完成 |
-| 02   | 同样是计算，NPU 为什么要区分 Vector 和 Cube？      | [草稿](docs/drafts/hardware-dataflow.md)；[提纲](<planning/outlines/02-从算子看昇腾 NPU：计算、存储与数据流-提纲.md>) | 初稿完成，实验待设计 |
-| 03   | 只做一次加法，为什么还要搬来搬去？                 | [草稿](docs/drafts/vector-add.md)                                                                                    | 初稿完成中 |
-| 04   | 数据放不下怎么办？从一个 Kernel 理解 Tiling        | [尾块素材草稿，尚需补核内分块](docs/drafts/vector-add-tail.md)                                                       | 初稿完成中 |
-| 05   | Double Buffer 一定更快吗？用实验拆解计算流水       | [提纲](planning/outlines/05-计算流水与双缓冲-提纲.md)；实现与实验待完成                                              | 提纲 |
-| 06   | Softmax 为什么难并行？从 Reduction 讲起            | [提纲](planning/outlines/06-归约与稳定Softmax-提纲.md)；实现与实验待完成                                             | 提纲 |
-| 07   | 矩阵乘为什么快？理解 Cube 的数据复用               | [提纲](planning/outlines/07-矩阵乘与数据复用-提纲.md)；实现与实验待完成                                              | 提纲 |
-| 08   | Flash Attention 为什么不需要保存注意力矩阵？       | [论证提纲](<planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)                        | 提纲 |
-| 09   | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | 已规划，待可行性验证                                                                                                | — |
-| 10   | Flash Attention 到底快在哪里？一次完整的性能分析   | 已规划，待实现与测量                                                                                                | — |
+| 篇次  | 标题                                    | 当前材料                                                                                           | 撰写阶段       |
+| --- | ------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+| 01  | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？           | [正文](docs/articles/hello-world.md)                                                             | 已完成        |
+| 02  | 同样是计算，NPU 为什么要区分 Vector 和 Cube？       | [草稿](docs/drafts/hardware-dataflow.md)；[提纲](<planning/outlines/02-从算子看昇腾 NPU：计算、存储与数据流-提纲.md>) | 初稿完成，实验待设计 |
+| 03  | 只做一次加法，为什么还要搬来搬去？                     | [草稿](docs/drafts/vector-add.md)                                                                | 初稿完成中      |
+| 04  | 数据放不下怎么办？从一个 Kernel 理解 Tiling         | [尾块素材草稿，尚需补核内分块](docs/drafts/vector-add-tail.md)                                               | 初稿完成中      |
+| 05  | Double Buffer 一定更快吗？用实验拆解计算流水         | [提纲](planning/outlines/05-计算流水与双缓冲-提纲.md)；实现与实验待完成                                             | 提纲         |
+| 06  | Softmax 为什么难并行？从 Reduction 讲起         | [提纲](planning/outlines/06-归约与稳定Softmax-提纲.md)；实现与实验待完成                                         | 提纲         |
+| 07  | 矩阵乘为什么快？理解 Cube 的数据复用                 | [提纲](planning/outlines/07-矩阵乘与数据复用-提纲.md)；实现与实验待完成                                             | 提纲         |
+| 08  | Flash Attention 为什么不需要保存注意力矩阵？        | [论证提纲](<planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)                            | 提纲         |
+| 09  | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | 已规划，待可行性验证                                                                                     | —          |
+| 10  | Flash Attention 到底快在哪里？一次完整的性能分析      | 已规划，待实现与测量                                                                                     | —          |
 
 01 中“没有 NPU”首先指没有本地设备；08 指不保存完整的分数／概率中间矩阵，并不表示总计算量或搬运量变为线性。完整状态见 [文章目录](docs/README.md)，技术依赖和标题映射见 [系列计划](planning/series-plan.md)。
 
