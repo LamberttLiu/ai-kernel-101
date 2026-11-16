@@ -2340,7 +2340,7 @@ z
    </g>
    <g id="text_3">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(469.715625 26.386833) scale(0.1008 -0.1008)">
+    <g style="fill: #cfd3d7" transform="translate(406.434375 29.811642) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-1" d="M 141 0
 L 1422 4438
@@ -2662,7 +2662,7 @@ z
    </g>
    <g id="text_4">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(469.715625 762.226833) scale(0.1008 -0.1008)">
+    <g style="fill: #cfd3d7" transform="translate(406.434375 765.651642) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -2742,7 +2742,7 @@ z
    </g>
    <g id="text_5">
     <!-- 算子源码 -->
-    <g style="fill: #20262c" transform="translate(768.96 199.757967) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(768.96 208.334616) scale(0.2016 -0.2016)">
      <defs>
       <path id="MicrosoftYaHei-991" d="M 969 3728
 L 2006 3728
@@ -2981,7 +2981,7 @@ z
    </g>
    <g id="text_6">
     <!-- Ascend C source -->
-    <g style="fill: #20262c" transform="translate(768.96 216.614883) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(768.96 236.669766) scale(0.2016 -0.2016)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -3001,7 +3001,7 @@ z
    </g>
    <g id="text_7">
     <!-- CPU 编译 -->
-    <g style="fill: #59636d" transform="translate(311.04 306.38783) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(311.04 308.972468) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-9da" d="M 3144 -797
 L 2744 -797
@@ -3159,7 +3159,7 @@ z
    </g>
    <g id="text_8">
     <!-- CPU build -->
-    <g style="fill: #59636d" transform="translate(311.04 323.233945) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(311.04 332.210918) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3173,7 +3173,7 @@ z
    </g>
    <g id="text_9">
     <!-- 可执行程序 demo -->
-    <g style="fill: #20262c" transform="translate(236.615625 383.154075) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(222.342187 382.01985) scale(0.1656 -0.1656)">
      <defs>
       <path id="MicrosoftYaHei-555" d="M 813 3409
 L 3569 3409
@@ -3425,7 +3425,7 @@ z
    </g>
    <g id="text_10">
     <!-- Executable demo -->
-    <g style="fill: #20262c" transform="translate(243.703125 400.943475) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(215.226562 405.04635) scale(0.1656 -0.1656)">
      <use xlink:href="#CascadiaCode-Regular-2a"/>
      <use xlink:href="#CascadiaCode-Regular-1ae" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(117.1875 0)"/>
@@ -3445,7 +3445,7 @@ z
    </g>
    <g id="text_11">
     <!-- SIM 编译 -->
-    <g style="fill: #59636d" transform="translate(714.24 306.38783) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(714.24 308.972468) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-9d"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-6f" transform="translate(117.1875 0)"/>
@@ -3456,7 +3456,7 @@ z
    </g>
    <g id="text_12">
     <!-- SIM build -->
-    <g style="fill: #59636d" transform="translate(714.24 323.233945) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(714.24 332.210918) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-9d"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-6f" transform="translate(117.1875 0)"/>
@@ -3470,7 +3470,7 @@ z
    </g>
    <g id="text_13">
     <!-- 可执行程序 demo -->
-    <g style="fill: #20262c" transform="translate(639.815625 383.154075) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(625.542187 382.01985) scale(0.1656 -0.1656)">
      <use xlink:href="#MicrosoftYaHei-555"/>
      <use xlink:href="#MicrosoftYaHei-6fc" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-a67" transform="translate(200 0)"/>
@@ -3485,7 +3485,7 @@ z
    </g>
    <g id="text_14">
     <!-- Executable demo -->
-    <g style="fill: #20262c" transform="translate(646.903125 400.943475) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(618.426562 405.04635) scale(0.1656 -0.1656)">
      <use xlink:href="#CascadiaCode-Regular-2a"/>
      <use xlink:href="#CascadiaCode-Regular-1ae" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(117.1875 0)"/>
@@ -3505,7 +3505,7 @@ z
    </g>
    <g id="text_15">
     <!-- NPU 编译 -->
-    <g style="fill: #59636d" transform="translate(1117.44 306.38783) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(1117.44 308.972468) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-70"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3516,7 +3516,7 @@ z
    </g>
    <g id="text_16">
     <!-- NPU build -->
-    <g style="fill: #59636d" transform="translate(1117.44 323.233945) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(1117.44 332.210918) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-70"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3530,7 +3530,7 @@ z
    </g>
    <g id="text_17">
     <!-- 可执行程序 demo -->
-    <g style="fill: #20262c" transform="translate(1043.015625 383.154075) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1028.742187 382.01985) scale(0.1656 -0.1656)">
      <use xlink:href="#MicrosoftYaHei-555"/>
      <use xlink:href="#MicrosoftYaHei-6fc" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-a67" transform="translate(200 0)"/>
@@ -3545,7 +3545,7 @@ z
    </g>
    <g id="text_18">
     <!-- Executable demo -->
-    <g style="fill: #20262c" transform="translate(1050.103125 400.943475) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(1021.626562 405.04635) scale(0.1656 -0.1656)">
      <use xlink:href="#CascadiaCode-Regular-2a"/>
      <use xlink:href="#CascadiaCode-Regular-1ae" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(117.1875 0)"/>
@@ -3565,7 +3565,7 @@ z
    </g>
    <g id="text_19">
     <!-- 处理器 -->
-    <g style="fill: #ffffff" transform="translate(268.56 530.756325) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(263.16 529.676775) scale(0.1656 -0.1656)">
      <defs>
       <path id="MicrosoftYaHei-5d4" d="M 1706 5197
 Q 1575 4591 1413 4034
@@ -3771,7 +3771,7 @@ z
    </g>
    <g id="text_20">
     <!-- CPU -->
-    <g style="fill: #ffffff" transform="translate(279.140625 548.3124) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(273.445312 552.297038) scale(0.1656 -0.1656)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3779,7 +3779,7 @@ z
    </g>
    <g id="text_21">
     <!-- 目标模型 -->
-    <g style="fill: #00b0f0" transform="translate(665.28 513.416363) scale(0.1296 -0.1296)">
+    <g style="fill: #00b0f0" transform="translate(660.96 512.298619) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-929" d="M 944 5016
 L 5469 5016
@@ -4019,7 +4019,7 @@ z
    </g>
    <g id="text_22">
     <!-- NPU model -->
-    <g style="fill: #00b0f0" transform="translate(664.621875 531.155138) scale(0.1008 -0.1008)">
+    <g style="fill: #00b0f0" transform="translate(651.332812 534.015056) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-70"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -4033,7 +4033,7 @@ z
    </g>
    <g id="text_23">
     <!-- 加速器 -->
-    <g style="fill: #ffffff" transform="translate(1074.96 538.055775) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1072.8 537.0345) scale(0.144 -0.144)">
      <defs>
       <path id="MicrosoftYaHei-506" d="M 3663 4484
 L 6038 4484
@@ -4150,7 +4150,7 @@ z
    </g>
    <g id="text_24">
     <!-- NPU -->
-    <g style="fill: #ffffff" transform="translate(1085.540625 555.451425) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1081.74375 557.622) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-70"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -4158,7 +4158,7 @@ z
    </g>
    <g id="text_25">
     <!-- CPU 模式 -->
-    <g style="fill: #20262c" transform="translate(259.8525 637.55543) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(248.90625 643.573652) scale(0.18 -0.18)">
      <defs>
       <path id="MicrosoftYaHei-694" d="M 94 4122
 L 3569 4122
@@ -4211,7 +4211,7 @@ z
    </g>
    <g id="text_26">
     <!-- CPU mode -->
-    <g style="fill: #20262c" transform="translate(264.375 654.374883) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(245.8125 669.669434) scale(0.18 -0.18)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -4224,7 +4224,7 @@ z
    </g>
    <g id="text_27">
     <!-- 真机模式 -->
-    <g style="fill: #20262c" transform="translate(1068.48 637.51088) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1058.4 643.511777) scale(0.18 -0.18)">
      <defs>
       <path id="MicrosoftYaHei-931" d="M 156 778
 L 1056 778
@@ -4337,7 +4337,7 @@ z
    </g>
    <g id="text_28">
     <!-- NPU mode -->
-    <g style="fill: #20262c" transform="translate(1070.775 654.374883) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(1052.2125 669.669434) scale(0.18 -0.18)">
      <use xlink:href="#CascadiaCode-Regular-70"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -4350,7 +4350,7 @@ z
    </g>
    <g id="text_29">
     <!-- 在主机 CPU 上运行仿真模型 -->
-    <g style="fill: #20262c" transform="translate(607.415625 610.15088) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(598.10625 611.865422) scale(0.144 -0.144)">
      <defs>
       <path id="MicrosoftYaHei-5a8" d="M 250 4553
 L 2088 4553
@@ -4540,7 +4540,7 @@ z
    </g>
    <g id="text_30">
     <!-- Simulation model on host CPU -->
-    <g style="fill: #20262c" transform="translate(608.5125 627.073945) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(573.075 634.459922) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-9d"/>
      <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-154" transform="translate(117.1875 0)"/>
@@ -4839,7 +4839,7 @@ z
    </g>
    <g id="text_32">
     <!-- No local NPU required -->
-    <g style="fill: #59636d" transform="translate(629.184375 674.951133) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(611.465625 678.845742) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-17d" d="M 1619 -63
 Q 991 -63 645 373
@@ -4892,7 +4892,7 @@ z
    </g>
    <g id="text_33">
     <!-- CPU 域功能调试 -->
-    <g style="fill: #20262c" transform="translate(240.4125 712.486055) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(232.48125 715.07373) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-5bf" d="M 3231 -522
 Q 3941 63 4484 841
@@ -5224,7 +5224,7 @@ z
    </g>
    <g id="text_34">
     <!-- CPU-domain functional debugging -->
-    <g style="fill: #20262c" transform="translate(196.453125 728.187033) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(150.679688 736.600549) scale(0.1512 -0.1512)">
      <defs>
       <path id="CascadiaCode-Regular-765" d="M 313 1925
 L 313 2506
@@ -5320,7 +5320,7 @@ z
    </g>
    <g id="text_35">
     <!-- 目标模型中的功能与性能观察 -->
-    <g style="fill: #20262c" transform="translate(606.96 712.460742) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(592.92 715.044199) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-418" d="M 525 3972
 L 2931 3972
@@ -5630,7 +5630,7 @@ z
    </g>
    <g id="text_36">
     <!-- Model function / performance -->
-    <g style="fill: #20262c" transform="translate(608.5125 728.442183) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(567.16875 736.983274) scale(0.1512 -0.1512)">
      <use xlink:href="#CascadiaCode-Regular-6f"/>
      <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-103" transform="translate(117.1875 0)"/>
@@ -5663,7 +5663,7 @@ z
    </g>
    <g id="text_37">
     <!-- 真实设备功能验证与性能测量 -->
-    <g style="fill: #20262c" transform="translate(1010.16 712.44758) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(996.12 715.028843) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-618" d="M 113 -397
 Q 2419 34 3081 972
@@ -6083,7 +6083,7 @@ z
    </g>
    <g id="text_38">
     <!-- Hardware checks / performance tests -->
-    <g style="fill: #20262c" transform="translate(991.040625 728.442183) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(939.360937 736.983274) scale(0.1512 -0.1512)">
      <defs>
       <path id="CascadiaCode-Regular-1a9" d="M 2250 0
 L 1863 2631

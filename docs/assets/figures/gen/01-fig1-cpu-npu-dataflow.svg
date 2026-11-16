@@ -2049,7 +2049,7 @@ z
    </g>
    <g id="text_3">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(469.715625 26.386833) scale(0.1008 -0.1008)">
+    <g style="fill: #cfd3d7" transform="translate(406.434375 29.811642) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-60" d="M 469 0
 L 469 4438
@@ -2390,7 +2390,7 @@ z
    </g>
    <g id="text_4">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(469.715625 762.226833) scale(0.1008 -0.1008)">
+    <g style="fill: #cfd3d7" transform="translate(406.434375 765.651642) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -2470,7 +2470,7 @@ z
    </g>
    <g id="text_5">
     <!-- 主机 -->
-    <g style="fill: #20262c" transform="translate(198.72 217.044042) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(190.08 227.34007) scale(0.216 -0.216)">
      <defs>
       <path id="MicrosoftYaHei-41f" d="M 150 9
 L 2931 9
@@ -2551,7 +2551,7 @@ z
    </g>
    <g id="text_6">
     <!-- Host -->
-    <g style="fill: #20262c" transform="translate(199.8675 233.698008) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(186.3675 256.701445) scale(0.216 -0.216)">
      <use xlink:href="#CascadiaCode-Regular-49"/>
      <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(117.1875 0)"/>
@@ -2560,7 +2560,7 @@ z
    </g>
    <g id="text_7">
     <!-- 昇腾处理器 -->
-    <g style="fill: #20262c" transform="translate(915.12 216.999492) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(893.52 227.26582) scale(0.216 -0.216)">
      <defs>
       <path id="MicrosoftYaHei-3a1a" d="M 900 5034
 L 5500 5034
@@ -2912,7 +2912,7 @@ z
    </g>
    <g id="text_8">
     <!-- Ascend NPU -->
-    <g style="fill: #20262c" transform="translate(917.98875 233.894883) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(884.23875 257.12332) scale(0.216 -0.216)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -2927,7 +2927,7 @@ z
    </g>
    <g id="text_9">
     <!-- 主机内存 -->
-    <g style="fill: #20262c" transform="translate(185.76 305.140838) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(178.56 303.395006) scale(0.1656 -0.1656)">
      <defs>
       <path id="MicrosoftYaHei-4c4" d="M 638 4184
 L 2944 4184
@@ -3008,7 +3008,7 @@ z
    </g>
    <g id="text_10">
     <!-- Host memory -->
-    <g style="fill: #20262c" transform="translate(179.195625 322.548638) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(158.312812 325.790156) scale(0.1656 -0.1656)">
      <defs>
       <path id="CascadiaCode-Regular-1af" d="M 234 -1500
 L 203 -906
@@ -3045,7 +3045,7 @@ z
    </g>
    <g id="text_11">
     <!-- 设备内存 -->
-    <g style="fill: #20262c" transform="translate(920.88 304.724475) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(910.8 302.4675) scale(0.18 -0.18)">
      <defs>
       <path id="MicrosoftYaHei-a97" d="M 2231 2116
 L 2231 2547
@@ -3167,7 +3167,7 @@ z
    </g>
    <g id="text_12">
     <!-- Device memory / GM -->
-    <g style="fill: #20262c" transform="translate(893.64375 323.0541) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(851.878125 327.709688) scale(0.18 -0.18)">
      <defs>
       <path id="CascadiaCode-Regular-756" d="M 356 -594
 L 2869 5031
@@ -3241,7 +3241,7 @@ z
    </g>
    <g id="text_13">
     <!-- 总线连接 -->
-    <g style="fill: #20262c" transform="translate(433.44 221.413655) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(423.36 227.438965) scale(0.18 -0.18)">
      <defs>
       <path id="MicrosoftYaHei-6c8" d="M 900 4253
 L 3631 4253
@@ -3512,7 +3512,7 @@ z
    </g>
    <g id="text_14">
     <!-- PCIe -->
-    <g style="fill: #20262c" transform="translate(447.5475 238.066833) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(438.26625 253.245059) scale(0.18 -0.18)">
      <use xlink:href="#CascadiaCode-Regular-95"/>
      <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(117.1875 0)"/>
@@ -3521,7 +3521,7 @@ z
    </g>
    <g id="text_15">
     <!-- 双向数据传输 -->
-    <g style="fill: #59636d" transform="translate(420.48 372.49418) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(414 375.056543) scale(0.1512 -0.1512)">
      <defs>
       <path id="MicrosoftYaHei-545" d="M 2950 4384
 L 2950 4859
@@ -3895,7 +3895,7 @@ z
    </g>
    <g id="text_16">
     <!-- Bidirectional data -->
-    <g style="fill: #59636d" transform="translate(406.20375 389.473945) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(379.625625 398.450918) scale(0.1512 -0.1512)">
      <defs>
       <path id="CascadiaCode-Regular-1d" d="M 500 0
 L 500 4438
@@ -3953,7 +3953,7 @@ z
    </g>
    <g id="text_17">
     <!-- 主机处理器 -->
-    <g style="fill: #ffffff" transform="translate(180 496.266188) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(163.8 495.179269) scale(0.1944 -0.1944)">
      <use xlink:href="#MicrosoftYaHei-41f"/>
      <use xlink:href="#MicrosoftYaHei-7d1" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-5d4" transform="translate(200 0)"/>
@@ -3963,7 +3963,7 @@ z
    </g>
    <g id="text_18">
     <!-- CPU -->
-    <g style="fill: #ffffff" transform="translate(203.540625 513.822262) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(195.314063 520.230881) scale(0.1944 -0.1944)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3971,7 +3971,7 @@ z
    </g>
    <g id="text_19">
     <!-- 运行控制程序 -->
-    <g style="fill: #20262c" transform="translate(172.8 604.454667) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(162 608.758741) scale(0.1656 -0.1656)">
      <defs>
       <path id="MicrosoftYaHei-b0d" d="M 4319 2197
 L 4713 2447
@@ -4307,7 +4307,7 @@ z
    </g>
    <g id="text_20">
     <!-- Host program -->
-    <g style="fill: #20262c" transform="translate(176.2425 619.931095) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(153.46125 631.201085) scale(0.1656 -0.1656)">
      <defs>
       <path id="CascadiaCode-Regular-17b" d="M 525 -1438
 L 525 3313
@@ -4382,7 +4382,7 @@ z
    </g>
    <g id="text_21">
     <!-- 计算核 0 -->
-    <g style="fill: #20262c" transform="translate(646.88625 403.405425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(643.8825 402.3675) scale(0.144 -0.144)">
      <defs>
       <path id="MicrosoftYaHei-a8b" d="M 2100 3153
 L 3919 3153
@@ -4563,7 +4563,7 @@ z
    </g>
    <g id="text_22">
     <!-- AI Core 0 -->
-    <g style="fill: #20262c" transform="translate(647.341875 418.043025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(635.95125 420.2415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -4577,7 +4577,7 @@ z
    </g>
    <g id="text_23">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(608.04 457.4988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(608.04 456.486075) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-b4f" d="M 113 -278
 L 2981 -278
@@ -4756,7 +4756,7 @@ z
    </g>
    <g id="text_24">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(616.24125 474.868125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(611.17875 475.8525) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-c1" d="M 1391 0
 L 141 4438
@@ -4780,7 +4780,7 @@ z
    </g>
    <g id="text_25">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(687.96 457.301925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(687.96 456.23295) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-93e" d="M 2869 4928
 L 6244 4928
@@ -4892,7 +4892,7 @@ z
    </g>
    <g id="text_26">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(702.0675 475.065) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(698.6925 476.105625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -4901,7 +4901,7 @@ z
    </g>
    <g id="text_27">
     <!-- 计算核 1 -->
-    <g style="fill: #20262c" transform="translate(828.32625 403.405425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(825.3225 402.3675) scale(0.144 -0.144)">
      <use xlink:href="#MicrosoftYaHei-a8b"/>
      <use xlink:href="#MicrosoftYaHei-991" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-7fe" transform="translate(200 0)"/>
@@ -4911,7 +4911,7 @@ z
    </g>
    <g id="text_28">
     <!-- AI Core 1 -->
-    <g style="fill: #20262c" transform="translate(828.781875 418.043025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(817.39125 420.2415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -4925,7 +4925,7 @@ z
    </g>
    <g id="text_29">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(789.48 457.4988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(789.48 456.486075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -4934,7 +4934,7 @@ z
    </g>
    <g id="text_30">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(797.68125 474.868125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(792.61875 475.8525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -4945,7 +4945,7 @@ z
    </g>
    <g id="text_31">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(869.4 457.301925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(869.4 456.23295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -4954,7 +4954,7 @@ z
    </g>
    <g id="text_32">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(883.5075 475.065) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(880.1325 476.105625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -4963,7 +4963,7 @@ z
    </g>
    <g id="text_33">
     <!-- 计算核 2 -->
-    <g style="fill: #20262c" transform="translate(1009.76625 403.405425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1006.7625 402.3675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6c6" d="M 475 0
 L 475 713
@@ -4994,7 +4994,7 @@ z
    </g>
    <g id="text_34">
     <!-- AI Core 2 -->
-    <g style="fill: #20262c" transform="translate(1010.221875 418.043025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(998.83125 420.2415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5008,7 +5008,7 @@ z
    </g>
    <g id="text_35">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(970.92 457.4988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(970.92 456.486075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5017,7 +5017,7 @@ z
    </g>
    <g id="text_36">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(979.12125 474.868125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(974.05875 475.8525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5028,7 +5028,7 @@ z
    </g>
    <g id="text_37">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(1050.84 457.301925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1050.84 456.23295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5037,7 +5037,7 @@ z
    </g>
    <g id="text_38">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(1064.9475 475.065) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1061.5725 476.105625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5046,7 +5046,7 @@ z
    </g>
    <g id="text_39">
     <!-- 计算核 3 -->
-    <g style="fill: #20262c" transform="translate(1191.20625 403.405425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1188.2025 402.3675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6c7" d="M 1606 -63
 Q 1263 -63 977 -22
@@ -5090,7 +5090,7 @@ z
    </g>
    <g id="text_40">
     <!-- AI Core 3 -->
-    <g style="fill: #20262c" transform="translate(1191.661875 418.043025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(1180.27125 420.2415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5104,7 +5104,7 @@ z
    </g>
    <g id="text_41">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(1152.36 457.4988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1152.36 456.486075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5113,7 +5113,7 @@ z
    </g>
    <g id="text_42">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(1160.56125 474.868125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1155.49875 475.8525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5124,7 +5124,7 @@ z
    </g>
    <g id="text_43">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(1232.28 457.301925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1232.28 456.23295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5133,7 +5133,7 @@ z
    </g>
    <g id="text_44">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(1246.3875 475.065) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1243.0125 476.105625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5142,7 +5142,7 @@ z
    </g>
    <g id="text_45">
     <!-- 计算核 4 -->
-    <g style="fill: #20262c" transform="translate(646.88625 540.205425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(643.8825 539.1675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6c8" d="M 231 994
 L 856 4188
@@ -5171,7 +5171,7 @@ z
    </g>
    <g id="text_46">
     <!-- AI Core 4 -->
-    <g style="fill: #20262c" transform="translate(647.341875 554.843025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(635.95125 557.0415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5185,7 +5185,7 @@ z
    </g>
    <g id="text_47">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(608.04 594.2988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(608.04 593.286075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5194,7 +5194,7 @@ z
    </g>
    <g id="text_48">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(616.24125 611.668125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(611.17875 612.6525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5205,7 +5205,7 @@ z
    </g>
    <g id="text_49">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(687.96 594.101925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(687.96 593.03295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5214,7 +5214,7 @@ z
    </g>
    <g id="text_50">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(702.0675 611.865) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(698.6925 612.905625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5223,7 +5223,7 @@ z
    </g>
    <g id="text_51">
     <!-- 计算核 5 -->
-    <g style="fill: #20262c" transform="translate(828.32625 540.205425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(825.3225 539.1675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6c9" d="M 1919 -63
 Q 1200 -63 806 279
@@ -5260,7 +5260,7 @@ z
    </g>
    <g id="text_52">
     <!-- AI Core 5 -->
-    <g style="fill: #20262c" transform="translate(828.781875 554.843025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(817.39125 557.0415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5274,7 +5274,7 @@ z
    </g>
    <g id="text_53">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(789.48 594.2988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(789.48 593.286075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5283,7 +5283,7 @@ z
    </g>
    <g id="text_54">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(797.68125 611.668125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(792.61875 612.6525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5294,7 +5294,7 @@ z
    </g>
    <g id="text_55">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(869.4 594.101925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(869.4 593.03295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5303,7 +5303,7 @@ z
    </g>
    <g id="text_56">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(883.5075 611.865) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(880.1325 612.905625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5312,7 +5312,7 @@ z
    </g>
    <g id="text_57">
     <!-- 计算核 6 -->
-    <g style="fill: #20262c" transform="translate(1009.76625 540.205425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1006.7625 539.1675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6ca" d="M 1900 -63
 Q 1128 -63 764 321
@@ -5351,7 +5351,7 @@ z
    </g>
    <g id="text_58">
     <!-- AI Core 6 -->
-    <g style="fill: #20262c" transform="translate(1010.221875 554.843025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(998.83125 557.0415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5365,7 +5365,7 @@ z
    </g>
    <g id="text_59">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(970.92 594.2988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(970.92 593.286075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5374,7 +5374,7 @@ z
    </g>
    <g id="text_60">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(979.12125 611.668125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(974.05875 612.6525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5385,7 +5385,7 @@ z
    </g>
    <g id="text_61">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(1050.84 594.101925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1050.84 593.03295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5394,7 +5394,7 @@ z
    </g>
    <g id="text_62">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(1064.9475 611.865) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1061.5725 612.905625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5403,7 +5403,7 @@ z
    </g>
    <g id="text_63">
     <!-- 计算核 7 -->
-    <g style="fill: #20262c" transform="translate(1191.20625 540.205425) scale(0.1296 -0.1296)">
+    <g style="fill: #20262c" transform="translate(1188.2025 539.1675) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6cb" d="M 1366 0
 L 2688 3844
@@ -5426,7 +5426,7 @@ z
    </g>
    <g id="text_64">
     <!-- AI Core 7 -->
-    <g style="fill: #20262c" transform="translate(1191.661875 554.843025) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(1180.27125 557.0415) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5440,7 +5440,7 @@ z
    </g>
    <g id="text_65">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(1152.36 594.2988) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1152.36 593.286075) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5449,7 +5449,7 @@ z
    </g>
    <g id="text_66">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(1160.56125 611.668125) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1155.49875 612.6525) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5460,7 +5460,7 @@ z
    </g>
    <g id="text_67">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(1232.28 594.101925) scale(0.1296 -0.1296)">
+    <g style="fill: #ffffff" transform="translate(1232.28 593.03295) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5469,7 +5469,7 @@ z
    </g>
    <g id="text_68">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(1246.3875 611.865) scale(0.1008 -0.1008)">
+    <g style="fill: #ffffff" transform="translate(1243.0125 612.905625) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5478,7 +5478,7 @@ z
    </g>
    <g id="text_69">
     <!-- 任务提交 -->
-    <g style="fill: #59636d" transform="translate(433.44 569.869355) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(430.56 571.588172) scale(0.144 -0.144)">
      <defs>
       <path id="MicrosoftYaHei-460" d="M 2138 -3
 L 3963 -3
@@ -5675,7 +5675,7 @@ z
    </g>
    <g id="text_70">
     <!-- Kernel launch -->
-    <g style="fill: #59636d" transform="translate(420.969375 586.694883) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(404.51625 594.055547) scale(0.144 -0.144)">
      <use xlink:href="#CascadiaCode-Regular-60"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(117.1875 0)"/>
@@ -5693,7 +5693,7 @@ z
    </g>
    <g id="text_71">
     <!-- 8 核耦合架构示意，非实际设备核数或芯片布局 -->
-    <g style="fill: #59636d" transform="translate(554.00625 705.210117) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(538.7625 706.926797) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-6cc" d="M 1875 -63
 Q 1153 -63 758 273
@@ -6482,7 +6482,7 @@ z
    </g>
    <g id="text_72">
     <!-- 8 coupled cores for illustration, not a product floorplan -->
-    <g style="fill: #59636d" transform="translate(522.871875 721.031133) scale(0.1008 -0.1008)">
+    <g style="fill: #59636d" transform="translate(450.73125 727.953047) scale(0.144 -0.144)">
      <defs>
       <path id="CascadiaCode-Regular-11f" d="M 1256 0
 L 1256 2000

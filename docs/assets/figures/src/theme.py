@@ -15,7 +15,8 @@ from matplotlib.textpath import TextPath
 
 WIDTH, HEIGHT, DPI = 1920, 1080, 100
 TITLE_SIZE, TITLE_EN_SIZE = 42, 32
-BODY_SIZE, BODY_EN_SIZE = 18, 14
+BODY_SIZE, BODY_EN_SIZE = 28, 28
+WATERMARK_SIZE = 18
 WATERMARK = "AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu"
 WATERMARK_COLOR = "#CFD3D7"
 # Sampled from the two flat swatches in the author's color.png.
@@ -64,7 +65,7 @@ def canvas(title_zh, title_en):
     text(ax, WIDTH / 2, 78, title_zh, TITLE_SIZE, ha="center", role="title")
     text(ax, WIDTH / 2, 140, title_en, TITLE_EN_SIZE, GRAY, ha="center")
     for y in (20, HEIGHT - 38):
-        text(ax, WIDTH / 2, y, WATERMARK, BODY_EN_SIZE, WATERMARK_COLOR, ha="center")
+        text(ax, WIDTH / 2, y, WATERMARK, WATERMARK_SIZE, WATERMARK_COLOR, ha="center")
     return fig, ax
 
 
@@ -74,21 +75,24 @@ def text(ax, x, y, value, size=None, color=INK, weight="normal", ha="left", va="
     chinese = re.search(r"[\u2e80-\u9fff\uf900-\ufaff\uff00-\uffef]", value)
     if size is None:
         size = BODY_SIZE if chinese else BODY_EN_SIZE
+    size = round(size)
     if chinese:
         family.append(fonts["TITLE_CHINESE" if role == "title" else "CHINESE"])
     return ax.text(x, y, value, fontsize=size * 72 / DPI, color=color,
                    fontfamily=family, fontweight=weight, ha=ha, va=va, linespacing=1.45)
 
 
-def bilingual(ax, x, y, zh, en, color=INK, ha="center", gap=28):
-    """Chinese 18 px above English 14 px, both measured at output resolution."""
-    return (text(ax, x, y, zh, BODY_SIZE, color, ha=ha),
-            text(ax, x, y + gap, en, BODY_EN_SIZE, color, ha=ha))
+def bilingual(ax, x, y, zh, en, color=INK, ha="center", gap=None, *, size=None):
+    """Restore per-label sizes; paired Chinese/English lines share an integer size."""
+    sizes = (BODY_SIZE, BODY_EN_SIZE) if size is None else (round(size), round(size))
+    gap = max(sizes) + 11 if gap is None else gap
+    return (text(ax, x, y, zh, sizes[0], color, ha=ha),
+            text(ax, x, y + gap, en, sizes[1], color, ha=ha))
 
 
-def bilingual_in_box(ax, x, y, w, h, zh, en, color=INK, line_gap=12):
+def bilingual_in_box(ax, x, y, w, h, zh, en, color=INK, line_gap=12, *, size=None):
     """Center the two lines as one group, using glyph ink bounds, not line leading."""
-    sizes = (BODY_SIZE, BODY_EN_SIZE)
+    sizes = (BODY_SIZE, BODY_EN_SIZE) if size is None else (round(size), round(size))
     labels = [text(ax, x + w / 2, 0, value, size, color, ha="center", va="baseline")
               for value, size in zip((zh, en), sizes)]
     bounds = [TextPath((0, 0), label.get_text(), size=size,

@@ -4,7 +4,7 @@
 
 插图以直观图形为主体：保留标题，用任务条、轨道、箭头、同步线或对象图形表达关系，文字只标识必要对象和动作。不采用分栏文字卡片、重复副标题或长段解释；能力范围与完整技术说明留在正文。异步图参照作者提供的 `cuda_streams.png` 的轨道表达方式，按当前样例重新绘制。
 
-统一排版：标题两行，中文在上 **42 px**、英文在下 **32 px**；正文与标注中文在上 **18 px**、英文在下 **14 px**。中文标题使用华文中宋，中文正文与标注使用微软雅黑；所有英文及数字使用 Cascadia Code。框内双语文字作为整体垂直居中，按各自字号的实际字形边界计算。页眉、页脚均居中添加浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印，颜色 `#CFD3D7`，字号 **14 px**。所有字号均为最终输出像素中的整数值，固定 `DPI=100`，仅在调用 Matplotlib 时按 `px * 72 / DPI` 换算为 pt；不额外缩放字号或保留另一套设计坐标。
+统一排版：标题两行，中文在上 **42 px**、英文在下 **32 px**；正文与标注按上一版的层级恢复为 **18–34 px**，中文在上、英文在下，每组中英使用相同字号。中文标题使用华文中宋，中文正文与标注使用微软雅黑；所有英文及数字使用 Cascadia Code。框内双语文字作为整体垂直居中，按各自字号的实际字形边界计算。页眉、页脚均居中添加浅灰色 `AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu` 水印，颜色 `#CFD3D7`，字号 **18 px**。所有字号均为最终输出像素中的整数值，固定 `DPI=100`，仅在调用 Matplotlib 时按 `px * 72 / DPI` 换算为 pt；不额外缩放字号或保留另一套设计坐标。单图脚本通过整数 `size` 明确各处标注字号，标题保留 42／32 px；正文标注恢复的是 `dca0236` 版本最终输出字号，逐项四舍五入取整。
 
 ## 文件与生成
 
@@ -56,7 +56,7 @@ uv pip install --python .local/figures-venv/Scripts/python.exe -r docs/assets/fi
 
 主题集中在 [src/theme.py](src/theme.py)：按作者提供的 `color.png` 实心色块取样，天蓝为 **RGB(0, 176, 240)／`#00B0F0`**，红色为 **RGB(192, 0, 0)／`#C00000`**。主要填充使用这两种纯色及深灰 `#3C4650`，浅色由 `tint` 与白色混合生成，不再沿用旧主题色。颜色不独立承担语义，箭头方向、虚实线及标签也应说明含义。布局坐标以像素计，原点在左上角，画布尺寸、标题与正文字号、水印及 DPI 集中配置；导出不使用自动紧裁，保证 PNG 尺寸稳定。
 
-新增单图使用 `篇次-fig序号-英文主题.py` 命名，复用 `canvas(title_zh, title_en)`、`bilingual(ax, x, y, zh, en, color=INK, ha="center", gap=28)`、`bilingual_in_box(ax, x, y, w, h, zh, en, color=INK, line_gap=12)`、`box`、`arrow`、`save`。`canvas` 统一生成双语标题和上下水印，`bilingual` 保证中文在上、英文在下，字号固定为 18／14 px，`bilingual_in_box` 按两行字形的实际高度与行间距在框内整体居中；图形细节用 Matplotlib 图元绘制。批量入口会发现 `src/??-fig*.py`；辅助模块不生成图片。每次修改后重新生成 PNG／SVG，逐张检查字号、中文、遮挡、箭头、留白和正文含义，再检查 Markdown 相对链接。脚本只自动检查文字是否超出画布，不能替代视觉与技术审核。
+新增单图使用 `篇次-fig序号-英文主题.py` 命名，复用 `canvas(title_zh, title_en)`、`bilingual(ax, x, y, zh, en, color=INK, ha="center", gap=None, size=None)`、`bilingual_in_box(ax, x, y, w, h, zh, en, color=INK, line_gap=12, size=None)`、`box`、`arrow`、`save`。`canvas` 统一生成双语标题和上下水印，`bilingual` 保证中文在上、英文在下，通过 `size` 为每组标注设置相同的中英字号，默认 28 px；字号按上一版最终输出像素值四舍五入取整，`bilingual_in_box` 按两行字形的实际高度与行间距在框内整体居中；图形细节用 Matplotlib 图元绘制。批量入口会发现 `src/??-fig*.py`；辅助模块不生成图片。每次修改后重新生成 PNG／SVG，逐张检查字号、中文、遮挡、箭头、留白和正文含义，再检查 Markdown 相对链接。脚本只自动检查文字是否超出画布，不能替代视觉与技术审核。
 
 图 3 的可执行程序 `demo` 框使用红色 `#C00000` 边框、2 px 线宽，内部填充近白浅灰 `#FAFAFA`，标注使用深色。图 3 的全部流程箭头及分支连接线统一为近黑深灰 `#20262C`。Matplotlib 线宽参数以 pt 计，2 px 按 `2 * 72 / DPI` 转换。
 
@@ -96,4 +96,4 @@ SVG 文字导出为路径，避免阅读端字体缺失；字体文件只留本�
 
 本次渲染环境：Python 3.15.2、Matplotlib 3.11.2；实际字体为华文中宋 1.02、微软雅黑 6.31、Cascadia Code 2407.024，版本读取自字体元数据。字体使用与嵌入遵循各自所附产品条款和字体许可；未将字体文件收入仓库，也未另行授予字体许可。跨环境字体版本变化可能改变字宽，需重新目视检查。旧孪生调试参考图片在本轮整理前已从工作区删除，本轮未恢复；其来源与许可仍待核对。
 
-当前三张正文插图统一使用 1920×1080 像素画布与 42／32 px 标题、18／14 px 正文标注重新生成 PNG／SVG；所有单图脚本直接使用输出像素坐标，尺寸与字号以 `src/theme.py` 为准。该规则适用于正文插图，品牌横幅使用独立的 [VI 规范](../brand/VI-Specification.md)。
+当前三张正文插图统一使用 1920×1080 像素画布与 42／32 px 标题、18–34 px 分层正文标注及 18 px 水印重新生成 PNG／SVG；所有单图脚本直接使用输出像素坐标，尺寸与字号以 `src/theme.py` 为准。该规则适用于正文插图，品牌横幅使用独立的 [VI 规范](../brand/VI-Specification.md)。
