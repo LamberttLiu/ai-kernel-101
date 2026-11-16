@@ -1,5 +1,5 @@
 {
-  "renderer": "157.0.4341.46",
+  "renderer": "157.0.4341.60",
   "node": "v24.22.1",
   "sharp": {
     "aom": "3.15.1",
@@ -75,6 +75,10 @@
         "count": 36,
         "whiteSquares": true,
         "gridAligned": true,
+        "tileCount": 195,
+        "tileSize": 30,
+        "tilePitch": 32,
+        "innerGap": 2,
         "watermarkItalic": true,
         "watermarkFill": "#C9D1DA",
         "watermarkOpacity": "0.65",
@@ -87,7 +91,6 @@
         "#35C9D8",
         "#D62839",
         "#F3F5F7",
-        "#697586",
         "#C9D1DA"
       ],
       "bounds": [
@@ -202,8 +205,8 @@
         "space": "srgb",
         "hasProfile": true
       },
-      "svgSha256": "836f23b789848c8286dcac192c227cb859ae8e24642323b6e7107c109935662f",
-      "pngSha256": "89a6b8a46af93ce06531f5064832aaf4d58e081edb0503af40b05c078199c4cb"
+      "svgSha256": "4825a04f7605acc1548f54a3e70cfe1048a21f24303916580c48a4b5f8f9fe1c",
+      "pngSha256": "1459afdb0d823b6b302664648119b75df139991cb253de3ae3d681dd840d500f"
     }
   }
 }

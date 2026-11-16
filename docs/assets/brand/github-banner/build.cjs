@@ -1,4 +1,4 @@
-// Deterministic C revision: editable vectors, pixel numerals, local rendering.
+// Accepted grid: 32px pitch, 30px tiles, 2px inner gaps.
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -54,7 +54,7 @@ function base(variant, layers) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title description">
 <title id="title">AI Kernel 101 — 方案 ${variant} · 像素矩阵</title>
-<desc id="description">${COPY.header}。${COPY.positioning}。${COPY.keywords}。${COPY.slogan}。${COPY.author}。无描边的 Mist 白色 101 与底层矩阵共用 32 px 方格。青色流线从第一框顶部连接第二框顶部，再从第二框底部连接第三框底部，每段以圆点起始、实心锐角三角箭头结束。中央红色分块表示活跃计算。图形是品牌概念，不代表具体算法、设备或测量结果。</desc>
+<desc id="description">${COPY.header}。${COPY.positioning}。${COPY.keywords}。${COPY.slogan}。${COPY.author}。三个面板位置保持原样；底层矩阵与无描边的白色 101 共用 32 px 步距、30 px 色块和 2 px 内部间隙。青色流线从第一框顶部连接第二框顶部，再从第二框底部连接第三框底部，每段以圆点起始、实心锐角三角箭头结束。中央红色分块表示活跃计算。图形是品牌概念，不代表具体算法、设备或测量结果。</desc>
 ${group('background', rect(0, 0, 1600, 600, BG))}
 ${layers.join('\n')}
 </svg>\n`;
@@ -77,24 +77,24 @@ function c() {
   let grid = '', compute = '', pixels = '';
   for (let d = 0; d < 3; d++) {
     const x = 992 + d * 192;
-    compute += rect(x, 80, 160, 416, d === 1 ? RED : CYAN, `id="matrix-box-${d + 1}" data-cell-size="32"`);
-    let lattice = '';
-    for (let c = 1; c < 5; c++) lattice += `M ${x + c * 32} 80 V 496 `;
-    for (let r = 1; r < 13; r++) lattice += `M ${x} ${80 + r * 32} H ${x + 160} `;
-    grid += line(lattice, SLATE, 1, 'opacity="0.3"');
+    let cells = '';
+    for (let r = 0; r < 13; r++) for (let c = 0; c < 5; c++) {
+      cells += rect(x + 1 + c * 32, 81 + r * 32, 30, 30, d === 1 ? RED : CYAN);
+    }
+    compute += `<g id="matrix-box-${d + 1}" data-cell-size="30" data-cell-pitch="32">${cells}</g>`;
     let digit = '';
     for (let r = 0; r < 7; r++) for (let c = 0; c < 3; c++) if (digits[d][r][c] === '1') {
-      digit += rect(x + 32 + c * 32, 176 + r * 32, 32, 32, MIST);
+      digit += rect(x + 33 + c * 32, 177 + r * 32, 30, 30, MIST);
     }
     pixels += group(`pixel-digit-${d + 1}`, digit);
   }
   // Each connection has exactly one circular source and one filled triangle.
   const flow = group('flow-box-1-to-2',
-    line('M 1072 72 V 56 H 1264 V 68', CYAN, 3) +
+    line('M 1072 72 V 66 Q 1072 56 1082 56 H 1254 Q 1264 56 1264 66 V 68', CYAN, 3, 'stroke-linecap="round"') +
     `<circle cx="1072" cy="72" r="4" fill="${CYAN}"/>` +
     `<path d="M 1258 68 L 1270 68 L 1264 80 Z" fill="${CYAN}"/>`) +
     group('flow-box-2-to-3',
-      line('M 1264 504 V 520 H 1456 V 508', CYAN, 3) +
+      line('M 1264 504 V 510 Q 1264 520 1274 520 H 1446 Q 1456 520 1456 510 V 508', CYAN, 3, 'stroke-linecap="round"') +
       `<circle cx="1264" cy="504" r="4" fill="${CYAN}"/>` +
       `<path d="M 1450 508 L 1462 508 L 1456 496 Z" fill="${CYAN}"/>`);
   return base('C', [
@@ -128,7 +128,8 @@ async function main() {
     const pixelCheck = await page.evaluate(() => {
       const pixels = [...document.querySelectorAll('#pixel-numerals rect')];
       const author = document.getElementById('author');
-      return { count: pixels.length, whiteSquares: pixels.every(p => p.getAttribute('fill') === '#F3F5F7' && p.getAttribute('width') === '32' && p.getAttribute('height') === '32' && !p.hasAttribute('stroke')), gridAligned: pixels.every(p => (Number(p.getAttribute('x')) - 992) % 32 === 0 && (Number(p.getAttribute('y')) - 80) % 32 === 0), watermarkItalic: getComputedStyle(author).fontStyle === 'italic', watermarkFill: author.getAttribute('fill'), watermarkOpacity: author.getAttribute('opacity'), flowCount: document.querySelectorAll('#data-flow > g').length, circularSources: document.querySelectorAll('#data-flow circle').length, noVisibleConceptNote: ![...document.querySelectorAll('svg text')].some(t => t.textContent.includes('概念示意')) };
+      const cells=[...document.querySelectorAll('#compute rect')];
+      return { count: pixels.length, whiteSquares: pixels.every(p => p.getAttribute('fill') === '#F3F5F7' && p.getAttribute('width') === '30' && p.getAttribute('height') === '30' && !p.hasAttribute('stroke')), gridAligned: [...pixels,...cells].every(p => (Number(p.getAttribute('x')) - 993) % 32 === 0 && (Number(p.getAttribute('y')) - 81) % 32 === 0), tileCount:cells.length,tileSize:30,tilePitch:32,innerGap:2,watermarkItalic: getComputedStyle(author).fontStyle === 'italic', watermarkFill: author.getAttribute('fill'), watermarkOpacity: author.getAttribute('opacity'), flowCount: document.querySelectorAll('#data-flow > g').length, circularSources: document.querySelectorAll('#data-flow circle').length, noVisibleConceptNote: ![...document.querySelectorAll('svg text')].some(t => t.textContent.includes('概念示意')) };
     });
     if (!pixelCheck.count || !pixelCheck.whiteSquares || !pixelCheck.gridAligned || !pixelCheck.watermarkItalic || pixelCheck.flowCount !== 2 || pixelCheck.circularSources !== 2 || !pixelCheck.noVisibleConceptNote) throw Error('Pixel / watermark revision check failed');
     const sourceCheck = await page.evaluate(() => {
