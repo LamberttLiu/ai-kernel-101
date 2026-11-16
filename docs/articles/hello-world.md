@@ -24,9 +24,9 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 ## 系列文章计划
 
-系列从 Hello World 开始，先建立程序执行与硬件数据流的认识，再通过向量加讨论分块（Tiling）、尾块和流水，随后处理 Softmax 的归约依赖与矩阵乘的数据复用，最终汇合到范围明确的 Flash Attention 前向实现。我希望把实现选择、误差和性能变化解释清楚，具体支持范围以实际验证为准，性能提速与退化都要有可核对的记录。各篇入口与当前状态见[文章目录](../README.md)。
+系列从 Hello World 开始，先建立程序执行与硬件数据流的认识，再通过向量加讨论分块（Tiling）、尾块和流水，随后处理 Softmax 的归约依赖与矩阵乘的数据复用，最终汇合到范围明确的 Flash Attention 前向实现。我希望把实现选择、误差和性能变化解释清楚，具体支持范围以实际验证为准，性能提速与退化都要有可核对的记录。各篇入口与当前状态见文章目录[^1]。
 
-正文保留支撑解释所需的公式、图示、核心代码片段与实验结果。完整实现、构建配置和复现记录放在[同一仓库](https://github.com/LamberttLiu/ai-kernel-101)的 src 与 lab 中。引用资料、理论估算和实际测量都会注明依据，方便读者核对。
+正文保留支撑解释所需的公式、图示、核心代码片段与实验结果。完整实现、构建配置和复现记录放在同一仓库[^2]的 src 与 lab 中。引用资料、理论估算和实际测量都会注明依据，方便读者核对。
 
 # 首要的问题
 
@@ -53,13 +53,13 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 # 最小的 Kernel
 
-在真机运行语境下，Host 是运行控制程序的主机 CPU 一侧，Device 是执行 Kernel 的 NPU 一侧。核函数（Kernel）是设备执行的入口，一次启动可以让多个逻辑任务执行同一段代码。本例中的任务用 Block 编号区分。本文使用的源码见个人实验仓库中的 [`hello_world.cpp`](../../src/hello_world/hello_world.cpp)。
+在真机运行语境下，Host 是运行控制程序的主机 CPU 一侧，Device 是执行 Kernel 的 NPU 一侧。核函数（Kernel）是设备执行的入口，一次启动可以让多个逻辑任务执行同一段代码。本例中的任务用 Block 编号区分。本文使用的源码见个人实验仓库中的 `hello_world.cpp`[^3]。
 
 ![CPU 与昇腾 NPU 之间的数据流示意](../assets/figures/gen/01-fig1-cpu-npu-dataflow.png)
 
 图 1：CPU 与昇腾 NPU 之间的数据流示意。主机内存与设备内存经 PCIe 双向传输数据，主机控制程序提交 Kernel。设备侧以 8 个各含 Vector、Cube 计算单元的耦合 AI Core 为例，不代表当前实验设备的芯片布局或物理核数，也不与本例的 8 个逻辑 Block 一一对应。
 
-数据箭头表示一般算子的内存传输路径，Hello World 本身没有输入输出张量搬运。分离架构中计算单元的组织方式不同，耦合与分离的区别见[官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)。
+数据箭头表示一般算子的内存传输路径，Hello World 本身没有输入输出张量搬运。分离架构中计算单元的组织方式不同，耦合与分离的区别见官方基本架构说明[^4]。
 
 Host 先初始化运行时（runtime）、选择设备并创建流（Stream）。Stream 用于组织异步任务的执行顺序，Host 将 Kernel 提交进去，再在需要确认任务完成的位置等待。对这个样例，任务内容就是打印。
 
@@ -76,11 +76,11 @@ __global__ __vector__ void hello_world()
 hello_world<<<8, 0, stream>>>();
 ```
 
-`__global__` 标记核函数入口，`__vector__` 声明这个样例 Kernel 在 Vector Core 上执行。前面的图 1 用于说明 Host 与 Device 的关系，其中画出的是耦合架构中的 Vector 计算单元，不能直接当作这里的 Vector Core；具体架构区别留到下一篇展开。`GetBlockIdx()` 和 `GetBlockNum()` 分别取得当前逻辑任务的编号与本次任务总数。这里的 8 是启动配置，不能据此推断整台设备的物理核数。语言修饰符与启动配置的说明可详见[Ascend C SIMD 关键字文档](https://asc.gitcode.com/guide/programming_guide/language_extension/simd_builtin_keywords.html)。
+`__global__` 标记核函数入口，`__vector__` 声明这个样例 Kernel 在 Vector Core 上执行。前面的图 1 用于说明 Host 与 Device 的关系，其中画出的是耦合架构中的 Vector 计算单元，不能直接当作这里的 Vector Core；具体架构区别留到下一篇展开。`GetBlockIdx()` 和 `GetBlockNum()` 分别取得当前逻辑任务的编号与本次任务总数。这里的 8 是启动配置，不能据此推断整台设备的物理核数。语言修饰符与启动配置的说明可详见 Ascend C SIMD 关键字文档[^5]。
 
 这次启动对应 Block 0 至 7，检查输出时应关注这组编号是否完整出现。这个样例没有任务间的数据交换，也没有规定打印的先后关系，单凭打印顺序无法推导设备调度或并行效率。
 
-沿着源码往下看，Kernel 提交之后紧接着调用 `aclrtSynchronizeStream(stream)`，随后才销毁 Stream、重置设备并结束运行时。同步调用让 Host 等待该 Stream 中已提交的任务完成，否则仅凭 Host 执行过启动语句，还无法确认设备任务已经结束。[官方 Runtime 文档](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/others/acldevg/runtime_doc_dev_0014.html)说明了显式同步的语义。
+沿着源码往下看，Kernel 提交之后紧接着调用 `aclrtSynchronizeStream(stream)`，随后才销毁 Stream、重置设备并结束运行时。同步调用让 Host 等待该 Stream 中已提交的任务完成，否则仅凭 Host 执行过启动语句，还无法确认设备任务已经结束。官方 Runtime 文档[^6]说明了显式同步的语义。
 
 CANN 是昇腾的软件工具体系，提供编译、运行和调测支持。Host 通过其中的 ACL 接口完成初始化、设备选择和 Stream 管理等操作。样例会检查这些调用返回的状态码，日志中的 `ret=0` 表示对应调用报告成功。例如，`aclrtSynchronizeStream: ret=0` 表示等待该 Stream 完成的调用成功返回。后面还会看到 `process_exit=0`，它是整个程序的退出状态，需要结合这些调用状态与 Kernel 的完整打印一起判断运行结果。
 
@@ -98,11 +98,11 @@ CANN 是昇腾的软件工具体系，提供编译、运行和调测支持。Hos
 
 ## CPU 调试：先让核函数的逻辑可以被检查
 
-在 CPU 调试模式下，Kernel 会被编译为 CPU 域程序，配合 CPU 调测库在主机上执行。这样，即使代码中使用了 Ascend C 的核函数与接口，也可以先在本地检查程序逻辑，借助调试器观察中间状态。[官方 CPU 调试说明](https://asc.gitcode.com/guide/programming_guide/debug_and_tuning/functional_debug/cpu_twin_debug.html)介绍了这种执行方式。
+在 CPU 调试模式下，Kernel 会被编译为 CPU 域程序，配合 CPU 调测库在主机上执行。这样，即使代码中使用了 Ascend C 的核函数与接口，也可以先在本地检查程序逻辑，借助调试器观察中间状态。官方 CPU 调试说明[^7]介绍了这种执行方式。
 
 对 Hello World 来说，需要检查的逻辑很少：核函数有没有被调用，取得的 Block 编号是否覆盖 0 至 7，打印有没有完成。与普通 C++ 程序一样，这一步先把问题缩小到代码本身，让核函数里的逻辑可以被观察和调试。
 
-在上述 WSL 环境按 CPU 模式编译当前样例，8 个 Block 各打印一次。下面保留全部 Kernel 打印，以及同步和退出状态；其余 Host 与调测库消息见[CPU 实验报告](../../lab/hello-world/wsl-report.md)。
+在上述 WSL 环境按 CPU 模式编译当前样例，8 个 Block 各打印一次。下面保留全部 Kernel 打印，以及同步和退出状态；其余 Host 与调测库消息见CPU 实验报告[^8]。
 
 ```text
 [Block (1/8)]: Hello World!!!
@@ -125,9 +125,9 @@ process_exit=0
 
 ## SIM 仿真：换成目标架构的执行路径
 
-CPU 调试方便检查逻辑，但后面要解释搬运、同步和流水时，还需要考察程序在目标架构下的执行行为。SIM 仿真使用目标 NPU 的仿真模型执行设备侧程序，能够观察什么、支持哪些行为，取决于模型和工具版本。[Ascend C 孪生调试文章](https://www.hiascend.com/zh/developer/techArticles/20231215-2)介绍了 CPU 调试与仿真的分工。
+CPU 调试方便检查逻辑，但后面要解释搬运、同步和流水时，还需要考察程序在目标架构下的执行行为。SIM 仿真使用目标 NPU 的仿真模型执行设备侧程序，能够观察什么、支持哪些行为，取决于模型和工具版本。Ascend C 孪生调试文章[^9]介绍了 CPU 调试与仿真的分工。
 
-从 CPU 切到 SIM，变化发生在构建与执行环节：同一份源码需要按仿真模式重新构建，再交给模型执行。为不同模式保留独立构建目录，就能避免旧产物混入，让每次输出都对应明确的执行路径。具体选项与命令见[配套实验页](../../lab/hello-world/README.md)。
+从 CPU 切到 SIM，变化发生在构建与执行环节：同一份源码需要按仿真模式重新构建，再交给模型执行。为不同模式保留独立构建目录，就能避免旧产物混入，让每次输出都对应明确的执行路径。具体选项与命令见配套实验页[^10]。
 
 ![CPU、SIM、NPU 三种模式的构建与执行路径](../assets/figures/gen/01-fig3-run-paths.png)
 
@@ -148,7 +148,7 @@ CPU 调试方便检查逻辑，但后面要解释搬运、同步和流水时，�
 process_exit=0
 ```
 
-模型正常停止，八个 Block 的打印也完整出现，符合本例的仿真验证预期。实际输出还带有 `[AIV Block ...]` 前缀，它由工具链的 printf 调测实现补充，后面的 `[Block (...)]` 才来自本例的格式字符串。前缀与正文在仿真输出中可以分批出现，完整上下文见[SIM 实验报告](../../lab/hello-world/wsl-report.md)。
+模型正常停止，八个 Block 的打印也完整出现，符合本例的仿真验证预期。实际输出还带有 `[AIV Block ...]` 前缀，它由工具链的 printf 调测实现补充，后面的 `[Block (...)]` 才来自本例的格式字符串。前缀与正文在仿真输出中可以分批出现，完整上下文见 SIM 实验报告[^8]。
 
 对于这个例子，两条路径都执行了同一段打印逻辑：每个 Block 打印一次自己的编号。两条路径输出了相近的文字，但核函数的执行方式不同。只有加入数值计算、搬运依赖和流水，才有更多行为可以比较。仿真本身运行了多久，也不能直接当作 NPU 执行 Kernel 的耗时。
 
@@ -173,7 +173,7 @@ process_exit=0
 
 真机运行仍然检查同一件事：8 个逻辑 Block 是否都执行到了打印位置，任务是否完成。区别在于，这次核函数由物理 NPU 执行。把输出与实际设备、构建模式和运行程序对应起来，这组打印才有明确的含义。
 
-将同一份源码在云端按 NPU 模式重新构建，得到下面的运行输出。这里保留同步返回状态、全部 Block 打印与退出状态；其他 ACL 结果和环境查询见[真机实验报告](../../lab/hello-world/npu-report.md)。
+将同一份源码在云端按 NPU 模式重新构建，得到下面的运行输出。这里保留同步返回状态、全部 Block 打印与退出状态；其他 ACL 结果和环境查询见真机实验报告[^11]。
 
 ```text
 [HOST][OK] aclrtSynchronizeStream: ret=0
@@ -206,8 +206,40 @@ Hello World 的工作到打印就结束了。现在把任务换成向量加：$z
 
 这时如果直接打开向量加源码，会先遇到局部存储、搬运和同步调用。要解释这些代码，需要把视线从“程序怎样提交到设备”移到“数据怎样送到计算单元”。再把加法换成矩阵乘，输入复用和硬件分工又会改变。问题来了，同样简短的公式，为什么需要不同的数据组织？
 
-下一篇就沿着这个问题打开 NPU 内部，从算子的计算依赖与数据复用，解释 Vector、Cube、存储和搬运资源的分工。带着这层认识，第三篇再把向量加写成一条完整数据流，追踪输入进入局部存储、参与计算并写回输出的过程。[第02篇：同样是计算，NPU 为什么要区分 Vector 和 Cube？](../drafts/hardware-dataflow.md) · [第03篇：只做一次加法，为什么还要搬来搬去？](../drafts/vector-add.md)
+下一篇[^12]就沿着这个问题打开 NPU 内部，从算子的计算依赖与数据复用，解释 Vector、Cube、存储和搬运资源的分工。带着这层认识，第三篇[^13]再把向量加写成一条完整数据流，追踪输入进入局部存储、参与计算并写回输出的过程。
 
 # 附录：源码与复现
 
-完整实现与构建配置见 [Hello World 源码](../../src/hello_world/README.md)，三种模式的构建运行命令与实验材料见[配套实验页](../../lab/hello-world/README.md)。复现时使用与目标环境匹配的路径和编译选项，并记录源码版本。
+完整实现与构建配置见 Hello World 源码[^14]，三种模式的构建运行命令与实验材料见配套实验页[^10]。复现时使用与目标环境匹配的路径和编译选项，并记录源码版本。
+
+# 参考资料与配套材料
+
+以下按正文首次引用的顺序编号；同一资料多次引用时沿用同一编号。官方资料用于解释机制，实验报告用于核对本篇实际执行的结果与证明范围。
+
+[^1]: [文章目录](../README.md)：系列文章目录，列出各篇主题、正文入口与当前撰写状态。
+
+[^2]: [AI Kernel 101 公开仓库](https://github.com/LamberttLiu/ai-kernel-101)：本系列的公开仓库，集中保存文章、完整实现、构建配置和实验记录。
+
+[^3]: [`hello_world.cpp`](../../src/hello_world/hello_world.cpp)：本篇实际使用的 Hello World 源码，包含核函数、Host 启动流程、ACL 返回码检查与资源清理。
+
+[^4]: [官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)：昇腾官方基本架构说明，CANN 商用版 8.0.RC3 文档；用于解释耦合与分离架构，不作为本次实验设备的芯片布局或软件版本依据。
+
+[^5]: [Ascend C SIMD 关键字文档](https://asc.gitcode.com/guide/programming_guide/language_extension/simd_builtin_keywords.html)：Ascend C SIMD 关键字说明，用于查阅核函数修饰符与启动配置。该站点为 master 开发文档，实际接口可用性以本篇已安装的 CANN 9.1.0 与实验结果为准。
+
+[^6]: [官方 Runtime 文档](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/910/others/acldevg/runtime_doc_dev_0014.html)：CANN 9.1.X Runtime 文档中的“显式同步”，用于查阅 Stream 同步与 Host 等待的语义。
+
+[^7]: [官方 CPU 调试说明](https://asc.gitcode.com/guide/programming_guide/debug_and_tuning/functional_debug/cpu_twin_debug.html)：Ascend C CPU 域孪生调试说明，介绍 CPU 域编译运行、gdb 调试及部分 ACL 接口的适配与打桩；同属 master 开发文档。
+
+[^8]: [WSL：CPU、SIM 与失败退出验证](../../lab/hello-world/wsl-report.md)：WSL 实验报告，统一记录 CPU、SIM 功能验证及无设备时的失败对照，保留环境、完整 Block 输出、ACL 状态与退出码。正文中的 CPU、SIM 报告引用均指向此文件。
+
+[^9]: [Ascend C 孪生调试文章](https://www.hiascend.com/zh/developer/techArticles/20231215-2)：昇腾官方 Ascend C 孪生调试技术文章，用于理解 CPU 调试与仿真的分工；不代替本篇的实际运行证据。
+
+[^10]: [Hello World 实验记录与复现入口](../../lab/hello-world/README.md)：Hello World 实验入口，汇总三种模式的验证范围、构建运行命令、通过判据和报告链接；复现以已安装 CANN 的环境为前提。
+
+[^11]: [真机实验报告](../../lab/hello-world/npu-report.md)：云端 NPU 功能实验报告，记录容器可见环境、设备标识、实际构建与运行输出，以及本次验证的适用边界。
+
+[^12]: [第02篇：同样是计算，NPU 为什么要区分 Vector 和 Cube？](../drafts/hardware-dataflow.md)：第 02 篇，进一步讨论 Vector、Cube、存储与搬运资源的分工；当前链接指向写作中的草稿，进度以文章目录为准。
+
+[^13]: [第03篇：只做一次加法，为什么还要搬来搬去？](../drafts/vector-add.md)：第 03 篇，以向量加追踪输入搬运、局部计算和输出写回的数据流；当前链接指向写作中的草稿，进度以文章目录为准。
+
+[^14]: [Hello World 源码](../../src/hello_world/README.md)：Hello World 源码目录说明，提供完整实现与构建配置的入口、编译选项及运行说明。

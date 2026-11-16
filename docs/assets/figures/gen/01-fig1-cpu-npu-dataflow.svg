@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1920px" height="1080px" viewBox="0 0 777.6 437.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1920px" height="1080px" viewBox="0 0 1382.4 777.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -20,636 +20,636 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 437.4
-L 777.6 437.4
-L 777.6 0
+   <path d="M 0 777.6
+L 1382.4 777.6
+L 1382.4 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 42.48 101.34
-L 195.12 101.34
-Q 201.6 101.34 201.6 107.82
-L 201.6 361.26
-Q 201.6 367.74 195.12 367.74
-L 42.48 367.74
-Q 36 367.74 36 361.26
-L 36 107.82
-Q 36 101.34 42.48 101.34
+    <path d="M 74.88 177.12
+L 348.48 177.12
+Q 360 177.12 360 188.64
+L 360 646.56
+Q 360 658.08 348.48 658.08
+L 74.88 658.08
+Q 63.36 658.08 63.36 646.56
+L 63.36 188.64
+Q 63.36 177.12 74.88 177.12
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
-    <path d="M 323.28 101.34
-L 742.32 101.34
-Q 748.8 101.34 748.8 107.82
-L 748.8 361.26
-Q 748.8 367.74 742.32 367.74
-L 323.28 367.74
-Q 316.8 367.74 316.8 361.26
-L 316.8 107.82
-Q 316.8 101.34 323.28 101.34
+    <path d="M 574.56 177.12
+L 1319.04 177.12
+Q 1330.56 177.12 1330.56 188.64
+L 1330.56 646.56
+Q 1330.56 658.08 1319.04 658.08
+L 574.56 658.08
+Q 563.04 658.08 563.04 646.56
+L 563.04 188.64
+Q 563.04 177.12 574.56 177.12
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
-    <path d="M 55.44 157.5
-L 182.16 157.5
-Q 185.04 157.5 185.04 160.38
-L 185.04 189.9
-Q 185.04 192.78 182.16 192.78
-L 55.44 192.78
-Q 52.56 192.78 52.56 189.9
-L 52.56 160.38
-Q 52.56 157.5 55.44 157.5
+    <path d="M 98.64 277.92
+L 324.72 277.92
+Q 329.76 277.92 329.76 282.96
+L 329.76 336.24
+Q 329.76 341.28 324.72 341.28
+L 98.64 341.28
+Q 93.6 341.28 93.6 336.24
+L 93.6 282.96
+Q 93.6 277.92 98.64 277.92
 z
-" clip-path="url(#p3117525052)" style="fill: #fafafa; stroke: #c00000; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #fafafa; stroke: #c00000; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 334.8 157.5
-L 730.8 157.5
-Q 733.68 157.5 733.68 160.38
-L 733.68 189.9
-Q 733.68 192.78 730.8 192.78
-L 334.8 192.78
-Q 331.92 192.78 331.92 189.9
-L 331.92 160.38
-Q 331.92 157.5 334.8 157.5
+    <path d="M 595.44 277.92
+L 1298.16 277.92
+Q 1303.2 277.92 1303.2 282.96
+L 1303.2 336.24
+Q 1303.2 341.28 1298.16 341.28
+L 595.44 341.28
+Q 590.4 341.28 590.4 336.24
+L 590.4 282.96
+Q 590.4 277.92 595.44 277.92
 z
-" clip-path="url(#p3117525052)" style="fill: #fafafa; stroke: #c00000; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #fafafa; stroke: #c00000; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
-    <path d="M 185.76 168.3
-Q 258.48 168.3 329.970163 168.3
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 325.970163 166.3
-L 329.970163 168.3
-L 325.970163 170.3
+    <path d="M 331.2 298.08
+Q 460.08 298.08 587.730163 298.08
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 583.730163 296.08
+L 587.730163 298.08
+L 583.730163 300.08
 z
-" clip-path="url(#p3117525052)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="patch_7">
-    <path d="M 331.2 182.7
-Q 258.48 182.7 186.989837 182.7
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 190.989837 184.7
-L 186.989837 182.7
-L 190.989837 180.7
+    <path d="M 588.96 324
+Q 460.08 324 332.429837 324
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 336.429837 326
+L 332.429837 324
+L 336.429837 322
 z
-" clip-path="url(#p3117525052)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="patch_8">
-    <path d="M 82.8 243.9
-L 154.8 243.9
-Q 158.4 243.9 158.4 247.5
-L 158.4 312.3
-Q 158.4 315.9 154.8 315.9
-L 82.8 315.9
-Q 79.2 315.9 79.2 312.3
-L 79.2 247.5
-Q 79.2 243.9 82.8 243.9
+    <path d="M 149.04 434.88
+L 275.76 434.88
+Q 282.24 434.88 282.24 441.36
+L 282.24 558
+Q 282.24 564.48 275.76 564.48
+L 149.04 564.48
+Q 142.56 564.48 142.56 558
+L 142.56 441.36
+Q 142.56 434.88 149.04 434.88
 z
-" clip-path="url(#p3117525052)" style="fill: #3c4650"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #3c4650"/>
    </g>
    <g id="patch_9">
-    <path d="M 109.44 197.82
-Q 109.44 216.54 109.44 234.030163
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 111.44 230.030163
-L 109.44 234.030163
-L 107.44 230.030163
+    <path d="M 194.4 351.36
+Q 194.4 384.48 194.4 416.370163
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 196.4 412.370163
+L 194.4 416.370163
+L 192.4 412.370163
 z
-" clip-path="url(#p3117525052)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="patch_10">
-    <path d="M 128.16 235.26
-Q 128.16 216.54 128.16 199.049837
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 126.16 203.049837
-L 128.16 199.049837
-L 130.16 203.049837
+    <path d="M 228.96 417.6
+Q 228.96 384.48 228.96 352.589837
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 226.96 356.589837
+L 228.96 352.589837
+L 230.96 356.589837
 z
-" clip-path="url(#p3117525052)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #20262c; stroke: #20262c; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="coupled-ai-core-0">
-    <path d="M 335.52 214.38
-L 421.92 214.38
-Q 425.52 214.38 425.52 217.98
-L 425.52 277.74
-Q 425.52 281.34 421.92 281.34
-L 335.52 281.34
-Q 331.92 281.34 331.92 277.74
-L 331.92 217.98
-Q 331.92 214.38 335.52 214.38
+    <path d="M 596.88 381.6
+L 750.96 381.6
+Q 757.44 381.6 757.44 388.08
+L 757.44 496.08
+Q 757.44 502.56 750.96 502.56
+L 596.88 502.56
+Q 590.4 502.56 590.4 496.08
+L 590.4 388.08
+Q 590.4 381.6 596.88 381.6
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-0-vector-unit">
-    <path d="M 339.12 243.18
-L 373.68 243.18
-Q 375.84 243.18 375.84 245.34
-L 375.84 271.26
-Q 375.84 273.42 373.68 273.42
-L 339.12 273.42
-Q 336.96 273.42 336.96 271.26
-L 336.96 245.34
-Q 336.96 243.18 339.12 243.18
+    <path d="M 602.64 433.44
+L 665.28 433.44
+Q 668.88 433.44 668.88 437.04
+L 668.88 484.56
+Q 668.88 488.16 665.28 488.16
+L 602.64 488.16
+Q 599.04 488.16 599.04 484.56
+L 599.04 437.04
+Q 599.04 433.44 602.64 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-0-cube-unit">
-    <path d="M 383.76 243.18
-L 418.32 243.18
-Q 420.48 243.18 420.48 245.34
-L 420.48 271.26
-Q 420.48 273.42 418.32 273.42
-L 383.76 273.42
-Q 381.6 273.42 381.6 271.26
-L 381.6 245.34
-Q 381.6 243.18 383.76 243.18
+    <path d="M 682.56 433.44
+L 745.2 433.44
+Q 748.8 433.44 748.8 437.04
+L 748.8 484.56
+Q 748.8 488.16 745.2 488.16
+L 682.56 488.16
+Q 678.96 488.16 678.96 484.56
+L 678.96 437.04
+Q 678.96 433.44 682.56 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-1">
-    <path d="M 437.76 214.38
-L 524.16 214.38
-Q 527.76 214.38 527.76 217.98
-L 527.76 277.74
-Q 527.76 281.34 524.16 281.34
-L 437.76 281.34
-Q 434.16 281.34 434.16 277.74
-L 434.16 217.98
-Q 434.16 214.38 437.76 214.38
+    <path d="M 778.32 381.6
+L 932.4 381.6
+Q 938.88 381.6 938.88 388.08
+L 938.88 496.08
+Q 938.88 502.56 932.4 502.56
+L 778.32 502.56
+Q 771.84 502.56 771.84 496.08
+L 771.84 388.08
+Q 771.84 381.6 778.32 381.6
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-1-vector-unit">
-    <path d="M 441.36 243.18
-L 475.92 243.18
-Q 478.08 243.18 478.08 245.34
-L 478.08 271.26
-Q 478.08 273.42 475.92 273.42
-L 441.36 273.42
-Q 439.2 273.42 439.2 271.26
-L 439.2 245.34
-Q 439.2 243.18 441.36 243.18
+    <path d="M 784.08 433.44
+L 846.72 433.44
+Q 850.32 433.44 850.32 437.04
+L 850.32 484.56
+Q 850.32 488.16 846.72 488.16
+L 784.08 488.16
+Q 780.48 488.16 780.48 484.56
+L 780.48 437.04
+Q 780.48 433.44 784.08 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-1-cube-unit">
-    <path d="M 486 243.18
-L 520.56 243.18
-Q 522.72 243.18 522.72 245.34
-L 522.72 271.26
-Q 522.72 273.42 520.56 273.42
-L 486 273.42
-Q 483.84 273.42 483.84 271.26
-L 483.84 245.34
-Q 483.84 243.18 486 243.18
+    <path d="M 864 433.44
+L 926.64 433.44
+Q 930.24 433.44 930.24 437.04
+L 930.24 484.56
+Q 930.24 488.16 926.64 488.16
+L 864 488.16
+Q 860.4 488.16 860.4 484.56
+L 860.4 437.04
+Q 860.4 433.44 864 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-2">
-    <path d="M 540 214.38
-L 626.4 214.38
-Q 630 214.38 630 217.98
-L 630 277.74
-Q 630 281.34 626.4 281.34
-L 540 281.34
-Q 536.4 281.34 536.4 277.74
-L 536.4 217.98
-Q 536.4 214.38 540 214.38
+    <path d="M 959.76 381.6
+L 1113.84 381.6
+Q 1120.32 381.6 1120.32 388.08
+L 1120.32 496.08
+Q 1120.32 502.56 1113.84 502.56
+L 959.76 502.56
+Q 953.28 502.56 953.28 496.08
+L 953.28 388.08
+Q 953.28 381.6 959.76 381.6
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-2-vector-unit">
-    <path d="M 543.6 243.18
-L 578.16 243.18
-Q 580.32 243.18 580.32 245.34
-L 580.32 271.26
-Q 580.32 273.42 578.16 273.42
-L 543.6 273.42
-Q 541.44 273.42 541.44 271.26
-L 541.44 245.34
-Q 541.44 243.18 543.6 243.18
+    <path d="M 965.52 433.44
+L 1028.16 433.44
+Q 1031.76 433.44 1031.76 437.04
+L 1031.76 484.56
+Q 1031.76 488.16 1028.16 488.16
+L 965.52 488.16
+Q 961.92 488.16 961.92 484.56
+L 961.92 437.04
+Q 961.92 433.44 965.52 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-2-cube-unit">
-    <path d="M 588.24 243.18
-L 622.8 243.18
-Q 624.96 243.18 624.96 245.34
-L 624.96 271.26
-Q 624.96 273.42 622.8 273.42
-L 588.24 273.42
-Q 586.08 273.42 586.08 271.26
-L 586.08 245.34
-Q 586.08 243.18 588.24 243.18
+    <path d="M 1045.44 433.44
+L 1108.08 433.44
+Q 1111.68 433.44 1111.68 437.04
+L 1111.68 484.56
+Q 1111.68 488.16 1108.08 488.16
+L 1045.44 488.16
+Q 1041.84 488.16 1041.84 484.56
+L 1041.84 437.04
+Q 1041.84 433.44 1045.44 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-3">
-    <path d="M 642.24 214.38
-L 728.64 214.38
-Q 732.24 214.38 732.24 217.98
-L 732.24 277.74
-Q 732.24 281.34 728.64 281.34
-L 642.24 281.34
-Q 638.64 281.34 638.64 277.74
-L 638.64 217.98
-Q 638.64 214.38 642.24 214.38
+    <path d="M 1141.2 381.6
+L 1295.28 381.6
+Q 1301.76 381.6 1301.76 388.08
+L 1301.76 496.08
+Q 1301.76 502.56 1295.28 502.56
+L 1141.2 502.56
+Q 1134.72 502.56 1134.72 496.08
+L 1134.72 388.08
+Q 1134.72 381.6 1141.2 381.6
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-3-vector-unit">
-    <path d="M 645.84 243.18
-L 680.4 243.18
-Q 682.56 243.18 682.56 245.34
-L 682.56 271.26
-Q 682.56 273.42 680.4 273.42
-L 645.84 273.42
-Q 643.68 273.42 643.68 271.26
-L 643.68 245.34
-Q 643.68 243.18 645.84 243.18
+    <path d="M 1146.96 433.44
+L 1209.6 433.44
+Q 1213.2 433.44 1213.2 437.04
+L 1213.2 484.56
+Q 1213.2 488.16 1209.6 488.16
+L 1146.96 488.16
+Q 1143.36 488.16 1143.36 484.56
+L 1143.36 437.04
+Q 1143.36 433.44 1146.96 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-3-cube-unit">
-    <path d="M 690.48 243.18
-L 725.04 243.18
-Q 727.2 243.18 727.2 245.34
-L 727.2 271.26
-Q 727.2 273.42 725.04 273.42
-L 690.48 273.42
-Q 688.32 273.42 688.32 271.26
-L 688.32 245.34
-Q 688.32 243.18 690.48 243.18
+    <path d="M 1226.88 433.44
+L 1289.52 433.44
+Q 1293.12 433.44 1293.12 437.04
+L 1293.12 484.56
+Q 1293.12 488.16 1289.52 488.16
+L 1226.88 488.16
+Q 1223.28 488.16 1223.28 484.56
+L 1223.28 437.04
+Q 1223.28 433.44 1226.88 433.44
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-4">
-    <path d="M 335.52 290.7
-L 421.92 290.7
-Q 425.52 290.7 425.52 294.3
-L 425.52 354.06
-Q 425.52 357.66 421.92 357.66
-L 335.52 357.66
-Q 331.92 357.66 331.92 354.06
-L 331.92 294.3
-Q 331.92 290.7 335.52 290.7
+    <path d="M 596.88 518.4
+L 750.96 518.4
+Q 757.44 518.4 757.44 524.88
+L 757.44 632.88
+Q 757.44 639.36 750.96 639.36
+L 596.88 639.36
+Q 590.4 639.36 590.4 632.88
+L 590.4 524.88
+Q 590.4 518.4 596.88 518.4
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-4-vector-unit">
-    <path d="M 339.12 319.5
-L 373.68 319.5
-Q 375.84 319.5 375.84 321.66
-L 375.84 347.58
-Q 375.84 349.74 373.68 349.74
-L 339.12 349.74
-Q 336.96 349.74 336.96 347.58
-L 336.96 321.66
-Q 336.96 319.5 339.12 319.5
+    <path d="M 602.64 570.24
+L 665.28 570.24
+Q 668.88 570.24 668.88 573.84
+L 668.88 621.36
+Q 668.88 624.96 665.28 624.96
+L 602.64 624.96
+Q 599.04 624.96 599.04 621.36
+L 599.04 573.84
+Q 599.04 570.24 602.64 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-4-cube-unit">
-    <path d="M 383.76 319.5
-L 418.32 319.5
-Q 420.48 319.5 420.48 321.66
-L 420.48 347.58
-Q 420.48 349.74 418.32 349.74
-L 383.76 349.74
-Q 381.6 349.74 381.6 347.58
-L 381.6 321.66
-Q 381.6 319.5 383.76 319.5
+    <path d="M 682.56 570.24
+L 745.2 570.24
+Q 748.8 570.24 748.8 573.84
+L 748.8 621.36
+Q 748.8 624.96 745.2 624.96
+L 682.56 624.96
+Q 678.96 624.96 678.96 621.36
+L 678.96 573.84
+Q 678.96 570.24 682.56 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-5">
-    <path d="M 437.76 290.7
-L 524.16 290.7
-Q 527.76 290.7 527.76 294.3
-L 527.76 354.06
-Q 527.76 357.66 524.16 357.66
-L 437.76 357.66
-Q 434.16 357.66 434.16 354.06
-L 434.16 294.3
-Q 434.16 290.7 437.76 290.7
+    <path d="M 778.32 518.4
+L 932.4 518.4
+Q 938.88 518.4 938.88 524.88
+L 938.88 632.88
+Q 938.88 639.36 932.4 639.36
+L 778.32 639.36
+Q 771.84 639.36 771.84 632.88
+L 771.84 524.88
+Q 771.84 518.4 778.32 518.4
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-5-vector-unit">
-    <path d="M 441.36 319.5
-L 475.92 319.5
-Q 478.08 319.5 478.08 321.66
-L 478.08 347.58
-Q 478.08 349.74 475.92 349.74
-L 441.36 349.74
-Q 439.2 349.74 439.2 347.58
-L 439.2 321.66
-Q 439.2 319.5 441.36 319.5
+    <path d="M 784.08 570.24
+L 846.72 570.24
+Q 850.32 570.24 850.32 573.84
+L 850.32 621.36
+Q 850.32 624.96 846.72 624.96
+L 784.08 624.96
+Q 780.48 624.96 780.48 621.36
+L 780.48 573.84
+Q 780.48 570.24 784.08 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-5-cube-unit">
-    <path d="M 486 319.5
-L 520.56 319.5
-Q 522.72 319.5 522.72 321.66
-L 522.72 347.58
-Q 522.72 349.74 520.56 349.74
-L 486 349.74
-Q 483.84 349.74 483.84 347.58
-L 483.84 321.66
-Q 483.84 319.5 486 319.5
+    <path d="M 864 570.24
+L 926.64 570.24
+Q 930.24 570.24 930.24 573.84
+L 930.24 621.36
+Q 930.24 624.96 926.64 624.96
+L 864 624.96
+Q 860.4 624.96 860.4 621.36
+L 860.4 573.84
+Q 860.4 570.24 864 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-6">
-    <path d="M 540 290.7
-L 626.4 290.7
-Q 630 290.7 630 294.3
-L 630 354.06
-Q 630 357.66 626.4 357.66
-L 540 357.66
-Q 536.4 357.66 536.4 354.06
-L 536.4 294.3
-Q 536.4 290.7 540 290.7
+    <path d="M 959.76 518.4
+L 1113.84 518.4
+Q 1120.32 518.4 1120.32 524.88
+L 1120.32 632.88
+Q 1120.32 639.36 1113.84 639.36
+L 959.76 639.36
+Q 953.28 639.36 953.28 632.88
+L 953.28 524.88
+Q 953.28 518.4 959.76 518.4
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-6-vector-unit">
-    <path d="M 543.6 319.5
-L 578.16 319.5
-Q 580.32 319.5 580.32 321.66
-L 580.32 347.58
-Q 580.32 349.74 578.16 349.74
-L 543.6 349.74
-Q 541.44 349.74 541.44 347.58
-L 541.44 321.66
-Q 541.44 319.5 543.6 319.5
+    <path d="M 965.52 570.24
+L 1028.16 570.24
+Q 1031.76 570.24 1031.76 573.84
+L 1031.76 621.36
+Q 1031.76 624.96 1028.16 624.96
+L 965.52 624.96
+Q 961.92 624.96 961.92 621.36
+L 961.92 573.84
+Q 961.92 570.24 965.52 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-6-cube-unit">
-    <path d="M 588.24 319.5
-L 622.8 319.5
-Q 624.96 319.5 624.96 321.66
-L 624.96 347.58
-Q 624.96 349.74 622.8 349.74
-L 588.24 349.74
-Q 586.08 349.74 586.08 347.58
-L 586.08 321.66
-Q 586.08 319.5 588.24 319.5
+    <path d="M 1045.44 570.24
+L 1108.08 570.24
+Q 1111.68 570.24 1111.68 573.84
+L 1111.68 621.36
+Q 1111.68 624.96 1108.08 624.96
+L 1045.44 624.96
+Q 1041.84 624.96 1041.84 621.36
+L 1041.84 573.84
+Q 1041.84 570.24 1045.44 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="coupled-ai-core-7">
-    <path d="M 642.24 290.7
-L 728.64 290.7
-Q 732.24 290.7 732.24 294.3
-L 732.24 354.06
-Q 732.24 357.66 728.64 357.66
-L 642.24 357.66
-Q 638.64 357.66 638.64 354.06
-L 638.64 294.3
-Q 638.64 290.7 642.24 290.7
+    <path d="M 1141.2 518.4
+L 1295.28 518.4
+Q 1301.76 518.4 1301.76 524.88
+L 1301.76 632.88
+Q 1301.76 639.36 1295.28 639.36
+L 1141.2 639.36
+Q 1134.72 639.36 1134.72 632.88
+L 1134.72 524.88
+Q 1134.72 518.4 1141.2 518.4
 z
-" clip-path="url(#p3117525052)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #ffffff; stroke: #d7dde2; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="core-7-vector-unit">
-    <path d="M 645.84 319.5
-L 680.4 319.5
-Q 682.56 319.5 682.56 321.66
-L 682.56 347.58
-Q 682.56 349.74 680.4 349.74
-L 645.84 349.74
-Q 643.68 349.74 643.68 347.58
-L 643.68 321.66
-Q 643.68 319.5 645.84 319.5
+    <path d="M 1146.96 570.24
+L 1209.6 570.24
+Q 1213.2 570.24 1213.2 573.84
+L 1213.2 621.36
+Q 1213.2 624.96 1209.6 624.96
+L 1146.96 624.96
+Q 1143.36 624.96 1143.36 621.36
+L 1143.36 573.84
+Q 1143.36 570.24 1146.96 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #00b0f0"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #00b0f0"/>
    </g>
    <g id="core-7-cube-unit">
-    <path d="M 690.48 319.5
-L 725.04 319.5
-Q 727.2 319.5 727.2 321.66
-L 727.2 347.58
-Q 727.2 349.74 725.04 349.74
-L 690.48 349.74
-Q 688.32 349.74 688.32 347.58
-L 688.32 321.66
-Q 688.32 319.5 690.48 319.5
+    <path d="M 1226.88 570.24
+L 1289.52 570.24
+Q 1293.12 570.24 1293.12 573.84
+L 1293.12 621.36
+Q 1293.12 624.96 1289.52 624.96
+L 1226.88 624.96
+Q 1223.28 624.96 1223.28 621.36
+L 1223.28 573.84
+Q 1223.28 570.24 1226.88 570.24
 z
-" clip-path="url(#p3117525052)" style="fill: #c00000"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #c00000"/>
    </g>
    <g id="patch_11">
-    <path d="M 220.32 346.86
-Q 267.84 346.86 314.130163 346.86
-" clip-path="url(#p3117525052)" style="fill: none; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 310.130163 344.86
-L 314.130163 346.86
-L 310.130163 348.86
+    <path d="M 391.68 620.64
+Q 476.64 620.64 560.370163 620.64
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 556.370163 618.64
+L 560.370163 620.64
+L 556.370163 622.64
 z
-" clip-path="url(#p3117525052)" style="fill: #59636d; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
+" clip-path="url(#p5c8ddf053d)" style="fill: #59636d; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1; stroke-linecap: round"/>
    </g>
    <g id="line2d_1">
-    <path d="M 87.12 238.14
-L 87.12 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 154.8 423.36
+L 154.8 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
-    <path d="M 87.12 315.9
-L 87.12 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 154.8 564.48
+L 154.8 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_3">
-    <path d="M 97.92 238.14
-L 97.92 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 174.24 423.36
+L 174.24 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_4">
-    <path d="M 97.92 315.9
-L 97.92 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 174.24 564.48
+L 174.24 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_5">
-    <path d="M 108.72 238.14
-L 108.72 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 193.68 423.36
+L 193.68 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_6">
-    <path d="M 108.72 315.9
-L 108.72 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 193.68 564.48
+L 193.68 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_7">
-    <path d="M 119.52 238.14
-L 119.52 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 213.12 423.36
+L 213.12 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_8">
-    <path d="M 119.52 315.9
-L 119.52 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 213.12 564.48
+L 213.12 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_9">
-    <path d="M 130.32 238.14
-L 130.32 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 232.56 423.36
+L 232.56 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_10">
-    <path d="M 130.32 315.9
-L 130.32 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 232.56 564.48
+L 232.56 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_11">
-    <path d="M 141.12 238.14
-L 141.12 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 252 423.36
+L 252 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_12">
-    <path d="M 141.12 315.9
-L 141.12 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 252 564.48
+L 252 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_13">
-    <path d="M 151.92 238.14
-L 151.92 243.9
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 271.44 423.36
+L 271.44 434.88
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_14">
-    <path d="M 151.92 315.9
-L 151.92 321.66
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 271.44 564.48
+L 271.44 576
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_15">
-    <path d="M 73.44 252.54
-L 79.2 252.54
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 449.28
+L 142.56 449.28
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_16">
-    <path d="M 158.4 252.54
-L 164.16 252.54
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 449.28
+L 293.76 449.28
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_17">
-    <path d="M 73.44 263.34
-L 79.2 263.34
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 468.72
+L 142.56 468.72
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_18">
-    <path d="M 158.4 263.34
-L 164.16 263.34
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 468.72
+L 293.76 468.72
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_19">
-    <path d="M 73.44 274.14
-L 79.2 274.14
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 488.16
+L 142.56 488.16
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_20">
-    <path d="M 158.4 274.14
-L 164.16 274.14
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 488.16
+L 293.76 488.16
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_21">
-    <path d="M 73.44 284.94
-L 79.2 284.94
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 507.6
+L 142.56 507.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_22">
-    <path d="M 158.4 284.94
-L 164.16 284.94
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 507.6
+L 293.76 507.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_23">
-    <path d="M 73.44 295.74
-L 79.2 295.74
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 527.04
+L 142.56 527.04
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_24">
-    <path d="M 158.4 295.74
-L 164.16 295.74
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 527.04
+L 293.76 527.04
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_25">
-    <path d="M 73.44 306.54
-L 79.2 306.54
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 131.04 546.48
+L 142.56 546.48
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_26">
-    <path d="M 158.4 306.54
-L 164.16 306.54
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 282.24 546.48
+L 293.76 546.48
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 3; stroke-linecap: square"/>
    </g>
    <g id="line2d_27">
-    <path d="M 532.8 193.5
-L 532.8 205.02
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 947.52 342.72
+L 947.52 364.32
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_28">
-    <path d="M 324 205.02
-L 685.44 205.02
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 576 364.32
+L 1218.24 364.32
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_29">
-    <path d="M 324 205.02
-L 324 286.38
-L 685.44 286.38
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 576 364.32
+L 576 509.76
+L 1218.24 509.76
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_30">
-    <path d="M 378.72 205.02
-L 378.72 214.38
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 673.92 364.32
+L 673.92 381.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_31">
-    <path d="M 378.72 286.38
-L 378.72 290.7
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 673.92 509.76
+L 673.92 518.4
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_32">
-    <path d="M 480.96 205.02
-L 480.96 214.38
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 855.36 364.32
+L 855.36 381.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_33">
-    <path d="M 480.96 286.38
-L 480.96 290.7
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 855.36 509.76
+L 855.36 518.4
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_34">
-    <path d="M 583.2 205.02
-L 583.2 214.38
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 1036.8 364.32
+L 1036.8 381.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_35">
-    <path d="M 583.2 286.38
-L 583.2 290.7
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 1036.8 509.76
+L 1036.8 518.4
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_36">
-    <path d="M 685.44 205.02
-L 685.44 214.38
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 1218.24 364.32
+L 1218.24 381.6
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_37">
-    <path d="M 685.44 286.38
-L 685.44 290.7
-" clip-path="url(#p3117525052)" style="fill: none; stroke: #59636d; stroke-width: 0.8; stroke-linecap: square"/>
+    <path d="M 1218.24 509.76
+L 1218.24 518.4
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke: #59636d; stroke-width: 1.2; stroke-linecap: square"/>
    </g>
    <g id="line2d_38">
-    <path d="M 164.88 300.78
-L 220.32 300.78
-L 220.32 346.86
-" clip-path="url(#p3117525052)" style="fill: none; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1"/>
+    <path d="M 295.2 537.12
+L 391.68 537.12
+L 391.68 620.64
+" clip-path="url(#p5c8ddf053d)" style="fill: none; stroke-dasharray: 4.4,3.3; stroke-dashoffset: 0; stroke: #59636d; stroke-width: 1.1"/>
    </g>
    <g id="text_1">
     <!-- CPU 与昇腾 NPU 之间的数据流 -->
-    <g style="fill: #20262c" transform="translate(265.4775 53.369156) scale(0.1728 -0.1728)">
+    <g style="fill: #20262c" transform="translate(475.385625 90.651023) scale(0.3024 -0.3024)">
      <defs>
       <path id="CascadiaCode-Regular-1e" d="M 2338 -63
 Q 269 -63 269 2225
@@ -1673,7 +1673,7 @@ z
    </g>
    <g id="text_2">
     <!-- CPU–Ascend NPU Data Flow over PCIe -->
-    <g style="fill: #59636d" transform="translate(259.70625 74.461992) scale(0.1296 -0.1296)">
+    <g style="fill: #59636d" transform="translate(461.7 128.536875) scale(0.2304 -0.2304)">
      <defs>
       <path id="CascadiaCode-Regular-767" d="M 219 1925
 L 219 2506
@@ -2049,7 +2049,7 @@ z
    </g>
    <g id="text_3">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(230.596875 18.462023) scale(0.072 -0.072)">
+    <g style="fill: #cfd3d7" transform="translate(469.715625 26.386833) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-60" d="M 469 0
 L 469 4438
@@ -2390,7 +2390,7 @@ z
    </g>
    <g id="text_4">
     <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(230.596875 425.982023) scale(0.072 -0.072)">
+    <g style="fill: #cfd3d7" transform="translate(469.715625 762.226833) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -2470,7 +2470,7 @@ z
    </g>
    <g id="text_5">
     <!-- 主机 -->
-    <g style="fill: #20262c" transform="translate(106.56 125.28604) scale(0.1224 -0.1224)">
+    <g style="fill: #20262c" transform="translate(198.72 217.044042) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-41f" d="M 150 9
 L 2931 9
@@ -2551,7 +2551,7 @@ z
    </g>
    <g id="text_6">
     <!-- Host -->
-    <g style="fill: #20262c" transform="translate(104.45625 141.756152) scale(0.1224 -0.1224)">
+    <g style="fill: #20262c" transform="translate(199.8675 233.698008) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-49"/>
      <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(117.1875 0)"/>
@@ -2560,7 +2560,7 @@ z
    </g>
    <g id="text_7">
     <!-- 昇腾处理器 -->
-    <g style="fill: #20262c" transform="translate(502.2 125.243965) scale(0.1224 -0.1224)">
+    <g style="fill: #20262c" transform="translate(915.12 216.999492) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-3a1a" d="M 900 5034
 L 5500 5034
@@ -2912,7 +2912,7 @@ z
    </g>
    <g id="text_8">
     <!-- Ascend NPU -->
-    <g style="fill: #20262c" transform="translate(496.940625 141.995215) scale(0.1224 -0.1224)">
+    <g style="fill: #20262c" transform="translate(917.98875 233.894883) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -2927,7 +2927,7 @@ z
    </g>
    <g id="text_9">
     <!-- 主机内存 -->
-    <g style="fill: #20262c" transform="translate(100.08 171.554569) scale(0.0936 -0.0936)">
+    <g style="fill: #20262c" transform="translate(185.76 305.140838) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-4c4" d="M 638 4184
 L 2944 4184
@@ -3008,7 +3008,7 @@ z
    </g>
    <g id="text_10">
     <!-- Host memory -->
-    <g style="fill: #20262c" transform="translate(88.635938 184.369219) scale(0.0936 -0.0936)">
+    <g style="fill: #20262c" transform="translate(179.195625 322.548638) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-1af" d="M 234 -1500
 L 203 -906
@@ -3045,7 +3045,7 @@ z
    </g>
    <g id="text_11">
     <!-- 设备内存 -->
-    <g style="fill: #20262c" transform="translate(512.64 171.045) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(920.88 304.724475) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-a97" d="M 2231 2116
 L 2231 2547
@@ -3167,7 +3167,7 @@ z
    </g>
    <g id="text_12">
     <!-- Device memory / GM -->
-    <g style="fill: #20262c" transform="translate(479.64375 185.382225) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(893.64375 323.0541) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-756" d="M 356 -594
 L 2869 5031
@@ -3241,7 +3241,7 @@ z
    </g>
    <g id="text_13">
     <!-- 总线连接 -->
-    <g style="fill: #20262c" transform="translate(238.32 127.79062) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(433.44 221.413655) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-6c8" d="M 900 4253
 L 3631 4253
@@ -3512,7 +3512,7 @@ z
    </g>
    <g id="text_14">
     <!-- PCIe -->
-    <g style="fill: #20262c" transform="translate(246.6675 142.126833) scale(0.1008 -0.1008)">
+    <g style="fill: #20262c" transform="translate(447.5475 238.066833) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-95"/>
      <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(117.1875 0)"/>
@@ -3521,7 +3521,7 @@ z
    </g>
    <g id="text_15">
     <!-- 双向数据传输 -->
-    <g style="fill: #59636d" transform="translate(232.56 210.949453) scale(0.0864 -0.0864)">
+    <g style="fill: #59636d" transform="translate(420.48 372.49418) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-545" d="M 2950 4384
 L 2950 4859
@@ -3895,7 +3895,7 @@ z
    </g>
    <g id="text_16">
     <!-- Bidirectional data -->
-    <g style="fill: #59636d" transform="translate(212.9175 224.111953) scale(0.0864 -0.0864)">
+    <g style="fill: #59636d" transform="translate(406.20375 389.473945) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-1d" d="M 500 0
 L 500 4438
@@ -3953,7 +3953,7 @@ z
    </g>
    <g id="text_17">
     <!-- 主机处理器 -->
-    <g style="fill: #ffffff" transform="translate(91.8 277.279594) scale(0.108 -0.108)">
+    <g style="fill: #ffffff" transform="translate(180 496.266188) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-41f"/>
      <use xlink:href="#MicrosoftYaHei-7d1" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-5d4" transform="translate(200 0)"/>
@@ -3963,7 +3963,7 @@ z
    </g>
    <g id="text_18">
     <!-- CPU -->
-    <g style="fill: #ffffff" transform="translate(109.307813 291.437156) scale(0.108 -0.108)">
+    <g style="fill: #ffffff" transform="translate(203.540625 513.822262) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-95" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-ad" transform="translate(117.1875 0)"/>
@@ -3971,7 +3971,7 @@ z
    </g>
    <g id="text_19">
     <!-- 运行控制程序 -->
-    <g style="fill: #20262c" transform="translate(90.72 339.330593) scale(0.0936 -0.0936)">
+    <g style="fill: #20262c" transform="translate(172.8 604.454667) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-b0d" d="M 4319 2197
 L 4713 2447
@@ -4307,7 +4307,7 @@ z
    </g>
    <g id="text_20">
     <!-- Host program -->
-    <g style="fill: #20262c" transform="translate(85.89375 351.858874) scale(0.0936 -0.0936)">
+    <g style="fill: #20262c" transform="translate(176.2425 619.931095) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-17b" d="M 525 -1438
 L 525 3313
@@ -4382,7 +4382,7 @@ z
    </g>
    <g id="text_21">
     <!-- 计算核 0 -->
-    <g style="fill: #20262c" transform="translate(362.199375 226.558125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(646.88625 403.405425) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-a8b" d="M 2100 3153
 L 3919 3153
@@ -4563,7 +4563,7 @@ z
    </g>
    <g id="text_22">
     <!-- AI Core 0 -->
-    <g style="fill: #20262c" transform="translate(357.837188 235.380825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(647.341875 418.043025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -4577,7 +4577,7 @@ z
    </g>
    <g id="text_23">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(342 256.503375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(608.04 457.4988) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-b4f" d="M 113 -278
 L 2981 -278
@@ -4756,7 +4756,7 @@ z
    </g>
    <g id="text_24">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(343.74375 266.0625) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(616.24125 474.868125) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-c1" d="M 1391 0
 L 141 4438
@@ -4780,7 +4780,7 @@ z
    </g>
    <g id="text_25">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(386.64 256.36275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(687.96 457.301925) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-93e" d="M 2869 4928
 L 6244 4928
@@ -4892,7 +4892,7 @@ z
    </g>
    <g id="text_26">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(392.6025 266.203125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(702.0675 475.065) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -4901,7 +4901,7 @@ z
    </g>
    <g id="text_27">
     <!-- 计算核 1 -->
-    <g style="fill: #20262c" transform="translate(464.439375 226.558125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(828.32625 403.405425) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-a8b"/>
      <use xlink:href="#MicrosoftYaHei-991" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-7fe" transform="translate(200 0)"/>
@@ -4911,7 +4911,7 @@ z
    </g>
    <g id="text_28">
     <!-- AI Core 1 -->
-    <g style="fill: #20262c" transform="translate(460.077188 235.380825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(828.781875 418.043025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -4925,7 +4925,7 @@ z
    </g>
    <g id="text_29">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(444.24 256.503375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(789.48 457.4988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -4934,7 +4934,7 @@ z
    </g>
    <g id="text_30">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(445.98375 266.0625) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(797.68125 474.868125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -4945,7 +4945,7 @@ z
    </g>
    <g id="text_31">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(488.88 256.36275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(869.4 457.301925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -4954,7 +4954,7 @@ z
    </g>
    <g id="text_32">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(494.8425 266.203125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(883.5075 475.065) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -4963,7 +4963,7 @@ z
    </g>
    <g id="text_33">
     <!-- 计算核 2 -->
-    <g style="fill: #20262c" transform="translate(566.679375 226.558125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1009.76625 403.405425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6c6" d="M 475 0
 L 475 713
@@ -4994,7 +4994,7 @@ z
    </g>
    <g id="text_34">
     <!-- AI Core 2 -->
-    <g style="fill: #20262c" transform="translate(562.317188 235.380825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1010.221875 418.043025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5008,7 +5008,7 @@ z
    </g>
    <g id="text_35">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(546.48 256.503375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(970.92 457.4988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5017,7 +5017,7 @@ z
    </g>
    <g id="text_36">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(548.22375 266.0625) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(979.12125 474.868125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5028,7 +5028,7 @@ z
    </g>
    <g id="text_37">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(591.12 256.36275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1050.84 457.301925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5037,7 +5037,7 @@ z
    </g>
    <g id="text_38">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(597.0825 266.203125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1064.9475 475.065) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5046,7 +5046,7 @@ z
    </g>
    <g id="text_39">
     <!-- 计算核 3 -->
-    <g style="fill: #20262c" transform="translate(668.919375 226.558125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1191.20625 403.405425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6c7" d="M 1606 -63
 Q 1263 -63 977 -22
@@ -5090,7 +5090,7 @@ z
    </g>
    <g id="text_40">
     <!-- AI Core 3 -->
-    <g style="fill: #20262c" transform="translate(664.557188 235.380825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1191.661875 418.043025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5104,7 +5104,7 @@ z
    </g>
    <g id="text_41">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(648.72 256.503375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1152.36 457.4988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5113,7 +5113,7 @@ z
    </g>
    <g id="text_42">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(650.46375 266.0625) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1160.56125 474.868125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5124,7 +5124,7 @@ z
    </g>
    <g id="text_43">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(693.36 256.36275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1232.28 457.301925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5133,7 +5133,7 @@ z
    </g>
    <g id="text_44">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(699.3225 266.203125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1246.3875 475.065) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5142,7 +5142,7 @@ z
    </g>
    <g id="text_45">
     <!-- 计算核 4 -->
-    <g style="fill: #20262c" transform="translate(362.199375 302.878125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(646.88625 540.205425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6c8" d="M 231 994
 L 856 4188
@@ -5171,7 +5171,7 @@ z
    </g>
    <g id="text_46">
     <!-- AI Core 4 -->
-    <g style="fill: #20262c" transform="translate(357.837188 311.700825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(647.341875 554.843025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5185,7 +5185,7 @@ z
    </g>
    <g id="text_47">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(342 332.823375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(608.04 594.2988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5194,7 +5194,7 @@ z
    </g>
    <g id="text_48">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(343.74375 342.3825) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(616.24125 611.668125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5205,7 +5205,7 @@ z
    </g>
    <g id="text_49">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(386.64 332.68275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(687.96 594.101925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5214,7 +5214,7 @@ z
    </g>
    <g id="text_50">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(392.6025 342.523125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(702.0675 611.865) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5223,7 +5223,7 @@ z
    </g>
    <g id="text_51">
     <!-- 计算核 5 -->
-    <g style="fill: #20262c" transform="translate(464.439375 302.878125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(828.32625 540.205425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6c9" d="M 1919 -63
 Q 1200 -63 806 279
@@ -5260,7 +5260,7 @@ z
    </g>
    <g id="text_52">
     <!-- AI Core 5 -->
-    <g style="fill: #20262c" transform="translate(460.077188 311.700825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(828.781875 554.843025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5274,7 +5274,7 @@ z
    </g>
    <g id="text_53">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(444.24 332.823375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(789.48 594.2988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5283,7 +5283,7 @@ z
    </g>
    <g id="text_54">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(445.98375 342.3825) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(797.68125 611.668125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5294,7 +5294,7 @@ z
    </g>
    <g id="text_55">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(488.88 332.68275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(869.4 594.101925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5303,7 +5303,7 @@ z
    </g>
    <g id="text_56">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(494.8425 342.523125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(883.5075 611.865) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5312,7 +5312,7 @@ z
    </g>
    <g id="text_57">
     <!-- 计算核 6 -->
-    <g style="fill: #20262c" transform="translate(566.679375 302.878125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1009.76625 540.205425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6ca" d="M 1900 -63
 Q 1128 -63 764 321
@@ -5351,7 +5351,7 @@ z
    </g>
    <g id="text_58">
     <!-- AI Core 6 -->
-    <g style="fill: #20262c" transform="translate(562.317188 311.700825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1010.221875 554.843025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5365,7 +5365,7 @@ z
    </g>
    <g id="text_59">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(546.48 332.823375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(970.92 594.2988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5374,7 +5374,7 @@ z
    </g>
    <g id="text_60">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(548.22375 342.3825) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(979.12125 611.668125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5385,7 +5385,7 @@ z
    </g>
    <g id="text_61">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(591.12 332.68275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1050.84 594.101925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5394,7 +5394,7 @@ z
    </g>
    <g id="text_62">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(597.0825 342.523125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1064.9475 611.865) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5403,7 +5403,7 @@ z
    </g>
    <g id="text_63">
     <!-- 计算核 7 -->
-    <g style="fill: #20262c" transform="translate(668.919375 302.878125) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1191.20625 540.205425) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6cb" d="M 1366 0
 L 2688 3844
@@ -5426,7 +5426,7 @@ z
    </g>
    <g id="text_64">
     <!-- AI Core 7 -->
-    <g style="fill: #20262c" transform="translate(664.557188 311.700825) scale(0.0792 -0.0792)">
+    <g style="fill: #20262c" transform="translate(1191.661875 554.843025) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -5440,7 +5440,7 @@ z
    </g>
    <g id="text_65">
     <!-- 向量单元 -->
-    <g style="fill: #ffffff" transform="translate(648.72 332.823375) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1152.36 594.2988) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-567"/>
      <use xlink:href="#MicrosoftYaHei-b4f" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5449,7 +5449,7 @@ z
    </g>
    <g id="text_66">
     <!-- Vector -->
-    <g style="fill: #ffffff" transform="translate(650.46375 342.3825) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1160.56125 611.668125) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-c1"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(117.1875 0)"/>
@@ -5460,7 +5460,7 @@ z
    </g>
    <g id="text_67">
     <!-- 矩阵单元 -->
-    <g style="fill: #ffffff" transform="translate(693.36 332.68275) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1232.28 594.101925) scale(0.1296 -0.1296)">
      <use xlink:href="#MicrosoftYaHei-93e"/>
      <use xlink:href="#MicrosoftYaHei-b88" transform="translate(100 0)"/>
      <use xlink:href="#MicrosoftYaHei-525" transform="translate(200 0)"/>
@@ -5469,7 +5469,7 @@ z
    </g>
    <g id="text_68">
     <!-- Cube -->
-    <g style="fill: #ffffff" transform="translate(699.3225 342.523125) scale(0.072 -0.072)">
+    <g style="fill: #ffffff" transform="translate(1246.3875 611.865) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-1e"/>
      <use xlink:href="#CascadiaCode-Regular-192" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(117.1875 0)"/>
@@ -5478,7 +5478,7 @@ z
    </g>
    <g id="text_69">
     <!-- 任务提交 -->
-    <g style="fill: #59636d" transform="translate(242.64 319.593495) scale(0.0792 -0.0792)">
+    <g style="fill: #59636d" transform="translate(433.44 569.869355) scale(0.1296 -0.1296)">
      <defs>
       <path id="MicrosoftYaHei-460" d="M 2138 -3
 L 3963 -3
@@ -5675,7 +5675,7 @@ z
    </g>
    <g id="text_70">
     <!-- Kernel launch -->
-    <g style="fill: #59636d" transform="translate(228.315938 331.914551) scale(0.0792 -0.0792)">
+    <g style="fill: #59636d" transform="translate(420.969375 586.694883) scale(0.1008 -0.1008)">
      <use xlink:href="#CascadiaCode-Regular-60"/>
      <use xlink:href="#CascadiaCode-Regular-108" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(117.1875 0)"/>
@@ -5693,7 +5693,7 @@ z
    </g>
    <g id="text_71">
     <!-- 8 核耦合架构示意，非实际设备核数或芯片布局 -->
-    <g style="fill: #59636d" transform="translate(304.959375 392.301738) scale(0.0792 -0.0792)">
+    <g style="fill: #59636d" transform="translate(554.00625 705.210117) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-6cc" d="M 1875 -63
 Q 1153 -63 758 273
@@ -6482,7 +6482,7 @@ z
    </g>
    <g id="text_72">
     <!-- 8 coupled cores for illustration, not a product floorplan -->
-    <g style="fill: #59636d" transform="translate(256.542188 403.830176) scale(0.0792 -0.0792)">
+    <g style="fill: #59636d" transform="translate(522.871875 721.031133) scale(0.1008 -0.1008)">
      <defs>
       <path id="CascadiaCode-Regular-11f" d="M 1256 0
 L 1256 2000
@@ -6574,8 +6574,8 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p3117525052">
-   <rect x="0" y="0" width="777.6" height="437.4"/>
+  <clipPath id="p5c8ddf053d">
+   <rect x="0" y="0" width="1382.4" height="777.6"/>
   </clipPath>
  </defs>
 </svg>

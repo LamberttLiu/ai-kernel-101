@@ -4,23 +4,23 @@ from theme import (canvas, bilingual, bilingual_in_box, box, arrow, save, tint,
 from matplotlib.patches import Polygon
 
 
-def chip(ax, cx, cy, size, zh, en, label_size=13):
-    """Symbolic package; graphic pads imply no physical pin or core count."""
+def chip(ax, cx, cy, size, zh, en):
+    """Symbolic package, with no physical pin or core-count assertion."""
     x, y = cx - size / 2, cy - size / 2
     for i in range(6):
         p = (i + 1) * size / 7
-        for xs, ys in [([x - 8, x - 2], [y + p, y + p]),
-                       ([x + size + 2, x + size + 8], [y + p, y + p]),
-                       ([x + p, x + p], [y - 8, y - 2]),
-                       ([x + p, x + p], [y + size + 2, y + size + 8])]:
-            ax.plot(xs, ys, color=CHARCOAL, lw=2.3, solid_capstyle="butt")
-    box(ax, x, y, size, size, SKY, SKY, radius=4, lw=0)
-    box(ax, x + 7, y + 7, size - 14, size - 14, SKY, tint(SKY, 0.6), radius=2, lw=0.65)
-    bilingual(ax, cx, cy - label_size - 5, zh, en, label_size, "white")
+        for xs, ys in [([x - 14, x - 4], [y + p, y + p]),
+                       ([x + size + 4, x + size + 14], [y + p, y + p]),
+                       ([x + p, x + p], [y - 14, y - 4]),
+                       ([x + p, x + p], [y + size + 4, y + size + 14])]:
+            ax.plot(xs, ys, color=CHARCOAL, lw=3, solid_capstyle="butt")
+    box(ax, x, y, size, size, SKY, SKY, radius=7, lw=0)
+    box(ax, x + 12, y + 12, size - 24, size - 24, SKY, tint(SKY, 0.6), radius=4, lw=1)
+    bilingual_in_box(ax, x, y, size, size, zh, en, "white")
 
 
 def domain(ax, x, width):
-    frame = box(ax, x, 344, width, 183, fill="none", edge=GRAY, radius=9, lw=1)
+    frame = box(ax, x, 620, width, 330, fill="none", edge=GRAY, radius=16, lw=1.5)
     frame.set_linestyle((0, (5, 4)))
     frame.set_zorder(0)
 
@@ -28,66 +28,54 @@ def domain(ax, x, width):
 def main():
     fig, ax = canvas("三种编译运行的模式区别 —— CPU/SIM/NPU",
                      "Compilation and Execution Modes: CPU / SIM / NPU")
-
-    # One source file. Labels beside the icon leave room for executable outputs.
-    ax.add_patch(Polygon([(504, 120), (554, 120), (576, 142), (576, 196), (504, 196)],
+    ax.add_patch(Polygon([(896, 216), (984, 216), (1024, 256), (1024, 354), (896, 354)],
                          closed=True, facecolor=RED, edgecolor="none"))
-    ax.add_patch(Polygon([(554, 120), (554, 142), (576, 142)],
+    ax.add_patch(Polygon([(984, 216), (984, 256), (1024, 256)],
                          closed=True, facecolor=tint(RED, 0.6), edgecolor="none"))
-    ax.plot([526, 517, 526], [151, 160, 169], color="white", lw=1.5)
-    ax.plot([554, 563, 554], [151, 160, 169], color="white", lw=1.5)
-    ax.plot([544, 536], [148, 173], color="white", lw=1.5)
-    ax.plot([517, 545], [184, 184], color=tint(RED, 0.8), lw=1.1)
-    bilingual(ax, 601, 134, "算子源码", "Ascend C source", 16, ha="left")
-
-    # The same source is built separately into a demo executable for each mode.
-    ax.plot([540, 540], [196, 215], color=INK, lw=1)
-    ax.plot([225, 855], [215, 215], color=INK, lw=1)
-    for cx, mode in [(225, "CPU"), (540, "SIM"), (855, "NPU")]:
-        arrow(ax, [(cx, 215), (cx, 266)], INK)
-        bilingual(ax, cx + 18, 220, f"{mode} 编译", f"{mode} build", 12, GRAY, ha="left")
-        # Matplotlib linewidth uses pt: convert the requested 2 px at output DPI.
-        box(ax, cx - 94, 273, 188, 50, "#FAFAFA", RED, radius=4, lw=2 * 72 / DPI)
-        bilingual_in_box(ax, cx - 94, 273, 188, 50, "可执行程序 demo", "Executable demo", 13, INK)
-        arrow(ax, [(cx, 325), (cx, 360)], INK)
-
-    for left in (78, 393, 708):
-        domain(ax, left, 294)
-    chip(ax, 225, 412, 80, "处理器", "CPU")
-
-    # SIM is a model of the target, displayed inside a host-side monitor.
-    box(ax, 463, 361, 154, 77, CHARCOAL, CHARCOAL, radius=5, lw=0)
-    box(ax, 470, 368, 140, 61, "white", "white", radius=2, lw=0)
-    target = box(ax, 494, 374, 92, 49, BLUE_LIGHT, SKY, radius=3, lw=0.9)
+    ax.plot([934, 918, 934], [272, 288, 304], color="white", lw=2.2)
+    ax.plot([984, 1000, 984], [272, 288, 304], color="white", lw=2.2)
+    ax.plot([968, 952], [266, 312], color="white", lw=2.2)
+    ax.plot([918, 968], [332, 332], color=tint(RED, 0.8), lw=1.6)
+    bilingual(ax, 1068, 256, "算子源码", "Ascend C source", ha="left")
+    ax.plot([960, 960], [354, 388], color=INK, lw=1.5)
+    ax.plot([400, 1520], [388, 388], color=INK, lw=1.5)
+    for cx, mode in [(400, "CPU"), (960, "SIM"), (1520, "NPU")]:
+        arrow(ax, [(cx, 388), (cx, 480)], INK)
+        bilingual(ax, cx + 32, 404, f"{mode} 编译", f"{mode} build", GRAY, ha="left")
+        box(ax, cx - 168, 492, 336, 90, "#FAFAFA", RED, radius=7, lw=2 * 72 / DPI)
+        bilingual_in_box(ax, cx - 168, 492, 336, 90, "可执行程序 demo", "Executable demo")
+        arrow(ax, [(cx, 586), (cx, 648)], INK)
+    for left in (138, 698, 1258):
+        domain(ax, left, 524)
+    chip(ax, 400, 742, 144, "处理器", "CPU")
+    # Host-side monitor encloses the target model.
+    box(ax, 822, 650, 276, 140, CHARCOAL, CHARCOAL, radius=9, lw=0)
+    box(ax, 834, 662, 252, 110, "white", "white", radius=4, lw=0)
+    target = box(ax, 878, 674, 164, 88, BLUE_LIGHT, SKY, radius=5, lw=1.3)
     target.set_linestyle((0, (3, 3)))
-    bilingual_in_box(ax, 494, 374, 92, 49, "目标模型", "NPU model", 12, SKY)
-    box(ax, 535, 438, 10, 10, CHARCOAL, CHARCOAL, radius=0, lw=0)
-    box(ax, 511, 448, 58, 3, CHARCOAL, CHARCOAL, radius=1, lw=0)
-
-    # Generic accelerator card; no claim about a particular product's layout.
-    box(ax, 777, 378, 156, 78, CHARCOAL, CHARCOAL, radius=5, lw=0)
-    ax.plot([770, 770, 779], [372, 465, 465], color=GRAY, lw=1.8)
+    bilingual_in_box(ax, 878, 674, 164, 88, "目标模型", "NPU model", SKY)
+    box(ax, 950, 790, 20, 18, CHARCOAL, CHARCOAL, radius=0, lw=0)
+    box(ax, 908, 808, 104, 5, CHARCOAL, CHARCOAL, radius=2, lw=0)
+    # Generic accelerator card, not a particular product's layout.
+    box(ax, 1382, 680, 276, 142, CHARCOAL, CHARCOAL, radius=9, lw=0)
+    ax.plot([1368, 1368, 1386], [670, 838, 838], color=GRAY, lw=2.6)
     for i in range(9):
-        ax.plot([798 + i * 11, 798 + i * 11], [456, 464], color=GRAY, lw=2.5,
+        ax.plot([1418 + i * 20, 1418 + i * 20], [822, 836], color=GRAY, lw=3,
                 solid_capstyle="butt")
-    chip(ax, 855, 417, 60, "加速器", "NPU", 11)
-    for xx in (788, 914):
-        for yy in (389, 405, 440):
-            box(ax, xx, yy, 8, 4, "#AAB2B9", "#AAB2B9", radius=1, lw=0)
-
-    for cx, zh, en in [(225, "CPU 模式", "CPU mode"),
-                       (855, "真机模式", "NPU mode")]:
-        bilingual(ax, cx, 475, zh, en, 14, gap=20)
-
-    bilingual(ax, 540, 452, "在主机 CPU 上运行仿真模型",
-              "Simulation model on host CPU", 11, gap=17)
-    bilingual(ax, 540, 490, "无需本地物理 NPU", "No local NPU required", 10, GRAY, gap=16)
-
-    scopes = [(225, "CPU域功能调试", "CPU-domain functional debugging"),
-              (540, "目标模型中的功能与性能观察", "Model function / performance"),
-              (855, "真实设备功能验证与性能测量", "Hardware checks / performance tests")]
+    chip(ax, 1520, 752, 108, "加速器", "NPU")
+    for xx in (1400, 1626):
+        for yy in (700, 730, 794):
+            box(ax, xx, yy, 14, 7, "#AAB2B9", "#AAB2B9", radius=2, lw=0)
+    for cx, zh, en in [(400, "CPU 模式", "CPU mode"), (1520, "真机模式", "NPU mode")]:
+        bilingual(ax, cx, 864, zh, en)
+    bilingual(ax, 960, 826, "在主机 CPU 上运行仿真模型",
+              "Simulation model on host CPU")
+    bilingual(ax, 960, 894, "无需本地物理 NPU", "No local NPU required", GRAY)
+    scopes = [(400, "CPU 域功能调试", "CPU-domain functional debugging"),
+              (960, "目标模型中的功能与性能观察", "Model function / performance"),
+              (1520, "真实设备功能验证与性能测量", "Hardware checks / performance tests")]
     for cx, zh, en in scopes:
-        bilingual(ax, cx, 533, zh, en, 12, gap=18)
+        bilingual(ax, cx, 968, zh, en)
     save(fig, __file__)
 
 

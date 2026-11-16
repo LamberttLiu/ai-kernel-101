@@ -1,4 +1,4 @@
-"""Shared theme: original layout units, uniformly scaled to 1920x1080 output."""
+"""Shared Matplotlib layout, palette and bilingual typography; coordinates in px."""
 from pathlib import Path
 import os
 import re
@@ -13,16 +13,9 @@ from matplotlib import font_manager
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 from matplotlib.textpath import TextPath
 
-WIDTH, HEIGHT = 1920, 1080
-LAYOUT_WIDTH, LAYOUT_HEIGHT, DPI = 1080, 600, 100
-# Keep all existing coordinates and point sizes, scaling geometry and typography
-# together through the figure DPI. Center the original aspect ratio without stretch.
-SCALE = min(WIDTH / LAYOUT_WIDTH, HEIGHT / LAYOUT_HEIGHT)
-OUTPUT_DPI = DPI * SCALE
-VIEW_WIDTH, VIEW_HEIGHT = WIDTH / SCALE, HEIGHT / SCALE
-PAD_X = (VIEW_WIDTH - LAYOUT_WIDTH) / 2
-PAD_Y = (VIEW_HEIGHT - LAYOUT_HEIGHT) / 2
-TITLE_SIZE, TITLE_EN_SIZE = 24, 18
+WIDTH, HEIGHT, DPI = 1920, 1080, 100
+TITLE_SIZE, TITLE_EN_SIZE = 42, 32
+BODY_SIZE, BODY_EN_SIZE = 18, 14
 WATERMARK = "AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu"
 WATERMARK_COLOR = "#CFD3D7"
 # Sampled from the two flat swatches in the author's color.png.
@@ -64,41 +57,43 @@ def setup_font():
 
 def canvas(title_zh, title_en):
     fonts = setup_font()
-    fig = plt.figure(figsize=(VIEW_WIDTH / DPI, VIEW_HEIGHT / DPI), dpi=OUTPUT_DPI)
-    ax = fig.add_axes((0, 0, 1, 1),
-                      xlim=(-PAD_X, LAYOUT_WIDTH + PAD_X),
-                      ylim=(LAYOUT_HEIGHT + PAD_Y, -PAD_Y))
+    fig = plt.figure(figsize=(WIDTH / DPI, HEIGHT / DPI), dpi=DPI)
+    ax = fig.add_axes((0, 0, 1, 1), xlim=(0, WIDTH), ylim=(HEIGHT, 0))
     ax.set_axis_off()
     ax._figure_fonts = fonts
-    text(ax, LAYOUT_WIDTH / 2, 43, title_zh, TITLE_SIZE, ha="center", role="title")
-    text(ax, LAYOUT_WIDTH / 2, 78, title_en, TITLE_EN_SIZE, GRAY, ha="center")
-    for y in (10, LAYOUT_HEIGHT - 24):
-        text(ax, LAYOUT_WIDTH / 2, y, WATERMARK, 10, WATERMARK_COLOR, ha="center")
+    text(ax, WIDTH / 2, 78, title_zh, TITLE_SIZE, ha="center", role="title")
+    text(ax, WIDTH / 2, 140, title_en, TITLE_EN_SIZE, GRAY, ha="center")
+    for y in (20, HEIGHT - 38):
+        text(ax, WIDTH / 2, y, WATERMARK, BODY_EN_SIZE, WATERMARK_COLOR, ha="center")
     return fig, ax
 
 
-def text(ax, x, y, value, size=16, color=INK, weight="normal", ha="left", va="top", role="body"):
+def text(ax, x, y, value, size=None, color=INK, weight="normal", ha="left", va="top", role="body"):
     fonts = ax._figure_fonts
     family = [fonts["ENGLISH"]]
-    if re.search(r"[\u2e80-\u9fff\uf900-\ufaff\uff00-\uffef]", value):
+    chinese = re.search(r"[\u2e80-\u9fff\uf900-\ufaff\uff00-\uffef]", value)
+    if size is None:
+        size = BODY_SIZE if chinese else BODY_EN_SIZE
+    if chinese:
         family.append(fonts["TITLE_CHINESE" if role == "title" else "CHINESE"])
     return ax.text(x, y, value, fontsize=size * 72 / DPI, color=color,
                    fontfamily=family, fontweight=weight, ha=ha, va=va, linespacing=1.45)
 
 
-def bilingual(ax, x, y, zh, en, size=16, color=INK, ha="center", gap=None):
-    """Chinese above English; identical nominal font sizes for the pair."""
-    gap = size + 6 if gap is None else gap
-    return (text(ax, x, y, zh, size, color, ha=ha),
-            text(ax, x, y + gap, en, size, color, ha=ha))
+def bilingual(ax, x, y, zh, en, color=INK, ha="center", gap=28):
+    """Chinese 18 px above English 14 px, both measured at output resolution."""
+    return (text(ax, x, y, zh, BODY_SIZE, color, ha=ha),
+            text(ax, x, y + gap, en, BODY_EN_SIZE, color, ha=ha))
 
 
-def bilingual_in_box(ax, x, y, w, h, zh, en, size=16, color=INK, line_gap=7):
+def bilingual_in_box(ax, x, y, w, h, zh, en, color=INK, line_gap=12):
     """Center the two lines as one group, using glyph ink bounds, not line leading."""
+    sizes = (BODY_SIZE, BODY_EN_SIZE)
     labels = [text(ax, x + w / 2, 0, value, size, color, ha="center", va="baseline")
-              for value in (zh, en)]
+              for value, size in zip((zh, en), sizes)]
     bounds = [TextPath((0, 0), label.get_text(), size=size,
-                       prop=label.get_fontproperties()).get_extents() for label in labels]
+                       prop=label.get_fontproperties()).get_extents()
+              for label, size in zip(labels, sizes)]
     top = y + (h - bounds[0].height - line_gap - bounds[1].height) / 2
     for label, ink in zip(labels, bounds):
         label.set_y(top + ink.y1)
@@ -140,10 +135,9 @@ def save(fig, script):
         path = output / f"{stem}.{extension}"
         metadata = {"Software": "AI Kernel 101 / Matplotlib"} if extension == "png" else {
             "Creator": "AI Kernel 101 / Matplotlib", "Date": None}
-        fig.savefig(path, dpi=OUTPUT_DPI, metadata=metadata)
+        fig.savefig(path, dpi=DPI, metadata=metadata)
         if extension == "svg":
             svg = path.read_text(encoding="utf-8")
-            # Declare the same publication dimensions as PNG, retaining the vector viewBox.
             root = re.search(r"<svg\b[^>]*>", svg).group(0)
             header = re.sub(r'\b(width|height)="[^"]+"',
                             lambda m: f'{m[1]}="{WIDTH if m[1] == "width" else HEIGHT}px"', root)
