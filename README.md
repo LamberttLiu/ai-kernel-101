@@ -2,7 +2,21 @@
 
 # AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 
-这是一份面向 AI 工程师的中文技术向文章系列。
+<p align="center">
+  <strong>从第一个 Kernel 出发，用模型与实验理解 AI 计算。</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.zhihu.com/people/270623d0990881c613d2b01b984a4302"><img src="https://img.shields.io/badge/知乎-0084FF?style=for-the-badge&amp;logo=zhihu&amp;logoColor=white" alt="作者知乎主页" /></a>
+  <a href="https://xhslink.cn/o/IjuNqBlyYL"><img src="https://img.shields.io/badge/小红书-FF2442?style=for-the-badge&amp;logo=xiaohongshu&amp;logoColor=white" alt="作者小红书主页" /></a>
+  <img src="https://img.shields.io/badge/微信公众号-柠檬沙棘-07C160?style=for-the-badge&amp;logo=wechat&amp;logoColor=white" alt="微信公众号：柠檬沙棘，请在微信内搜索" title="微信内搜索公众号：柠檬沙棘" />
+</p>
+<p align="center">
+  <a href="docs/articles/hello-world.md">开始阅读</a> ·
+  <a href="docs/README.md">文章目录</a> ·
+  <a href="src/README.md">示例代码</a> ·
+  <a href="lab/README.md">实验记录</a>
+</p>
 
 # 系列文章定位
 
@@ -10,9 +24,9 @@
 
 这里的第一性原理，是从**数学语义、数据依赖、硬件资源、存储层级、访存量与性能约束**等角度解释，再用实验检验判断。这一系列专栏文章，囊括了本人 Ascend C 真实学习中的问题、踩坑和失败经历，并将其转化为能够解释其他 Kernel 的工程案例。
 
-本系列从最小 Kernel "Hello World " 出发，逐步讨论**数据流**、**Tiling**、**流水**、**归约**与**矩阵乘**，目标是完成范围明确的 Flash Attention 前向实现，并用模型和实验解释其行为。
+本系列从最小 Kernel Hello World 出发，逐步讨论**数据流**、**Tiling**、**流水**、**归约**与**矩阵乘**，目标是完成范围明确的 Flash Attention 前向实现，并用模型和实验解释其行为。
 
-这是作者长期研究 AI Kernel 与推理系统性能工程的一个系列文章。本期使用 Ascend C，后续研究可以扩展到 CUDA、Triton、Kernel Performance Modeling 和 AI Inference Systems；本期不增加这些独立专题。
+本系列是作者对 AI Kernel 与推理系统性能工程的长期研究，当前十篇以 Ascend C 为实践载体。
 
 # 目标读者
 
@@ -37,86 +51,14 @@
 
 01 中“没有 NPU”首先指没有本地设备；08 指不保存完整的分数／概率中间矩阵，并不表示总计算量或搬运量变为线性。完整状态见 [文章目录](docs/README.md)，技术依赖和标题映射见 [系列计划](planning/series-plan.md)。
 
-# 文章撰写流程
+# 项目导航
 
-工作区文章统一按以下八个阶段管理：
-
-1. 提纲
-2. 初稿完成中
-3. 初稿完成，实验待设计
-4. 初稿完成，实验待运行
-5. 初稿完成，实验已运行，结果待分析
-6. 初稿完成，实验结果已分析，配图待补全
-7. 初稿完成，配图已完成，待发布审核
-8. 已完成
-
-正文 frontmatter 的 `writing_status` 使用完整阶段名称，与本页及文章目录同步；具体缺项记录在 `to_do_list`。阶段按尚未完成的最早环节判断，实验或配图提前开展不自动提升进度。尚未形成提纲的计划篇章以“—”表示。
-
-“已完成”表示审核通过、正文定稿，定稿时由 `docs/drafts` 移入 `docs/articles`；平台发布状态通过 `publication_status` 与发布记录单独维护。阶段推进条件、回退规则及证据要求见 [统一撰写流程](docs/README.md#统一撰写流程)。
-
-# 阅读与复现
-
-- [文章目录与当前状态](docs/README.md)
-- [实验说明、复现与结果记录](lab/README.md)
-- [算子源码管理](src/README.md)
-- [写作、复现与发布约定](CONTRIBUTING.md)
-
-文章与实验代码都位于同一仓库：[LamberttLiu/ai-kernel-101](https://github.com/LamberttLiu/ai-kernel-101)，包含实验源码、CMake 和样例说明。文稿与实验分区管理。
-
-# 示例代码
-
-| 示例                                  | 内容                      | 代码说明                                                |
-| ------------------------------------- | ------------------------- | ------------------------------------------------------- |
-| Hello World                           | 最小 Kernel 启动与打印    | [说明](src/hello_world/README.md)                        |
-| Vector Add · 00_basic                | 固定长度基础向量加        | [说明](src/vector_add/00_basic/README.md)                |
-| Vector Add · 01_host_device_transfer | Host/Device 传输测速      | [说明](src/vector_add/01_host_device_transfer/README.md) |
-| Vector Add · 02_tpipe_tque           | TPipe/TQue 缓冲与阶段交接 | [说明](src/vector_add/02_tpipe_tque/README.md)           |
-| Vector Add · 03_uneven_split         | 长度不整除的尾块          | [说明](src/vector_add/03_uneven_split/README.md)         |
-| Vector Add · 04_arbitrary_length     | 非对齐尾块与命令行长度    | [说明](src/vector_add/04_arbitrary_length/README.md)     |
-
-现有练习以 CANN 9.1.0、`dav-2201` 为原记录基线。内核采用 .cpp 文件，并在对应 CMake 中显式指定 `LANGUAGE ASC`；仍需 CANN 的 ASC 编译工具链。传输测速样例使用 C++ 与 ACL，运行需要实际设备环境。
-
-Hello World 的 CPU／SIM／NPU 本轮功能验证、必要输出和复现入口见[配套实验记录](lab/hello-world/README.md)，源码与接口版本见[来源核对](lab/hello-world/README.md#源码与资料范围)。本轮不测性能；其他算子的历史验证状态保持不变。推导、模型、CPU 功能、仿真、真机正确性和真机性能分别标注，不能互相替代。
-
-样例来源为 [CANN Samples](https://gitcode.com/cann/cann-samples/)，上游许可入口为 [CANN Samples LICENSE](https://gitcode.com/cann/cann-samples/blob/master/LICENSE)。现有文件中的声明原样保留；来源、提交与适用许可仍有待逐项核对，见 [源码说明](src/README.md)。暂不为新增文稿或整个仓库统一选择许可证。
-
-# 工作区结构
-
-```text
-ai-kernel-101/
-├── README.md                       # GitHub 项目入口
-├── 00-写作入口.md                  # 仅本地保留，通过 Obsidian 多端同步，不纳入 Git
-├── planning/                       # 系列策划
-│   ├── series-plan.md              # 总框架与写作计划
-│   ├── outlines/                   # 篇章提纲与论证
-│   └── inbox/                      # 本地创意与随笔，不纳入 Git
-├── docs/                           # 文章与配图
-│   ├── README.md                   # 系列目录与文章状态
-│   ├── ARTICLE_TEMPLATE.md         # 写作与审稿提示
-│   ├── drafts/                     # 写作中的正文
-│   ├── articles/                   # 定稿正文
-│   └── assets/                     # 图片归档、视觉与来源规范
-│       ├── figures/                # 文档插图；src 源码，gen 同名 PNG/SVG
-│       ├── screenshot/             # 环境、设备与运行结果截图
-│       └── brand/                  # 品牌标识、横幅与生成材料，文档直接引用
-├── src/                            # 完整实现、CMake 与代码说明
-│   ├── hello_world/
-│   └── vector_add/                 # 基础、传输、队列与尾块样例
-├── lab/                            # 实验方法、复现步骤、数据与分析
-│   ├── README.md                   # 实验索引与组织约定
-│   ├── TEMPLATE.md                 # 单次实验记录模板
-│   └── hello-world/               # 三种模式功能验证、来源核对与日志
-├── publishing/                     # 知乎、公众号、小红书适配与发布记录
-├── AGENTS.md                       # 本地写作协作约定，不纳入 Git
-├── CONTRIBUTING.md                 # 内容维护流程
-├── .obsidian/                      # Obsidian 配置，仅本地保留
-├── sites/                          # 既有独立网站项目，不随本仓库提交
-└── .local/                         # 本地专用材料，不纳入 Git
-    ├── scripts/                    # 工作区检查工具
-    └── maintenance/                # 维护记录与配置备份
-```
-
-- `planning/` 中经审查的技术计划与推导可以公开；`planning/inbox/` 默认仅本地保存。一般草稿是否公开由作者决定，不因未定稿自动判为敏感。
-- `sites/` 是已有独立网站项目，保留原位，默认不随本系列仓库提交。编辑器配置与个人笔记同样默认排除。
-
-组织规则和本次路径变更见 [工作区管理说明](planning/workspace-management.md)。
+| 入口 | 内容 |
+| --- | --- |
+| [文章目录](docs/README.md) | 十篇文章的材料与当前状态 |
+| [实验记录](lab/README.md) | 实验设计、复现方法与结果证据 |
+| [示例代码](src/README.md) | 样例索引、构建要求、验证范围与来源许可 |
+| [撰写流程](docs/README.md#统一撰写流程) | 文章阶段与状态维护规则 |
+| [系列计划](planning/series-plan.md) | 技术依赖与逐篇论证规划 |
+| [工作区管理](planning/workspace-management.md) | 目录结构、文档分工与本地／公开边界 |
+| [协作约定](CONTRIBUTING.md) | 内容维护、复现与发布要求 |
