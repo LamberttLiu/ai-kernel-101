@@ -46,13 +46,12 @@ docs/assets/
 
 # 现有素材来源审查
 
-| 文件 | 当前用途／可见内容 | 来源与公开检查 |
-| --- | --- | --- |
-| Ascend-C-Twin-Debug.png（当前工作区已删除，未归档） | CPU、仿真、真机调试路径示意 | 第一篇关联官方孪生调试文章；确切来源、版本、使用许可与可编辑源待登记 |
-| [PipeBarrier.png](screenshot/PipeBarrier.png) | PIPE_V 内 Add/Abs 同步示意 | 第三篇关联接口资料；不据此证明所有 PIPE_ALL／跨流水语义；来源版本与许可待核对 |
-| [CANNLab-npu-smi-info.png](screenshot/CANNLab-npu-smi-info.png) | 历史设备信息截图 | 只见泛称设备与工具信息，具体 SoC／驱动关联待核实；保留原始采集背景 |
-| [CANNLab-website.png](screenshot/CANNLab-website.png) | 历史平台环境页面 | 包含配额与环境界面，公开裁剪范围待作者确认；不作为固定配额或产品承诺 |
-| [vector-add-npu-run.png](screenshot/vector-add-npu-run.png) | 历史 Add 输出截图 | 可见 test pass；原始日志、源码提交与运行环境关联待补，不是性能证据 |
+| 文件                                                              | 当前用途／可见内容             | 来源与公开检查                                     |
+| --------------------------------------------------------------- | --------------------- | ------------------------------------------- |
+| [PipeBarrier.png](screenshot/PipeBarrier.png)                   | PIPE_V 内 Add/Abs 同步示意 | 第三篇关联接口资料；不据此证明所有 PIPE_ALL／跨流水语义；来源版本与许可待核对 |
+| [CANNLab-npu-smi-info.png](screenshot/CANNLab-npu-smi-info.png) | 历史设备信息截图              | 只见泛称设备与工具信息，具体 SoC／驱动关联待核实；保留原始采集背景         |
+| [CANNLab-website.png](screenshot/CANNLab-website.png)           | 历史平台环境页面              | 包含配额与环境界面，公开裁剪范围待作者确认；不作为固定配额或产品承诺          |
+| [vector-add-npu-run.png](screenshot/vector-add-npu-run.png)     | 历史 Add 输出截图           | 可见 test pass；原始日志、源码提交与运行环境关联待补，不是性能证据      |
 
 以上均是素材现状，不是许可已确认或结果已重新验证的声明。不自行选许可证，也不擅自删除旧图。待作者核对后，可保存公开裁剪副本；原件保留在合适的本地位置，裁剪不得改变实验事实。
 

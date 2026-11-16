@@ -4,7 +4,7 @@ title: 数据放不下怎么办？从一个 Kernel 理解 Tiling
 aliases:
   - 第 04 篇：Tiling、尾块与对齐
   - 从固定长度到任意长度：Vector Add 的尾块与对齐
-writing_status: 草稿补充中；核内循环实现与 NPU 验证待完成
+writing_status: 初稿完成中
 publication_status: 未发布
 ---
 

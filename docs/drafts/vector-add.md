@@ -1,6 +1,7 @@
 ---
 series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 title: 只做一次加法，为什么还要搬来搬去？
+writing_status: 初稿完成中
 aliases:
   - 第 03 篇：Vector Add 的计算与存储模型
   - 从 Vector Add 理解 Ascend C 的计算与存储模型

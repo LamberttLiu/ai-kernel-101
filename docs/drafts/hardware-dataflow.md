@@ -4,7 +4,7 @@ article_id: 02-hardware-dataflow
 title: 同样是计算，NPU 为什么要区分 Vector 和 Cube？
 aliases:
   - 第 02 篇：算子、硬件与数据流
-writing_status: 初稿，待技术与语言审核
+writing_status: 初稿完成，实验待设计
 publication_status: 未发布
 architecture_scope: NPU 架构版本 2201 的 SIMD 路径
 evidence_scope: 官方架构说明、源码静态分析与理论估算；本篇未新增实验
