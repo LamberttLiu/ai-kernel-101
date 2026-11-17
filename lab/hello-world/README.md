@@ -1,6 +1,11 @@
 ---
 experiment_date: "2026-11-15"
 summary: "Hello World 的 CPU、SIM、NPU 功能验证通过，无设备失败对照符合预期；仅验证启动、同步与打印，不涉及张量精度和性能。"
+experiment_ids:
+  - Lab01-CPU
+  - Lab01-SIM
+  - Lab01-NPU
+  - Lab01-NEG
 reference_checked_on: "2026-11-15"
 ---
 
@@ -8,12 +13,12 @@ reference_checked_on: "2026-11-15"
 
 对应[第01篇文章](../../docs/articles/hello-world.md)，源码为 [hello_world.cpp](../../src/hello_world/hello_world.cpp)，构建配置为 [CMakeLists.txt](../../src/hello_world/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
 
-| 实验 | 解决的问题 | 结果 | 证明范围 |
+| 实验编号与入口 | 解决的问题 | 结果 | 证明范围 |
 | --- | --- | --- | --- |
-| WSL CPU | 没有 NPU 能否执行核函数逻辑 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | CPU 调测路径的入口和打印可执行 |
-| WSL SIM | 设备代码能否通过目标模型执行 | 8 个 Block 各打印一次，模型正常停止，七项 ACL 状态为 0，退出码 0 | `dav_2201` 仿真路径可执行 |
-| 云端 NPU | 同一份源码能否在实际 NPU 执行 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | 本次实际设备上的启动、同步与打印成功 |
-| WSL NPU 失败对照 | ACL 失败能否被程序暴露 | `aclInit` 返回 500000，退出码 1，无 Kernel 打印 | 程序不再以无条件返回 0 掩盖这次初始化失败 |
+| [Lab01-CPU](wsl-report.md#lab01-cpu)：WSL CPU | 没有 NPU 能否执行核函数逻辑 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | CPU 调测路径的入口和打印可执行 |
+| [Lab01-SIM](wsl-report.md#lab01-sim)：WSL SIM | 设备代码能否通过目标模型执行 | 8 个 Block 各打印一次，模型正常停止，七项 ACL 状态为 0，退出码 0 | `dav_2201` 仿真路径可执行 |
+| [Lab01-NPU](npu-report.md#lab01-npu)：云端 NPU | 同一份源码能否在实际 NPU 执行 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | 本次实际设备上的启动、同步与打印成功 |
+| [Lab01-NEG](wsl-report.md#lab01-neg)：WSL NPU 失败对照 | ACL 失败能否被程序暴露 | `aclInit` 返回 500000，退出码 1，无 Kernel 打印 | 程序不再以无条件返回 0 掩盖这次初始化失败 |
 
 以上均为功能验证，没有张量数值计算或真机性能测量。CPU 的 ACL 调测打桩返回成功不代表访问了物理 NPU。
 

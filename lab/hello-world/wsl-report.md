@@ -1,5 +1,9 @@
 ---
 experiment_date: "2026-11-15"
+experiment_ids:
+  - Lab01-CPU
+  - Lab01-SIM
+  - Lab01-NEG
 summary: "WSL 中 CPU 与 SIM 均完成八个 Block 打印和 ACL 状态检查；无设备时的 NPU 模式报告初始化错误并以非零退出码结束。"
 ---
 
@@ -31,7 +35,9 @@ InstalledDir: /home/lambertt/Ascend/cann-9.1.0/bin
 
 本次读取安装信息，Toolkit 与 ops 的 `version` 均为 `9.1.0`、`arch` 均为 `x86_64`。两个已有安装包的 `--check` 均报告完整性检查通过。本次没有重新安装工具链。
 
-# 实验1：CPU 调试能否在无 NPU 的本地执行
+# Lab01-CPU
+
+**CPU 调试能否在无 NPU 的本地执行**
 
 **解决的问题与预期：** 在 CPU 调测模式下运行同一个 Kernel，预期 Block 0—7 各打印一次，Host 的七项 ACL 检查通过，进程退出码为 0。
 
@@ -72,7 +78,9 @@ verification=PASS
 
 **过程中解决的问题：** 首次检查发现创建 Stream 返回成功，但句柄仍为空，导致按指针判断的清理分支没有调用 `aclrtDestroyStream`。脚本因缺少该阶段判为 FAIL，未将退出码 0 视为通过。源码改为记录“创建成功”状态后，得到上方最终 PASS。这是本轮真实发现并修正的 CPU 调测兼容问题。
 
-# 实验2：SIM 能否完成目标模型执行
+# Lab01-SIM
+
+**SIM 能否完成目标模型执行**
 
 **解决的问题与预期：** 同一份源码改按 SIM 模式编译，预期目标模型启动，Block 0—7 各打印一次，模型报告正常停止，七项 ACL 状态为 0，进程退出码为 0。
 
@@ -118,7 +126,9 @@ verification=PASS
 
 **日志前缀核对：** 本例源码的格式字符串只有 `[Block (...)]`。已安装 9.1.0 的 `asc_aicore_printf_impl.h` 第210行使用 `scalar_printf_impl` 生成 `[AIV Block %u/%u]`，因此前缀属于工具链的调测输出。上方 SIM 输出显示前缀和正文可分批出现，不能强行按同一行拼成真实输出。
 
-# 实验3：无设备时，失败是否反映为非零退出
+# Lab01-NEG
+
+**无设备时，失败是否反映为非零退出**
 
 **解决的问题与预期：** 为真实 NPU 构建程序后，在没有物理 NPU 的 WSL 中运行，检查失败能否被新代码暴露。预期有 ACL 错误、无 Kernel 打印、进程非零退出，不要求预先指定错误码。
 

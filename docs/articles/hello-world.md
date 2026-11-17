@@ -230,13 +230,13 @@ Hello World 的工作到打印就结束了。现在把任务换成向量加：$z
 
 [^7]: [官方 CPU 调试说明](https://asc.gitcode.com/guide/programming_guide/debug_and_tuning/functional_debug/cpu_twin_debug.html)：Ascend C CPU 域孪生调试说明，介绍 CPU 域编译运行、gdb 调试及部分 ACL 接口的适配与打桩；同属 master 开发文档。
 
-[^8]: [WSL：CPU、SIM 与失败退出验证](../../lab/hello-world/wsl-report.md)：WSL 实验报告，统一记录 CPU、SIM 功能验证及无设备时的失败对照，保留环境、完整 Block 输出、ACL 状态与退出码。正文中的 CPU、SIM 报告引用均指向此文件。
+[^8]: [WSL：CPU、SIM 与失败退出验证](../../lab/hello-world/wsl-report.md)：WSL 实验报告，统一记录 Lab01-CPU、Lab01-SIM 功能验证及无设备时的失败对照 Lab01-NEG，保留环境、完整 Block 输出、ACL 状态与退出码。正文中的 CPU、SIM 报告引用均指向此文件。
 
 [^9]: [Ascend C 孪生调试文章](https://www.hiascend.com/zh/developer/techArticles/20231215-2)：昇腾官方 Ascend C 孪生调试技术文章，用于理解 CPU 调试与仿真的分工；不代替本篇的实际运行证据。
 
 [^10]: [Hello World 实验记录与复现入口](../../lab/hello-world/README.md)：Hello World 实验入口，汇总三种模式的验证范围、构建运行命令、通过判据和报告链接；复现以已安装 CANN 的环境为前提。
 
-[^11]: [真机实验报告](../../lab/hello-world/npu-report.md)：云端 NPU 功能实验报告，记录容器可见环境、设备标识、实际构建与运行输出，以及本次验证的适用边界。
+[^11]: [真机实验报告](../../lab/hello-world/npu-report.md)：Lab01-NPU 云端 NPU 功能实验报告，记录容器可见环境、设备标识、实际构建与运行输出，以及本次验证的适用边界。
 
 [^12]: [第02篇：同样是计算，NPU 为什么要区分 Vector 和 Cube？](../drafts/hardware-dataflow.md)：第 02 篇，进一步讨论 Vector、Cube、存储与搬运资源的分工；当前链接指向写作中的草稿，进度以文章目录为准。
 
