@@ -4,6 +4,7 @@
 
 | 示例 | 入口 |
 | --- | --- |
+| 第 02 篇 Add 与 Matmul（待运行） | [hardware_dataflow](hardware_dataflow/README.md) |
 | 固定 shape FA 前向（CPU 参考通过；NPU 待验证） | [flash_attention_fixed](flash_attention_fixed/README.md) |
 | Hello World | [hello_world](hello_world/README.md) |
 | 基础 Add | [00_basic](vector_add/00_basic/README.md) |
