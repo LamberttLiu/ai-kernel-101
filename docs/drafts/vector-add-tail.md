@@ -1,5 +1,5 @@
 ---
-series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+series: AI Kernel 101：从 Hello World 到 FlashAttention
 title: 数据放不下怎么办？从一个 Kernel 理解 Tiling
 aliases:
   - 第 04 篇：Tiling、尾块与对齐

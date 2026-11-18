@@ -1,6 +1,6 @@
 # 定稿文章
 
-所属专栏：《AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践》。
+所属专栏：《AI Kernel 101：从 Hello World 到 FlashAttention》。
 
 已定稿：[第 01 篇：没有昇腾 NPU，真的能写出第一个 Kernel 吗？](hello-world.md)。完整系列与状态见 [文章目录](../README.md)。
 

@@ -26,12 +26,20 @@
 
 粒子基底一经选定，文字排版不得调用 AI 重新生成它。不能通过提示词再次生成来保证像素一致，应引用固定 PNG。原始生成与编辑提示词保存在 [visual-bases](visual-bases/README.md)，选定文件的 SHA-256 记录在 `assets.json`。
 
-## 3. 固定文案
+## 3. 品牌命名与固定文案
+
+| 层级 | 统一文案 | 使用位置 |
+| --- | --- | --- |
+| 系列品牌 | AI Kernel 101 | GitHub、社交账号、封面主视觉 |
+| 完整系列名称 | AI Kernel 101：从 Hello World 到 FlashAttention | README、知乎专栏 |
+| 技术副标题 | 基于 Ascend C 的算子设计与性能优化实践 | 课程介绍、微信公众号 |
+
+`FlashAttention` 始终连写。完整系列名称与技术副标题分开使用。
 
 ```text
 AI Kernel 101
-从 Hello World 到 Flash Attention
-Ascend C · 第一性原理 · 性能优化
+从 Hello World 到 FlashAttention
+基于 Ascend C 的算子设计与性能优化实践
 
 UNDERSTAND THE COMPUTE.
 ENGINEER THE PERFORMANCE.
@@ -49,8 +57,8 @@ ENGINEER THE PERFORMANCE.
 | --- | --- |
 | 标题 `AI Kernel` | 冷白 `#F5F7FC` |
 | 标题 `101` | 纵向渐变 `#E6F4FF → #77B7FF → #3C8DF5`；停靠点 0%、58%、100% |
-| 中文定位语 | `#DBE1EA` |
-| 技术关键词 | `#C9D3E1` |
+| 系列路线 | `#DBE1EA` |
+| 技术副标题 | `#C9D3E1` |
 | 两行英文标语 | `#B8C4D3` |
 | 作者水印 | `#A6ADB8`、72% 不透明度、真实斜体 |
 
@@ -67,8 +75,8 @@ Inter 字体与 [SIL OFL 1.1 许可证](digital-banner/fonts/Inter-OFL.txt)随�
 | 文字 | x | 基线 y | 字号 px |
 | --- | --- | --- | --- |
 | 主标题 | 96 | 272 | 128 |
-| 中文定位语 | 96 | 368 | 36 |
-| 技术关键词 | 96 | 440 | 30 |
+| 系列路线 | 96 | 368 | 36 |
+| 技术副标题 | 96 | 440 | 30 |
 | 英文标语第一行 | 96 | 680 | 21 |
 | 英文标语第二行 | 96 | 712 | 21 |
 | 作者水印 | 1952，右对齐 | 704 | 22 |

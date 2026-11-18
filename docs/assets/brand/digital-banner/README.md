@@ -23,10 +23,12 @@ v2 的文字调整全部记录在 `layout.json`：主标题基线上移 24 px；
 
 ## 文字内容
 
+主视觉使用短品牌 `AI Kernel 101`；第二行保留系列路线，第三行使用技术副标题。完整系列名称为《AI Kernel 101：从 Hello World 到 FlashAttention》，命名层级见 [VI 规范](../VI-Specification.md#3-品牌命名与固定文案)。本次仅更新文字，沿用 v2 的粒子母图、位置、字号与颜色；v1 配置及对照素材保留历史文案。
+
 ```text
 AI Kernel 101
-从 Hello World 到 Flash Attention
-Ascend C · 第一性原理 · 性能优化
+从 Hello World 到 FlashAttention
+基于 Ascend C 的算子设计与性能优化实践
 
 UNDERSTAND THE COMPUTE.
 ENGINEER THE PERFORMANCE.

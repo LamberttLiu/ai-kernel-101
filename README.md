@@ -1,9 +1,9 @@
-![AI Kernel 101：从 Hello World 到 Flash Attention，Ascend C · 第一性原理 · 性能优化](docs/assets/brand/digital-banner/ai-kernel-101-digital-banner-1600x600-v2.png)
+![AI Kernel 101：从 Hello World 到 FlashAttention，基于 Ascend C 的算子设计与性能优化实践](docs/assets/brand/digital-banner/ai-kernel-101-digital-banner-1600x600-v2.png)
 
-# AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+# AI Kernel 101：从 Hello World 到 FlashAttention
 
 <p align="center">
-  <strong>从 Kernel 出发，用模型与实验理解 AI 计算。</strong>
+  <strong>基于 Ascend C 的算子设计与性能优化实践</strong>
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 这里的第一性原理，是从**数学语义、数据依赖、硬件资源、存储层级、访存量与性能约束**等角度解释，再用实验检验判断。这一系列专栏文章，囊括了本人 Ascend C 真实学习中的问题、踩坑和失败经历，并将其转化为能够解释其他 Kernel 的工程案例。
 
-本系列从最小 Kernel Hello World 出发，逐步讨论**数据流**、**Tiling**、**流水**、**归约**与**矩阵乘**，目标是完成范围明确的 Flash Attention 前向实现，并用模型和实验解释其行为。
+本系列从最小 Kernel Hello World 出发，逐步讨论**数据流**、**Tiling**、**流水**、**归约**与**矩阵乘**，目标是完成范围明确的 FlashAttention 前向实现，并用模型和实验解释其行为。
 
-本系列是作者对 AI Kernel 与推理系统性能工程的长期研究，当前十篇以 Ascend C 为实践载体。
+本系列是作者对 AI Kernel 与推理系统性能工程的长期研究，当前主线为五个知识阶段、16 篇核心文章，以 Ascend C 为实践载体。
 
 # 目标读者
 
@@ -39,7 +39,7 @@
 
 | 入口                                        | 内容                  |
 | ----------------------------------------- | ------------------- |
-| [文章目录](docs/README.md)                    | 十篇文章的材料与当前状态        |
+| [文章目录](docs/README.md)                    | 16 篇文章的材料与当前状态        |
 | [实验工作区](lab/README.md) | 实验目录、设计、代码、结果与分析报告 |
 | [撰写流程](docs/README.md#统一撰写流程)             | 文章阶段与状态维护规则         |
 | [系列计划](planning/series-plan.md)           | 技术依赖与逐篇论证规划         |

@@ -4,8 +4,8 @@
   "base": "../visual-bases/ai-kernel-101-digital-banner-base-master-v2.png",
   "copy": {
     "title": "AI Kernel 101",
-    "subtitle": "从 Hello World 到 Flash Attention",
-    "keywords": "Ascend C · 第一性原理 · 性能优化",
+    "subtitle": "从 Hello World 到 FlashAttention",
+    "keywords": "基于 Ascend C 的算子设计与性能优化实践",
     "slogan1": "UNDERSTAND THE COMPUTE.",
     "slogan2": "ENGINEER THE PERFORMANCE.",
     "author": "@LamberttLiu"

@@ -1,5 +1,5 @@
 ---
-series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+series: AI Kernel 101：从 Hello World 到 FlashAttention
 article_id: 待填写稳定篇号与主题
 public_title: 待从文章目录选择
 writing_status: 提纲

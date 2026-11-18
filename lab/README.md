@@ -11,7 +11,7 @@ lab 是 AI Kernel 101 唯一的实验工程工作区，按主题统一管理实�
 | Hello World | [主题说明与运行入口](hello-world/README.md) | Lab01 的四项 CPU、SIM、NPU 与无设备失败对照功能验证 |
 | 硬件数据流与性能模型 | [主题说明与运行入口](hardware-dataflow/README.md) · [实验设计](hardware-dataflow/experiment-plan.md) · [实验报告](hardware-dataflow/reports/npu-report.md) | Lab02 的七项 NPU 实验已运行并归档；结果分析待完成 |
 | 向量加与 Host/Device 传输 | [主题索引](vector-add/README.md) | 五组既有实现及各自复现说明；历史验证范围分别保留 |
-| 固定 shape Flash Attention | [实现与复现入口](flash-attention-fixed/README.md) | CPU 参考已有运行记录但原始材料未归档；NPU／SIM 与性能未验证 |
+| 固定 shape FlashAttention | [实现与复现入口](flash-attention-fixed/README.md) | CPU 参考已有运行记录但原始材料未归档；NPU／SIM 与性能未验证 |
 
 实现来源、原始导入线索及许可待核对项见 [SOURCES.md](SOURCES.md)。
 

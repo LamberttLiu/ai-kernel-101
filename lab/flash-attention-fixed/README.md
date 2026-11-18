@@ -3,7 +3,7 @@ experiment_date: 未知
 summary: 固定 shape 前向实现与复现入口；已有 CPU 参考运行记录但原始材料未归档，NPU／SIM 和性能未验证。
 ---
 
-# 固定 shape 的 Flash Attention 前向 MVP
+# 固定 shape 的 FlashAttention 前向 MVP
 
 一个可独立构建的 Ascend C 示例：[src/main.cpp](src/main.cpp) 包含 Kernel、ACL Host 启动、确定性输入、FP64 参考和正确性检查；[src/CMakeLists.txt](src/CMakeLists.txt) 构建 `fa_fixed`。
 

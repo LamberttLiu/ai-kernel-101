@@ -43,8 +43,8 @@
   },
   "copy": {
     "title": "AI Kernel 101",
-    "subtitle": "从 Hello World 到 Flash Attention",
-    "keywords": "Ascend C · 第一性原理 · 性能优化",
+    "subtitle": "从 Hello World 到 FlashAttention",
+    "keywords": "基于 Ascend C 的算子设计与性能优化实践",
     "slogan1": "UNDERSTAND THE COMPUTE.",
     "slogan2": "ENGINEER THE PERFORMANCE.",
     "author": "@LamberttLiu"
@@ -98,18 +98,18 @@
     },
     {
       "id": "subtitle",
-      "text": "从 Hello World 到 Flash Attention",
+      "text": "从 Hello World 到 FlashAttention",
       "x": 96,
       "y": 330,
-      "width": 569.984375,
+      "width": 559.328125,
       "height": 47
     },
     {
       "id": "keywords",
-      "text": "Ascend C · 第一性原理 · 性能优化",
+      "text": "基于 Ascend C 的算子设计与性能优化实践",
       "x": 96,
       "y": 408,
-      "width": 453.640625,
+      "width": 571.4375,
       "height": 40
     },
     {
@@ -151,7 +151,7 @@
         "familyName": "Microsoft YaHei",
         "postScriptName": "MicrosoftYaHei",
         "isCustomFont": false,
-        "glyphCount": 31
+        "glyphCount": 30
       }
     ],
     "keywords": [
@@ -159,7 +159,7 @@
         "familyName": "Microsoft YaHei",
         "postScriptName": "MicrosoftYaHei",
         "isCustomFont": false,
-        "glyphCount": 23
+        "glyphCount": 24
       }
     ],
     "slogan1": [
@@ -189,12 +189,12 @@
   },
   "preservation": {
     "masterUnchanged": true,
-    "untouchedPixels": 1522667,
+    "untouchedPixels": 1520559,
     "changedOutsideText": 0
   },
   "outputs": {
-    "ai-kernel-101-digital-banner-2048x768-v2.png": "e6790e8a705c811c604c2453446e60adaa9c46423fbe3d1b99cc90438b17c617",
-    "ai-kernel-101-digital-banner-1600x600-v2.png": "2b9076bd2ea58657b5ab06fb43c185e71fe3dfa7f134ba95e1c6f9deec3b0e18",
-    "ai-kernel-101-digital-banner-1600x600-v2.svg": "3cf7101ba4ffa5575e14a79997413db1efb615e46051f5eee7f24f105f00fb8d"
+    "ai-kernel-101-digital-banner-2048x768-v2.png": "3e73cae5b146259303c1dba82b7d737eca9c717f017a178d0bd881b1fd60c741",
+    "ai-kernel-101-digital-banner-1600x600-v2.png": "db143fcdefab2eedf6bdb90e51b648d7f6251346fd57db6655dbcc9b73cf8116",
+    "ai-kernel-101-digital-banner-1600x600-v2.svg": "50a3d75ea1d550ffde51a24b509ec3f5b7c32c9a325d98512d836bf9b0fc8783"
   }
 }

@@ -1,4 +1,4 @@
-# AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+# AI Kernel 101：从 Hello World 到 FlashAttention
 
 以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。
 

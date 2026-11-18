@@ -1,23 +1,63 @@
-# AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+# AI Kernel 101：从 Hello World 到 FlashAttention
+
+> 基于 Ascend C 的算子设计与性能优化实践
 
 以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。
 
-本表管理十篇文章的篇次、对外标题、稳定主题和实际材料。标题更新不改变技术验证、定稿或发布状态；没有确认的平台记录，不推断为已发布。
+本目录管理 16 篇核心文章、5 个知识阶段。原有十篇全部保留，新增六篇以“新增”标记。篇次变化只调整推荐阅读顺序，不改变验证或发布状态。
 
-| 篇次  | 标题                                    | 文章                                                                                                              | 撰写阶段       | 材料与待办                                                    |
-| --- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------- |
-| 01  | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？           | [hello-world](articles/hello-world.md)                                                                          | 已完成        | 正文、实验与配图审核完成，已定稿，未发布                                     |
-| 02  | 同样是计算，NPU 为什么要区分 Vector 和 Cube？       | [hardware-dataflow 草稿](drafts/hardware-dataflow.md) | 初稿完成，实验已运行，结果待分析 | 七项真机实验已执行并归档；[实验报告](../lab/hardware-dataflow/reports/npu-report.md)包含数值检查、实际分块与计时；正文分析和图 12 待补 |
-| 03  | 只做一次加法，为什么还要搬来搬去？                     | [vector-add](drafts/vector-add.md)                                                                              | 初稿完成中      | 早期草稿；含静态 Tensor 与 TPipe/TQue 对照，保留基础版历史验证与五次耗时；队列版真机对照待补 |
-| 04  | 数据放不下怎么办？从一个 Kernel 理解 Tiling         | [vector-add-tail](drafts/vector-add-tail.md)                                                                    | 初稿完成中      | 草稿已补覆盖与容量模型；保留尾块素材，核内多轮实现与 NPU 验证待完成                     |
-| 05  | Double Buffer 一定更快吗？用实验拆解计算流水         | [pipeline 提纲](<../planning/outlines/05-计算流水与双缓冲-提纲.md>)                                                         | 提纲         | 提纲已形成；多轮单／双缓冲对照待实现，NPU 验证与性能待完成                          |
-| 06  | Softmax 为什么难并行？从 Reduction 讲起         | [softmax 提纲](<../planning/outlines/06-归约与稳定Softmax-提纲.md>)                                                      | 提纲         | 提纲已形成；独立归约与 Softmax 实现、功能和性能验证待完成                        |
-| 07  | 矩阵乘为什么快？理解 Cube 的数据复用                 | [matmul 提纲](<../planning/outlines/07-矩阵乘与数据复用-提纲.md>)                                                           | 提纲         | 提纲已形成；独立 Matmul 基线、NPU 验证与融合接口核对待完成                      |
-| 08  | Flash Attention 为什么不需要保存注意力矩阵？        | [online-attention 论证](<../planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)                           | 提纲         | 论证和前置检查已形成；参考实现未执行                                       |
-| 09  | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | tiled-attention，见系列计划                                                                                           | —          | 待接口可行性与目标设备验证                                            |
-| 10  | Flash Attention 到底快在哪里？一次完整的性能分析      | attention-performance，见系列计划                                                                                     | —          | 待融合实现、性能对照与消融                                            |
+## 第一阶段：认识 NPU 与 Kernel 编程模型
 
-完整依赖、逐篇论点、新旧标题映射、8周理想节奏与16周工作量估算见 [系列计划](../planning/series-plan.md)。不为尚未写作的篇章生成空正文。
+运行环境 → 硬件结构 → 最小 Vector 数据流。
+
+| 篇次 | 对外标题 | 稳定主题／材料 | 撰写阶段 | 材料与待办 |
+| --- | --- | --- | --- | --- |
+| 01 | 没有昇腾 NPU，真的能写出第一个 Kernel 吗？ | [hello-world](articles/hello-world.md) | 已完成 | 正文、实验与配图审核完成，已定稿，未发布 |
+| 02 | 同样是计算，NPU 为什么要区分 Vector 和 Cube？ | [hardware-dataflow 草稿](drafts/hardware-dataflow.md) | 初稿完成，实验已运行，结果待分析 | 七项真机实验已归档；[实验报告](../lab/hardware-dataflow/reports/npu-report.md)待分析，正文和图 12 待补 |
+| 03 | 只做一次加法，为什么还要搬来搬去？ | [vector-add](drafts/vector-add.md) | 初稿完成中 | 保留基础版历史验证与五次耗时；队列版真机对照待补 |
+
+## 第二阶段：理解访存、分块与流水线
+
+容量与覆盖 → 流水重叠 → 布局和跨步访问。
+
+| 篇次 | 对外标题 | 稳定主题／材料 | 撰写阶段 | 材料与待办 |
+| --- | --- | --- | --- | --- |
+| 04 | 数据放不下怎么办？从一个 Kernel 理解 Tiling | [vector-add-tail](drafts/vector-add-tail.md) | 初稿完成中 | 覆盖与容量模型、尾块素材已保留；核内多轮实现与 NPU 验证待完成 |
+| 05 | Double Buffer 一定更快吗？用实验拆解计算流水 | [pipeline 提纲](<../planning/outlines/05-计算流水与双缓冲-提纲.md>) | 提纲 | 多轮单／双缓冲对照待实现，NPU 验证与性能待完成 |
+| 06 · 新增 | Transpose：没有复杂计算，为什么数据重排仍然很慢？ | [transpose 规划](../planning/series-plan.md#article-06) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+
+## 第三阶段：Vector 计算与归约融合
+
+行内依赖 → 统计量、广播和多阶段数据流。
+
+| 篇次 | 对外标题 | 稳定主题／材料 | 撰写阶段 | 材料与待办 |
+| --- | --- | --- | --- | --- |
+| 07 | Softmax 为什么难并行？从 Reduction 讲起 | [softmax 提纲](<../planning/outlines/06-归约与稳定Softmax-提纲.md>) | 提纲 | 原 06；独立归约与 Softmax 实现、功能及性能验证待完成 |
+| 08 · 新增 | RMSNorm：为什么一次归一化需要反复访问数据？ | [rmsnorm 规划](../planning/series-plan.md#article-08) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+
+## 第四阶段：Cube 计算与高性能算子设计
+
+矩阵复用 → 卷积映射 → 统一建模 → 低精度 → 融合边界。
+
+| 篇次 | 对外标题 | 稳定主题／材料 | 撰写阶段 | 材料与待办 |
+| --- | --- | --- | --- | --- |
+| 09 | 矩阵乘为什么快？理解 Cube 的数据复用 | [matmul 提纲](<../planning/outlines/07-矩阵乘与数据复用-提纲.md>) | 提纲 | 原 07；独立 Matmul 基线、NPU 验证与融合接口核对待完成 |
+| 10 · 新增 | Conv2D：为什么滑动窗口计算可以变成矩阵乘法？ | [conv2d 规划](../planning/series-plan.md#article-10) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+| 11 · 新增 | Roofline：为什么算力翻倍，Kernel 却不一定更快？ | [roofline 规划](../planning/series-plan.md#article-11) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+| 12 · 新增 | Quantization：数据精度减半，性能就能翻倍吗？ | [quantization 规划](../planning/series-plan.md#article-12) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+| 13 · 新增 | Kernel Fusion：算子融合越多，性能就越好吗？ | [kernel-fusion 规划](../planning/series-plan.md#article-13) | — | 新增；核心问题、论证路线与实验假设见系列计划，独立提纲、实现与实验待完成 |
+
+## 第五阶段：从 Attention 走向 FlashAttention
+
+在线算法 → 功能实现 → 性能验证。
+
+| 篇次 | 对外标题 | 稳定主题／材料 | 撰写阶段 | 材料与待办 |
+| --- | --- | --- | --- | --- |
+| 14 | FlashAttention 为什么不需要保存注意力矩阵？ | [online-attention 论证](<../planning/outlines/08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>) | 提纲 | 原 08；保留 m/l/u 推导，参考实现未执行 |
+| 15 | 从零拼出分块 Attention：Matmul、Softmax 与状态更新 | [tiled-attention 规划](../planning/series-plan.md#article-15) | — | 原 09；待独立提纲、接口可行性与目标设备验证 |
+| 16 | FlashAttention 到底快在哪里？一次完整的性能分析 | [attention-performance 规划](../planning/series-plan.md#article-16) | — | 原 10；待独立提纲、融合实现、性能对照与消融 |
+
+完整论证、知识依赖、新旧篇次映射及新增六篇的核心实验对照见 [系列计划](../planning/series-plan.md)。Gather／Scatter、RoPE 暂列选修，不计入 16 篇。旧提纲路径保留早期编号，当前篇次以本目录和文件元数据为准。原十篇的工期仅作历史参考，16 篇工作量待重新评估。不为规划中的文章生成空正文。
 
 # 统一撰写流程
 

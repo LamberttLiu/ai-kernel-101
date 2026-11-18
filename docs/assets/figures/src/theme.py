@@ -17,7 +17,7 @@ WIDTH, HEIGHT, DPI = 1920, 1080, 100
 TITLE_SIZE, TITLE_EN_SIZE = 42, 32
 BODY_SIZE, BODY_EN_SIZE = 28, 28
 WATERMARK_SIZE = 18
-WATERMARK = "AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu"
+WATERMARK = "AI Kernel 101 | From Hello World to FlashAttention in Ascend C @LambertLiu"
 WATERMARK_COLOR = "#CFD3D7"
 # Sampled from the two flat swatches in the author's color.png.
 RED, SKY = "#C00000", "#00B0F0"

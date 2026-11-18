@@ -1,5 +1,5 @@
 ---
-series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+series: AI Kernel 101：从 Hello World 到 FlashAttention
 title: 只做一次加法，为什么还要搬来搬去？
 writing_status: 初稿完成中
 aliases:

@@ -1,6 +1,6 @@
 # 在 Obsidian 中跨端阅读与写作
 
-所属专栏：《AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践》。本轮不迁移库，不改同步账户或远程设置。
+所属专栏：《AI Kernel 101：从 Hello World 到 FlashAttention》。本轮不迁移库，不改同步账户或远程设置。
 
 # 同一个项目，两种入口
 

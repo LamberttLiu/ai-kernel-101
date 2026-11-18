@@ -1393,8 +1393,8 @@ z
     </g>
    </g>
    <g id="text_3">
-    <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(406.434375 29.811642) scale(0.1296 -0.1296)">
+    <!-- AI Kernel 101 | From Hello World to FlashAttention in Ascend C @LambertLiu -->
+    <g style="fill: #cfd3d7" transform="translate(410.23125 29.811642) scale(0.1296 -0.1296)">
      <defs>
       <path id="CascadiaCode-Regular-4e" d="M 525 0
 L 525 594
@@ -1714,45 +1714,44 @@ z
      <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(2226.5625 0)"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(2285.15625 0)"/>
      <use xlink:href="#CascadiaCode-Regular-12a" transform="translate(2343.75 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2402.34375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(2460.9375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(2402.34375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2460.9375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2519.53125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2578.125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(2636.71875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2695.3125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2753.90625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2812.5 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(2871.09375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2929.6875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2988.28125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(3046.875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3105.46875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3164.0625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(3222.65625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-183" transform="translate(3281.25 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(3339.84375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3398.4375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3457.03125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-103" transform="translate(3515.625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3574.21875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(3632.8125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3691.40625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-9ea" transform="translate(3750 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(3808.59375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(3867.1875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-154" transform="translate(3925.78125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(3984.375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(4042.96875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(4101.5625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(4160.15625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(4218.75 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(4277.34375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-192" transform="translate(4335.9375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(2578.125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2636.71875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2695.3125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2753.90625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(2812.5 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2871.09375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2929.6875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2988.28125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3046.875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3105.46875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(3164.0625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-183" transform="translate(3222.65625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(3281.25 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3339.84375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3398.4375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-103" transform="translate(3457.03125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3515.625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(3574.21875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3632.8125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-9ea" transform="translate(3691.40625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(3750 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(3808.59375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-154" transform="translate(3867.1875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(3925.78125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3984.375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(4042.96875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(4101.5625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(4160.15625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(4218.75 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-192" transform="translate(4277.34375 0)"/>
     </g>
    </g>
    <g id="text_4">
-    <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(406.434375 765.651642) scale(0.1296 -0.1296)">
+    <!-- AI Kernel 101 | From Hello World to FlashAttention in Ascend C @LambertLiu -->
+    <g style="fill: #cfd3d7" transform="translate(410.23125 765.651642) scale(0.1296 -0.1296)">
      <use xlink:href="#CascadiaCode-Regular-1"/>
      <use xlink:href="#CascadiaCode-Regular-4e" transform="translate(58.59375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(117.1875 0)"/>
@@ -1794,40 +1793,39 @@ z
      <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(2226.5625 0)"/>
      <use xlink:href="#CascadiaCode-Regular-183" transform="translate(2285.15625 0)"/>
      <use xlink:href="#CascadiaCode-Regular-12a" transform="translate(2343.75 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2402.34375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(2460.9375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(2402.34375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2460.9375 0)"/>
      <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2519.53125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2578.125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(2636.71875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2695.3125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2753.90625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2812.5 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(2871.09375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2929.6875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2988.28125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(3046.875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3105.46875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3164.0625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(3222.65625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-183" transform="translate(3281.25 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(3339.84375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3398.4375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3457.03125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-103" transform="translate(3515.625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3574.21875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(3632.8125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3691.40625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-9ea" transform="translate(3750 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(3808.59375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(3867.1875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-154" transform="translate(3925.78125 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(3984.375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(4042.96875 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(4101.5625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(4160.15625 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(4218.75 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(4277.34375 0)"/>
-     <use xlink:href="#CascadiaCode-Regular-192" transform="translate(4335.9375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(2578.125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2636.71875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(2695.3125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2753.90625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-15e" transform="translate(2812.5 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(2871.09375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(2929.6875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(2988.28125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3046.875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3105.46875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1" transform="translate(3164.0625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-183" transform="translate(3222.65625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-fd" transform="translate(3281.25 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3339.84375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-155" transform="translate(3398.4375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-103" transform="translate(3457.03125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3515.625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-1e" transform="translate(3574.21875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-7dd" transform="translate(3632.8125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-9ea" transform="translate(3691.40625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(3750 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-e1" transform="translate(3808.59375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-154" transform="translate(3867.1875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-fc" transform="translate(3925.78125 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-108" transform="translate(3984.375 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-17e" transform="translate(4042.96875 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-18c" transform="translate(4101.5625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-65" transform="translate(4160.15625 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-12f" transform="translate(4218.75 0)"/>
+     <use xlink:href="#CascadiaCode-Regular-192" transform="translate(4277.34375 0)"/>
     </g>
    </g>
    <g id="text_5">

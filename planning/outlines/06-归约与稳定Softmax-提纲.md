@@ -1,15 +1,18 @@
 ---
-series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
-article_id: 06-softmax
+series: AI Kernel 101：从 Hello World 到 FlashAttention
+previous_article_number: "06"
+article_id: 07-softmax
 title: Softmax 为什么难并行？从 Reduction 讲起
-writing_status: 提纲草稿
+writing_status: 提纲
 implementation_status: 独立归约与 Softmax 教学实现待完成
 experiment_status: CPU/SIM/NPU 新实验未执行
 ---
 
-# 第 06 篇提纲：Softmax 为什么难并行？从 Reduction 讲起
+> 当前篇次为 07，文件名中的 06 保留早期路径；以[文章目录](../../docs/README.md)为准。
 
-> 沿用[系列计划](../series-plan.md)与[第08篇前置检查](<08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)。当前为待审提纲，不声明已有独立 Softmax 实现或新实验结果。
+# 第 07 篇提纲：Softmax 为什么难并行？从 Reduction 讲起
+
+> 沿用[系列计划](../series-plan.md)与[第14篇前置检查](<08-Attention 为什么需要分块：从中间矩阵到在线递推-论证提纲.md>)。当前为待审提纲，不声明已有独立 Softmax 实现或新实验结果。
 
 核心问题：Softmax 的行内依赖怎样约束并行、数值计算与片上存储？
 
@@ -108,11 +111,11 @@ $$m=\max_j x_j,\quad e_j=\exp(x_j-m),\quad l=\sum_j e_j,\quad p_j=e_j/l.$$
 
 本篇首版限定一行能在所选方案中放入片上，不在末尾突然扩成跨核长行 Softmax 或在线 Attention 教程。
 
-提出下一阶段疑问：整行无法保留时，哪些统计量可以跨块合并？即使得到全行 m/l，若必须输出全部概率，仍需保留或重读相关输入。第08篇再结合 V 的加权累计回答中间概率能否消去；在此之前，第07篇补齐矩阵乘的数据复用与部分和。
+提出下一阶段疑问：整行无法保留时，哪些统计量可以跨块合并？即使得到全行 m/l，若必须输出全部概率，仍需保留或重读相关输入。第14篇再结合 V 的加权累计回答中间概率能否消去；下一篇 RMSNorm 先研究统计量、广播与逐元素阶段的融合；第09篇再补齐矩阵乘的数据复用与部分和。
 
 # 写作与资料检查
 
 - 必需产物：归约依赖图、m/l 形状与广播示意、容量表、Reduce 与 Softmax 实现、参考及误差表、范围明确的真机测量。目前实现和实验均待完成。
-- 明确有限值、非空有效行的数学推导边界；一般 mask、全屏蔽行与 m/l/u 在线更新留给第08—09篇。
+- 明确有限值、非空有效行的数学推导边界；一般 mask、全屏蔽行与 m/l/u 在线更新留给第14—15篇。
 - 资料入口：[官方 SoftMax 说明](https://asc.gitcode.com/api/SIMD-API/adv_api/activation_functions/SoftMax_interface/SoftMax.html)、[SoftMax Tiling 使用说明](https://asc.gitcode.com/api/SIMD-API/adv_api/activation_functions/SoftMax_interface/SoftMax_Tiling_usage.html)。在线资料不是当前设备已经支持或通过验证的证明，发布前固定版本及接口范围。
 - 既有 Attention 示例中的相关步骤不能直接升级为本篇独立 Softmax 的实现与真机证据；复用时重新建立源码和测试对应关系。

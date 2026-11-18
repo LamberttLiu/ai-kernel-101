@@ -1,6 +1,6 @@
 # 发布与复盘记录：待填写
 
-> 《AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践》
+> 《AI Kernel 101：从 Hello World 到 FlashAttention》
 > 模板，不代表已发布；按实际情况填写。敏感账号信息和运营指标只填入本地副本。
 
 # 源文件与审核

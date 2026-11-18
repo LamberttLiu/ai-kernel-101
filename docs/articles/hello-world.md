@@ -1,5 +1,5 @@
 ---
-series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
+series: AI Kernel 101：从 Hello World 到 FlashAttention
 title: 没有昇腾 NPU，真的能写出第一个 Kernel 吗？
 aliases:
   - 第 01 篇：Hello World 与运行模式
@@ -16,7 +16,7 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 学习一门新的领域特定语言（Domain-Specific Language，DSL），通常从查阅文档和运行示例开始。但说明文档可能分散在不同章节，API 的能力又与软件版本、设备密切相关。即使知道怎样调用，换了输入形状、数据类型或数据布局，原先的判断是否仍然成立，也需要重新检查。
 
-《AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践》就从这些问题出发，**以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。** 这里的第一性原理，是从数学语义、数据依赖、硬件资源、存储层级、访存量与性能约束出发，解释实现为什么这样选择，再用实验检验判断。学习过程中的踩坑和失败，也一并整理为系列工程案例。
+《AI Kernel 101：从 Hello World 到 FlashAttention》就从这些问题出发，**以 Ascend C 为实践载体，从第一性原理理解 AI Kernel 的设计与性能优化。** 这里的第一性原理，是从数学语义、数据依赖、硬件资源、存储层级、访存量与性能约束出发，解释实现为什么这样选择，再用实验检验判断。学习过程中的踩坑和失败，也一并整理为系列工程案例。
 
 ## 目标读者
 
@@ -24,7 +24,7 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 ## 系列文章计划
 
-系列从 Hello World 开始，先建立程序执行与硬件数据流的认识，再通过向量加讨论分块（Tiling）、尾块和流水（Pipeline），随后处理 Softmax 的归约依赖与矩阵乘的数据复用，最终汇合到范围明确的 Flash Attention 前向实现。我希望把实现选择、误差和性能变化解释清楚，具体支持范围以实际验证为准，性能提速与退化都要有可核对的记录。各篇入口与当前状态见文章目录[^1]。
+系列从 Hello World 开始，先建立程序执行与硬件数据流的认识，再通过向量加讨论分块（Tiling）、尾块和流水（Pipeline），接着用 Transpose、Softmax 和 RMSNorm 理解访问布局、归约与融合，再以矩阵乘、Conv2D、Roofline、Quantization 和 Kernel Fusion 建立计算映射与性能分析方法，最终汇合到范围明确的 FlashAttention 前向实现。我希望把实现选择、误差和性能变化解释清楚，具体支持范围以实际验证为准，性能提速与退化都要有可核对的记录。各篇入口与当前状态见文章目录[^1]。
 
 正文保留支撑解释所需的公式、图示、核心代码片段与实验结果。完整实现、构建配置和复现记录放在同一仓库[^2]的 lab 主题目录中。引用资料、理论估算和实际测量都会注明依据，方便读者核对。
 

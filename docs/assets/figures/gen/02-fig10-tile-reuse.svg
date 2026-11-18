@@ -1788,8 +1788,8 @@ z
     </g>
    </g>
    <g id="text_3">
-    <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(423.975937 27.662737) scale(0.1296 -0.1296)">
+    <!-- AI Kernel 101 | From Hello World to FlashAttention in Ascend C @LambertLiu -->
+    <g style="fill: #cfd3d7" transform="translate(427.538925 27.662737) scale(0.1296 -0.1296)">
      <defs>
       <path id="Consolas-4" d="M 3488 0
 L 2881 0
@@ -2157,45 +2157,44 @@ z
      <use xlink:href="#Consolas-83" transform="translate(2089.40625 0)"/>
      <use xlink:href="#Consolas-95" transform="translate(2144.390625 0)"/>
      <use xlink:href="#Consolas-8a" transform="translate(2199.375 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2254.359375 0)"/>
-     <use xlink:href="#Consolas-4" transform="translate(2309.34375 0)"/>
+     <use xlink:href="#Consolas-4" transform="translate(2254.359375 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(2309.34375 0)"/>
      <use xlink:href="#Consolas-96" transform="translate(2364.328125 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(2419.3125 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(2474.296875 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2529.28125 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(2584.265625 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(2639.25 0)"/>
-     <use xlink:href="#Consolas-91" transform="translate(2694.234375 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2749.21875 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2804.203125 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(2859.1875 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2914.171875 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2969.15625 0)"/>
-     <use xlink:href="#Consolas-4" transform="translate(3024.140625 0)"/>
-     <use xlink:href="#Consolas-95" transform="translate(3079.125 0)"/>
-     <use xlink:href="#Consolas-85" transform="translate(3134.109375 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(3189.09375 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(3244.078125 0)"/>
-     <use xlink:href="#Consolas-86" transform="translate(3299.0625 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(3354.046875 0)"/>
-     <use xlink:href="#Consolas-6" transform="translate(3409.03125 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(3464.015625 0)"/>
-     <use xlink:href="#Consolas-252" transform="translate(3519 0)"/>
-     <use xlink:href="#Consolas-f" transform="translate(3573.984375 0)"/>
-     <use xlink:href="#Consolas-83" transform="translate(3628.96875 0)"/>
-     <use xlink:href="#Consolas-8f" transform="translate(3683.953125 0)"/>
-     <use xlink:href="#Consolas-84" transform="translate(3738.9375 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(3793.921875 0)"/>
-     <use xlink:href="#Consolas-94" transform="translate(3848.90625 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(3903.890625 0)"/>
-     <use xlink:href="#Consolas-f" transform="translate(3958.875 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(4013.859375 0)"/>
-     <use xlink:href="#Consolas-97" transform="translate(4068.84375 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(2419.3125 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2474.296875 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(2529.28125 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(2584.265625 0)"/>
+     <use xlink:href="#Consolas-91" transform="translate(2639.25 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2694.234375 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(2749.21875 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(2804.203125 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2859.1875 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(2914.171875 0)"/>
+     <use xlink:href="#Consolas-4" transform="translate(2969.15625 0)"/>
+     <use xlink:href="#Consolas-95" transform="translate(3024.140625 0)"/>
+     <use xlink:href="#Consolas-85" transform="translate(3079.125 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(3134.109375 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(3189.09375 0)"/>
+     <use xlink:href="#Consolas-86" transform="translate(3244.078125 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(3299.0625 0)"/>
+     <use xlink:href="#Consolas-6" transform="translate(3354.046875 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(3409.03125 0)"/>
+     <use xlink:href="#Consolas-252" transform="translate(3464.015625 0)"/>
+     <use xlink:href="#Consolas-f" transform="translate(3519 0)"/>
+     <use xlink:href="#Consolas-83" transform="translate(3573.984375 0)"/>
+     <use xlink:href="#Consolas-8f" transform="translate(3628.96875 0)"/>
+     <use xlink:href="#Consolas-84" transform="translate(3683.953125 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(3738.9375 0)"/>
+     <use xlink:href="#Consolas-94" transform="translate(3793.921875 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(3848.90625 0)"/>
+     <use xlink:href="#Consolas-f" transform="translate(3903.890625 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(3958.875 0)"/>
+     <use xlink:href="#Consolas-97" transform="translate(4013.859375 0)"/>
     </g>
    </g>
    <g id="text_4">
-    <!-- AI Kernel 101 | From Hello World to Flash Attention in Ascend C @LambertLiu -->
-    <g style="fill: #cfd3d7" transform="translate(423.975937 763.502738) scale(0.1296 -0.1296)">
+    <!-- AI Kernel 101 | From Hello World to FlashAttention in Ascend C @LambertLiu -->
+    <g style="fill: #cfd3d7" transform="translate(427.538925 763.502738) scale(0.1296 -0.1296)">
      <use xlink:href="#Consolas-4"/>
      <use xlink:href="#Consolas-c" transform="translate(54.984375 0)"/>
      <use xlink:href="#Consolas-3" transform="translate(109.96875 0)"/>
@@ -2237,40 +2236,39 @@ z
      <use xlink:href="#Consolas-83" transform="translate(2089.40625 0)"/>
      <use xlink:href="#Consolas-95" transform="translate(2144.390625 0)"/>
      <use xlink:href="#Consolas-8a" transform="translate(2199.375 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2254.359375 0)"/>
-     <use xlink:href="#Consolas-4" transform="translate(2309.34375 0)"/>
+     <use xlink:href="#Consolas-4" transform="translate(2254.359375 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(2309.34375 0)"/>
      <use xlink:href="#Consolas-96" transform="translate(2364.328125 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(2419.3125 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(2474.296875 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2529.28125 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(2584.265625 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(2639.25 0)"/>
-     <use xlink:href="#Consolas-91" transform="translate(2694.234375 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2749.21875 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2804.203125 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(2859.1875 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(2914.171875 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(2969.15625 0)"/>
-     <use xlink:href="#Consolas-4" transform="translate(3024.140625 0)"/>
-     <use xlink:href="#Consolas-95" transform="translate(3079.125 0)"/>
-     <use xlink:href="#Consolas-85" transform="translate(3134.109375 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(3189.09375 0)"/>
-     <use xlink:href="#Consolas-90" transform="translate(3244.078125 0)"/>
-     <use xlink:href="#Consolas-86" transform="translate(3299.0625 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(3354.046875 0)"/>
-     <use xlink:href="#Consolas-6" transform="translate(3409.03125 0)"/>
-     <use xlink:href="#Consolas-3" transform="translate(3464.015625 0)"/>
-     <use xlink:href="#Consolas-252" transform="translate(3519 0)"/>
-     <use xlink:href="#Consolas-f" transform="translate(3573.984375 0)"/>
-     <use xlink:href="#Consolas-83" transform="translate(3628.96875 0)"/>
-     <use xlink:href="#Consolas-8f" transform="translate(3683.953125 0)"/>
-     <use xlink:href="#Consolas-84" transform="translate(3738.9375 0)"/>
-     <use xlink:href="#Consolas-87" transform="translate(3793.921875 0)"/>
-     <use xlink:href="#Consolas-94" transform="translate(3848.90625 0)"/>
-     <use xlink:href="#Consolas-96" transform="translate(3903.890625 0)"/>
-     <use xlink:href="#Consolas-f" transform="translate(3958.875 0)"/>
-     <use xlink:href="#Consolas-8b" transform="translate(4013.859375 0)"/>
-     <use xlink:href="#Consolas-97" transform="translate(4068.84375 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(2419.3125 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2474.296875 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(2529.28125 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(2584.265625 0)"/>
+     <use xlink:href="#Consolas-91" transform="translate(2639.25 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2694.234375 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(2749.21875 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(2804.203125 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(2859.1875 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(2914.171875 0)"/>
+     <use xlink:href="#Consolas-4" transform="translate(2969.15625 0)"/>
+     <use xlink:href="#Consolas-95" transform="translate(3024.140625 0)"/>
+     <use xlink:href="#Consolas-85" transform="translate(3079.125 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(3134.109375 0)"/>
+     <use xlink:href="#Consolas-90" transform="translate(3189.09375 0)"/>
+     <use xlink:href="#Consolas-86" transform="translate(3244.078125 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(3299.0625 0)"/>
+     <use xlink:href="#Consolas-6" transform="translate(3354.046875 0)"/>
+     <use xlink:href="#Consolas-3" transform="translate(3409.03125 0)"/>
+     <use xlink:href="#Consolas-252" transform="translate(3464.015625 0)"/>
+     <use xlink:href="#Consolas-f" transform="translate(3519 0)"/>
+     <use xlink:href="#Consolas-83" transform="translate(3573.984375 0)"/>
+     <use xlink:href="#Consolas-8f" transform="translate(3628.96875 0)"/>
+     <use xlink:href="#Consolas-84" transform="translate(3683.953125 0)"/>
+     <use xlink:href="#Consolas-87" transform="translate(3738.9375 0)"/>
+     <use xlink:href="#Consolas-94" transform="translate(3793.921875 0)"/>
+     <use xlink:href="#Consolas-96" transform="translate(3848.90625 0)"/>
+     <use xlink:href="#Consolas-f" transform="translate(3903.890625 0)"/>
+     <use xlink:href="#Consolas-8b" transform="translate(3958.875 0)"/>
+     <use xlink:href="#Consolas-97" transform="translate(4013.859375 0)"/>
     </g>
    </g>
    <g id="text_5">
