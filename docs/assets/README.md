@@ -10,6 +10,7 @@
 docs/assets/
 ├── README.md          # 归档、视觉与来源约定
 ├── figures/           # 文档插图；含绘图代码、生成图与外部参考插图
+│   ├── plans/         # 草稿与定稿共用的逐篇插图规划
 │   ├── src/           # 绘图源代码
 │   ├── gen/           # 同名 PNG、SVG
 │   └── PipeBarrier.png
@@ -40,7 +41,7 @@ docs/assets/
 
 # 源文件与输出
 
-优先用可复现代码生成 SVG、PNG 和曲线。文稿配图代码存放在 `docs/assets/figures/src`，PNG 和 SVG 同名输出到 `docs/assets/figures/gen`，正文以相对路径引用 PNG。外部参考插图归入 `figures`，历史截图归入 `screenshot`，品牌素材及其生成材料归入 `brand`。实验受控数据与原始记录仍放对应 lab 主题，绘图不改变实验数据。源代码、PNG 与 SVG 一并版本管理。
+优先用可复现代码生成 SVG、PNG 和曲线。草稿与定稿的插图规划存放在 `docs/assets/figures/plans`，与生成脚本和图片一起维护；逐篇记录图号、位置、解释目标、画法、证据边界和生成入口，不在 lab 保留规划副本。文稿配图代码存放在 `docs/assets/figures/src`，PNG 和 SVG 同名输出到 `docs/assets/figures/gen`，正文以相对路径引用 PNG。外部参考插图归入 `figures`，历史截图归入 `screenshot`，品牌素材及其生成材料归入 `brand`。实验受控数据与原始记录仍放对应 lab 主题，绘图不改变实验数据。源代码、PNG 与 SVG 一并版本管理。
 
 正文插图统一使用 1920×1080 像素画布，白底、非透明，PNG 与 SVG 共用布局；平台适配时再单独调整。以下是内部导出参考，不是平台上传限制：GitHub／长文可使用可缩放 SVG 或清晰 PNG；知乎和公众号检查手机缩放；小红书可另做1080×1440的分页图卡，拆开密集推导。实际输出以平台预览可读性为准，不能为了精简删去关键单位、证据与限制。
 

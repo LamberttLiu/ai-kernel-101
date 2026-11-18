@@ -120,7 +120,7 @@ aliases:
 
 第 08 篇反向检查补充：明确区分存储容量、逻辑搬运量与实测访存；中间张量变小不直接意味着总 IO 变为线性。
 
-证据与交付：组织与数据路径图、算子分类表、可手算的 FLOPs/Bytes 对照及 [Add／Matmul 实验与配图设计](../lab/hardware-dataflow/experiment-plan.md)。七项真机实验已运行并归档，结果分析与正文回填待完成；具体资源参数引用对应架构资料，未执行验证不写成结果。
+证据与交付：组织与数据路径图、算子分类表、可手算的 FLOPs/Bytes 对照及 [Add／Matmul 实验设计](../lab/hardware-dataflow/experiment-plan.md)与[插图规划及生成入口](../docs/assets/figures/plans/02-hardware-dataflow.md)。七项真机实验已运行并归档，结果分析与正文回填待完成；具体资源参数引用对应架构资料，未执行验证不写成结果。
 
 衔接：先选择依赖最简单的 Add，把硬件模型落到可运行数据流。
 

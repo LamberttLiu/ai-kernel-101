@@ -1,6 +1,7 @@
 ---
 series: AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 article_id: 02-hardware-dataflow
+figure_plan: ../assets/figures/plans/02-hardware-dataflow.md
 title: 同样是计算，NPU 为什么要区分 Vector 和 Cube？
 aliases:
   - 第 02 篇：算子、硬件与数据流
@@ -381,4 +382,4 @@ Add 的强度在假设下固定为 $1/12$ ；Matmul 能让一份输入贡献给�
 
 [下一篇](vector-add.md)就沿着现有最小 Add 源码，追踪一个 Block 的地址、局部存储、真实搬运和计算结果。我们要核对的不是加法公式，而是：**这几段数据，是否在正确的时刻，出现在执行单元能够使用的位置。**
 
-<!-- 内部审核：正文中的参数示例均为假设，实验已运行并归档，正文分析与图 12 待完成；资料版本、引语核对及配图设计集中记录在 lab/hardware-dataflow/experiment-plan.md，不因本轮文档修改提升验证状态。 -->
+<!-- 内部审核：正文中的参数示例均为假设，实验已运行并归档，正文分析与图 12 待完成；实验资料版本与引语待核对项见 lab/hardware-dataflow/experiment-plan.md；插图规划与生成入口见 docs/assets/figures/plans/02-hardware-dataflow.md，不因本轮文档修改提升验证状态。 -->

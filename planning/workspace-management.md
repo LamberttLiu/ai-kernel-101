@@ -14,7 +14,7 @@ ai-kernel-101/
 │   ├── drafts/                  # 写作中的正文
 │   ├── articles/                # 定稿正文
 │   └── assets/
-│       ├── figures/             # 文档插图与绘图材料
+│       ├── figures/             # 文档插图：plans 规划、src 代码、gen 图片
 │       ├── screenshot/          # 环境与实验截图
 │       └── brand/               # 品牌素材
 ├── planning/
@@ -45,7 +45,7 @@ ai-kernel-101/
 - **文章**：`docs/drafts` 保存唯一写作正文，定稿后移入 `docs/articles`。状态与文章目录、首页目录同步，具体缺项写入 `to_do_list`；八阶段流程见 [文章目录](../docs/README.md#统一撰写流程)。
 - **规划**：[系列计划](series-plan.md) 保存技术依赖与逐篇论证，提纲放入 `planning/outlines`，临时想法放入 `planning/inbox`。
 - **代码与实验**：[lab](../lab/README.md) 是唯一的实验工程工作区。每个主题按需要包含 README、experiment-plan、src、scripts、results、reports；源码与构建入口、设计、数据和分析在同一主题中维护，不创建空文件占位。实验编号与路径解耦，已有编号保持稳定；明确形成复用需求后才建立 lab/common。来源与许可线索见 [实现来源说明](../lab/SOURCES.md)。正文解释知识并引用实验依据，不另存一套实验结果。
-- **配图**：按用途归入 `figures`、`screenshot`、`brand`，编号、生成与来源规则见 [配图约定](../docs/assets/README.md)。
+- **配图**：草稿与定稿共用 docs/assets/figures 下的 plans、src、gen，统一维护插图规划、生成脚本与图片；不将正文插图规划放在 lab 的实验设计中。素材按用途归入 `figures`、`screenshot`、`brand`，编号、生成与来源规则见 [配图约定](../docs/assets/README.md)。
 - **发布**：平台适配、真实链接、版本与勘误见 [发布管理](../publishing/README.md)；文章定稿与平台发布分别记录。
 
 # 本地与公开边界
