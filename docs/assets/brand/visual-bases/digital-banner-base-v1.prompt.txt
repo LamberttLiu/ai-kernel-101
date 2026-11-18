@@ -1,0 +1,13 @@
+Generation date: 2026-11-18
+Tool: image_gen.imagegen (built-in); specific model version not exposed.
+Reference: ai-kernel-101-digital-poster-v1.png, approved particle numeral style. Recompose to horizontal 8:3 and remove all editorial text.
+The generated master is preserved. A proportional LANCZOS downsample produces the 1600x600 sRGB PNG; no stretching or cropped numerals.
+
+Use case: precise-object-edit / poster-to-banner recomposition.
+Input image 1 is the APPROVED VISUAL STYLE and numeral artwork reference. Preserve the luminous binary-digit “101” look, but completely recompose it into a WIDE TEXT-FREE BANNER FOUNDATION.
+Output: a single ultra-wide horizontal 8:3 landscape image, 2048 x 768 pixels. NOT a portrait, NOT a framed poster or a screenshot.
+Keep: huge unmistakable “101” made from densely layered tiny 0/1 binary characters, tiny sparkling particles, short horizontal scan lines, crisp icy-white rim light and cool electric-blue light. The 0 has a large clean hole, both 1s have clean recognizable silhouettes. Preserve the reference's refined digital-particle typography, minimal near-black background and subtle deep-blue atmosphere.
+Change layout: place the complete particle 101 artwork on the RIGHT half, approximately x=54% to x=96%, vertically centered and occupying about 70% of banner height. It must remain fully inside the canvas, with a comfortable top/bottom margin and no chopped glyphs. Do not stretch the numerals. Keep particles and horizontal trails restrained around the artwork.
+The LEFT 50–52% of the banner must be quiet clean black negative space for future text layout. No particles, symbols, titles, placeholder boxes, shapes or light beams in that reserved zone. Transition subtly into the blue illumination around the right-hand artwork.
+REMOVE ALL editorial text from the reference: no “AI Kernel 101” title, no Chinese subtitle, no “Ascend C”, no slogan, no footer, no @LamberttLiu, no watermark, no logo. The ONLY glyphs anywhere are the giant central-artwork 101 and the tiny binary 0/1 characters that physically form its particles. No other typography.
+Do not introduce a core cube, voxel blocks, a processor, matrix panels, red accents, arrows, a new icon or unrelated objects. Do not copy the old poster layout. The desired result is specifically the approved large binary-particle 101 on the right and clean black room on the left, ready for later code typography.

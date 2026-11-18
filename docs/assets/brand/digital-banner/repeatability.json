@@ -1,0 +1,9 @@
+{
+  "baseUnchanged": true,
+  "version": "v2",
+  "outputs": {
+    "ai-kernel-101-digital-banner-1600x600-v2.svg": true,
+    "ai-kernel-101-digital-banner-1600x600-v2.png": true,
+    "ai-kernel-101-digital-banner-2048x768-v2.png": true
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "name": "ai-kernel-101-github-banner",
-  "version": "1.1.2",
+  "name": "ai-kernel-101-digital-banner",
+  "version": "1.0.0",
   "private": true,
   "scripts": { "build": "node build.cjs" },
   "engines": { "node": "24.22.x" },

@@ -1,0 +1,44 @@
+[
+  {
+    "file": "ai-kernel-101-digital-poster-v1.png",
+    "width": 1086,
+    "height": 1448,
+    "mode": "RGB",
+    "sha256": "a3cc1f1e3b4bc370a289bfe4c872d90698bc41643876dd57811312dcbcdd8914"
+  },
+  {
+    "file": "ai-kernel-101-digital-banner-base-master-v1.png",
+    "width": 2048,
+    "height": 768,
+    "mode": "RGB",
+    "sha256": "4c2af77d07fe5f60647437e7c495f56a9867becc59a2c8b1c2223ec4b933b83e"
+  },
+  {
+    "file": "ai-kernel-101-digital-banner-base-1600x600-v1.png",
+    "width": 1600,
+    "height": 600,
+    "mode": "RGB",
+    "sha256": "618b4ebedb6f29591732d66262bcd4b06cc58e0dfcbb05c3fa285d439c5e2ccf",
+    "derivedFrom": "ai-kernel-101-digital-banner-base-master-v1.png",
+    "resize": "LANCZOS, proportional downsample",
+    "renderer": "Pillow 13.0.0",
+    "icc": "sRGB"
+  },
+  {
+    "file": "ai-kernel-101-digital-banner-base-master-v2.png",
+    "width": 2048,
+    "height": 768,
+    "mode": "RGB",
+    "sha256": "755e9f430927121667d8a3fb271502a4011b8df1b8a5222b0ac12727e98df359"
+  },
+  {
+    "file": "ai-kernel-101-digital-banner-base-1600x600-v2.png",
+    "width": 1600,
+    "height": 600,
+    "mode": "RGB",
+    "sha256": "d3db1f0ba24300083a5254958790306d803316cda2cb3dee03226b36d7fbae96",
+    "derivedFrom": "ai-kernel-101-digital-banner-base-master-v2.png",
+    "resize": "LANCZOS, proportional downsample",
+    "icc": "sRGB"
+  }
+]

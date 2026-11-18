@@ -1,0 +1,20 @@
+Generation date: 2026-11-18
+Tool: image_gen.imagegen (built-in); specific model version not exposed.
+Reference: user-provided screenshot, 照片 1.jpg (GLM-5 digital-numeral poster). Style/composition reference, not an image to preserve. Screenshot UI and original brand marks omitted.
+
+Use case: ads-marketing.
+Asset type: a finished original portrait technology editorial poster for AI Kernel 101.
+Input Image 1 is a STYLE AND COMPOSITION REFERENCE ONLY: a phone screenshot of a GLM launch poster. Extract the black editorial poster and its large luminous digital numeral art direction. Do NOT reproduce the screenshot, screen margins, close button, image counter, rainbow separator, logos, GLM branding, z.ai, original slogans, or the numeral 5.
+Create a new polished AI Kernel 101 poster, portrait 3:4 aspect ratio, ideally 1536 x 2048. This is a complete poster with accurate text, not an empty background.
+Design direction: minimalist near-black background, crisp white typography, icy blue highlights, restrained navy light near the lower edge. Strong typographic hierarchy, generous negative space at the top, premium AI research release visual. Flat graphic digital particle art, NOT a solid 3D sculpture, NOT voxel cubes, NOT a processor illustration or glowing orb.
+Main visual: an enormous clearly legible “101”, all three numerals side by side, occupying most of the width and the lower 60% of the poster. The numerals are built from densely layered tiny binary digits, small bright code-like particles, short horizontal scan lines, and fine points of blue-white light, with a luminous clean silhouette and an unmistakable open central hole in the zero. Some fine particles trail horizontally into the surrounding darkness, suggesting computation in motion. Hot white edges, soft electric blue within, controlled small highlights. Keep the overall numerals legible before the details. Avoid chunky rectangular blocks, deep extrusion, abstract letter shapes, circuit boards, excessive bloom or rainbow neon.
+Typography layout:
+- Upper center: a large bold clean sans serif title, EXACT: “AI Kernel 101”. White with a subtle icy-blue accent on 101, not a repeated logo.
+- Below it, a centered smaller line, EXACT: “从 Hello World 到 Flash Attention”
+- Below that, a slightly smaller centered line, EXACT: “Ascend C · 第一性原理 · 性能优化”
+- Bottom left, small understated two-line English footer, EXACT:
+“UNDERSTAND THE COMPUTE.”
+“ENGINEER THE PERFORMANCE.”
+- Bottom right: small subdued gray italic author mark, EXACT: “@LamberttLiu”
+Leave comfortable spacing between title, subtitles and the large numeral artwork; nothing overlaps. All Chinese characters must be correctly formed. No other readable text, no fabricated code paragraphs, no additional logos, no reference-brand marks.
+The finished poster should feel close to the reference's typographic-particle visual language and sophisticated restraint, while remaining an original AI Kernel 101 composition.

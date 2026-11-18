@@ -1,0 +1,200 @@
+{
+  "base": {
+    "file": "../visual-bases/ai-kernel-101-digital-banner-base-master-v2.png",
+    "sha256": "755e9f430927121667d8a3fb271502a4011b8df1b8a5222b0ac12727e98df359",
+    "width": 2048,
+    "height": 768
+  },
+  "node": "v24.22.1",
+  "sharp": {
+    "aom": "3.15.1",
+    "archive": "3.8.9",
+    "cairo": "1.18.6",
+    "cgif": "0.5.4",
+    "exif": "0.6.26",
+    "expat": "2.8.5",
+    "ffi": "3.8.0",
+    "fontconfig": "2.18.3",
+    "freetype": "2.14.3",
+    "fribidi": "1.0.17",
+    "glib": "2.90.0",
+    "harfbuzz": "14.5.0",
+    "heif": "1.23.5",
+    "highway": "1.4.0",
+    "imagequant": "2.4.1",
+    "lcms": "2.19.1",
+    "mozjpeg": "0826579",
+    "pango": "1.58.2",
+    "pixman": "0.46.4",
+    "png": "1.6.58",
+    "proxy-libintl": "0.5",
+    "rsvg": "2.63.2",
+    "tiff": "4.7.2",
+    "uhdr": "2.0.2",
+    "vips": "8.18.7",
+    "webp": "1.6.0",
+    "xml2": "2.15.4",
+    "zlib-ng": "2.3.3",
+    "sharp": "0.35.5"
+  },
+  "fonts": {
+    "Inter": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "InterItalic": "acd98e64795781b2058f07b18475e0ecee2a0fe2b42a49e2f9e37d0d6bf66ce6"
+  },
+  "copy": {
+    "title": "AI Kernel 101",
+    "subtitle": "从 Hello World 到 Flash Attention",
+    "keywords": "Ascend C · 第一性原理 · 性能优化",
+    "slogan1": "UNDERSTAND THE COMPUTE.",
+    "slogan2": "ENGINEER THE PERFORMANCE.",
+    "author": "@LamberttLiu"
+  },
+  "layout": {
+    "title": {
+      "x": 96,
+      "y": 272,
+      "size": 128
+    },
+    "subtitle": {
+      "x": 96,
+      "y": 368,
+      "size": 36
+    },
+    "keywords": {
+      "x": 96,
+      "y": 440,
+      "size": 30
+    },
+    "slogan1": {
+      "x": 96,
+      "y": 680,
+      "size": 21
+    },
+    "slogan2": {
+      "x": 96,
+      "y": 712,
+      "size": 21
+    },
+    "author": {
+      "x": 1952,
+      "y": 704,
+      "size": 22
+    }
+  },
+  "gradient": [
+    "#E6F4FF",
+    "#77B7FF",
+    "#3C8DF5"
+  ],
+  "browser": "157.0.4341.60",
+  "bounds": [
+    {
+      "id": "title-text",
+      "text": "AI Kernel 101",
+      "x": 96,
+      "y": 148,
+      "width": 743.890625,
+      "height": 155
+    },
+    {
+      "id": "subtitle",
+      "text": "从 Hello World 到 Flash Attention",
+      "x": 96,
+      "y": 330,
+      "width": 569.984375,
+      "height": 47
+    },
+    {
+      "id": "keywords",
+      "text": "Ascend C · 第一性原理 · 性能优化",
+      "x": 96,
+      "y": 408,
+      "width": 453.640625,
+      "height": 40
+    },
+    {
+      "id": "slogan1",
+      "text": "UNDERSTAND THE COMPUTE.",
+      "x": 96,
+      "y": 660,
+      "width": 302.328125,
+      "height": 25
+    },
+    {
+      "id": "slogan2",
+      "text": "ENGINEER THE PERFORMANCE.",
+      "x": 96,
+      "y": 692,
+      "width": 316.828125,
+      "height": 25
+    },
+    {
+      "id": "author",
+      "text": "@LamberttLiu",
+      "x": 1809.84375,
+      "y": 683,
+      "width": 142.560302734375,
+      "height": 26
+    }
+  ],
+  "platformFonts": {
+    "title-text": [
+      {
+        "familyName": "Inter",
+        "postScriptName": "Inter-28pt-Bold",
+        "isCustomFont": true,
+        "glyphCount": 13
+      }
+    ],
+    "subtitle": [
+      {
+        "familyName": "Microsoft YaHei",
+        "postScriptName": "MicrosoftYaHei",
+        "isCustomFont": false,
+        "glyphCount": 31
+      }
+    ],
+    "keywords": [
+      {
+        "familyName": "Microsoft YaHei",
+        "postScriptName": "MicrosoftYaHei",
+        "isCustomFont": false,
+        "glyphCount": 23
+      }
+    ],
+    "slogan1": [
+      {
+        "familyName": "Inter",
+        "postScriptName": "Inter-20pt",
+        "isCustomFont": true,
+        "glyphCount": 23
+      }
+    ],
+    "slogan2": [
+      {
+        "familyName": "Inter",
+        "postScriptName": "Inter-20pt",
+        "isCustomFont": true,
+        "glyphCount": 25
+      }
+    ],
+    "author": [
+      {
+        "familyName": "Inter",
+        "postScriptName": "InterItalic-24pt-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ]
+  },
+  "preservation": {
+    "masterUnchanged": true,
+    "untouchedPixels": 1522667,
+    "changedOutsideText": 0
+  },
+  "outputs": {
+    "ai-kernel-101-digital-banner-2048x768-v2.png": "e6790e8a705c811c604c2453446e60adaa9c46423fbe3d1b99cc90438b17c617",
+    "ai-kernel-101-digital-banner-1600x600-v2.png": "2b9076bd2ea58657b5ab06fb43c185e71fe3dfa7f134ba95e1c6f9deec3b0e18",
+    "ai-kernel-101-digital-banner-1600x600-v2.svg": "3cf7101ba4ffa5575e14a79997413db1efb615e46051f5eee7f24f105f00fb8d"
+  }
+}

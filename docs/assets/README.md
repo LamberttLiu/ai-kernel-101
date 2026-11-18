@@ -19,7 +19,7 @@ docs/assets/
 
 文档插图遵循[绘图工作流](figures/README.md)，按正文出现顺序从 `fig1` 编号；源文件、PNG、SVG 与文中图号保持一致。截图保留原始文件名。粘贴附件默认进入 `screenshot`，属于插图或品牌素材的再归入对应目录。
 
-品牌图片直接引用 `brand` 中的文件，不在截图或插图目录保存副本。例如，项目首页直接引用 `docs/assets/brand/github-banner/ai-kernel-101_github-hero_brand-c_1600x600.png`；品牌规范见 [VI 规范](brand/VI-Specification.md)。
+品牌图片直接引用 `brand` 中的文件，不在截图或插图目录保存副本。项目首页使用数字粒子 101 横幅，直接引用 `docs/assets/brand/digital-banner/ai-kernel-101-digital-banner-1600x600-v2.png`；当前品牌规范见 [VI 规范](brand/VI-Specification.md)，分层构建方式见[横幅说明](brand/digital-banner/README.md)。
 
 # 可复现与标识
 

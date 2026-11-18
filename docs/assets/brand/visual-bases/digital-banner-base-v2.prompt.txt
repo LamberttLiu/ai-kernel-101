@@ -1,0 +1,11 @@
+Generation date: 2026-11-18
+Tool: image_gen.imagegen (built-in); specific model version not exposed.
+Edit target: ai-kernel-101-digital-banner-base-master-v1.png.
+Purpose: increase the right safety margin at the art layer, without adding text. The v1 file is preserved; the edited result is saved separately as master-v2.png. Typography is generated independently by digital-banner/build.cjs.
+
+Use case: precise-object-edit.
+Input image 1 is the approved TEXT-FREE 8:3 horizontal banner master.
+Make ONE subtle compositional correction: give the particle “101” more breathing room on the RIGHT edge. Preserve its exact aesthetic and identity: the three clear numerals, binary-character particles, icy-white highlights, electric-blue lighting, near-black background and dark navy lower glow. Do not redesign or regenerate a different kind of numeral.
+Keep the canvas exactly 2048 x 768, horizontal 8:3. Recompose the existing particle artwork as one group: approximately 8% smaller, centered a touch farther left, keeping its natural proportions and vertical center. Target: the solid bright numeral silhouette ends by about 92% of canvas width, and even the furthest small particle trails end by about 95% of canvas width. A clean near-black safety strip of roughly 5% canvas width must remain at the right edge. All numeral outlines and bright glows fit comfortably inside; nothing is clipped.
+The left 50% remains quiet clean black title space, unchanged in character. Do not move the numerals or particle trails into this future typography area. The change should feel like a subtle safety-margin refinement of the approved artwork, not a smaller icon or a new design.
+Absolutely NO added text, titles, Chinese, author signature, logos, UI or watermark. The only glyphs are the large artwork 101 and its tiny binary digits. Do not add arrows, colored blocks or new accent colors. Keep the particle visual and the typography separated: this edit is background art ONLY; typography will be composed later in code.

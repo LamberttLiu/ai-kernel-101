@@ -1,4 +1,4 @@
-![AI Kernel 101：从 Hello World 到 Flash Attention，Ascend C · First Principles · Performance](docs/assets/brand/github-banner/ai-kernel-101_github-hero_brand-c_1600x600.png)
+![AI Kernel 101：从 Hello World 到 Flash Attention，Ascend C · 第一性原理 · 性能优化](docs/assets/brand/digital-banner/ai-kernel-101-digital-banner-1600x600-v2.png)
 
 # AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 

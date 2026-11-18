@@ -1,0 +1,29 @@
+{
+  "canvas": { "width": 2048, "height": 768 },
+  "exportVersion": "v2",
+  "base": "../visual-bases/ai-kernel-101-digital-banner-base-master-v2.png",
+  "copy": {
+    "title": "AI Kernel 101",
+    "subtitle": "从 Hello World 到 Flash Attention",
+    "keywords": "Ascend C · 第一性原理 · 性能优化",
+    "slogan1": "UNDERSTAND THE COMPUTE.",
+    "slogan2": "ENGINEER THE PERFORMANCE.",
+    "author": "@LamberttLiu"
+  },
+  "positions": {
+    "title": { "x": 96, "y": 272, "size": 128 },
+    "subtitle": { "x": 96, "y": 368, "size": 36 },
+    "keywords": { "x": 96, "y": 440, "size": 30 },
+    "slogan1": { "x": 96, "y": 680, "size": 21 },
+    "slogan2": { "x": 96, "y": 712, "size": 21 },
+    "author": { "x": 1952, "y": 704, "size": 22 }
+  },
+  "colors": {
+    "title": "#F5F7FC",
+    "subtitle": "#DBE1EA",
+    "keywords": "#C9D3E1",
+    "slogan": "#B8C4D3",
+    "author": "#A6ADB8",
+    "gradient": ["#E6F4FF", "#77B7FF", "#3C8DF5"]
+  }
+}
