@@ -2,6 +2,7 @@
 #include <cstdint>
 #include "acl/acl.h"
 #include "kernel_operator.h"
+#define ASCENDC_CUBE_ONLY
 #include "adv_api/matmul_intf.h"
 #include "tiling/matrix/matmul_tiling.h"
 #include "tiling/platform/platform_ascendc.h"
@@ -78,6 +79,14 @@ extern "C" int device_info(unsigned *aiv, unsigned *aic, uint64_t *workspace)
     return 0;
 }
 
+extern "C" uint64_t l2_capacity()
+{
+    uint64_t bytes = 0;
+    auto *p = runtime_platform();
+    if (p) p->GetCoreMemSize(platform_ascendc::CoreMemType::L2, bytes);
+    return bytes;
+}
+
 // The single-process driver prepares one configuration at a time.
 static Tiling prepared;
 extern "C" int prepare_mm(unsigned n, unsigned tile, unsigned *base)
@@ -101,7 +110,7 @@ extern "C" int prepare_mm(unsigned n, unsigned tile, unsigned *base)
     base[0] = prepared.baseM;
     base[1] = prepared.baseN;
     base[2] = prepared.baseK;
-    return base[0] == tile && base[1] == tile && base[2] == 32 ? 0 : -3;
+    return base[0] == tile && base[1] == tile && base[2] > 0 && n % base[2] == 0 ? 0 : -3;
 }
 
 extern "C" void launch_add(float *x, float *y, float *z, unsigned n, unsigned workers, aclrtStream s)

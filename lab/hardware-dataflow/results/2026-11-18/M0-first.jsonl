@@ -1,0 +1,3 @@
+{"stage": "M0", "device": "Ascend910_9362", "seed": 2026, "aiv": 40, "aic": 20, "torch": "2.7.1+cpu", "torch_npu": "2.7.1.post4", "workers": 20, "reps": 50, "l2_bytes": null, "hbm_bytes": null}
+{"kind": "M0", "tile": 32, "passed": false, "reason": "tiling rejected (-3), returned [32, 32, 64]"}
+{"kind": "M0", "tile": 64, "passed": false, "reason": "tiling rejected (-3), returned [64, 64, 64]"}

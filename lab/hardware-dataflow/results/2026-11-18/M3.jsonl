@@ -1,0 +1,30 @@
+{"stage": "M3", "device": "Ascend910_9362", "seed": 2026, "aiv": 40, "aic": 20, "torch": "2.7.1+cpu", "torch_npu": "2.7.1.post4", "workers": 20, "reps": 50, "l2_bytes": null, "platform_l2_bytes": 176160768, "task_queue_enable": 0, "hbm_bytes": null}
+{"kind": "check", "pattern": "zero", "base": [32, 32, 64], "n": 64, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "identity", "base": [32, 32, 64], "n": 64, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "precision", "base": [32, 32, 64], "n": 64, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "cancellation", "base": [32, 32, 64], "n": 64, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "random", "base": [32, 32, 64], "n": 64, "tile": 32, "kernel": "mm_tiles", "max_abs": 1.8998980522155762e-07, "max_rel": 1.2038583660632326e-05, "rel_fro": 4.029064602732078e-08}
+{"kind": "check", "pattern": "zero", "base": [32, 32, 128], "n": 128, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "identity", "base": [32, 32, 128], "n": 128, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "precision", "base": [32, 32, 128], "n": 128, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "cancellation", "base": [32, 32, 128], "n": 128, "tile": 32, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "random", "base": [32, 32, 128], "n": 128, "tile": 32, "kernel": "mm_tiles", "max_abs": 3.7369318306446075e-07, "max_rel": 0.003176474440842257, "rel_fro": 5.315675326163041e-08}
+{"kind": "M0", "tile": 32, "passed": true}
+{"kind": "check", "pattern": "zero", "base": [64, 64, 64], "n": 64, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "identity", "base": [64, 64, 64], "n": 64, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "precision", "base": [64, 64, 64], "n": 64, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "cancellation", "base": [64, 64, 64], "n": 64, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "random", "base": [64, 64, 64], "n": 64, "tile": 64, "kernel": "mm_tiles", "max_abs": 1.8998980522155762e-07, "max_rel": 1.2038583660632326e-05, "rel_fro": 4.029064602732078e-08}
+{"kind": "check", "pattern": "zero", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "identity", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "precision", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "cancellation", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 0.0, "max_rel": 0.0, "rel_fro": 0.0}
+{"kind": "check", "pattern": "random", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 3.7369318306446075e-07, "max_rel": 0.003176474440842257, "rel_fro": 5.315675326163041e-08}
+{"kind": "M0", "tile": 64, "passed": true}
+{"kind": "check", "pattern": "random", "base": [64, 64, 128], "n": 128, "tile": 64, "kernel": "mm_tiles", "max_abs": 3.7369318306446075e-07, "max_rel": 0.003176474440842257, "rel_fro": 5.315675326163041e-08}
+{"kind": "group", "group": 0, "mean_us": 7.177199721336365, "launches": 50, "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}
+{"kind": "group", "group": 1, "mean_us": 25.2947998046875, "launches": 50, "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}
+{"kind": "group", "group": 2, "mean_us": 7.232000231742859, "launches": 50, "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}
+{"kind": "group", "group": 3, "mean_us": 7.188799977302551, "launches": 50, "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}
+{"kind": "group", "group": 4, "mean_us": 7.1376001834869385, "launches": 50, "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}
+{"kind": "timing", "min_us": 7.1376001834869385, "q1_us": 7.177199721336365, "median_us": 7.188799977302551, "q3_us": 7.232000231742859, "max_us": 25.2947998046875, "timer": "device_stream_group", "n": 128, "tile": 64, "kernel": "mm_tiles", "base": [64, 64, 128], "workers": 20, "flops": 4194304, "logical_bytes": 196608}

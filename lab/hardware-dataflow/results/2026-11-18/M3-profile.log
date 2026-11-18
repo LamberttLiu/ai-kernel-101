@@ -1,0 +1,29 @@
+[INFO] Start profiling....
+/opt/buildtools/Python-3.11.4/lib/python3.11/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /opt/buildtools/Python-3.11.4/lib/python3.11/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+[INFO] Start export data in PROF_000001_20261118083714725_00013456HHGBCOJA.
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: Start analyzing data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/host" ...
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: It may take few minutes, please be patient ...
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: Analysis data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/host" finished.
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: Start analyzing data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0" ...
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: It may take few minutes, please be patient ...
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_common.py: Analysis data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0" finished.
+Wed 18 Nov 2026 08:37:21 [INFO] [MSVP] [13644] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_export.py: The data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/host" has been analyzed. Parsing phase will be skipped.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_export.py: The data in "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0" has been analyzed. Parsing phase will be skipped.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_export.py: There is no summary data to export for "/mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/host"
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_export.py: All collected data will be exported, path is: /mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/device_0.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_common.py: Start exporting summary output_file.
+Wed 18 Nov 2026 08:37:23 [INFO] [MSVP] [13819] msprof_common.py: End exporting summary output_file.The file is stored in the /mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA/mindstudio_profiler_output path.
+[INFO] Export all data in PROF_000001_20261118083714725_00013456HHGBCOJA done.
+[INFO] Start query data in PROF_000001_20261118083714725_00013456HHGBCOJA.
+Job Info	Device ID	Dir Name	Collection Time           	Model ID	Iteration Number	Top Time Iteration	Rank ID	
+
+NA      	         	host    	2026-11-18 08:37:15.891890	N/A     	N/A             	N/A               	-1     	
+
+NA      	0        	device_0	2026-11-18 08:37:15.893987	N/A     	N/A             	N/A               	-1     	
+
+[INFO] Query all data in PROF_000001_20261118083714725_00013456HHGBCOJA done.
+[INFO] Profiling finished.
+[INFO] Process profiling data complete. Data is saved in /mnt/workspace/ai-kernel-101/.local/lab02/profile-m3/PROF_000001_20261118083714725_00013456HHGBCOJA

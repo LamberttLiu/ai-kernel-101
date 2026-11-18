@@ -4,14 +4,14 @@ article_id: 02-hardware-dataflow
 title: 同样是计算，NPU 为什么要区分 Vector 和 Cube？
 aliases:
   - 第 02 篇：算子、硬件与数据流
-writing_status: 初稿完成，实验待运行
+writing_status: 初稿完成，实验已运行，结果待分析
 publication_status: 未发布
 architecture_scope: NPU 架构版本 2201 的 SIMD 路径
-evidence_scope: 官方架构说明、源码静态分析与理论估算；本篇未新增实验
+evidence_scope: 官方架构说明、理论估算与 Lab02 七项 NPU 实验；结果归档，正文分析待回填
 to_do_list:
-  - 等待作者确认运行；先用 M0 核对 Matmul 接口，再选后续规模。
+  - 分析已归档的七项真机结果，区分事件计时、内核时间和逻辑流量。
   - 核对视频引语的上下文与时间点，固定架构和接口资料版本。
-  - 按实验计划确认目标 SoC、工具链、FP16 输入与 FP32 累计及输出路径。
+  - 核对 HBM 计数字段及同精度设备峰值，解释实际 K 分块与计划的差异。
   - 用通过正确性检查的真机数据绘制图 12，并回填实验结果。
 ---
 
@@ -271,7 +271,7 @@ $$P_{\mathrm{BW}}=B_{\max}I=10^{12}\ \mathrm{Byte/s}\times\frac{1\ \mathrm{FLOP}
 
 接着用同一个长向量增加任务数。如果时间明显缩短，说明之前还有并行处理的余地。要判断显存带宽是否已经用足，还要看设备实际从 HBM 读写了多少字节，并和同一设备上单独测得的连续读写速度比较。反复使用同一组输入时，一部分数据可能直接来自缓存。
 
-> 实验结果待补：Add 正确性、长度与任务数扫描、计时分布及可用的访存证据。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware-dataflow/experiment-plan.md#add验证容量流量与并行度)。
+> 已完成 Add 真机正确性检查、长度与任务数扫描、地址轮换对照及性能采集。结果见[真机报告](../../lab/hardware-dataflow/npu-report.md#lab02-a1)，正文分析待回填。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware-dataflow/experiment-plan.md#add验证容量流量与并行度)。
 
 ## Matmul：复用机会怎样改变模型，又怎样被实现限制
 
@@ -352,11 +352,11 @@ $$Q_{\mathrm{tile}}=\frac{4n^3}{b}+4n^2,\qquad I_{\mathrm{tile}}\approx\frac{nb}
 
 大块让输入有更多机会重复使用，但可分给各个核的输出块也从 256 个减到了 64 个。若程序确实少读了数据，耗时却没有下降，就要看实际有多少核在工作、缓存替两种实现各省了多少次显存读取。再换几个矩阵尺寸重复比较，就能看出这种现象出现在哪些规模上。
 
-> 实验结果待补：Matmul 接口可行性、数值误差、实际分块与字节计数、形状扫描和复用对照。完整方案见 [实验设计 Lab02-M0—Lab02-M3](../../lab/hardware-dataflow/experiment-plan.md#matmul验证理想复用与分块重读)。
+> 已完成 Matmul 真机检查、规模扫描、分块与 ACLNN 对照。实际 K 基础块由接口调整，结果与限制见[真机报告](../../lab/hardware-dataflow/npu-report.md#lab02-m0)，正文分析待回填。完整方案见 [实验设计 Lab02-M0—Lab02-M3](../../lab/hardware-dataflow/experiment-plan.md#matmul验证理想复用与分块重读)。
 
 ## 两条验证链最后要回答什么？
 
-> 【图 12 占位】待真机结果通过正确性检查后，对照 Add 的规模与任务数扫描、Matmul 的分块模型与耗时。实测点标出组间波动。
+> 【图 12 占位】真机结果已通过正确性检查；待完成计时与模型分析后，对照 Add 的规模与任务数扫描、Matmul 的分块模型与耗时。实测点标出组间波动。
 
 [本篇实验代码与运行说明](../../src/hardware_dataflow/README.md)
 
@@ -374,4 +374,4 @@ Add 的强度在假设下固定为 $1/12$ ；Matmul 能让一份输入贡献给�
 
 [下一篇](vector-add.md)就沿着现有最小 Add 源码，追踪一个 Block 的地址、局部存储、真实搬运和计算结果。我们要核对的不是加法公式，而是：**这几段数据，是否在正确的时刻，出现在执行单元能够使用的位置。**
 
-<!-- 内部审核：正文中的参数示例均为假设，实验与图 12 待完成；资料版本、引语核对及配图设计集中记录在 lab/hardware-dataflow/experiment-plan.md，不因本轮文档修改提升验证状态。 -->
+<!-- 内部审核：正文中的参数示例均为假设，实验已运行并归档，正文分析与图 12 待完成；资料版本、引语核对及配图设计集中记录在 lab/hardware-dataflow/experiment-plan.md，不因本轮文档修改提升验证状态。 -->

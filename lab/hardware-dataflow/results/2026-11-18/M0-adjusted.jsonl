@@ -1,0 +1,1 @@
+{"stage": "M0", "device": "Ascend910_9362", "seed": 2026, "aiv": 40, "aic": 20, "torch": "2.7.1+cpu", "torch_npu": "2.7.1.post4", "workers": 20, "reps": 50, "l2_bytes": null, "hbm_bytes": null}

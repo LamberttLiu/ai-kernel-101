@@ -1,0 +1,146 @@
+[
+  {
+    "stage": "A3",
+    "kernel": "add",
+    "n": 4194304,
+    "tile": null,
+    "slots": 4,
+    "samples": 250,
+    "median_task_us": 47.491
+  },
+  {
+    "stage": "A3",
+    "kernel": "torch.maximum",
+    "n": 4194304,
+    "tile": null,
+    "slots": 4,
+    "samples": 250,
+    "median_task_us": 44.6405
+  },
+  {
+    "stage": "A3",
+    "kernel": "torch.maximum",
+    "n": 4194304,
+    "tile": null,
+    "slots": 1,
+    "samples": 250,
+    "median_task_us": 11.12
+  },
+  {
+    "stage": "A3",
+    "kernel": "add",
+    "n": 4194304,
+    "tile": null,
+    "slots": 1,
+    "samples": 250,
+    "median_task_us": 25.8405
+  },
+  {
+    "stage": "M2",
+    "kernel": "mm_tiles",
+    "n": 512,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 13.94
+  },
+  {
+    "stage": "M2",
+    "kernel": "mm_tiles",
+    "n": 512,
+    "tile": 32,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 28.56
+  },
+  {
+    "stage": "M3",
+    "kernel": "mm_tiles",
+    "n": 128,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 7.26
+  },
+  {
+    "stage": "M3",
+    "kernel": "aclnnMm",
+    "n": 128,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 6.42
+  },
+  {
+    "stage": "M3",
+    "kernel": "mm_tiles",
+    "n": 1024,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 46.221
+  },
+  {
+    "stage": "M3",
+    "kernel": "aclnnMm",
+    "n": 1024,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 19.041
+  },
+  {
+    "stage": "M3",
+    "kernel": "mm_tiles",
+    "n": 512,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 13.94
+  },
+  {
+    "stage": "M3",
+    "kernel": "aclnnMm",
+    "n": 512,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 9.36
+  },
+  {
+    "stage": "M3",
+    "kernel": "mm_tiles",
+    "n": 256,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 8.46
+  },
+  {
+    "stage": "M3",
+    "kernel": "aclnnMm",
+    "n": 256,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 7.58
+  },
+  {
+    "stage": "M3",
+    "kernel": "mm_tiles",
+    "n": 64,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 6.66
+  },
+  {
+    "stage": "M3",
+    "kernel": "aclnnMm",
+    "n": 64,
+    "tile": 64,
+    "slots": null,
+    "samples": 250,
+    "median_task_us": 5.98
+  }
+]

@@ -2,12 +2,16 @@
 import argparse
 import ctypes as ct
 import json
+import os
 import random
 from pathlib import Path
 
 import numpy as np
+# Submit framework events and external ACL launches in the same host order.
+os.environ["TASK_QUEUE_ENABLE"] = "0"
 import torch
 import torch_npu  # registers the NPU backend
+from library_matmul import LibraryMatmul
 
 
 def main():
@@ -38,6 +42,7 @@ def main():
     lib.launch_add.argtypes = [pointer, pointer, pointer, uint, uint, pointer]
     lib.launch_mm.argtypes = [pointer] * 4 + [uint] * 3 + [pointer]
     lib.launch_add.restype = lib.launch_mm.restype = None
+    lib.l2_capacity.restype = ct.c_uint64
     aiv, aic, ws = uint(), uint(), ct.c_uint64()
     if lib.device_info(ct.byref(aiv), ct.byref(aic), ct.byref(ws)):
         raise RuntimeError("requires a DAV_2201 platform descriptor")
@@ -56,7 +61,8 @@ def main():
 
         record(stage=args.stage, device=torch.npu.get_device_name(args.device), seed=2026,
                aiv=aiv.value, aic=aic.value, torch=torch.__version__, torch_npu=torch_npu.__version__,
-               workers=workers, reps=args.reps, l2_bytes=args.l2_bytes, hbm_bytes=None)
+               workers=workers, reps=args.reps, l2_bytes=args.l2_bytes,
+               platform_l2_bytes=lib.l2_capacity(), task_queue_enable=0, hbm_bytes=None)
 
         def measure(launch, verify, count, **fields):
             for i in range(max(20, count)):
@@ -96,6 +102,7 @@ def main():
                 expected.append(np.maximum(x, y) if baseline else x + y)
                 buffers.append((torch.from_numpy(x).to(device), torch.from_numpy(y).to(device),
                                 torch.full((n,), float("nan"), device=device)))
+            torch.npu.synchronize()
             def launch(i):
                 x, y, z = buffers[i]
                 if baseline:
@@ -164,9 +171,11 @@ def main():
                 if benchmark:
                     shared_inputs[n] = a, b, c
             c.fill_(float("nan"))
+            torch.npu.synchronize()
+            library_call = LibraryMatmul(a, b, c, stream_ptr) if library else None
             def launch(_):
                 if library:
-                    torch.mm(a, b, out_dtype=torch.float32, out=c)
+                    library_call.launch()
                 else:
                     lib.launch_mm(a.data_ptr(), b.data_ptr(), c.data_ptr(), workspace.data_ptr(),
                                   n, tile, workers, stream_ptr)
@@ -182,20 +191,22 @@ def main():
                             rel_fro=float(np.linalg.norm(error) / max(np.linalg.norm(ref), 1e-12)))
             launch(0)
             errors = verify()
-            fields = dict(n=n, tile=tile, kernel="torch.mm" if library else "mm_tiles")
+            fields = dict(n=n, tile=tile, kernel="aclnnMm" if library else "mm_tiles")
             record(kind="check", pattern=pattern, base=None if library else list(base), **fields, **errors)
             if benchmark:
                 panels = n // tile
                 input_bytes = output_bytes = 0
                 for row in range(0, n, tile):
                     for col in range(0, n, tile):
-                        for k in range(0, n, 32):
-                            input_bytes += 2 * (tile * 32 + 32 * tile)
+                        for k in range(0, n, base[2]):
+                            input_bytes += 2 * (tile * base[2] + base[2] * tile)
                         output_bytes += 4 * tile * tile
                 assert input_bytes + output_bytes == 4*n*n*(panels+1)
                 measure(launch, verify, 1, **fields, base=None if library else list(base),
                         workers=None if library else workers, flops=2*n**3,
                         logical_bytes=None if library else input_bytes + output_bytes)
+            if library_call:
+                library_call.close()
 
         passed = []
         for tile in [32, 64]:
