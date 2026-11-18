@@ -36,7 +36,7 @@ experiment_ids:
 1. 首次 M0 请求 K 基础块 32，接口返回 64，被严格分块检查拒绝。改为记录实际基础块，要求其能够整除 K，同时保留输出块 32／64 的约束。[首次结果](results/2026-11-18/M0-first.jsonl)
 2. 随后首次设备调用持续等待。安装版本的官方纯 Cube 高阶 Matmul 样例要求 `ASCENDC_CUBE_ONLY`，补齐该定义后完成执行。卡住的本次测试进程已终止。[等待时的记录](results/2026-11-18/M0-adjusted.jsonl)
 3. 继续检查时部分输出仍为 NaN 标记。输入准备后增加设备同步，重新检查通过。正式测量另设置 `TASK_QUEUE_ENABLE=0`，让框架事件与直接 ACL 内核调用按主机提交顺序进入 Stream。[修复前](results/2026-11-18/M0-cube.jsonl) · [同步后的检查](results/2026-11-18/M0-sync.jsonl)
-4. M3 原用的 `torch.mm(out_dtype=...)` 在当前框架版本报参数错误。改用安装版本的 ACLNN 接口，并通过输出 2049 的精度探针后再测量。[原错误](results/2026-11-18/M3.log) · [成功的库对照](results/2026-11-18/M3-aclnn.jsonl)
+4. M3 原用的 `torch.mm(out_dtype=...)` 在当前框架版本报 `TypeError: mm() got an unexpected keyword argument 'out_dtype'`。改用安装版本的 ACLNN 接口，并通过输出 2049 的精度探针后再测量。[成功的库对照](results/2026-11-18/M3-aclnn.jsonl)
 
 纯 Cube 定义依据本机 cann-samples 中的 `Samples/0_Introduction/01_simd_cpp_api/02_matrix/matmul_advanced_api/matmul_advanced_api.asc`，接口声明依据本机 CANN 头文件。代码入口见[实验源码说明](../../src/hardware_dataflow/README.md)。
 
@@ -141,4 +141,4 @@ experiment_ids:
 
 Memory 导出中的 main_mem、L2 带宽字段需要进一步核对本架构上的事件定义、汇总方式和时间分母。JSONL 的 `hbm_bytes` 因此仍为空。实际 HBM Roofline 暂待这些字段解释及同精度设备峰值确认。
 
-完整 profiler 原始目录留在远程工作区 `.local/lab02/profile-a3`、`profile-m2`、`profile-m3`，本地另有 `.local/profiler-raw.tar.gz` 备份。执行日志、失败记录、必要 CSV 与 JSONL 均已归档。正文仍需据此整理结论并补图 12，文章阶段为“初稿完成，实验已运行，结果待分析”。
+完整 profiler 原始目录留在远程工作区 `.local/lab02/profile-a3`、`profile-m2`、`profile-m3`，本地另有 `.local/profiler-raw.tar.gz` 备份。必要 CSV 与 JSONL 已归档，失败原因记录于本报告，实验 `.log` 文件在使用后清理。正文仍需据此整理结论并补图 12，文章阶段为“初稿完成，实验已运行，结果待分析”。

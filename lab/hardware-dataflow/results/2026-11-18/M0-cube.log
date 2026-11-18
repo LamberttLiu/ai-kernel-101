@@ -1,9 +1,0 @@
-/opt/buildtools/Python-3.11.4/lib/python3.11/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /opt/buildtools/Python-3.11.4/lib/python3.11/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
-  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
-Traceback (most recent call last):
-  File "/mnt/workspace/ai-kernel-101/src/hardware_dataflow/run.py", line 228, in <module>
-    main()
-  File "/mnt/workspace/ai-kernel-101/src/hardware_dataflow/run.py", line 212, in main
-    raise RuntimeError("M0: no usable output tile")
-RuntimeError: M0: no usable output tile
-[ERROR] 2026-11-18-08:31:38 (PID:10371, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception

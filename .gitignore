@@ -35,6 +35,7 @@
 *.lib
 
 # Large raw experiment output; retain record.md and curated metrics
+/lab/**/*.log
 /lab/**/raw/
 /lab/**/profiler/
 
