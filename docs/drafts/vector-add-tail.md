@@ -1,4 +1,5 @@
 ---
+figure_plan: ../assets/figures/plans/04-tiling.md
 series: AI Kernel 101：从 Hello World 到 FlashAttention
 title: 数据放不下怎么办？从一个 Kernel 理解 Tiling
 aliases:

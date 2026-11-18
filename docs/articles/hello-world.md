@@ -1,4 +1,5 @@
 ---
+figure_plan: ../assets/figures/plans/01-hello-world.md
 series: AI Kernel 101：从 Hello World 到 FlashAttention
 title: 没有昇腾 NPU，真的能写出第一个 Kernel 吗？
 aliases:

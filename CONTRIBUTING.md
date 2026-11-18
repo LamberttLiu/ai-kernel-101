@@ -43,7 +43,7 @@ lab 是唯一的实验工程工作区，按主题统一保存实验设计、源�
 
 知乎、微信公众号、小红书从同一权威 Markdown 适配。可以改导语、排版、图卡、站内链接和阅读引导，不能改变技术语义与证据边界。实质修订先回到正文，再同步各平台；发布与复盘遵循 [publishing 规范](publishing/README.md)。
 
-公开图表的源文件、必要数据和生成代码应能追溯；图片来源与视觉约定见 [配图规范](docs/assets/README.md)。来源和许可不明的素材先核对，不自行扩大授权或选择整个仓库的许可证。
+公开图表的源文件、必要数据和生成代码应能追溯；插图、截图和品牌素材分别遵循 [绘图规范](docs/assets/figures/README.md)、[截图归档与来源](docs/assets/screenshot/README.md)和[品牌素材说明](docs/assets/brand/README.md)。来源和许可不明的素材先核对，不自行扩大授权或选择整个仓库的许可证。
 
 # 公开与本地
 
@@ -54,8 +54,6 @@ planning/inbox 默认仅本地保留；个人规划、商业策略、账号数�
 GitHub 用于作品展示和复现，不承担全部私人创作过程。运营复盘的公开技术反馈可放在 publishing，敏感指标和转化数据写入 .local，仅手动填写或从作者明确授权的渠道导入，不虚构数据。
 
 # 本地检查与执行权限
-
-Obsidian 继续以项目根目录作为唯一库，手机和桌面修改同一正文。新笔记仍进入 planning/inbox，新附件默认进入 docs/assets/screenshot，文档插图归入 docs/assets/figures，品牌图片直接引用 docs/assets/brand；Git 忽略不等于同步服务排除，详见 [多端写作说明](planning/obsidian-writing.md)。
 
 本地存在检查脚本时，可运行 `pwsh -File .local/scripts/check-workspace.ps1`。该脚本不随仓库发布；它不覆盖所有 Markdown 语法，也不证明技术或实验正确。还需检查公开文件的链接目标是否实际受 Git 管理。
 
