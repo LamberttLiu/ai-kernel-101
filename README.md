@@ -3,7 +3,7 @@
 # AI Kernel 101：从 Hello World 到 Flash Attention 的 Ascend C 实践
 
 <p align="center">
-  <strong>从第一个 Kernel 出发，用模型与实验理解 AI 计算。</strong>
+  <strong>从 Kernel 出发，用模型与实验理解 AI 计算。</strong>
 </p>
 
 <p align="center">

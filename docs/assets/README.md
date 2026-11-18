@@ -49,7 +49,6 @@ docs/assets/
 | 文件                                                              | 当前用途／可见内容             | 来源与公开检查                                     |
 | --------------------------------------------------------------- | --------------------- | ------------------------------------------- |
 | [PipeBarrier.png](screenshot/PipeBarrier.png)                   | PIPE_V 内 Add/Abs 同步示意 | 第三篇关联接口资料；不据此证明所有 PIPE_ALL／跨流水语义；来源版本与许可待核对 |
-| [CANNLab-npu-smi-info.png](screenshot/CANNLab-npu-smi-info.png) | 历史设备信息截图              | 只见泛称设备与工具信息，具体 SoC／驱动关联待核实；保留原始采集背景         |
 | [CANNLab-website.png](screenshot/CANNLab-website.png)           | 历史平台环境页面              | 包含配额与环境界面，公开裁剪范围待作者确认；不作为固定配额或产品承诺          |
 | [vector-add-npu-run.png](screenshot/vector-add-npu-run.png)     | 历史 Add 输出截图           | 可见 test pass；原始日志、源码提交与运行环境关联待补，不是性能证据      |
 
