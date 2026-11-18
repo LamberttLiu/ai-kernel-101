@@ -1,6 +1,11 @@
+---
+experiment_date: 未知
+summary: 固定 shape 前向实现与复现入口；已有 CPU 参考运行记录但原始材料未归档，NPU／SIM 和性能未验证。
+---
+
 # 固定 shape 的 Flash Attention 前向 MVP
 
-一个可独立构建的 Ascend C 示例：`main.cpp` 包含 Kernel、ACL Host 启动、确定性输入、FP64 参考和正确性检查；`CMakeLists.txt` 构建 `fa_fixed`。
+一个可独立构建的 Ascend C 示例：[src/main.cpp](src/main.cpp) 包含 Kernel、ACL Host 启动、确定性输入、FP64 参考和正确性检查；[src/CMakeLists.txt](src/CMakeLists.txt) 构建 `fa_fixed`。
 
 固定 B=1、H=1、Nq=Nkv=64、D=Dv=32，Q/K/V 连续 ND（等价于 BNSD=[1,1,64,32]），FP16 输入、FP32 输出和累计，non-causal，无 mask/dropout/PSE/Rope。Q 块和 K/V 块均为 32，形成 2×2 个块任务。不支持通过命令行更改 shape。
 
@@ -13,7 +18,7 @@
 ```bash
 source /path/to/existing/cann/set_env.sh
 # 从仓库根目录运行。每次实验使用新的目录标识。
-cmake -S src/flash_attention_fixed -B .local/flash-attention-fixed/build-npu-01 \
+cmake -S lab/flash-attention-fixed/src -B .local/flash-attention-fixed/build-npu-01 \
   -DCMAKE_BUILD_TYPE=Release
 cmake --build .local/flash-attention-fixed/build-npu-01 -j2
 set -o pipefail
@@ -26,7 +31,7 @@ set -o pipefail
 仅运行 CPU 参考，不依赖 CANN：
 
 ```bash
-cmake -S src/flash_attention_fixed -B .local/flash-attention-fixed/build-cpu-01 \
+cmake -S lab/flash-attention-fixed/src -B .local/flash-attention-fixed/build-cpu-01 \
   -DFA_REFERENCE_ONLY=ON -DCMAKE_BUILD_TYPE=Release
 cmake --build .local/flash-attention-fixed/build-cpu-01 -j2
 .local/flash-attention-fixed/build-cpu-01/fa_fixed .local/flash-attention-fixed/cpu-new-01

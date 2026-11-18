@@ -25,7 +25,7 @@
 ```bash
 repo="$HOME/github-codes/ai-kernel-101"
 source "$HOME/Ascend/cann/set_env.sh"
-sample="$repo/src/vector_add/02_tpipe_tque"
+sample="$repo/lab/vector-add/src/02_tpipe_tque"
 
 for mode in cpu sim; do
   build="/tmp/ai-kernel-101-vector-add-02_tpipe_tque-$mode"
@@ -46,7 +46,7 @@ done
 ```bash
 repo=/mnt/workspace/ai-kernel-101
 source /home/developer/Ascend/ascend-toolkit/set_env.sh
-sample="$repo/src/vector_add/02_tpipe_tque"
+sample="$repo/lab/vector-add/src/02_tpipe_tque"
 build="/mnt/workspace/ai-kernel-101-vector-add-02_tpipe_tque-npu"
 
 cmake -S "$sample" -B "$build" \

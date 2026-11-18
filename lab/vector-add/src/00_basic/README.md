@@ -1,6 +1,6 @@
 # Vector Add：固定长度、均匀分核
 
-本目录是 [ai-kernel-101](https://github.com/LamberttLiu/ai-kernel-101) 的基础向量加法练习，基于 CANN Samples 样例整理，使用 **CANN 9.1.0**。源码是 [`add.cpp`](./add.cpp)，构建文件是 [`CMakeLists.txt`](./CMakeLists.txt)，本地 WSL 路径为 `/home/lambertt/github-codes/ai-kernel-101/src/vector_add/00_basic`。
+本目录是 [ai-kernel-101](https://github.com/LamberttLiu/ai-kernel-101) 的基础向量加法练习，基于 CANN Samples 样例整理，使用 **CANN 9.1.0**。源码是 [`add.cpp`](./add.cpp)，构建文件是 [`CMakeLists.txt`](./CMakeLists.txt)，本地 WSL 路径为 `/home/lambertt/github-codes/ai-kernel-101/lab/vector-add/src/00_basic`。
 
 本版固定处理 `8 × 2048` 个 `float` 元素，8 个 Block 均匀分工。要处理不足一整块的尾部，继续阅读 [03_uneven_split](../03_uneven_split/README.md) 和 [04_arbitrary_length](../04_arbitrary_length/README.md)。当前工程以 `dav-2201` 架构和 CPU、SIM、NPU 三种运行模式为目标。
 
@@ -174,7 +174,7 @@ cat ./OPPROF_*/PipeUtilization.csv
 ```bash
 repo="$HOME/github-codes/ai-kernel-101"
 source "$HOME/Ascend/cann/set_env.sh"
-sample="$repo/src/vector_add/00_basic"
+sample="$repo/lab/vector-add/src/00_basic"
 
 for mode in cpu sim; do
   build="/tmp/ai-kernel-101-vector-add-00_basic-$mode"
@@ -195,7 +195,7 @@ done
 ```bash
 repo=/mnt/workspace/ai-kernel-101
 source /home/developer/Ascend/ascend-toolkit/set_env.sh
-sample="$repo/src/vector_add/00_basic"
+sample="$repo/lab/vector-add/src/00_basic"
 build="/mnt/workspace/ai-kernel-101-vector-add-00_basic-npu"
 
 cmake -S "$sample" -B "$build" \

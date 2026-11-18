@@ -1,15 +1,15 @@
-# Vector Add：长度不整除时的分核
+# Vector Add：处理非对齐尾块
 
 本目录是 [ai-kernel-101](https://github.com/LamberttLiu/ai-kernel-101) 的向量加法练习，使用 **CANN 9.1.0**。源文件是 [`add.cpp`](./add.cpp)，构建文件是 [`CMakeLists.txt`](./CMakeLists.txt)。当前实现的目标架构为 `dav-2201`。
 
 ## 这一版做什么
 
-在基础版上处理尾块不足 2,048 个元素的情况。本例固定生成 `7 × 2048 + 1000 = 15,336` 个 `float` 元素，启动 8 个 Block；最后一个 Block 只处理 1,000 个元素。数学运算为 `z[i] = x[i] + y[i]`。
+在不均匀分核版上处理尾块字节数不按 32 字节对齐的情况。默认输入为 `7 × 2048 + 1001 = 15,337` 个 `float` 元素，最后一个 Block 处理 1,001 个元素，即 4,004 字节。数学运算为 `z[i] = x[i] + y[i]`。
 
-- Host 根据 `ceil(totalLength / 2048)` 计算 Block 数，并把 `totalLength` 传给 Kernel。
-- Kernel 用 `offset = block_idx * 2048` 定位数据段，再以 `currentLength = min(totalLength - offset, 2048)` 限制最后一块的搬运与计算长度。
-- 本例尾块的 1,000 个 `float` 占 4,000 字节，仍是 32 字节的整数倍，因此继续使用 `AscendC::DataCopy`。
-- 如果尾块字节数不能满足普通搬运的对齐要求，请看 [04_arbitrary_length](../04_arbitrary_length/README.md)。
+- Host 从命令行读取元素个数；未提供参数时使用默认值 15,337。Block 数仍按 `ceil(totalLength / 2048)` 计算。
+- Kernel 根据 `currentLength` 构造 `DataCopyExtParams`，用 `AscendC::DataCopyPad` 搬入和搬出尾块数据，再对有效元素执行 `AscendC::Add`。
+- `0` 长度由 Host 直接返回空结果；其他长度仍受设备资源和 Kernel 约束，标题中的“任意长度”指不要求尾块凑齐 2,048 个元素或 32 字节对齐。
+- 默认用例会将设备结果与 Host 上的 `x + y` 逐元素比较。
 
 程序会打印 `Output` 和 `Golden` 的前 20 个元素；完整结果一致时打印 `test pass!` 并以退出码 0 结束。CPU 调试和 SIM 仿真在本地 WSL 运行；`npu` 模式需要有昇腾设备的环境，本地 WSL 不具备真机设备。
 
@@ -20,10 +20,10 @@
 ```bash
 repo="$HOME/github-codes/ai-kernel-101"
 source "$HOME/Ascend/cann/set_env.sh"
-sample="$repo/src/vector_add/03_uneven_split"
+sample="$repo/lab/vector-add/src/04_arbitrary_length"
 
 for mode in cpu sim; do
-  build="/tmp/ai-kernel-101-vector-add-03_uneven_split-$mode"
+  build="/tmp/ai-kernel-101-vector-add-04_arbitrary_length-$mode"
   cmake -S "$sample" -B "$build" \
     -DCMAKE_ASC_RUN_MODE="$mode" \
     -DCMAKE_ASC_ARCHITECTURES=dav-2201
@@ -41,8 +41,8 @@ done
 ```bash
 repo=/mnt/workspace/ai-kernel-101
 source /home/developer/Ascend/ascend-toolkit/set_env.sh
-sample="$repo/src/vector_add/03_uneven_split"
-build="/mnt/workspace/ai-kernel-101-vector-add-03_uneven_split-npu"
+sample="$repo/lab/vector-add/src/04_arbitrary_length"
+build="/mnt/workspace/ai-kernel-101-vector-add-04_arbitrary_length-npu"
 
 cmake -S "$sample" -B "$build" \
   -DCMAKE_ASC_RUN_MODE=npu \
@@ -50,8 +50,9 @@ cmake -S "$sample" -B "$build" \
   -DCMAKE_PREFIX_PATH="$ASCEND_HOME_PATH"
 cmake --build "$build" --parallel 4
 "$build/demo"
+# 可把上一行改为 "$build/demo" 1001，以指定元素个数
 ```
 
 真机结果也应显示 `test pass!`。本 README 给出复现命令，不将本地 WSL 的 CPU/SIM 结果视作 NPU 实测。
 
-继续阅读：[04_arbitrary_length：处理非对齐尾块](../04_arbitrary_length/README.md)。
+对照阅读：[00_basic：固定等分](../00_basic/README.md) · [03_uneven_split：不均匀分核](../03_uneven_split/README.md)。

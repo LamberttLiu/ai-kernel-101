@@ -11,14 +11,14 @@ reference_checked_on: "2026-11-15"
 
 # Hello World 验证
 
-对应[第01篇文章](../../docs/articles/hello-world.md)，源码为 [hello_world.cpp](../../src/hello_world/hello_world.cpp)，构建配置为 [CMakeLists.txt](../../src/hello_world/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
+对应[第01篇文章](../../docs/articles/hello-world.md)，源码为 [hello_world.cpp](src/hello_world.cpp)，构建配置为 [CMakeLists.txt](src/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
 
 | 实验编号与入口 | 解决的问题 | 结果 | 证明范围 |
 | --- | --- | --- | --- |
-| [Lab01-CPU](wsl-report.md#lab01-cpu)：WSL CPU | 没有 NPU 能否执行核函数逻辑 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | CPU 调测路径的入口和打印可执行 |
-| [Lab01-SIM](wsl-report.md#lab01-sim)：WSL SIM | 设备代码能否通过目标模型执行 | 8 个 Block 各打印一次，模型正常停止，七项 ACL 状态为 0，退出码 0 | `dav_2201` 仿真路径可执行 |
-| [Lab01-NPU](npu-report.md#lab01-npu)：云端 NPU | 同一份源码能否在实际 NPU 执行 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | 本次实际设备上的启动、同步与打印成功 |
-| [Lab01-NEG](wsl-report.md#lab01-neg)：WSL NPU 失败对照 | ACL 失败能否被程序暴露 | `aclInit` 返回 500000，退出码 1，无 Kernel 打印 | 程序不再以无条件返回 0 掩盖这次初始化失败 |
+| [Lab01-CPU](reports/wsl-report.md#lab01-cpu)：WSL CPU | 没有 NPU 能否执行核函数逻辑 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | CPU 调测路径的入口和打印可执行 |
+| [Lab01-SIM](reports/wsl-report.md#lab01-sim)：WSL SIM | 设备代码能否通过目标模型执行 | 8 个 Block 各打印一次，模型正常停止，七项 ACL 状态为 0，退出码 0 | `dav_2201` 仿真路径可执行 |
+| [Lab01-NPU](reports/npu-report.md#lab01-npu)：云端 NPU | 同一份源码能否在实际 NPU 执行 | 8 个 Block 各打印一次，七项 ACL 状态为 0，退出码 0 | 本次实际设备上的启动、同步与打印成功 |
+| [Lab01-NEG](reports/wsl-report.md#lab01-neg)：WSL NPU 失败对照 | ACL 失败能否被程序暴露 | `aclInit` 返回 500000，退出码 1，无 Kernel 打印 | 程序不再以无条件返回 0 掩盖这次初始化失败 |
 
 以上均为功能验证，没有张量数值计算或真机性能测量。CPU 的 ACL 调测打桩返回成功不代表访问了物理 NPU。
 
@@ -26,20 +26,20 @@ NPU 实验运行于云平台容器，环境按容器可见范围记录。本次�
 
 # 文件与复现
 
-本目录保留四个文件：本说明、[WSL 报告](wsl-report.md)、[NPU 报告](npu-report.md)和[验证脚本](verify.sh)。报告保留完整的 8 个 Block 输出、ACL 结果、环境、命令与结论；不回传二进制、构建树、模型大日志、安装包、SHA256 或精确 commit。
+本主题的完整实现与 CMake 在 [src](src/README.md)，运行入口为 [scripts/verify.sh](scripts/verify.sh)，已执行证据分别见 [WSL 报告](reports/wsl-report.md)与 [NPU 报告](reports/npu-report.md)。报告保留完整的 8 个 Block 输出、ACL 结果、环境、命令与结论；不回传二进制、构建树、模型大日志、安装包、SHA256 或精确 commit。
 
 在已安装 CANN 的 Linux 环境，从仓库根目录运行：
 
 ```bash
-bash lab/hello-world/verify.sh cpu
-bash lab/hello-world/verify.sh sim
+bash lab/hello-world/scripts/verify.sh cpu
+bash lab/hello-world/scripts/verify.sh sim
 ```
 
 远端 `/mnt/workspace/ai-kernel-101` 中运行：
 
 ```bash
 cd /mnt/workspace/ai-kernel-101
-bash lab/hello-world/verify.sh npu
+bash lab/hello-world/scripts/verify.sh npu
 ```
 
 脚本依次查找当前用户的 `Ascend/cann/set_env.sh`、`Ascend/ascend-toolkit/set_env.sh` 和系统安装路径。其他位置通过 `CANN_ENV` 指定；编译目标默认 `dav-2201`，可通过 `HELLO_ARCH` 显式指定。脚本将构建、二进制和完整会话留在执行机器的 `/tmp/hello-world-模式.随机后缀`，退出时输出位置；这些是临时现场，不保证长期保留，本地报告已保留支撑结论的必要内容。
@@ -52,7 +52,7 @@ bash lab/hello-world/verify.sh npu
 
 本轮在源码中加入 ACL 返回码检查和失败后的资源清理。Kernel 内容、Block 数量和 CMake 编译目标没有改变；远端先检查原文件，再同步同一份修改后的源码进行编译。`<<<>>>` 本身没有可直接检查的 ACL 返回值，记录它返回后仍须检查 Stream 同步状态及全部打印。
 
-当前源码与官方 [SIMD Hello World](https://asc.gitcode.com/guide/getting_started/quick_start/simd_programming/hello_world.html) 使用相同的核函数修饰符和启动方式；该页面链接的[完整样例](https://gitcode.com/cann/asc-devkit/blob/master/examples/01_simd_cpp_api/00_introduction/00_quickstart/hello_world/README.md)为上游参考。本文保留 `.cpp` 文件，通过 `LANGUAGE ASC` 指定编译；Host 新增的错误处理是本项目修改。此前 CANN Samples 的来源线索继续保留在[源码目录说明](../../src/README.md)，不把当前在线示例当成原文件的逐字来源证明；许可问题不在本轮实验中自动认定完成。
+当前源码与官方 [SIMD Hello World](https://asc.gitcode.com/guide/getting_started/quick_start/simd_programming/hello_world.html) 使用相同的核函数修饰符和启动方式；该页面链接的[完整样例](https://gitcode.com/cann/asc-devkit/blob/master/examples/01_simd_cpp_api/00_introduction/00_quickstart/hello_world/README.md)为上游参考。本文保留 `.cpp` 文件，通过 `LANGUAGE ASC` 指定编译；Host 新增的错误处理是本项目修改。此前 CANN Samples 的来源线索继续保留在[源码目录说明](../SOURCES.md)，不把当前在线示例当成原文件的逐字来源证明；许可问题不在本轮实验中自动认定完成。
 
 | 核对项       | 本次依据与适用范围                                                                                                                                                                                                    |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

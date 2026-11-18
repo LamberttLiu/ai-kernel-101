@@ -26,7 +26,7 @@ description: 从第一个 Hello World 出发，理解程序怎样从 Host 进入
 
 系列从 Hello World 开始，先建立程序执行与硬件数据流的认识，再通过向量加讨论分块（Tiling）、尾块和流水（Pipeline），随后处理 Softmax 的归约依赖与矩阵乘的数据复用，最终汇合到范围明确的 Flash Attention 前向实现。我希望把实现选择、误差和性能变化解释清楚，具体支持范围以实际验证为准，性能提速与退化都要有可核对的记录。各篇入口与当前状态见文章目录[^1]。
 
-正文保留支撑解释所需的公式、图示、核心代码片段与实验结果。完整实现、构建配置和复现记录放在同一仓库[^2]的 src 与 lab 中。引用资料、理论估算和实际测量都会注明依据，方便读者核对。
+正文保留支撑解释所需的公式、图示、核心代码片段与实验结果。完整实现、构建配置和复现记录放在同一仓库[^2]的 lab 主题目录中。引用资料、理论估算和实际测量都会注明依据，方便读者核对。
 
 # 首要的问题
 
@@ -220,7 +220,7 @@ Hello World 的工作到打印就结束了。现在把任务换成向量加：$z
 
 [^2]: [AI Kernel 101 公开仓库](https://github.com/LamberttLiu/ai-kernel-101)：本系列的公开仓库，集中保存文章、完整实现、构建配置和实验记录。
 
-[^3]: [`hello_world.cpp`](../../src/hello_world/hello_world.cpp)：本篇实际使用的 Hello World 源码，包含核函数、Host 启动流程、ACL 返回码检查与资源清理。
+[^3]: [`hello_world.cpp`](../../lab/hello-world/src/hello_world.cpp)：本篇实际使用的 Hello World 源码，包含核函数、Host 启动流程、ACL 返回码检查与资源清理。
 
 [^4]: [官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)：昇腾官方基本架构说明，CANN 商用版 8.0.RC3 文档；用于解释耦合与分离架构，不作为本次实验设备的芯片布局或软件版本依据。
 
@@ -230,16 +230,16 @@ Hello World 的工作到打印就结束了。现在把任务换成向量加：$z
 
 [^7]: [官方 CPU 调试说明](https://asc.gitcode.com/guide/programming_guide/debug_and_tuning/functional_debug/cpu_twin_debug.html)：Ascend C CPU 域孪生调试说明，介绍 CPU 域编译运行、gdb 调试及部分 ACL 接口的适配与打桩；同属 master 开发文档。
 
-[^8]: [WSL：CPU、SIM 与失败退出验证](../../lab/hello-world/wsl-report.md)：WSL 实验报告，统一记录 Lab01-CPU、Lab01-SIM 功能验证及无设备时的失败对照 Lab01-NEG，保留环境、完整 Block 输出、ACL 状态与退出码。正文中的 CPU、SIM 报告引用均指向此文件。
+[^8]: [WSL：CPU、SIM 与失败退出验证](../../lab/hello-world/reports/wsl-report.md)：WSL 实验报告，统一记录 Lab01-CPU、Lab01-SIM 功能验证及无设备时的失败对照 Lab01-NEG，保留环境、完整 Block 输出、ACL 状态与退出码。正文中的 CPU、SIM 报告引用均指向此文件。
 
 [^9]: [Ascend C 孪生调试文章](https://www.hiascend.com/zh/developer/techArticles/20231215-2)：昇腾官方 Ascend C 孪生调试技术文章，用于理解 CPU 调试与仿真的分工；不代替本篇的实际运行证据。
 
 [^10]: [Hello World 实验记录与复现入口](../../lab/hello-world/README.md)：Hello World 实验入口，汇总三种模式的验证范围、构建运行命令、通过判据和报告链接；复现以已安装 CANN 的环境为前提。
 
-[^11]: [真机实验报告](../../lab/hello-world/npu-report.md)：Lab01-NPU 云端 NPU 功能实验报告，记录容器可见环境、设备标识、实际构建与运行输出，以及本次验证的适用边界。
+[^11]: [真机实验报告](../../lab/hello-world/reports/npu-report.md)：Lab01-NPU 云端 NPU 功能实验报告，记录容器可见环境、设备标识、实际构建与运行输出，以及本次验证的适用边界。
 
 [^12]: [第02篇：同样是计算，NPU 为什么要区分 Vector 和 Cube？](../drafts/hardware-dataflow.md)：第 02 篇，进一步讨论 Vector、Cube、存储与搬运资源的分工；当前链接指向写作中的草稿，进度以文章目录为准。
 
 [^13]: [第03篇：只做一次加法，为什么还要搬来搬去？](../drafts/vector-add.md)：第 03 篇，以向量加追踪输入搬运、局部计算和输出写回的数据流；当前链接指向写作中的草稿，进度以文章目录为准。
 
-[^14]: [Hello World 源码](../../src/hello_world/README.md)：Hello World 源码目录说明，提供完整实现与构建配置的入口、编译选项及运行说明。
+[^14]: [Hello World 源码](../../lab/hello-world/src/README.md)：Hello World 源码目录说明，提供完整实现与构建配置的入口、编译选项及运行说明。

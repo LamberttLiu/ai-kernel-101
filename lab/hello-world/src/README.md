@@ -12,7 +12,7 @@ Host 逐项检查上述 ACL 调用的返回码，打印 `[HOST][OK]` 或 `[HOST]
 
 CPU 调试中的部分 ACL 接口由调测库打桩实现，成功返回不代表调用了物理 NPU。Stream 的销毁依据创建调用是否成功，兼容 CPU 调测库成功返回空句柄的情况。
 
-CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](../../lab/hello-world/README.md)。
+CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](../README.md)。
 
 ## 本样例支持的产品
 
@@ -23,9 +23,9 @@ CPU、SIM、NPU 功能结果与精简复现入口见 [Hello World 实验记录](
 ## 目录结构介绍
 
 ```
-├── hello_world
+├── src
 │   ├── CMakeLists.txt      // 编译工程文件
-│   ├── hello_world.cpp     // Ascend C样例实现 & 调用样例
+│   ├── src.cpp     // Ascend C样例实现 & 调用样例
 │   └── README.md           // 样例说明文档
 ```
 

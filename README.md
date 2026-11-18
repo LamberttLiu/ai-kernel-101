@@ -14,8 +14,7 @@
 <p align="center">
   <a href="docs/articles/hello-world.md">开始阅读</a> ·
   <a href="docs/README.md">文章目录</a> ·
-  <a href="src/README.md">示例代码</a> ·
-  <a href="lab/README.md">实验记录</a>
+  <a href="lab/README.md">实验工作区</a>
 </p>
 
 # 系列文章定位
@@ -41,8 +40,7 @@
 | 入口                                        | 内容                  |
 | ----------------------------------------- | ------------------- |
 | [文章目录](docs/README.md)                    | 十篇文章的材料与当前状态        |
-| [实验记录](lab/README.md)                     | 实验设计、复现方法与结果证据      |
-| [示例代码](src/README.md)                     | 样例索引、构建要求、验证范围与来源许可 |
+| [实验工作区](lab/README.md) | 实验目录、设计、代码、结果与分析报告 |
 | [撰写流程](docs/README.md#统一撰写流程)             | 文章阶段与状态维护规则         |
 | [系列计划](planning/series-plan.md)           | 技术依赖与逐篇论证规划         |
 | [工作区管理](planning/workspace-management.md) | 目录结构、文档分工与本地／公开边界   |

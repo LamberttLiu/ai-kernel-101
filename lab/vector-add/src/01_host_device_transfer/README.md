@@ -8,7 +8,7 @@
 
 ```bash
 source /home/developer/Ascend/ascend-toolkit/set_env.sh
-cmake -S /mnt/workspace/ai-kernel-101/src/vector_add/01_host_device_transfer \
+cmake -S /mnt/workspace/ai-kernel-101/lab/vector-add/src/01_host_device_transfer \
   -B /mnt/workspace/ai-kernel-101-build/vector-add/01-host-device-transfer
 cmake --build /mnt/workspace/ai-kernel-101-build/vector-add/01-host-device-transfer --parallel 4
 

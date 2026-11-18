@@ -23,7 +23,7 @@ to_do_list:
 
 $$z_i=x_i+y_i.$$
 
-但打开[最小向量加的源码](../../src/vector_add/00_basic/add.cpp)，会发现计算前要绑定地址、申请局部空间、搬入两个输入，计算后还要写回输出，并处理执行阶段之间的依赖。加法只是其中一步。
+但打开[最小向量加的源码](../../lab/vector-add/src/00_basic/add.cpp)，会发现计算前要绑定地址、申请局部空间、搬入两个输入，计算后还要写回输出，并处理执行阶段之间的依赖。加法只是其中一步。
 
 问题再复杂一点，矩阵乘，情况又变了，公式仍然很短：
 
@@ -245,7 +245,7 @@ $$I_* = P_{\max}/B_{\max}.$$
 
 $$C_{\mathrm{UB}}=3T\times4=12T\ \mathrm{Byte}.$$
 
-[现有基础样例](../../src/vector_add/00_basic/add.cpp)取 $T=2048$ ，对应每个任务 24 KiB 的缓冲申请量，框架预留另计。固定分块大小时，向量越长，要处理的块越多，每个任务所需的缓冲容量不变。
+[现有基础样例](../../lab/vector-add/src/00_basic/add.cpp)取 $T=2048$ ，对应每个任务 24 KiB 的缓冲申请量，框架预留另计。固定分块大小时，向量越长，要处理的块越多，每个任务所需的缓冲容量不变。
 
 假设输入各读一次、输出写一次，没有额外复制。算完整个向量，所有任务合计从 GM 读入 $8L$ 字节、写回 $4L$ 字节，完成 $L$ 次加法。因此，逻辑流量与算术强度为
 
@@ -276,7 +276,7 @@ $$P_{\mathrm{BW}}=B_{\max}I=10^{12}\ \mathrm{Byte/s}\times\frac{1\ \mathrm{FLOP}
 
 - **Lab02-A3，改变地址复用方式。** 固定长度和任务数，先反复使用同一组数组，再轮换多组数组，使总覆盖量超过已核实的 L2 容量。比较两种方式的耗时，并用同样两读一写的 maximum 内核作流式参照；另行采集 HBM 相关指标，核对其含义后再判断缓存与显存供数的影响。
 
-> 已完成 Add 真机正确性检查、长度与任务数扫描、地址轮换对照及性能采集。结果见[真机报告](../../lab/hardware-dataflow/npu-report.md#lab02-a1)，正文分析待回填。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware-dataflow/experiment-plan.md#add验证容量流量与并行度)。
+> 已完成 Add 真机正确性检查、长度与任务数扫描、地址轮换对照及性能采集。结果见[真机报告](../../lab/hardware-dataflow/reports/npu-report.md#lab02-a1)，正文分析待回填。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware-dataflow/experiment-plan.md#add验证容量流量与并行度)。
 
 ## Matmul：复用机会怎样改变模型，又怎样被实现限制
 
@@ -359,13 +359,13 @@ $$Q_{\mathrm{tile}}=\frac{4n^3}{b}+4n^2,\qquad I_{\mathrm{tile}}\approx\frac{nb}
 
 大块让输入有更多机会重复使用，但可分给各个核的输出块也从 256 个减到了 64 个。若程序确实少读了数据，耗时却没有下降，就要看实际有多少核在工作、缓存替两种实现各省了多少次显存读取。再换几个矩阵尺寸重复比较，就能看出这种现象出现在哪些规模上。
 
-> 已完成 Matmul 真机检查、规模扫描、分块与 ACLNN 对照。实际 K 基础块由接口调整，结果与限制见[真机报告](../../lab/hardware-dataflow/npu-report.md#lab02-m0)，正文分析待回填。完整方案见 [实验设计 Lab02-M0—Lab02-M3](../../lab/hardware-dataflow/experiment-plan.md#matmul验证理想复用与分块重读)。
+> 已完成 Matmul 真机检查、规模扫描、分块与 ACLNN 对照。实际 K 基础块由接口调整，结果与限制见[真机报告](../../lab/hardware-dataflow/reports/npu-report.md#lab02-m0)，正文分析待回填。完整方案见 [实验设计 Lab02-M0—Lab02-M3](../../lab/hardware-dataflow/experiment-plan.md#matmul验证理想复用与分块重读)。
 
 ## 两条验证链最后要回答什么？
 
 > 【图 12 占位】真机结果已通过正确性检查；待完成计时与模型分析后，对照 Add 的规模与任务数扫描、Matmul 的分块模型与耗时。实测点标出组间波动。
 
-[本篇实验代码与运行说明](../../src/hardware_dataflow/README.md)
+[本篇实验代码与运行说明](../../lab/hardware-dataflow/README.md)
 
 Add 的强度在假设下固定为 $1/12$ ；Matmul 能让一份输入贡献给多个输出，但复用程度取决于分块、容量与任务组织。这解释了为什么要选择不同的计算资源和数据路径，尚不能替代对某台设备瓶颈的测量。
 

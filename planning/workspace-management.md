@@ -23,8 +23,13 @@ ai-kernel-101/
 │   ├── obsidian-writing.md      # 多端写作说明
 │   ├── outlines/                # 提纲与论证
 │   └── inbox/                   # 本地创意、随笔与临时选题
-├── src/                         # 完整实现、构建配置与样例说明
-├── lab/                         # 实验设计、复现、报告与数据
+├── lab/                         # 唯一实验工程工作区，按主题组织
+│   ├── README.md                # 主题与实验编号索引、组织规则
+│   ├── SOURCES.md               # 实现入口、来源与许可待核对项
+│   ├── hello-world/             # 源码、验证脚本与 CPU/SIM/NPU 报告
+│   ├── hardware-dataflow/       # 实验设计、源码、脚本、结果与报告
+│   ├── vector-add/              # 向量加与 Host/Device 传输练习
+│   └── flash-attention-fixed/   # 固定 shape 的前向实现与复现说明
 ├── publishing/                  # 平台适配、发布记录与勘误
 ├── 00-写作入口.md               # 本地写作导航
 ├── AGENTS.md                    # 本地 Agent 协作约定
@@ -39,7 +44,7 @@ ai-kernel-101/
 
 - **文章**：`docs/drafts` 保存唯一写作正文，定稿后移入 `docs/articles`。状态与文章目录、首页目录同步，具体缺项写入 `to_do_list`；八阶段流程见 [文章目录](../docs/README.md#统一撰写流程)。
 - **规划**：[系列计划](series-plan.md) 保存技术依赖与逐篇论证，提纲放入 `planning/outlines`，临时想法放入 `planning/inbox`。
-- **代码与实验**：完整实现和构建入口见 [源码说明](../src/README.md)；实验按主题归入 [lab](../lab/README.md)，分别保存方法、报告与证据。正文只保留论证必需的片段。
+- **代码与实验**：[lab](../lab/README.md) 是唯一的实验工程工作区。每个主题按需要包含 README、experiment-plan、src、scripts、results、reports；源码与构建入口、设计、数据和分析在同一主题中维护，不创建空文件占位。实验编号与路径解耦，已有编号保持稳定；明确形成复用需求后才建立 lab/common。来源与许可线索见 [实现来源说明](../lab/SOURCES.md)。正文解释知识并引用实验依据，不另存一套实验结果。
 - **配图**：按用途归入 `figures`、`screenshot`、`brand`，编号、生成与来源规则见 [配图约定](../docs/assets/README.md)。
 - **发布**：平台适配、真实链接、版本与勘误见 [发布管理](../publishing/README.md)；文章定稿与平台发布分别记录。
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # 执行方式：
-# bash lab/hello-world/verify.sh cpu|sim|npu [source-directory]
+# bash lab/hello-world/scripts/verify.sh cpu|sim|npu [source-directory]
 # 例如：
-# bash lab/hello-world/verify.sh cpu
-# bash lab/hello-world/verify.sh sim
-# bash lab/hello-world/verify.sh npu /path/to/sample
+# bash lab/hello-world/scripts/verify.sh cpu
+# bash lab/hello-world/scripts/verify.sh sim
+# bash lab/hello-world/scripts/verify.sh npu /path/to/sample
 
 # Resolve the requested run mode and sample source.
 set -eo pipefail
@@ -15,8 +15,8 @@ case "$mode" in cpu | sim | npu) ;; *)
     exit 2
     ;;
 esac
-repo=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
-sample=${2:-"$repo/src/hello_world"}
+repo=$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)
+sample=${2:-"$repo/lab/hello-world/src"}
 
 # Load the CANN environment and create a workspace for verification evidence.
 if [[ -n ${CANN_ENV:-} ]]; then
