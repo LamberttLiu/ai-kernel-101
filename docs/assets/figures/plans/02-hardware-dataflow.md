@@ -2,7 +2,7 @@
 
 对应[第 02 篇正文](../../../drafts/hardware-dataflow.md)。本文件与 [绘图源代码](../src/dataflow_figures.py)、生成图片统一放在 docs/assets/figures 下，供草稿和定稿共用，不在 lab 另存插图规划副本。绘图规范、字体、导出及批量生成方法见[绘图工作流](../README.md)。
 
-概念图与理论模型按正文假设绘制；实验结果和原始数据继续以 [Lab02 实验报告](../../../../lab/hardware-dataflow/reports/npu-report.md)及其结果归档为依据。插图规划只管理文章中的图号、放置位置、画法、脚本和素材边界，不维护另一套实验结论。
+概念图与理论模型按正文假设绘制；实验结果和原始数据继续以 [Lab02 实验报告](../../../../lab/hardware_dataflow/reports/npu-report.md)及其结果归档为依据。插图规划只管理文章中的图号、放置位置、画法、脚本和素材边界，不维护另一套实验结论。
 
 # 配图规划
 
