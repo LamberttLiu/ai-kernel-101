@@ -11,7 +11,7 @@ reference_checked_on: "2026-11-15"
 
 # Hello World 验证
 
-对应[第01篇文章](../../docs/articles/hello-world.md)，源码为 [hello_world.cpp](src/hello_world.cpp)，构建配置为 [CMakeLists.txt](src/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
+对应[第01篇文章](hello-world.md)，源码为 [hello_world.cpp](src/hello_world.cpp)，构建配置为 [CMakeLists.txt](src/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
 
 | 实验编号与入口 | 解决的问题 | 结果 | 证明范围 |
 | --- | --- | --- | --- |

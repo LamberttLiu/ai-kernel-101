@@ -17,7 +17,7 @@ to_do_list:
 
 # 打印之后，计算在哪里发生？
 
-[上一篇](../articles/hello-world.md)把 Hello World 送到了设备上：Host 发起任务，Device 执行 Kernel，最后等到程序结束。这条链路跑通之后，很容易顺着往下想：接下来把打印换成加法，是不是就开始做真正的算子了？
+[上一篇](hello-world.md)把 Hello World 送到了设备上：Host 发起任务，Device 执行 Kernel，最后等到程序结束。这条链路跑通之后，很容易顺着往下想：接下来把打印换成加法，是不是就开始做真正的算子了？
 
 数学上确实只有一行：
 
@@ -129,7 +129,7 @@ $$
 
 ## 耦合与分离，分的是哪一层？
 
-为简化逻辑，[上一篇](../articles/hello-world.md)的 Host／Device 图把 Vector 与 Cube 画在同一个 AI Core 内，用于说明主机与设备的关系。这里需要把图继续拆开：**耦合与分离，说的是 Vector 与 Cube 是否同核部署，不是 CPU 与 NPU 是否在同一颗芯片上。** [官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)以此区分两类组织方式；该页属于 CANN 8.0.RC3 文档，仅用于解释术语。
+为简化逻辑，[上一篇](hello-world.md)的 Host／Device 图把 Vector 与 Cube 画在同一个 AI Core 内，用于说明主机与设备的关系。这里需要把图继续拆开：**耦合与分离，说的是 Vector 与 Cube 是否同核部署，不是 CPU 与 NPU 是否在同一颗芯片上。** [官方基本架构说明](https://www.hiascend.com/doc_center/source/zh/canncommercial/80RC3/developmentguide/opdevg/Ascendcopdevg/atlas_ascendc_10_0008.html)以此区分两类组织方式；该页属于 CANN 8.0.RC3 文档，仅用于解释术语。
 
 耦合架构将两类计算单元放在同一个 AI Core 内；分离架构则分别部署在矩阵核 AIC 与向量核 AIV 上。分开以后，开发者面对的就不只是“调用哪条计算指令”，还包括计算任务由哪类核承接，以及跨核结果怎样交接。分离本身不能推出更快：供数、任务配比与同步仍然可能限制效率。
 
