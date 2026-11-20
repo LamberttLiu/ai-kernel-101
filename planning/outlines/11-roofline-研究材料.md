@@ -7,7 +7,7 @@ source_article: 02-hardware-dataflow
 
 # 第 11 篇：Roofline 研究材料
 
-本文件保留第 02 篇收敛时移出的模型和实验问题，服务[第 11 篇规划](../series-plan.md#article-11)。它不表示本篇新增实验已执行，也不替代 [Lab02 真机报告](../../lab/hardware-dataflow/reports/npu-report.md)。报告中的“正文待回填”和图 12 待完成属于当时的交付范围；当前第 02 篇只使用 A1、A2、M0、M1 的代表性观察，不再要求完整性能曲线。
+本文件保留第 02 篇收敛时移出的模型和实验问题，服务[第 11 篇规划](../series-plan.md#11-roofline为什么算力翻倍kernel-却不一定更快)。它不表示本篇新增实验已执行，也不替代 [Lab02 真机报告](../../lab/hardware_dataflow/reports/npu-report.md)。报告中的“正文待回填”和图 12 待完成属于当时的交付范围；当前第 02 篇只使用 A1、A2、M0、M1 的代表性观察，不再要求完整性能曲线。
 
 ## 知识与证据分工
 
@@ -26,7 +26,7 @@ source_article: 02-hardware-dataflow
 - 报告中的 HBM 系统采样包含初始化、回传、主机校验间隔；main_mem／L2 字段的事件定义、汇总和分母仍待核对。`hbm_bytes` 为空，不可补写单次物理字节量。
 - 第 11 篇自己的跨算子验证方案仍未执行。Lab02 已有证据可以复用，不能替代新增算子、形状和计量口径的验证。
 
-完整输入、误差判据和计时样本见[实验设计](../../lab/hardware-dataflow/experiment-plan.md)、[真机报告](../../lab/hardware-dataflow/reports/npu-report.md)及[复现入口](../../lab/hardware-dataflow/README.md)。
+完整输入、误差判据和计时样本见[实验设计](../../lab/hardware_dataflow/experiment-plan.md)、[真机报告](../../lab/hardware_dataflow/reports/npu-report.md)及[复现入口](../../lab/hardware_dataflow/README.md)。
 
 ## 原稿保留：Roofline 基本模型与假设参数
 
@@ -86,7 +86,7 @@ $$I_* = P_{\max}/B_{\max}.$$
 
 $$C_{\mathrm{UB}}=3T\times4=12T\ \mathrm{Byte}.$$
 
-[现有基础样例](../../lab/vector-add/src/00_basic/add.cpp)取 $T=2048$ ，对应每个任务 24 KiB 的缓冲申请量，框架预留另计。固定分块大小时，向量越长，要处理的块越多，每个任务所需的缓冲容量不变。
+[现有基础样例](../../lab/vector_add/src/00_basic/add.cpp)取 $T=2048$ ，对应每个任务 24 KiB 的缓冲申请量，框架预留另计。固定分块大小时，向量越长，要处理的块越多，每个任务所需的缓冲容量不变。
 
 假设输入各读一次、输出写一次，没有额外复制。算完整个向量，所有任务合计从 GM 读入 $8L$ 字节、写回 $4L$ 字节，完成 $L$ 次加法。因此，逻辑流量与算术强度为
 
@@ -117,7 +117,7 @@ $$P_{\mathrm{BW}}=B_{\max}I=10^{12}\ \mathrm{Byte/s}\times\frac{1\ \mathrm{FLOP}
 
 - **Lab02-A3，改变地址复用方式。** 固定长度和任务数，先反复使用同一组数组，再轮换多组数组，使总覆盖量超过已核实的 L2 容量。比较两种方式的耗时，并用同样两读一写的 maximum 内核作流式参照；另行采集 HBM 相关指标，核对其含义后再判断缓存与显存供数的影响。
 
-> 已完成 Add 真机正确性检查、长度与任务数扫描、地址轮换对照及性能采集。结果见[真机报告](../../lab/hardware-dataflow/reports/npu-report.md#lab02-a1)，正文分析待回填。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware-dataflow/experiment-plan.md#add验证容量流量与并行度)。
+> 已完成 Add 真机正确性检查、长度与任务数扫描、地址轮换对照及性能采集。结果见[真机报告](../../lab/hardware_dataflow/reports/npu-report.md#lab02-a1)，正文分析待回填。完整输入、计时和反例判据见 [实验设计 Lab02-A1—Lab02-A3](../../lab/hardware_dataflow/experiment-plan.md#add验证容量流量与并行度)。
 
 
 ## 原稿保留：Cube 交点与分块重读

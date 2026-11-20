@@ -1,6 +1,6 @@
 # 第 01 篇插图规划
 
-对应[第 01 篇定稿正文](hello-world.md)。三张图均已有脚本及 PNG／SVG，按正文出现顺序编号。通用视觉规范与生成流程见[绘图工作流](../README.md)；本文件集中保存本篇的图示职责、生成入口、来源与限制。
+对应[第 01 篇正文](../../../drafts/hello-world.md)。三张图均已有脚本及 PNG／SVG，按正文出现顺序编号。通用视觉规范与生成流程见[绘图工作流](../README.md)；本文件集中保存本篇的图示职责、生成入口、来源与限制。
 
 # 逐图职责
 
@@ -31,8 +31,8 @@
 | 图与源码 | 依据／修改内容 | 证据边界与引用 |
 | --- | --- | --- |
 | [01-fig1-cpu-npu-dataflow.py](../src/01-fig1-cpu-npu-dataflow.py) | CPU／主机内存经 PCIe 连接 NPU／设备内存；按作者指定示意 8 个 AI Core，每核展示 Vector／Cube 计算单元；以虚线区分任务提交 | 采用耦合架构抽象，省略 Scalar、片上存储、DMA 与实际片上互连；不表示 A2／A3 分离架构、真实核数、Block 映射或实测芯片布局。数据箭头表示一般算子流程，Hello World 本身没有张量搬运 |
-| [01-fig2-host-kernel.py](../src/01-fig2-host-kernel.py) | [hello_world.cpp](../../../../lab/hello-world/src/hello_world.cpp) 与[01 正文](hello-world.md)；Host／NPU Stream 双轨道、提交箭头、纯色任务条和同步等待区 | 真机语境的执行依赖示意；样例提交后立即同步，不虚构其间有 CPU 计算；条长不表示时长，单条 Kernel 不表示 Block 串行执行或物理核映射 |
-| [01-fig3-run-paths.py](../src/01-fig3-run-paths.py) | 以 [CMakeLists.txt](../../../../lab/hello-world/src/CMakeLists.txt) 中的可执行程序 `demo` 为产物；CPU／SIM／NPU 分别使用虚线框；明确 SIM 在主机 CPU 上运行仿真模型，无需本地物理 NPU | 同名 `demo` 分别构建，不表示三种模式共用同一二进制；CPU 为功能调试，SIM 为“目标模型中的功能与性能观察”，NPU 为“真实设备功能验证与性能测量”。仿真耗时不等于真机耗时，图形不对应具体板卡布局 |
+| [01-fig2-host-kernel.py](../src/01-fig2-host-kernel.py) | [hello_world.cpp](../../../../lab/hello_world/src/hello_world.cpp) 与[01 正文](../../../drafts/hello-world.md)；Host／NPU Stream 双轨道、提交箭头、纯色任务条和同步等待区 | 真机语境的执行依赖示意；样例提交后立即同步，不虚构其间有 CPU 计算；条长不表示时长，单条 Kernel 不表示 Block 串行执行或物理核映射 |
+| [01-fig3-run-paths.py](../src/01-fig3-run-paths.py) | 以 [CMakeLists.txt](../../../../lab/hello_world/src/CMakeLists.txt) 中的可执行程序 `demo` 为产物；CPU／SIM／NPU 分别使用虚线框；明确 SIM 在主机 CPU 上运行仿真模型，无需本地物理 NPU | 同名 `demo` 分别构建，不表示三种模式共用同一二进制；CPU 为功能调试，SIM 为“目标模型中的功能与性能观察”，NPU 为“真实设备功能验证与性能测量”。仿真耗时不等于真机耗时，图形不对应具体板卡布局 |
 
 初始记录依据为本工作区 2026-11-14 的源码与草稿；当时存在未提交编辑，该日期不能当作固定源码版本。外部资料链接沿用正文，不新增未经核对的硬件或软件版本声明。三图均由第 01 篇引用，生成命令如上。
 

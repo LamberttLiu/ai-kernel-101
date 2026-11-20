@@ -11,7 +11,7 @@ reference_checked_on: "2026-11-15"
 
 # Hello World 验证
 
-对应[第01篇文章](hello-world.md)，源码为 [hello_world.cpp](src/hello_world.cpp)，构建配置为 [CMakeLists.txt](src/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
+对应[第01篇文章](../../docs/drafts/hello-world.md)，源码为 [hello_world.cpp](src/hello_world.cpp)，构建配置为 [CMakeLists.txt](src/CMakeLists.txt)。实验覆盖 CPU、SIM 和远端 NPU 功能验证，以及 WSL 无设备时的失败退出。
 
 | 实验编号与入口 | 解决的问题 | 结果 | 证明范围 |
 | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ bash lab/hello-world/scripts/verify.sh npu
 
 本轮在源码中加入 ACL 返回码检查和失败后的资源清理。Kernel 内容、Block 数量和 CMake 编译目标没有改变；远端先检查原文件，再同步同一份修改后的源码进行编译。`<<<>>>` 本身没有可直接检查的 ACL 返回值，记录它返回后仍须检查 Stream 同步状态及全部打印。
 
-当前源码与官方 [SIMD Hello World](https://asc.gitcode.com/guide/getting_started/quick_start/simd_programming/hello_world.html) 使用相同的核函数修饰符和启动方式；该页面链接的[完整样例](https://gitcode.com/cann/asc-devkit/blob/master/examples/01_simd_cpp_api/00_introduction/00_quickstart/hello_world/README.md)为上游参考。本文保留 `.cpp` 文件，通过 `LANGUAGE ASC` 指定编译；Host 新增的错误处理是本项目修改。此前 CANN Samples 的来源线索继续保留在[源码目录说明](../SOURCES.md)，不把当前在线示例当成原文件的逐字来源证明；许可问题不在本轮实验中自动认定完成。
+当前源码与官方 [SIMD Hello World](https://asc.gitcode.com/guide/getting_started/quick_start/simd_programming/hello_world.html) 使用相同的核函数修饰符和启动方式；该页面链接的[完整样例](https://gitcode.com/cann/asc-devkit/blob/master/examples/01_simd_cpp_api/00_introduction/00_quickstart/hello_world/README.md)为上游参考。本文保留 `.cpp` 文件，通过 `LANGUAGE ASC` 指定编译；Host 新增的错误处理是本项目修改。此前 CANN Samples 属于历史来源线索，不把当前在线示例当成原文件的逐字来源证明；许可问题不在本轮实验中自动认定完成。
 
 | 核对项       | 本次依据与适用范围                                                                                                                                                                                                    |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

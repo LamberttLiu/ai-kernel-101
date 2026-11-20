@@ -23,7 +23,7 @@ to_do_list:
 
 $$z_i=x_i+y_i.$$
 
-但打开[最小向量加的源码](../../lab/vector-add/src/00_basic/add.cpp)，会发现计算前要绑定地址、申请局部空间、搬入两个输入，计算后还要写回输出，并处理执行阶段之间的依赖。加法只是其中一步。
+但打开[最小向量加的源码](../../lab/vector_add/src/00_basic/add.cpp)，会发现计算前要绑定地址、申请局部空间、搬入两个输入，计算后还要写回输出，并处理执行阶段之间的依赖。加法只是其中一步。
 
 问题再复杂一点，矩阵乘，情况又变了，公式仍然很短：
 
@@ -135,7 +135,7 @@ $$
 
 后文限定在 **NPU 架构版本 2201 的 SIMD 路径**。单指令多数据（Single Instruction, Multiple Data，SIMD）在这里可以先理解为：一条计算指令对一批数据执行同类操作。官方 2201 文档给出的 AIC∶AIV 核数配比为 1∶2，各核有自己的 Scalar 控制并可加载代码，二者经 GM 传递数据。**核数配比不是浮点算力配比**，也不表示每次 Kernel 都按这个比例使用全部资源。[2201 架构说明](https://asc.gitcode.com/guide/programming_guide/advanced_programming/hardware_implementation/architecture_spec/npu_arch_2201.html)
 
-架构号不能代替完整产品型号。本文不从 `dav-2201` 推断实测设备的整卡核数、容量与峰值；本次真机的 SoC、软件版本和可见资源已分别记入[实验报告](../../lab/hardware-dataflow/reports/npu-report.md)，接口适用范围与整卡理论峰值仍需按对应资料核对。
+架构号不能代替完整产品型号。本文不从 `dav-2201` 推断实测设备的整卡核数、容量与峰值；本次真机的 SoC、软件版本和可见资源已分别记入[实验报告](../../lab/hardware_dataflow/reports/npu-report.md)，接口适用范围与整卡理论峰值仍需按对应资料核对。
 
 ## 与 NVIDIA GPU 对照：矩阵计算能力相似，组织方式要分别看
 
@@ -221,7 +221,7 @@ $$I=\frac{F}{Q}\quad[\mathrm{FLOP/Byte}],\qquad I_{\mathrm{logical,add}}=\frac1{
 
 ### 场景 1：Add 数据流的实验验证
 
-Lab02 已在 NPU 真机上完成七项实验，本篇从 A1、A2、M0、M1 选取结果，组成 Add 数据流、Matmul 数据流和 Vector／Cube 对照三个场景。设备记录为 Ascend910_9362，可见资源为 20 AIC、40 AIV，编译目标为 dav-2201。所选配置、原始记录与证据限制见[第 02 篇实验报告](../../lab/hardware-dataflow/reports/article-02.md)。
+Lab02 已在 NPU 真机上完成七项实验，本篇从 A1、A2、M0、M1 选取结果，组成 Add 数据流、Matmul 数据流和 Vector／Cube 对照三个场景。设备记录为 Ascend910_9362，可见资源为 20 AIC、40 AIV，编译目标为 dav-2201。所选配置、原始记录与证据限制见[第 02 篇实验报告](../../lab/hardware_dataflow/reports/article-02.md)。
 
 下列耗时均采用报告中的**事件折算时间**：预热后测五组、每组 50 次，先计算各组单次平均时间，再取五组的中位数。输入上传、输出回传和主机校验不在计时区间内，但事件间仍可能包含主机提交间隙，不能直接当作 profiler 记录的内核执行时间。
 
@@ -286,7 +286,7 @@ M0 的实际 K 基础块覆盖整个求和维度，本篇不据此判断多段�
 | 64 | 7.118 |
 | 512 | 13.724 |
 
-边长增大 8 倍，约定运算量增大 512 倍，事件时间却只增长约 1.93 倍。这表明小规模时间不能按运算量直接外推到大规模。与此同时，可分配的输出块与接口内部配置也发生了变化，因此不能仅凭这两点就把收益归因于输入复用，更不能宣称 Cube 已被充分利用。配置、误差判据与完整结果见 [场景 2 的配置与证据](../../lab/hardware-dataflow/reports/article-02.md#scene-2)。
+边长增大 8 倍，约定运算量增大 512 倍，事件时间却只增长约 1.93 倍。这表明小规模时间不能按运算量直接外推到大规模。与此同时，可分配的输出块与接口内部配置也发生了变化，因此不能仅凭这两点就把收益归因于输入复用，更不能宣称 Cube 已被充分利用。配置、误差判据与完整结果见 [场景 2 的配置与证据](../../lab/hardware_dataflow/reports/article-02.md#scene-2)。
 
 ## Roofline：计算能力与供数能力共同限制上界
 

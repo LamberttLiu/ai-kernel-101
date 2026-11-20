@@ -24,4 +24,4 @@
 
 区分 M/N 输出分块与 K 维累计；不能画成每轮 K 分段都清零部分和。布局、累加精度、GM 中转和接口实际分块以实验报告为准，模型图不证明目标设备的融合路径。
 
-实验依据见[Lab02 实验报告](../../../../lab/hardware-dataflow/reports/npu-report.md)。素材移交不表示本篇的实现、实验或配图审核已经完成；来源与架构资料可追溯到[第 02 篇规划](02-hardware-dataflow.md#插图资料与适用边界)。
+实验依据见[Lab02 实验报告](../../../../lab/hardware_dataflow/reports/npu-report.md)。素材移交不表示本篇的实现、实验或配图审核已经完成；来源与架构资料可追溯到[第 02 篇规划](02-hardware-dataflow.md#插图资料与适用边界)。

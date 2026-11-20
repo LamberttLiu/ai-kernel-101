@@ -62,7 +62,6 @@ AI-Kernel-101/
 - [实验工作区](lab/README.md)，实验目录、设计、代码、结果与分析报告 
 - [系列计划纲要](planning/series-plan.md)，整体规划纲要、行文逻辑链、技术依赖与逐篇论证规划简要 
 - [插图说明](docs/assets/figures/README.md)，文章内部插图绘制流程与约束
-- [工作区管理](planning/workspace-management.md)，目录结构、文档分工与本地／公开边界
 - [品牌视觉](docs/assets/brand/README.md)，本品牌的视觉设计 
 
 

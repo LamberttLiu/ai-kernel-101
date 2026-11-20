@@ -22,7 +22,7 @@ publication_status: 未发布
 
 这些问题需要一起考虑。分块（Tiling）既要把所有有效元素完整覆盖，也要让每次计算的活动数据放得下，并满足搬运接口的边界要求。分得更细还会增加循环、地址计算和阶段交接的次数；块大小因此是资源容量与执行开销之间的选择。
 
-先建立覆盖与容量模型，再回看已有的两个尾块练习。它们基于 [CANN Samples 基础样例](https://gitcode.com/cann/cann-samples/blob/3a85e824537feaef646bd89eb4d0e799cc2886b5/Samples/0_Introduction/01_simd_cpp_api/01_add/add/add.asc) 衍生，完整代码分别在 [`03_uneven_split`](../../lab/vector-add/src/03_uneven_split/README.md) 与 [`04_arbitrary_length`](../../lab/vector-add/src/04_arbitrary_length/README.md)。两者都还没有核内多轮循环，不能用现有尾块实现代替后文计划中的完整 Tiling 版本。
+先建立覆盖与容量模型，再回看已有的两个尾块练习。它们基于 [CANN Samples 基础样例](https://gitcode.com/cann/cann-samples/blob/3a85e824537feaef646bd89eb4d0e799cc2886b5/Samples/0_Introduction/01_simd_cpp_api/01_add/add/add.asc) 衍生，完整代码分别在 [`03_uneven_split`](../../lab/vector_add/src/03_uneven_split/README.md) 与 [`04_arbitrary_length`](../../lab/vector_add/src/04_arbitrary_length/README.md)。两者都还没有核内多轮循环，不能用现有尾块实现代替后文计划中的完整 Tiling 版本。
 
 # 二、分给谁，与一次放多少，是两层划分
 
@@ -218,7 +218,7 @@ cmake --build "$tailWork/build-npu" --parallel 4
 echo "exit=$?"
 ```
 
-检查 `test pass!` 和退出码 0。`VerifyResult` 用 `std::equal` 比较完整的 15,336 个结果，虽然终端只展示前 20 项，尾块也包含在比较范围内。此练习解决的是**长度对齐但工作量不均匀**的尾核；它尚未解决非对齐尾块。仓库中的完整实现见 [`03_uneven_split`](../../lab/vector-add/src/03_uneven_split/README.md)。
+检查 `test pass!` 和退出码 0。`VerifyResult` 用 `std::equal` 比较完整的 15,336 个结果，虽然终端只展示前 20 项，尾块也包含在比较范围内。此练习解决的是**长度对齐但工作量不均匀**的尾核；它尚未解决非对齐尾块。仓库中的完整实现见 [`03_uneven_split`](../../lab/vector_add/src/03_uneven_split/README.md)。
 
 # 五、尾块二：处理非 32 字节对齐的长度
 
@@ -301,7 +301,7 @@ done
 | 2049 | 2 | 1 | 4 |
 | 15337 | 8 | 1001 | 4004 |
 
-`VerifyResult` 比较整个输出向量，终端只打印前 20 项；因此要以完整比对的结果判断尾块是否正确。参数 `0` 在 Host 侧直接返回空向量，不会启动 NPU Kernel，故未列入本节的设备运行用例。这里的“任意长度”指**在样例可分配内存、`uint32_t` 计数和可启动 Block 范围内，不再要求尾长满足 32 字节对齐**，并不表示已验证无限大的向量。仓库中的完整实现见 [`04_arbitrary_length`](../../lab/vector-add/src/04_arbitrary_length/README.md)。
+`VerifyResult` 比较整个输出向量，终端只打印前 20 项；因此要以完整比对的结果判断尾块是否正确。参数 `0` 在 Host 侧直接返回空向量，不会启动 NPU Kernel，故未列入本节的设备运行用例。这里的“任意长度”指**在样例可分配内存、`uint32_t` 计数和可启动 Block 范围内，不再要求尾长满足 32 字节对齐**，并不表示已验证无限大的向量。仓库中的完整实现见 [`04_arbitrary_length`](../../lab/vector_add/src/04_arbitrary_length/README.md)。
 
 # 六、核内多轮实现：预留位置
 

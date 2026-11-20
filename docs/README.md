@@ -42,6 +42,6 @@ docs/
 
 正文只保留论证必需的代码；完整实现、构建配置、实验设计、数据与分析报告统一按主题放在 lab。图片和引用采用标准 Markdown 相对链接，带空格路径用尖括号包裹。公开文件不链接到仅本地存在的 inbox、账号配置或原始数据。
 
-草稿与定稿共用 `assets/figures/plans` 中的插图规划，与生成代码和图片统一管理。新增代码配图按[Matplotlib 绘图工作流](assets/figures/README.md)生成，正文引用 `assets/figures/gen` 中的 PNG，插图按出现顺序从 `fig1` 编号。截图遵循 [截图归档与来源](assets/screenshot/README.md)，品牌图片直接引用 `assets/brand` 中的文件，具体使用见 [品牌素材说明](assets/brand/README.md)。
+草稿与定稿共用 `assets/figures/plans` 中的插图规划，与生成代码和图片统一管理。新增代码配图按[Matplotlib 绘图工作流](assets/figures/README.md)生成，正文引用 `assets/figures/gen` 中的 PNG，插图按出现顺序从 `fig1` 编号，品牌图片直接引用 `assets/brand` 中的文件，具体使用见 [品牌素材说明](assets/brand/README.md)。
 
 审核修改文章的时候，将后续待完成的整理归纳在文章前 frontmatter 的 to_do_list 字段内，正文中使用占位符。

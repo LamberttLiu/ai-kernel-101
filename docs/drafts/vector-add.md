@@ -19,9 +19,9 @@ aliases:
 $$C_i = A_i + B_i, \quad i = 0, 1, \ldots, N-1$$
 算式很简单，对于 Ascend C 开发而言，为什么输入不能只交给一条加法指令？为什么还需要仔细考虑划分 Block、从 GM 搬到 UB、计算后写回，并处理流水之间的依赖？接下来的内容我们将逐步拆解这些问题。
 
-本文分析代码见本仓库 [`lab/vector-add/src/00_basic/add.cpp`](../../lab/vector-add/src/00_basic/add.cpp)〔1—3〕。使用同目录的 `CMakeLists.txt` 生成 `demo`，`add.cpp` 包含 Kernel实现、Host 调用和结果比较的辅助代码。
+本文分析代码见本仓库 [`lab/vector-add/src/00_basic/add.cpp`](../../lab/vector_add/src/00_basic/add.cpp)〔1—3〕。使用同目录的 `CMakeLists.txt` 生成 `demo`，`add.cpp` 包含 Kernel实现、Host 调用和结果比较的辅助代码。
 
-在保留这份静态 Tensor 实现的基础上，再对照 [`02_tpipe_tque/add_tpipe_tque.cpp`](../../lab/vector-add/src/02_tpipe_tque/add_tpipe_tque.cpp)，看看同一条数据流怎样交给 `TPipe` 与队列 `TQue` 管理。两版都使用 `GlobalTensor` 和 `LocalTensor`，区别在于局部缓冲和阶段依赖的表达方式。文中简称“队列版”，对应的 C++ 类型名是 `TQue`，并非 `TQueue`。
+在保留这份静态 Tensor 实现的基础上，再对照 [`02_tpipe_tque/add_tpipe_tque.cpp`](../../lab/vector_add/src/02_tpipe_tque/add_tpipe_tque.cpp)，看看同一条数据流怎样交给 `TPipe` 与队列 `TQue` 管理。两版都使用 `GlobalTensor` 和 `LocalTensor`，区别在于局部缓冲和阶段依赖的表达方式。文中简称“队列版”，对应的 C++ 类型名是 `TQue`，并非 `TQueue`。
 
 编译和运行环境为 CANNLab A3（910C、`aarch64`）、CANN 9.1.0，目标架构 `dav-2201`。下文分别讨论代码机制、功能验证、设备任务耗时与理论工作量；这些数据对应不同的测量口径。
 
@@ -210,7 +210,7 @@ outQueueZ.FreeTensor(zLocal);
 
 # 六、NPU 上实测
 
-本节保留的是基础静态 Tensor 版的历史真机记录；新增队列版的讲解没有新增运行证据。队列版的 CPU 原始运行日志未随仓库归档，精确对应源码版本尚需补齐；本篇不据此宣称队列版已经通过 SIM、NPU 或性能验证。队列版复现入口见[代码说明](../../lab/vector-add/src/02_tpipe_tque/README.md)。
+本节保留的是基础静态 Tensor 版的历史真机记录；新增队列版的讲解没有新增运行证据。队列版的 CPU 原始运行日志未随仓库归档，精确对应源码版本尚需补齐；本篇不据此宣称队列版已经通过 SIM、NPU 或性能验证。队列版复现入口见[代码说明](../../lab/vector_add/src/02_tpipe_tque/README.md)。
 
 在 CANNLab A3 环境中，以 CANN 9.1.0、`dav-2201` 目标架构和 `npu` 模式编译运行代码，成功生成 `demo`，执行运行该程序，输出 `test pass!`，退出码为 0。
 
