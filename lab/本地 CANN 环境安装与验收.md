@@ -1,7 +1,7 @@
 ---
-description: 在 WSL2 的 Ubuntu 环境中安装 CANN 9.1.0，并确认当前环境已正确加载对应的 Ascend C 工具链。
 creat_time: 2026-11-20
 last_edit_time: 2026-11-20
+description: 在 WSL2 的 Ubuntu 环境中安装 CANN 9.1.0，并确认当前环境已正确加载对应的 Ascend C 工具链。
 ---
 
 
