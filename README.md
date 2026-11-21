@@ -64,5 +64,6 @@ AI-Kernel-101/
 - [系列计划纲要](planning/series-plan.md)，整体规划纲要、行文逻辑链、技术依赖与逐篇论证规划简要 
 - [插图说明](docs/assets/figures/README.md)，文章内部插图绘制流程与约束
 - [品牌视觉](docs/assets/brand/README.md)，本品牌的视觉设计 
+- [品牌序言](docs/preface.md)，一开始想做的初心和想法
 
 
