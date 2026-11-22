@@ -2,13 +2,13 @@
 experiment_time: 2026-11-21
 description: 云端 NPU 环境中 Hello World 的配置、编译、链接、运行及产物检查步骤。
 ---
-# Hello World：云端 NPU 构建与运行结果分析
+# Hello World 程序的云端 NPU 构建
 
 ## 0. 开始前的位置和文件
 
-云端环境仓库根目录 `/mnt/workspace/ai-kernel-101`。这次使用 [hello_world.cpp](../src/hello_world.cpp)、[CMakeLists.txt](../src/CMakeLists.txt) 和 [npu-build.sh](../npu-build.sh)。查询到主机架构为 `aarch64`，仓库 HEAD 短哈希为 `3603c49`。CANN 环境脚本路径为 `/home/developer/Ascend/cann/set_env.sh`。
+本次实验在云端 NPU 环境中运行，仓库根目录为 `/mnt/workspace/ai-kernel-101`。使用 [hello_world.cpp](../src/hello_world.cpp)、[CMakeLists.txt](../src/CMakeLists.txt) 和 [npu-build.sh](../npu-build.sh)。查询到主机架构为 `aarch64`，仓库 HEAD 短哈希为 `3603c49`。CANN 环境脚本路径为 `/home/developer/Ascend/cann/set_env.sh`。
 
-只观察真实 NPU 环境。脚本的记录目录为 `lab/hello_world/results/npu-build`；下面记录的是本次在云端核对到的配置、构建、运行日志与产物。
+脚本将日志和构建产物保存到 `lab/hello_world/results/npu-build`。
 
 ## 1. 启动脚本，创建记录目录
 
@@ -17,8 +17,6 @@ description: 云端 NPU 环境中 Hello World 的配置、编译、链接、运�
 ```bash
 bash lab/hello_world/npu-build.sh
 ```
-
-下为脚本实际执行的具体操作详解。
 
 ## 2. CMake 配置
 
@@ -48,7 +46,7 @@ cmake -S "$PWD/lab/hello_world/src" \
 -- Build files have been written to: /mnt/workspace/ai-kernel-101/lab/hello_world/results/npu-build/build
 ```
 
-此时 CMake 已生成构建文件，但还不能据此判断程序已经编译和运行。
+`Build files have been written to` 确认 CMake 已在 `build/` 生成构建文件。
 
 ## 3. 编译与链接
 
@@ -63,7 +61,7 @@ cmake --build "$PWD/lab/hello_world/results/npu-build/build" \
 - `--verbose` 保留实际编译和链接命令；
 - `--parallel 1` 让输出按单任务顺序排列。
 
- `build.log`，能直接看到编译与链接两次毕昇调用。以下摘录关键行，省略了 Make 进入和离开目录等行：
+`build.log` 记录了两次毕昇调用，分别用于编译和链接。以下摘录省略了 Make 进入和离开目录等行：
 
 ```txt
 [50%] Building ASC object CMakeFiles/demo.dir/hello_world.cpp.o
@@ -75,9 +73,9 @@ cmake --build "$PWD/lab/hello_world/results/npu-build/build" \
 ```
 
 编译调用以 `.cpp` 为输入生成 `.o`，链接调用以 `.o` 为输入生成 `demo`。结尾的 `[100%] Built target demo` 表示目标构建完成。
-这一步后可以从 `build/CMakeFiles/demo.dir/flags.make` 核对编译选项，从 `link.txt` 核对链接命令。`hello_world.cpp.o.d` 是依赖文件。本次首次构建时还没有解析目标文件或 `demo` 的内部设备代码布局；后续的检查单独记在“对构建产物的进一步深入分析”。
+`build/CMakeFiles/demo.dir/flags.make` 保存编译选项，同目录下的 `link.txt` 保存链接命令，`hello_world.cpp.o.d` 保存编译依赖。
 
-## 4. 运行 `demo` 并保存退出状态
+## 4. 运行 `demo` 并核对回显
 
 先在云端终端直接执行：
 
@@ -85,7 +83,7 @@ cmake --build "$PWD/lab/hello_world/results/npu-build/build" \
 ./lab/hello_world/results/npu-build/build/demo
 ```
 
-终端显示 Host 侧 ACL 调用成功，并输出 Block 0 到 Block 7 的八行 Hello World。云端的 `run.log` 也记录了这一详细回显。
+终端显示 Host 侧 ACL 调用成功，并输出 Block 0 到 Block 7 的八行 Hello World。脚本运行 `demo` 时也将程序输出写入云端的 `run.log`。
 
 ```txt
 [HOST][OK] aclInit: ret=0
@@ -108,7 +106,7 @@ cmake --build "$PWD/lab/hello_world/results/npu-build/build" \
 
 ## 5. 执行后检查文件目录
 
-在云端机器检查 `lab/hello_world/results/npu-build`，看到了三份日志和 `build/`。下面展开本次重点查看的构建产物；`CMakeFiles/` 下还有其他自动生成的依赖和规则文件。`report/` 是事后添加的记录目录，不是构建脚本产物。
+在云端检查 `lab/hello_world/results/npu-build`，确认有三份日志和 `build/`。目录树列出主要构建产物，省略 `CMakeFiles/` 中的其他自动生成文件。`report/` 在实验结束后添加。
 
 ```text
 lab/hello_world/
@@ -139,8 +137,6 @@ lab/hello_world/
 └── report/
 ```
 
-上述配置、构建和运行日志位于 `results/npu-build/` 下。`demo` 是刚才执行的文件，`hello_world.cpp.o` 是编译得到的目标文件。
-
 # 对构建产物的进一步深入分析
 
 ## 1. 先看构建规则中的两次毕昇调用
@@ -158,7 +154,7 @@ lab/hello_world/
 ASC_FLAGS = --npu-arch=dav-2201 --npu-arch=dav-2201
 ```
 
-`ASC_FLAGS` 这一行内，`--npu-arch=dav-2201` 被连续写了两遍。下面 `build.make` 中只有一个 `$(ASC_FLAGS)` 引用；展开该变量后，编译命令才包含两个相同的参数。
+`build.make` 中的 `$(ASC_FLAGS)` 展开后，编译命令带有两个 `--npu-arch=dav-2201`。重复参数来自 `flags.make` 中的变量值。
 
 `build.make` 给出了生成 `hello_world.cpp.o` 的 Make 依赖规则，包含下面的内容：
 
@@ -173,35 +169,31 @@ CMakeFiles/demo.dir/hello_world.cpp.o: CMakeFiles/demo.dir/compiler_depend.ts
 > [!Tip]
 > 在 Make 规则中，冒号左边是**目标**，右边是**依赖**。
 
-冒号左边重复出现的 `CMakeFiles/demo.dir/hello_world.cpp.o` 是**同一个待生成文件**，右边三次分别列出 `flags.make`、源文件 `hello_world.cpp` 和 `compiler_depend.ts`，这是为同一个目标列出依赖。`compiler_depend.ts` 是 CMake 依赖跟踪机制使用的文件，此处可以忽略。
+目标 `hello_world.cpp.o` 有三项依赖，分别来自编译选项文件 `flags.make`、源文件 `hello_world.cpp` 和 CMake 用于依赖跟踪的 `compiler_depend.ts`。
 
-缩进的第一行 `$(CMAKE_COMMAND) -E cmake_echo_color ... "Building ASC object ..."` 用来显示进度，下面重点看真正调用毕昇编译器的地方。
-
-把这一行按作用拆开看：
+缩进的第一行显示构建进度，第二行调用毕昇编译器。编译命令各参数的作用如下。
 
 - `/home/developer/Ascend/cann-9.1.0/bin/bisheng`：执行毕昇编译器驱动。
 - `$(ASC_DEFINES)`、`$(ASC_INCLUDES)`、`$(ASC_FLAGS)`：Make 变量，执行时展开成定义、头文件搜索路径和编译选项。
 - `-std=c++17`、`--asc-aicore-lang`：指定 C++ 标准，并让其后的 `.cpp` 源文件按 Ascend C 异构语言方式处理。
-- `-o CMakeFiles/demo.dir/hello_world.cpp.o`、`-c`：这次调用的主要产物是 `.o` 目标文件；最终可执行文件 `demo` 不在这里形成。
+- `-c` 指定构建到目标文件为止，`-o CMakeFiles/demo.dir/hello_world.cpp.o` 指定输出路径。
 - `-MD -MT CMakeFiles/demo.dir/hello_world.cpp.o -MF CMakeFiles/demo.dir/hello_world.cpp.o.d`：编译时将对应依赖也输出成 `.d` 文件：`-MF` 指定 `.d` 输出路径，`-MT` 指定依赖规则里的目标名。
 - `/mnt/workspace/ai-kernel-101/lab/hello_world/src/hello_world.cpp`：指定输入源文件。
 
- `CMakeLists.txt` 中：
+`CMakeLists.txt` 将 `hello_world.cpp` 交给 ASC 编译规则。
 
 ```cmake
 set_source_files_properties(hello_world.cpp PROPERTIES LANGUAGE ASC)
 ```
 
-表示代码会被交给 ASC 编译规则。同一源文件里既有设备侧入口
+同一源文件里既有设备侧入口
 `__global__ __vector__ void hello_world()`，又有 Host 侧 `main()` 和 `hello_world<<<8, 0, stream>>>()` 发射调用。因此需要继续从 `.o` 的符号与节区辨认两侧分别留下了什么。
 
-`link.txt` 的完整一行，表面了二进制的链接规则：
+`link.txt` 记录了生成 `demo` 的完整链接命令。
 
 ```bash
 /home/developer/Ascend/cann-9.1.0/bin/bisheng --npu-arch=dav-2201 CMakeFiles/demo.dir/hello_world.cpp.o -o demo
 ```
-
-这是另一轮毕昇调用，输入为 `.o`，输出为 `demo`。CMake 配置生成这两条构建规则，两次调用分别做了两个步骤。
 
 ## 2. 检查 `.o` 和 `demo` 是什么文件
 
@@ -232,13 +224,9 @@ demo:              PT_INTERP=/lib/ld-linux-aarch64.so.1, DT_FLAGS_1=0x08000000
 - `demo` 是链接生成的 Linux 位置无关可执行文件（PIE），其 ELF 类型为 `ET_DYN`，因此 `file` 显示为 `shared object`。
 - 本地检查动态段确认了 `DF_1_PIE` 标志。运行 `demo` 时，Linux 使用 `/lib/ld-linux-aarch64.so.1` 加载它依赖的共享库。
 
-这些信息描述的是产物最外层的 ELF 格式、Host 架构和加载方式。`file` 的回显没有展开 ELF 内部，因此看不出 Device 侧的 `hello_world` 被放在哪个节，也看不出设备相关内容从 `.o` 到 `demo` 有什么变化。
-
-接下来先对 `.o` 用 `readelf -W -S` 查看节名、大小和文件偏移，定位设备相关的节，再用 `nm -C` 查看 Host 入口、设备二进制数据和运行时调用相关的符号。
-
 ## 3. 看`.o`目标文件的符号和节区
 
-使用 `nm -C` 查目标文件符号，再用 `readelf -W -S` 看节表，使用命令：
+用 `nm -C` 查看目标文件中的 Host 入口、设备数据和运行时相关符号，再用 `readelf -W -S` 核对节名、大小和文件偏移。
 
 ```bash
 nm -C lab/hello_world/results/npu-build/build/CMakeFiles/demo.dir/hello_world.cpp.o
@@ -246,7 +234,7 @@ nm -C lab/hello_world/results/npu-build/build/CMakeFiles/demo.dir/hello_world.cp
 readelf -W -S lab/hello_world/results/npu-build/build/CMakeFiles/demo.dir/hello_world.cpp.o
 ```
 
-`nm -C` 的关键回显如下（部分）：
+`nm -C` 的输出摘录如下。
 
 ```text
                  U AscendGetFuncFromBinary
@@ -286,7 +274,7 @@ readelf -W -S lab/hello_world/results/npu-build/build/CMakeFiles/demo.dir/hello_
 
 `.aicore_binary` 从文件偏移 `0x700` 开始，大小为 `0x1bf0` 字节。读取本地符号表和重定位记录，确认 `fatbinData` 位于该节开头，`.rela.data` 把 `fatbinDataPtr` 指向这个节，`fatbinDataLength` 保存的值正是 `0x1bf0`。这把设备二进制节与 Host 侧记录的地址和长度对应了起来。
 
-`.rela__aicore_rel_rec` 指向 `__aicore_rel_binary` 的起始处，`.rela.init_array` 则把初始化项指向 `.text+0x668`，与 `cceModuleCtor` 的位置吻合。到 `.o` 这一步，产物里已经有 Host 代码、设备相关数据，以及把这些节和符号联系起来的重定位记录。下一节检查这些设备相关节在链接后的 `demo` 中如何保留。
+`.rela__aicore_rel_rec` 指向 `__aicore_rel_binary` 的起始处，`.rela.init_array` 则把初始化项指向 `.text+0x668`，与 `cceModuleCtor` 的位置吻合。因此，链接前的 `.o` 已经包含 Host 代码、设备数据及关联它们的重定位记录。
 
 ## 4. 看最终文件的节、动态依赖及设备数据开头
 
@@ -382,7 +370,7 @@ Hex dump of section '.aicore_binary':
 readelf: Warning: Section '.__aicore_rel_binary' was not dumped because it does not exist!
 ```
 
-第三条命令的回显摘自 [demo.txt](../../../demo.txt)：
+第三条命令的回显摘自 `demo.txt`。当前工作区保留以下摘录。
 
 ```text
 Hex dump of section '.aicore_binary':
@@ -392,8 +380,8 @@ Hex dump of section '.aicore_binary':
   0x00062f30 00009400 40003800 03004000 0e000c00 ....@.8...@.....
 ```
 
-- 两份产物的 `.aicore_binary` 前 64 字节相同，都以 ELF 魔数 `7f 45 4c 46` 开头。`.o` 的节地址从 `0x0` 开始，`demo` 中变为 `0x62f00`。两处显示的是各自节表的地址，节在文件中的位置分别是 `0x700` 和 `0x32f00`。上文的整节 SHA-256 对照进一步确认，这次链接保留了整个节的字节内容。
-- 第二条命令按名称查节。`.o` 的节表第 13 项实际叫 `__aicore_rel_binary`，命令多写了前导点，因此得到警告。重查时把 `-x .__aicore_rel_binary` 改为 `-x __aicore_rel_binary`。
+- 两份产物的 `.aicore_binary` 前 64 字节相同，都以 ELF 魔数 `7f 45 4c 46` 开头。`.o` 的节地址从 `0x0` 开始，`demo` 中变为 `0x62f00`。这两个值对应节表的 `Address` 列。
+- 第二条命令多写了前导点，节表第 13 项的名称是 `__aicore_rel_binary`。重查时把 `-x .__aicore_rel_binary` 改为 `-x __aicore_rel_binary`。
 
 ## 5. 构建日志与阶段判断
 
@@ -428,7 +416,7 @@ demo: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically l
   [26] .aicore_binary    PROGBITS        0000000000062f00 032f00 001bf0 00  WA  0   0 256
 ```
 
-`build.log`的关键回显如下，保留原行号，略去第 16 行的 Make 退出目录提示：
+以下摘录保留 `build.log` 的原行号，省略第 16 行的 Make 退出目录提示。
 
 ```text
     11  [ 50%] Building ASC object CMakeFiles/demo.dir/hello_world.cpp.o
@@ -439,8 +427,8 @@ demo: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically l
     17  [100%] Built target demo
 ```
 
-`configure.log`中的 `Configuring done` 和 `Generating done` 对应 CMake 配置和生成构建规则。进入构建后，第 12 行的毕昇调用读取 `hello_world.cpp`，生成 `hello_world.cpp.o`，同时按 `-MF` 指定的路径写出 `.o.d`。`file` 第一行显示此时的产物是 AArch64 可重定位目标文件。
+`configure.log` 中的 `Configuring done` 和 `Generating done` 标记配置完成和构建规则生成。`build.log` 第 12 行的毕昇调用生成 AArch64 可重定位目标文件 `hello_world.cpp.o`，并按 `-MF` 指定的路径写出依赖文件 `.o.d`。
 
-第 14 行显示 CMake 执行 `link.txt`，第 15 行显示毕昇以 `.o` 为输入生成 `demo`，第 17 行报告目标构建完成。`file` 第二行显示此时的产物带有 AArch64 Linux 动态加载器。结合前面的节表和整节摘要对照，`.aicore_binary` 和 `__aicore_rel_binary` 在链接后更换了文件偏移，字节内容保持一致。
+第 14 行记录 CMake 执行 `link.txt`，第 15 行记录毕昇将 `.o` 链接为 `demo`，第 17 行报告目标构建完成。
 
-按 C/C++ 的阶段划分，预处理、编译和汇编归入第一次毕昇调用，链接对应第二次调用。两次调用之间可以直接检查 `.o`，其中已经包含 AArch64 Host 代码和设备相关数据。构建成功后，脚本执行 `demo`，回显记录在 `run.log`。
+这次构建由两次毕昇调用完成。第一次涵盖预处理、编译和汇编，生成同时包含 AArch64 Host 代码和设备数据的 `.o`。第二次链接生成 `demo`，两块设备数据的文件偏移发生变化，字节内容保持一致。云端 `run.log` 记录了 Host 侧 ACL 调用的成功回显和 8 个 AIV Block 的 Hello World 输出。
