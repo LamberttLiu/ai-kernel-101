@@ -1,6 +1,13 @@
-#define EXIT_CODE 0
+int bias = 7;
+int scratch;
+
+static void add_bias(void)
+{
+    scratch += bias;
+}
 
 int main(void)
 {
-    return EXIT_CODE;
+    add_bias();
+    return scratch == 7 ? 0 : 1;
 }
