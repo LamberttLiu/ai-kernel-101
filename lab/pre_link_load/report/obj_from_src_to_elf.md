@@ -311,6 +311,32 @@ gcc -O0 -fno-pie -fno-common -c main.c -o sections.o
 > - `-s`（`--symbols`）显示符号表，可以查看符号的名称、绑定属性和所在节编号 `Ndx`。注意 `-S` 与 `-s` 的大小写。
 > - `-x .data`（`--hex-dump=.data`）以十六进制显示 `.data` 节的原始字节。`.data` 是传给 `-x` 的节名。
 
+先看 ELF 头信息：
+
+```bash
+$ readelf -h sections.o 
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          760 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           64 (bytes)
+  Number of section headers:         13
+  Section header string table index: 12
+```
+
 ### 读取节表（Section Table）
 
 ```bash
@@ -429,10 +455,71 @@ Hex dump of section '.data':
 > | `07000000` | 按文件中的顺序显示原始字节，每两个十六进制数字表示一个字节。拆开是 `07 00 00 00`，共 4 字节，与节表的 `Size=0x4` 一致。按 ELF 头标示的小端序将这 4 字节读成整数，得到 `bias` 的初值 `7`。 |
 > | `....` | 同一组字节的字符预览。每个不可打印的字节显示为一个点。 |
 
+### 重新审视 `sections.o` 的文件布局
 
-1. 在符号表找到四个名字，用 `Ndx` 对应节表的编号，比较辅助函数和 `main` 的 `Bind`。
-2. 在 `sections.o` 中，用 `bias` 所在节的 `Off` 加上它的 `Value` 算出文件位置。用 `.data` 的十六进制回显、符号 `Size` 和 ELF 头的字节序，把原始字节读回初值。
-3. 在节表找到 `.bss`，记录其类型和大小。`NOBITS` 可以有非零大小，文件中不存这一节的数据字节，因此不能套用上一步去找 `scratch` 的初值。运行时它的初值为零。 [ELF gABI 节表](https://gabi.xinuos.com/elf/03-sheader.html) · [符号表](https://gabi.xinuos.com/elf/05-symtab.html)
+`sections.o` 是 1592 字节的 `ET_REL` 目标文件。文件偏移从上到下递增。框内每一行约代表 80 字节，区块边界按行取整，分隔线旁标注实际偏移。
+
+> 目标文件的总大小可以这样计算：上述看 ELF头信息已经知道，节表的开始 offset 是 `760 Bytes`，单个节表 `64 Bytes`，一共是 `13` 个节表。因此 `760 + 64 × 13 = 1592 Bytes`，正好是整个 ELF 的大小。通过  `wc -c < sections.o` 也可以同样验证。
+
+```text
+0x000  +--------------------------------------------+
+       | A: ELF header (64 B, 4.02%)                | -- e_shoff=0x2f8 -----------+
+0x040  +--------------------------------------------+                             |
+       | B: .text, .data, other sections            |                             |
+       |    and padding (240 B, 15.08%)             |                             |
+       |                                            |                             |
+0x130  +--------------------------------------------+                             |
+       | C: .symtab (168 B, 10.55%)                 |                             |
+       |    7 symbol entries x 24 B                 |                             |
+0x1d8  +--------------------------------------------+                             |
+       | D: String tables, relocations              |                             |
+       |    and padding (288 B, 18.09%)             |                             |
+       |                                            |                             |
+       |                                            |                             |
+0x2f8  +--------------------------------------------+ <---------------------------+
+       | E: Section header table (832 B, 52.26%)    |
+       |    13 section headers x 64 B               |
+       |                                            |
+       |                                            |
+       |                                            |
+       |                                            |
+       |                                            |
+       |                                            |
+       |                                            |
+       |                                            |
+0x638  +--------------------------------------------+  EOF
+```
+
+| 区块  | 文件偏移范围（不含右端）      | 字节数 |   文件占比 | 内容                               | 数据依据                                               |
+| --- | ----------------- | --: | -----: | -------------------------------- | -------------------------------------------------- |
+| A   | `0x000` 至 `0x040` |  64 |  4.02% | ELF 头                            | `Size of this header` 数值                           |
+| B   | `0x040` 至 `0x130` | 240 | 15.08% | `.text`、`.data` 等节及对齐填充          | 节表中的 `Off` 和 `Size` 推算                             |
+| C   | `0x130` 至 `0x1d8` | 168 | 10.55% | 符号表 `.symtab` 的 7 条记录            | 节表中的 `Off` 和 `Size` 推算                             |
+| D   | `0x1d8` 至 `0x2f8` | 288 | 18.09% | `.strtab`、重定位节、`.shstrtab` 及对齐填充 | 节表中的 `Off` 和 `Size` 推算                             |
+| E   | `0x2f8` 至 `0x638` | 832 | 52.26% | 节表，13 条节头，每条 64 字节               | `There are 13 section headers, starting at offset` |
+
+### 沿字段查找字节
+
+```text
+E: [10] .symtab header at 0x578 -- Off=0x130 --> C: .symtab entries
+
+C: Symbols in .symtab               E: Section headers in the table
+   Name       Value    Ndx             [Nr]  Name    Off     Type
+   add_bias   0x00       1 ----------> [ 1]  .text   0x040   PROGBITS
+   main       0x1f       1 ----------> [ 1]  .text   0x040   PROGBITS
+   bias       0x00       3 ----------> [ 3]  .data   0x080   PROGBITS
+   scratch    0x00       4 ----------> [ 4]  .bss    0x084   NOBITS
+```
+
+1. **从 ELF 头找到节表。** `e_shoff=0x2f8` 给出节表的文件起点。表中每条节头记录一个节的类型、偏移、大小等信息，因此节表一直排到 `0x2f8 + 13 × 0x40 = 0x638`，正好是文件末尾。
+2. **从 `.symtab` 的节头找到符号表数据。** 节表的 `[10]` 从零编号，这条节头位于 `0x2f8 + 10 × 0x40 = 0x578`。它的 `Off=0x130` 指向 C 区，`Size=0xa8` 给出符号表占用的 168 字节。
+3. **从符号找到所属节和节内位置。** `Ndx` 对应节表的 `[Nr]`。`add_bias` 和 `main` 都指向同一条 `.text` 节头，在本次 `ET_REL` 文件中，各自的 `Value` 给出节内偏移。`main` 的首字节位于 `0x40 + 0x1f = 0x5f`，`bias` 的 4 个初始字节 `07 00 00 00` 位于 `0x80 + 0x00 = 0x80`。
+4. **`.bss` 的节头和零初始化空间分别计量。** `scratch` 指向 E 区的 `[4] .bss` 节头，这条记录仍占 64 字节。它的 `Type=NOBITS`、`Size=4` 记录了运行时所需的 4 字节零初始化空间，这 4 字节在 `.o` 文件中占 0 字节。
+
+
+5. 在符号表找到四个名字，用 `Ndx` 对应节表的编号，比较辅助函数和 `main` 的 `Bind`。
+6. 在 `sections.o` 中，用 `bias` 所在节的 `Off` 加上它的 `Value` 算出文件位置。用 `.data` 的十六进制回显、符号 `Size` 和 ELF 头的字节序，把原始字节读回初值。
+7. 在节表找到 `.bss`，记录其类型和大小。`NOBITS` 可以有非零大小，文件中不存这一节的数据字节，因此不能套用上一步去找 `scratch` 的初值。运行时它的初值为零。 [ELF gABI 节表](https://gabi.xinuos.com/elf/03-sheader.html) · [符号表](https://gabi.xinuos.com/elf/05-symtab.html)
 
 第一周结束时，按「命令 → 关键回显 → 判断」各留一条记录。
 
@@ -441,38 +528,3 @@ Hex dump of section '.data':
 第 3 条解释 `.bss` 的大小代表什么。
 
 后续读 Ascend C 的 `.aicore_binary` 和 `fatbinDataLength` 时，会复用第 2 条里的节编号与偏移读法。
-
-### `sections.o` 的文件布局
-
-`sections.o` 是尚未链接的 `ET_REL` 目标文件。下图按从文件开头计数的字节偏移排列，各区块的高度未按比例绘制。
-
-```text
-File offset
-0x000  +--------------------------------------+
-       | ELF header (0x40 bytes)              |
-0x040  +--------------------------------------+
-       | .text, .data, other sections / pads  |
-0x130  +--------------------------------------+
-       | .symtab (7 entries x 0x18 bytes)     |
-0x1d8  +--------------------------------------+
-       | .strtab, relocations, .shstrtab, pads|
-0x2f8  +--------------------------------------+
-       | Section header table                 |
-       | 13 entries x 0x40 bytes              |
-0x638  +--------------------------------------+  EOF
-```
-
-从 ELF 头的 `e_shoff=0x2f8` 找到节表，再读第 `10` 项 `.symtab` 的 `Off=0x130` 和 `Size=0xa8`，就能找到符号表的数据。第 `10` 项是 `.symtab` 的节头，记录它的位置和大小。符号表的 7 条记录存放在文件前面 `0x130` 至 `0x1d7` 的范围内。
-
-读取某个符号时，沿它的 `Ndx` 找到节表里同编号的 `[Nr]`。在本次 `ET_REL` 文件里，再用 `Value` 确定符号在该节内的位置。
-
-```text
-.symtab (0x130)                              Section header table (0x2f8)
-Num  Name       Ndx   Value                  [Nr]  Name    Off     Type
-  3  add_bias     1   0x00  ----------------> [ 1]  .text   0x040   PROGBITS
-  6  main         1   0x1f  ----------------> [ 1]  .text   0x040   PROGBITS
-  4  bias         3   0x00  ----------------> [ 3]  .data   0x080   PROGBITS
-  5  scratch      4   0x00  ----------------> [ 4]  .bss    0x084   NOBITS
-```
-
-`add_bias` 和 `main` 的箭头都指向同一条 `.text` 节头，各自的 `Value` 给出不同的节内偏移。`main` 的首字节位于文件偏移 `0x40 + 0x1f = 0x5f`。`scratch` 指向的 `.bss` 是 `NOBITS`，文件里没有它的初始数据字节。
